@@ -3147,6 +3147,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1133062241}
+  - component: {fileID: 1133062243}
   - component: {fileID: 1133062240}
   - component: {fileID: 1133062242}
   m_Layer: 0
@@ -3203,6 +3204,18 @@ MonoBehaviour:
   line: {fileID: 1357189706}
   manaTickTime: 2
   manaTickAmount: 1
+--- !u!114 &1133062243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133062239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4d4e574994306a43955286a71ee7702, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1159502136
 GameObject:
   m_ObjectHideFlags: 0
