@@ -9,6 +9,8 @@ using UnityEngine.SceneManagement;
 
 public class CheatAndDebug : MonoBehaviour
 {
+	private bool paused = false;
+
 	void Update ()
 	{
 		if ( Input.GetKeyDown( KeyCode.R ) )
@@ -16,10 +18,8 @@ public class CheatAndDebug : MonoBehaviour
 
 		if ( Input.GetKeyDown( KeyCode.P ) )
 		{
-			if ( Time.timeScale == 0f )
-				Time.timeScale = 1f;
-			else
-				Time.timeScale = 0f;
+			paused = !paused;
+			Time.timeScale = paused ? 0f : 1f;
 		}
 	}
 }
