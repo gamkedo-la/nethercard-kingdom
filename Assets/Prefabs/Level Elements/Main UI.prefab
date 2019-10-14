@@ -307,12 +307,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5cb7e1cff9391a4daaab4abaaaedf88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lerpFactor: 0.25
   xOffset: 440
   yOffset: 90
-  angleOffset: 5
-  xOffsetBetweenCards: 35
-  yOffsetBetweenCards: -10
-  angleOffsetBetweenCards: -10
+  angleOffset: 0
+  xOffsetBetweenCards: 200
+  yOffsetBetweenCards: -50
+  angleOffsetBetweenCards: -50
+  hoverCardGap: 50
+  hoverCardYPosition: 80
 --- !u!1 &3893413231366341779
 GameObject:
   m_ObjectHideFlags: 0
