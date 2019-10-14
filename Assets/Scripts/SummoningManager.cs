@@ -79,7 +79,7 @@ public class SummoningManager : MonoBehaviour
 	{
 		bool started = type != CardType.None;
 
-		if ( type == CardType.Unit )
+		if ( type == CardType.Unit || type == CardType.None )
 			summoningArea.SetActive( started );
 
 		UsingMode = type;
