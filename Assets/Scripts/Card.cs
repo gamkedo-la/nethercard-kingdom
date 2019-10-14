@@ -15,6 +15,8 @@ public class Card : MonoBehaviour
 	[SerializeField] private CardType type = CardType.Unit;
 	[SerializeField] private int cost = 2;
 
+	static public Card hoverCard = null;
+
 	private bool isDraged = false;
 
 	void Start ()
@@ -37,6 +39,9 @@ public class Card : MonoBehaviour
 		transform.localScale = Vector3.one * 1.3f;
 		canvas.overrideSorting = true;
 		canvas.sortingOrder = 1100;
+
+		if(hoverCard == null)
+			hoverCard = this;
 	}
 
 	public void OnOverExit( )
@@ -47,6 +52,9 @@ public class Card : MonoBehaviour
 		transform.localScale = Vector3.one;
 		canvas.overrideSorting = false;
 		canvas.sortingOrder = 0;
+
+		if(hoverCard == this)
+			hoverCard = null;
 	}
 
 	public void OnCliked( )
