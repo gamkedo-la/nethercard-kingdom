@@ -20,6 +20,10 @@ public class HandCardsLayout : MonoBehaviour
     [SerializeField] private float hoverCardGap = 50.0f;
     [SerializeField] private float hoverCardYPosition = 5.0f;
 
+    [Space]
+    [SerializeField] private float draggedCardYPosition = 10.0f;
+    [SerializeField] private float hideCardsYPositionOnDrag = -20.0f;
+
     void Start()
     {
     }
@@ -48,6 +52,18 @@ public class HandCardsLayout : MonoBehaviour
             if(index < hoverCardIndex) newCardPosition.x -= hoverCardGap;
             else if(index > hoverCardIndex) newCardPosition.x += hoverCardGap;
             else newCardPosition.y = hoverCardYPosition;
+        }
+
+        if(Card.draggedCard != null)
+        {
+            if(Card.draggedCard == transform.GetChild(index).GetComponent<Card>())
+            {
+                newCardPosition.y = draggedCardYPosition;
+            }
+            else
+            {
+                newCardPosition.y = hideCardsYPositionOnDrag;
+            }
         }
 
         transform.GetChild(index).position = Vector3.Lerp(cardPosition, newCardPosition, lerpFactor);;

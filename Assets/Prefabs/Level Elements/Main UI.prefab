@@ -316,6 +316,8 @@ MonoBehaviour:
   angleOffsetBetweenCards: -50
   hoverCardGap: 50
   hoverCardYPosition: 80
+  draggedCardYPosition: 10
+  hideCardsYPositionOnDrag: -40
 --- !u!1 &3893413231366341779
 GameObject:
   m_ObjectHideFlags: 0
@@ -1676,6 +1678,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3893413231254131150}
     m_Modifications:
+    - target: {fileID: 4063210912771912382, guid: f4b608c5cc99c6644a3879e8b33224bb,
+        type: 3}
+      propertyPath: m_Name
+      value: Archer Card
+      objectReference: {fileID: 0}
     - target: {fileID: 6383578966566807935, guid: f4b608c5cc99c6644a3879e8b33224bb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1781,11 +1788,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 4063210912771912382, guid: f4b608c5cc99c6644a3879e8b33224bb,
-        type: 3}
-      propertyPath: m_Name
-      value: Archer Card
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4b608c5cc99c6644a3879e8b33224bb, type: 3}
 --- !u!224 &395435913193804223 stripped
@@ -1801,6 +1803,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3893413231254131150}
     m_Modifications:
+    - target: {fileID: 1920508607299494946, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+        type: 3}
+      propertyPath: m_Name
+      value: Healing Spell Card
+      objectReference: {fileID: 0}
     - target: {fileID: 8814511579970584547, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1905,11 +1912,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1920508607299494946, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
-        type: 3}
-      propertyPath: m_Name
-      value: Healing Spell Card
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b0297453a5bfa94a85638fff8e5f6ff, type: 3}

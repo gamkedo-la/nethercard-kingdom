@@ -16,8 +16,9 @@ public class Card : MonoBehaviour
 	[SerializeField] private int cost = 2;
 
 	static public Card hoverCard = null;
+	static public Card draggedCard = null;
 
-	private bool isDraged = false;
+	//private bool isDraged = false;
 
 	void Start ()
 	{
@@ -46,7 +47,8 @@ public class Card : MonoBehaviour
 
 	public void OnOverExit( )
 	{
-		if ( isDraged )
+		//if ( isDraged )
+		if (draggedCard == this)
 			return;
 
 		transform.localScale = Vector3.one;
@@ -63,7 +65,8 @@ public class Card : MonoBehaviour
 			return;
 
 		canvasGroup.alpha = 0.5f;
-		isDraged = true;
+		//isDraged = true;
+		draggedCard = this;
 		OnOverEnter( );
 
 		SummoningManager.Instance.Summoning( Camera.main.ScreenToWorldPoint( Input.mousePosition ), type, true );
@@ -71,11 +74,13 @@ public class Card : MonoBehaviour
 
 	public void OnReleased( )
 	{
-		if ( !isDraged )
+		//if ( !isDraged )
+		if (draggedCard != this)
 			return;
 
 		canvasGroup.alpha = 1f;
-		isDraged = false;
+		//isDraged = false;
+		draggedCard = null;
 		OnOverExit( );
 
 		bool canSummon = SummoningManager.Instance.Summoning( Vector2.zero, type, false );

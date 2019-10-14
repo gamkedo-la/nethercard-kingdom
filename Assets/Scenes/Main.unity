@@ -589,6 +589,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Managers
       objectReference: {fileID: 0}
+    - target: {fileID: 1289313127792475359, guid: f5ea14b1964d108438ae60eb76c40517,
+        type: 3}
+      propertyPath: manaCounter
+      value: 
+      objectReference: {fileID: 1567855633}
+    - target: {fileID: 1289313127792475359, guid: f5ea14b1964d108438ae60eb76c40517,
+        type: 3}
+      propertyPath: progressImage
+      value: 
+      objectReference: {fileID: 574420192}
+    - target: {fileID: 1289313127792475359, guid: f5ea14b1964d108438ae60eb76c40517,
+        type: 3}
+      propertyPath: summoningArea
+      value: 
+      objectReference: {fileID: 1496841510}
     - target: {fileID: 1289313127792475356, guid: f5ea14b1964d108438ae60eb76c40517,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -644,21 +659,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1289313127792475359, guid: f5ea14b1964d108438ae60eb76c40517,
-        type: 3}
-      propertyPath: manaCounter
-      value: 
-      objectReference: {fileID: 1567855633}
-    - target: {fileID: 1289313127792475359, guid: f5ea14b1964d108438ae60eb76c40517,
-        type: 3}
-      propertyPath: progressImage
-      value: 
-      objectReference: {fileID: 574420192}
-    - target: {fileID: 1289313127792475359, guid: f5ea14b1964d108438ae60eb76c40517,
-        type: 3}
-      propertyPath: summoningArea
-      value: 
-      objectReference: {fileID: 1496841510}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5ea14b1964d108438ae60eb76c40517, type: 3}
 --- !u!1001 &2668035768137868885
@@ -934,6 +934,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Summon Area
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741061841396885526, guid: 640dbb9ff3539934e87ab94ecbb0234c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5741061841396885527, guid: 640dbb9ff3539934e87ab94ecbb0234c,
         type: 3}
