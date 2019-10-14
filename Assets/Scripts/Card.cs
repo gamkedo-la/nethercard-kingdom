@@ -58,7 +58,7 @@ public class Card : MonoBehaviour
 		isDraged = true;
 		OnOverEnter( );
 
-		SummoningManager.Instance.Summoning( Camera.main.ScreenToWorldPoint( Input.mousePosition ), type );
+		SummoningManager.Instance.Summoning( Camera.main.ScreenToWorldPoint( Input.mousePosition ), type, true );
 	}
 
 	public void OnReleased( )
@@ -70,7 +70,7 @@ public class Card : MonoBehaviour
 		isDraged = false;
 		OnOverExit( );
 
-		bool canSummon = SummoningManager.Instance.Summoning( Vector2.zero, CardType.None );
+		bool canSummon = SummoningManager.Instance.Summoning( Vector2.zero, type, false );
 
 		if ( canSummon )
 		{

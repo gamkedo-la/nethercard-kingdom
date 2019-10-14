@@ -75,14 +75,12 @@ public class SummoningManager : MonoBehaviour
 		currentManaProgress = 0;
 	}
 
-	public bool Summoning( Vector2 startPos, CardType type )
+	public bool Summoning( Vector2 startPos, CardType type, bool started )
 	{
-		bool started = type != CardType.None;
-
 		if ( type == CardType.Unit || type == CardType.None )
 			summoningArea.SetActive( started );
 
-		UsingMode = type;
+		UsingMode = started ? type : CardType.None;
 		bad.SetActive( started );
 		line.enabled = started;
 		lineStartPoint = startPos;
