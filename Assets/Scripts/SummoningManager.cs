@@ -12,6 +12,8 @@ using UnityEngine.UI;
 public class SummoningManager : MonoBehaviour
 {
 	public static SummoningManager Instance { get; private set; }
+	public CardType UsingMode { get; private set; } = CardType.None;
+	public Targetable LastTarget { get; private set; } = null;
 
 	[SerializeField] private TextMeshProUGUI manaCounter = null;
 	[SerializeField] private Image progressImage = null;
@@ -23,8 +25,7 @@ public class SummoningManager : MonoBehaviour
 	[SerializeField] private int manaTickAmount = 1;
 
 	private Vector2 lineStartPoint;
-	private bool draging = false;
-	private bool overSummoningArea = false;
+	private bool overValidTarget = false;
 	private int currentMana = 0;
 	private float currentManaProgress = 0;
 
@@ -52,7 +53,7 @@ public class SummoningManager : MonoBehaviour
 
 	void Update ()
 	{
-		if ( draging )
+		if ( UsingMode != CardType.None )
 		{
 			Vector2 endPoint = Camera.main.ScreenToWorldPoint( Input.mousePosition );
 
@@ -74,18 +75,22 @@ public class SummoningManager : MonoBehaviour
 		currentManaProgress = 0;
 	}
 
-	public bool Summoning( bool started, Vector2 startPos )
+	public bool Summoning( Vector2 startPos, CardType type )
 	{
-		summoningArea.SetActive( started );
+		bool started = type != CardType.None;
+
+		if ( type == CardType.Unit )
+			summoningArea.SetActive( started );
+
+		UsingMode = type;
 		bad.SetActive( started );
-		draging = started;
 		line.enabled = started;
 		lineStartPoint = startPos;
 
 		if ( !started )
 			good.SetActive( false );
 
-		if ( !started && overSummoningArea )
+		if ( !started && overValidTarget )
 			return true;
 
 		return false;
@@ -99,10 +104,47 @@ public class SummoningManager : MonoBehaviour
 		manaCounter.text = currentMana.ToString( );
 	}
 
-	public void MouseOverSummoningArea( bool isOver )
+	public void MouseOverTarget( bool isOver, CardType type, ConflicSide side, Targetable target )
 	{
-		overSummoningArea = isOver;
-		good.SetActive( isOver && draging );
-		bad.SetActive( !isOver && draging );
+		LastTarget = target;
+
+		// We aren't summoning anything
+		if ( UsingMode == CardType.None )
+		{
+			good.SetActive( false );
+			bad.SetActive( false );
+
+			return;
+		}
+
+		// Summoning a Unit and over Summoning Area
+		if ( UsingMode == CardType.Unit && type == CardType.None )
+		{
+			overValidTarget = isOver;
+			good.SetActive( isOver );
+			bad.SetActive( !isOver );
+
+			return;
+		}
+
+		// Summoning Unit and over a Unit
+		if ( UsingMode == CardType.Unit && type == CardType.Unit )
+		{
+			overValidTarget = false;
+			good.SetActive( false );
+			bad.SetActive( true );
+
+			return;
+		}
+
+		// Summoning Spell and over an enemy Unit
+		if ( UsingMode == CardType.DirectOffensiveSpell && type == CardType.Unit && side == ConflicSide.Enemy )
+		{
+			overValidTarget = isOver;
+			good.SetActive( isOver );
+			bad.SetActive( !isOver );
+
+			return;
+		}
 	}
 }

@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &7121012877835846175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4813590216533916336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e8a43e7e12cfac43aa266e0f52664b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  destroyAfter: 0.3
+  effectAmount: 3
+--- !u!1001 &4280589097668121885
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8767096524210941869, guid: 0df3e6601848bcf4d9998dd67658fa77,
+        type: 3}
+      propertyPath: m_Name
+      value: Lightning Spell Instance
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767096524210941868, guid: 0df3e6601848bcf4d9998dd67658fa77,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767096524210941868, guid: 0df3e6601848bcf4d9998dd67658fa77,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767096524210941868, guid: 0df3e6601848bcf4d9998dd67658fa77,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767096524210941868, guid: 0df3e6601848bcf4d9998dd67658fa77,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767096524210941868, guid: 0df3e6601848bcf4d9998dd67658fa77,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767096524210941868, guid: 0df3e6601848bcf4d9998dd67658fa77,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767096524210941868, guid: 0df3e6601848bcf4d9998dd67658fa77,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767096524210941868, guid: 0df3e6601848bcf4d9998dd67658fa77,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767096524210941868, guid: 0df3e6601848bcf4d9998dd67658fa77,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767096524210941868, guid: 0df3e6601848bcf4d9998dd67658fa77,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767096524210941868, guid: 0df3e6601848bcf4d9998dd67658fa77,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0df3e6601848bcf4d9998dd67658fa77, type: 3}
+--- !u!1 &4813590216533916336 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8767096524210941869, guid: 0df3e6601848bcf4d9998dd67658fa77,
+    type: 3}
+  m_PrefabInstance: {fileID: 4280589097668121885}
+  m_PrefabAsset: {fileID: 0}

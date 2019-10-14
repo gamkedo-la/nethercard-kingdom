@@ -12,6 +12,7 @@ public class Card : MonoBehaviour
 	[SerializeField] private Canvas canvas = null;
 	[SerializeField] private CanvasGroup canvasGroup = null;
 	[SerializeField] private GameObject toSummon = null;
+	[SerializeField] private CardType type = CardType.Unit;
 	[SerializeField] private int cost = 2;
 
 	private bool isDraged = false;
@@ -57,7 +58,7 @@ public class Card : MonoBehaviour
 		isDraged = true;
 		OnOverEnter( );
 
-		SummoningManager.Instance.Summoning( true, Camera.main.ScreenToWorldPoint( Input.mousePosition ) );
+		SummoningManager.Instance.Summoning( Camera.main.ScreenToWorldPoint( Input.mousePosition ), type );
 	}
 
 	public void OnReleased( )
@@ -69,11 +70,14 @@ public class Card : MonoBehaviour
 		isDraged = false;
 		OnOverExit( );
 
-		bool canSummon = SummoningManager.Instance.Summoning( false, Vector2.zero );
+		bool canSummon = SummoningManager.Instance.Summoning( Vector2.zero, CardType.None );
 
 		if ( canSummon )
 		{
-			Instantiate( toSummon, Camera.main.ScreenToWorldPoint( Input.mousePosition ), Quaternion.identity );
+			GameObject instance = Instantiate( toSummon, (Vector2)Camera.main.ScreenToWorldPoint( Input.mousePosition ), Quaternion.identity );
+			if ( type == CardType.DirectDefensiveSpell || type == CardType.DirectOffensiveSpell )
+				instance.GetComponent<Spell>( ).SetTarget( SummoningManager.Instance.LastTarget );
+
 			SummoningManager.Instance.UseMana( cost );
 			Destroy( gameObject );
 		}

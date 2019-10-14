@@ -9,3 +9,12 @@ public enum ConflicSide
 	Player,
 	Enemy
 }
+
+public enum CardType
+{
+	Unit,
+	DirectOffensiveSpell,
+	DirectDefensiveSpell,
+	AoeSpell,
+	None
+}

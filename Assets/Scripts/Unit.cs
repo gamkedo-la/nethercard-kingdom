@@ -15,6 +15,7 @@ public class Unit : MonoBehaviour
 {
 	public Vector3 Center { get { return transform.position + (Vector3)unitCenter; } }
 	public HP HP { get { return hp; } }
+	public ConflicSide Side { get { return side; } }
 
 	[Header("External objects")]
 	[SerializeField] private HP hp = null;
