@@ -59,6 +59,10 @@ public class HandCardsLayout : MonoBehaviour
             if(Card.draggedCard == transform.GetChild(index).GetComponent<Card>())
             {
                 newCardPosition.y = draggedCardYPosition;
+
+                return;
+                //reason: don't change the position of dragged card because
+                //it is suppose to move to the cursor via Card script
             }
             else
             {
@@ -66,7 +70,7 @@ public class HandCardsLayout : MonoBehaviour
             }
         }
 
-        transform.GetChild(index).position = Vector3.Lerp(cardPosition, newCardPosition, lerpFactor);;
+        transform.GetChild(index).position = Vector3.Lerp(cardPosition, newCardPosition, lerpFactor);
     }
 
     private void SetCardRotation( int totalCards, int index, int hoverCardIndex = -1 )

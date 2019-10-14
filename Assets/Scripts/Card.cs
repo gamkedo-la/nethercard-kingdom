@@ -6,6 +6,7 @@
 
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.UI;
 
 public class Card : MonoBehaviour
 {
@@ -29,10 +30,20 @@ public class Card : MonoBehaviour
 
 	void Update( )
 	{
-		if ( SummoningManager.Instance.EnoughMana( cost ) )
-			canvasGroup.alpha = 1f;
+		if(draggedCard == this)
+		{
+			transform.position = Vector2.Lerp(transform.position, Input.mousePosition, 0.25f);
+			canvasGroup.alpha = Mathf.Lerp(canvasGroup.alpha, 0.0f, 0.15f);
+			transform.GetChild(2).GetComponent<Image>().color = Color.Lerp(transform.GetChild(2).GetComponent<Image>().color, Color.white, 0.15f);
+			transform.localScale = Vector3.one;
+		}
 		else
-			canvasGroup.alpha = 0.9f;
+		{
+			if ( SummoningManager.Instance.EnoughMana( cost ) )
+				canvasGroup.alpha = 1f;
+			else
+				canvasGroup.alpha = 0.9f;
+		}
 	}
 
 	public void OnOverEnter( )
@@ -64,7 +75,7 @@ public class Card : MonoBehaviour
 		if ( !SummoningManager.Instance.EnoughMana( cost ) )
 			return;
 
-		canvasGroup.alpha = 0.5f;
+		//canvasGroup.alpha = 0.5f;
 		//isDraged = true;
 		draggedCard = this;
 		OnOverEnter( );

@@ -82,7 +82,7 @@ public class SummoningManager : MonoBehaviour
 
 		UsingMode = started ? type : CardType.None;
 		bad.SetActive( started );
-		line.enabled = started;
+		//line.enabled = started;
 		lineStartPoint = startPos;
 
 		if ( !started )
