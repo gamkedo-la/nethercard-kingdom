@@ -9,7 +9,20 @@ using UnityEngine.SceneManagement;
 
 public class CheatAndDebug : MonoBehaviour
 {
+	public static CheatAndDebug Instance { get; private set; }
+	public bool ShowDebugInfo { get; private set; }
+
 	private bool paused = false;
+
+	private void Awake( )
+	{
+		if ( Instance != null && Instance != this )
+			Destroy( this );
+		else
+			Instance = this;
+	}
+
+	private void OnDestroy( ) { if ( this == Instance ) { Instance = null; } }
 
 	void Update ()
 	{
