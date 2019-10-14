@@ -135,8 +135,18 @@ public class SummoningManager : MonoBehaviour
 			return;
 		}
 
-		// Summoning Spell and over an enemy Unit
+		// Summoning Direct Offensive Spell and over an enemy Unit
 		if ( UsingMode == CardType.DirectOffensiveSpell && type == CardType.Unit && side == ConflicSide.Enemy )
+		{
+			overValidTarget = isOver;
+			good.SetActive( isOver );
+			bad.SetActive( !isOver );
+
+			return;
+		}
+
+		// Summoning Direct Defensive Spell and over an player Unit
+		if ( UsingMode == CardType.DirectDefensiveSpell && type == CardType.Unit && side == ConflicSide.Player )
 		{
 			overValidTarget = isOver;
 			good.SetActive( isOver );

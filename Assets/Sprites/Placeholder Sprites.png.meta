@@ -26,6 +26,12 @@ TextureImporter:
   - first:
       213: -2129998704062181561
     second: Card Front Border
+  - first:
+      213: -3421064769648057758
+    second: Healing
+  - first:
+      213: -4247683970634298323
+    second: Fireball
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -321,6 +327,48 @@ TextureImporter:
       bones: []
       spriteID: abd11786563f8244e92aa4b1985a7e10
       internalID: -2129998704062181561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Healing
+      rect:
+        serializedVersion: 2
+        x: 1123
+        y: 1439
+        width: 481
+        height: 546
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 649128ca81334054a878ee62a5af7554
+      internalID: -3421064769648057758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fireball
+      rect:
+        serializedVersion: 2
+        x: 1705
+        y: 1526
+        width: 467
+        height: 478
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 574c3d9e4e5c3d84e982f75c116f2766
+      internalID: -4247683970634298323
       vertices: []
       indices: 
       edges: []
