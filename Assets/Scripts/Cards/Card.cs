@@ -4,6 +4,7 @@
  * Copyright: © 2019 Kornel. All rights reserved. For license see: 'LICENSE.txt'
  **/
 
+using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
@@ -16,10 +17,16 @@ public class Card : MonoBehaviour
 	[Header("Card Elements")]
 	[SerializeField] private Canvas canvas = null;
 	[SerializeField] private CanvasGroup canvasGroup = null;
+	[SerializeField] private TextMeshProUGUI nameLabel = null;
+	[SerializeField] private TextMeshProUGUI abilityLabel = null;
 
 	[Header("Card Parameters")]
 	[SerializeField] private CardType type = CardType.Unit;
-	[SerializeField] private int cost = 2;
+	[SerializeField] private int useCost = 2;
+	[SerializeField] private int abilityPower = 0;
+	[SerializeField] private string displayName = "Unnamed Card";
+	[SerializeField] private string flavorText = "What a lovely card!";
+	[SerializeField] private string abilityText = "";
 
 	static public Card hoverCard = null;
 	static public Card draggedCard = null;
@@ -29,6 +36,8 @@ public class Card : MonoBehaviour
 		Assert.IsNotNull( canvas, $"Please assign <b>{nameof( canvas )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( canvasGroup, $"Please assign <b>{nameof( canvasGroup )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( toSummon, $"Please assign <b>{nameof( toSummon )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( nameLabel, $"Please assign <b>{nameof( nameLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( abilityLabel, $"Please assign <b>{nameof( abilityLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 	}
 
 	void Update( )
@@ -42,11 +51,16 @@ public class Card : MonoBehaviour
 		}
 		else
 		{
-			if ( SummoningManager.Instance.EnoughMana( cost ) )
+			if ( SummoningManager.Instance.EnoughMana( useCost ) )
 				canvasGroup.alpha = 1f;
 			else
 				canvasGroup.alpha = 0.9f;
 		}
+	}
+
+	void OnValidate( )
+	{
+		PopulateCardInfo( );
 	}
 
 	public void OnOverEnter( )
@@ -74,7 +88,7 @@ public class Card : MonoBehaviour
 
 	public void OnCliked( )
 	{
-		if ( !SummoningManager.Instance.EnoughMana( cost ) )
+		if ( !SummoningManager.Instance.EnoughMana( useCost ) )
 			return;
 
 		draggedCard = this;
@@ -100,8 +114,14 @@ public class Card : MonoBehaviour
 			if ( type == CardType.DirectDefensiveSpell || type == CardType.DirectOffensiveSpell || type == CardType.AoeSpell )
 				instance.GetComponent<Spell>( ).SetTarget( SummoningManager.Instance.LastTarget );
 
-			SummoningManager.Instance.UseMana( cost );
+			SummoningManager.Instance.UseMana( useCost );
 			Destroy( gameObject );
 		}
+	}
+
+	private void PopulateCardInfo( )
+	{
+		nameLabel.text = displayName;
+		abilityLabel.text = abilityText;
 	}
 }
