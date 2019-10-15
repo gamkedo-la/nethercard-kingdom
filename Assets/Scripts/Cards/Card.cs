@@ -1,6 +1,6 @@
 ﻿/**
  * Description: Main card functionality.
- * Authors: Kornel
+ * Authors: Kornel, Bilal
  * Copyright: © 2019 Kornel. All rights reserved. For license see: 'LICENSE.txt'
  **/
 
@@ -10,18 +10,21 @@ using UnityEngine.UI;
 
 public class Card : MonoBehaviour
 {
+	[Header("External Objects")]
+	[SerializeField] private GameObject toSummon = null;
+
+	[Header("Card Elements")]
 	[SerializeField] private Canvas canvas = null;
 	[SerializeField] private CanvasGroup canvasGroup = null;
-	[SerializeField] private GameObject toSummon = null;
+
+	[Header("Card Parameters")]
 	[SerializeField] private CardType type = CardType.Unit;
 	[SerializeField] private int cost = 2;
 
 	static public Card hoverCard = null;
 	static public Card draggedCard = null;
 
-	//private bool isDraged = false;
-
-	void Start ()
+	void Start( )
 	{
 		Assert.IsNotNull( canvas, $"Please assign <b>{nameof( canvas )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( canvasGroup, $"Please assign <b>{nameof( canvasGroup )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
@@ -30,10 +33,10 @@ public class Card : MonoBehaviour
 
 	void Update( )
 	{
-		if(draggedCard == this)
+		if ( draggedCard == this )
 		{
-			transform.position = Vector2.Lerp(transform.position, Input.mousePosition, 0.25f);
-			canvasGroup.alpha = Mathf.Lerp(canvasGroup.alpha, 0.0f, 0.15f);
+			transform.position = Vector2.Lerp( transform.position, Input.mousePosition, 0.25f );
+			canvasGroup.alpha = Mathf.Lerp( canvasGroup.alpha, 0.0f, 0.15f );
 			transform.GetChild( 2 ).GetComponent<Image>( ).color = Color.Lerp( transform.GetChild( 2 ).GetComponent<Image>( ).color, new Color( 1, 1, 1, 0.5f ), 0.15f );
 			transform.localScale = Vector3.one;
 		}
@@ -52,21 +55,20 @@ public class Card : MonoBehaviour
 		canvas.overrideSorting = true;
 		canvas.sortingOrder = 1100;
 
-		if(hoverCard == null)
+		if ( hoverCard == null )
 			hoverCard = this;
 	}
 
 	public void OnOverExit( )
 	{
-		//if ( isDraged )
-		if (draggedCard == this)
+		if ( draggedCard == this )
 			return;
 
 		transform.localScale = Vector3.one;
 		canvas.overrideSorting = false;
 		canvas.sortingOrder = 0;
 
-		if(hoverCard == this)
+		if ( hoverCard == this )
 			hoverCard = null;
 	}
 
@@ -75,8 +77,6 @@ public class Card : MonoBehaviour
 		if ( !SummoningManager.Instance.EnoughMana( cost ) )
 			return;
 
-		//canvasGroup.alpha = 0.5f;
-		//isDraged = true;
 		draggedCard = this;
 		OnOverEnter( );
 
@@ -85,12 +85,10 @@ public class Card : MonoBehaviour
 
 	public void OnReleased( )
 	{
-		//if ( !isDraged )
-		if (draggedCard != this)
+		if ( draggedCard != this )
 			return;
 
 		canvasGroup.alpha = 1f;
-		//isDraged = false;
 		draggedCard = null;
 		OnOverExit( );
 

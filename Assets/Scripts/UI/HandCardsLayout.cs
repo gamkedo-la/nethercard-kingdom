@@ -1,5 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/**
+ * Description: Takes care of player's hand and cards in it.
+ * Authors: Bilal
+ * Copyright: © 2019 Kornel. All rights reserved. For license see: 'LICENSE.txt'
+ **/
+
 using UnityEngine;
 
 public class HandCardsLayout : MonoBehaviour
