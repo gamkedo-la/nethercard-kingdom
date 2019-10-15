@@ -7,7 +7,8 @@
 public enum ConflicSide
 {
 	Player,
-	Enemy
+	Enemy,
+	All
 }
 
 public enum CardType

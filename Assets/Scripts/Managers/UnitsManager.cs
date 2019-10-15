@@ -5,6 +5,7 @@
  **/
 
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class UnitsManager : MonoBehaviour
@@ -48,7 +49,7 @@ public class UnitsManager : MonoBehaviour
 
 		foreach ( var op in oponents )
 		{
-			if ( Vector2.Distance( op.Center, myPosition ) < distance )
+			if ( Vector2.Distance( op.Center, myPosition ) <= distance )
 			{
 				oponent = op;
 				return oponent;
@@ -56,5 +57,21 @@ public class UnitsManager : MonoBehaviour
 		}
 
 		return oponent;
+	}
+
+	public Unit[] FindUnitsInRange( Vector2 myPosition, float distance, ConflicSide mySide )
+	{
+		List<Unit> units = mySide == ConflicSide.Player ? EnemyUnits : PlayerUnits;
+		Unit[] unitsInRange = units.Select( u => u ).Where( u => Vector2.Distance( u.Center, myPosition ) <= distance ).ToArray( );
+
+		return unitsInRange;
+	}
+
+	public Unit[] FindUnitsInRange( Vector2 myPosition, float distance )
+	{
+		IEnumerable<Unit> units = EnemyUnits.Concat( PlayerUnits );
+		Unit[] unitsInRange = units.Select( u => u ).Where( u => Vector2.Distance( u.Center, myPosition ) <= distance ).ToArray( );
+
+		return unitsInRange;
 	}
 }

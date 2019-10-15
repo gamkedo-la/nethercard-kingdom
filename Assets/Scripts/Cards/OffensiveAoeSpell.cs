@@ -1,5 +1,5 @@
 ﻿/**
- * Description: Spell that does damage to a single target.
+ * Description: Does damage in a set range.
  * Authors: Kornel
  * Copyright: © 2019 Kornel. All rights reserved. For license see: 'LICENSE.txt'
  **/
@@ -7,16 +7,16 @@
 using UnityEngine;
 using UnityEngine.Assertions;
 
-public class DirectDamageSpell : Spell
+public class OffensiveAoeSpell : AoeSpell
 {
-	override public void Start ()
+	override public void Start( )
 	{
 		base.Start( );
 		//Assert.IsNotNull( , $"Please assign <b>{nameof(  )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
 	}
 
-	override public void Update ()
+	override public void Update( )
 	{
 		base.Update( );
 	}
@@ -24,8 +24,11 @@ public class DirectDamageSpell : Spell
 	override public void SetTarget( Targetable target )
 	{
 		base.SetTarget( target );
+	}
 
-		HP hp = target.GetComponent<HP>( );
-		hp.DoDamage( effectAmount, transform.position );
+	override protected void DoEffect( Unit[] unitsInRange )
+	{
+		foreach ( var unit in unitsInRange )
+			unit.HP.DoDamage( effectAmount, transform.position );
 	}
 }

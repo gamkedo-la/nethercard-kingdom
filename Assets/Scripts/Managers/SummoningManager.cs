@@ -17,7 +17,8 @@ public class SummoningManager : MonoBehaviour
 
 	[SerializeField] private TextMeshProUGUI manaCounter = null;
 	[SerializeField] private Image progressImage = null;
-	[SerializeField] private GameObject summoningArea = null;
+	[SerializeField] private GameObject summoningAreaUnits = null;
+	[SerializeField] private GameObject summoningAreaAoe = null;
 	[SerializeField] private GameObject good = null;
 	[SerializeField] private GameObject bad = null;
 	[SerializeField] private LineRenderer line = null;
@@ -43,7 +44,8 @@ public class SummoningManager : MonoBehaviour
 	{
 		Assert.IsNotNull( manaCounter, $"Please assign <b>{nameof( manaCounter )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( progressImage, $"Please assign <b>{nameof( progressImage )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
-		Assert.IsNotNull( summoningArea, $"Please assign <b>{nameof( summoningArea )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( summoningAreaUnits, $"Please assign <b>{nameof( summoningAreaUnits )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( summoningAreaAoe, $"Please assign <b>{nameof( summoningAreaAoe )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( good, $"Please assign <b>{nameof( good )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( bad, $"Please assign <b>{nameof( bad )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( line, $"Please assign <b>{nameof( line )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
@@ -78,7 +80,10 @@ public class SummoningManager : MonoBehaviour
 	public bool Summoning( Vector2 startPos, CardType type, bool started )
 	{
 		if ( type == CardType.Unit || type == CardType.None )
-			summoningArea.SetActive( started );
+			summoningAreaUnits.SetActive( started );
+
+		if ( type == CardType.AoeSpell || type == CardType.AoeSpell )
+			summoningAreaAoe.SetActive( started );
 
 		UsingMode = started ? type : CardType.None;
 		bad.SetActive( started );
@@ -147,6 +152,16 @@ public class SummoningManager : MonoBehaviour
 
 		// Summoning Direct Defensive Spell and over an player Unit
 		if ( UsingMode == CardType.DirectDefensiveSpell && type == CardType.Unit && side == ConflicSide.Player )
+		{
+			overValidTarget = isOver;
+			good.SetActive( isOver );
+			bad.SetActive( !isOver );
+
+			return;
+		}
+
+		// Summoning AoE Spell and over a AoE summoning area
+		if ( UsingMode == CardType.AoeSpell && type == CardType.AoeSpell && side == ConflicSide.All )
 		{
 			overValidTarget = isOver;
 			good.SetActive( isOver );

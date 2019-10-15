@@ -34,7 +34,7 @@ public class Card : MonoBehaviour
 		{
 			transform.position = Vector2.Lerp(transform.position, Input.mousePosition, 0.25f);
 			canvasGroup.alpha = Mathf.Lerp(canvasGroup.alpha, 0.0f, 0.15f);
-			transform.GetChild(2).GetComponent<Image>().color = Color.Lerp(transform.GetChild(2).GetComponent<Image>().color, Color.white, 0.15f);
+			transform.GetChild( 2 ).GetComponent<Image>( ).color = Color.Lerp( transform.GetChild( 2 ).GetComponent<Image>( ).color, new Color( 1, 1, 1, 0.5f ), 0.15f );
 			transform.localScale = Vector3.one;
 		}
 		else
@@ -99,7 +99,7 @@ public class Card : MonoBehaviour
 		if ( canSummon )
 		{
 			GameObject instance = Instantiate( toSummon, (Vector2)Camera.main.ScreenToWorldPoint( Input.mousePosition ), Quaternion.identity );
-			if ( type == CardType.DirectDefensiveSpell || type == CardType.DirectOffensiveSpell )
+			if ( type == CardType.DirectDefensiveSpell || type == CardType.DirectOffensiveSpell || type == CardType.AoeSpell )
 				instance.GetComponent<Spell>( ).SetTarget( SummoningManager.Instance.LastTarget );
 
 			SummoningManager.Instance.UseMana( cost );
