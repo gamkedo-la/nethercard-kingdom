@@ -31,7 +31,11 @@ public class Card : MonoBehaviour
 	static public Card hoverCard = null;
 	static public Card draggedCard = null;
 
+	[HideInInspector] public float lerpBackTimer = 0f;
+	[HideInInspector] public bool lerpBack = false;
+
 	private Image liveImage;
+	private Vector3 scaleToLerp = Vector3.one;
 
 	void Start( )
 	{
@@ -61,7 +65,12 @@ public class Card : MonoBehaviour
 				canvasGroup.alpha = 0.9f;
 
 			liveImage.color = Color.Lerp( liveImage.color, Color.clear, 0.25f );
+
+			if(lerpBackTimer <= 0f || !lerpBack)
+				transform.localScale = Vector3.Lerp(transform.localScale, scaleToLerp, 0.25f);
 		}
+
+		lerpBackTimer -= Time.deltaTime;
 	}
 
 	void OnValidate( )
@@ -71,7 +80,9 @@ public class Card : MonoBehaviour
 
 	public void OnOverEnter( )
 	{
-		transform.localScale = Vector3.one * 1.3f;
+		scaleToLerp = Vector3.one * 1.3f;
+		lerpBack = false;
+		lerpBackTimer = 0.1f;
 		canvas.overrideSorting = true;
 		canvas.sortingOrder = 1100;
 
@@ -84,7 +95,8 @@ public class Card : MonoBehaviour
 		if ( draggedCard == this )
 			return;
 
-		transform.localScale = Vector3.one;
+		scaleToLerp = Vector3.one;
+		lerpBack = true;
 		canvas.overrideSorting = false;
 		canvas.sortingOrder = 0;
 

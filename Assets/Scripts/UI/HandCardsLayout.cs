@@ -91,8 +91,12 @@ public class HandCardsLayout : MonoBehaviour
         int hoverCardIndex = GetHoverCardIndex(totalCards);
         for(int i = 0; i < totalCards; i++)
         {
-            SetCardPosition(totalCards, i, hoverCardIndex);
-            SetCardRotation(totalCards, i, hoverCardIndex);
+            Card card = transform.GetChild(i).GetComponent<Card>();
+            if(card.lerpBackTimer <= 0f || !card.lerpBack)
+            {
+                SetCardPosition(totalCards, i, hoverCardIndex);
+                SetCardRotation(totalCards, i, hoverCardIndex);
+            }
         }
     }
 }
