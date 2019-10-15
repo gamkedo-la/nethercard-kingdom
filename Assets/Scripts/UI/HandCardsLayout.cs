@@ -46,10 +46,10 @@ public class HandCardsLayout : MonoBehaviour
         Vector3 cardPosition = transform.GetChild(index).position;
 
         Vector3 newCardPosition = Vector3.zero;
-        newCardPosition.x = xOffset + (((float)index - (totalCards / 2.0f))
-            * ((float)xOffsetBetweenCards / totalCards));
-        newCardPosition.y = yOffset + ((index > totalCards / 2.0f ? index : (totalCards - index))
-            * ((float)yOffsetBetweenCards / totalCards));
+        newCardPosition.x = (Screen.width / 2) + xOffset + ((index - (totalCards / 2))
+            * (xOffsetBetweenCards / totalCards));
+        newCardPosition.y = yOffset + ((index > (totalCards / 2) ? index : (totalCards - index))
+            * (yOffsetBetweenCards / totalCards));
 
         if(hoverCardIndex > -1)
         {

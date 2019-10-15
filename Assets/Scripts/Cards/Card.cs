@@ -31,6 +31,8 @@ public class Card : MonoBehaviour
 	static public Card hoverCard = null;
 	static public Card draggedCard = null;
 
+	private Image liveImage;
+
 	void Start( )
 	{
 		Assert.IsNotNull( canvas, $"Please assign <b>{nameof( canvas )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
@@ -38,6 +40,8 @@ public class Card : MonoBehaviour
 		Assert.IsNotNull( toSummon, $"Please assign <b>{nameof( toSummon )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( nameLabel, $"Please assign <b>{nameof( nameLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( abilityLabel, $"Please assign <b>{nameof( abilityLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+	
+		liveImage = transform.GetChild( 2 ).GetComponent<Image>( );
 	}
 
 	void Update( )
@@ -46,7 +50,7 @@ public class Card : MonoBehaviour
 		{
 			transform.position = Vector2.Lerp( transform.position, Input.mousePosition, 0.25f );
 			canvasGroup.alpha = Mathf.Lerp( canvasGroup.alpha, 0.0f, 0.15f );
-			transform.GetChild( 2 ).GetComponent<Image>( ).color = Color.Lerp( transform.GetChild( 2 ).GetComponent<Image>( ).color, new Color( 1, 1, 1, 0.5f ), 0.15f );
+			liveImage.color = Color.Lerp( liveImage.color, new Color( 1, 1, 1, 0.5f ), 0.15f );
 			transform.localScale = Vector3.one;
 		}
 		else
@@ -55,6 +59,8 @@ public class Card : MonoBehaviour
 				canvasGroup.alpha = 1f;
 			else
 				canvasGroup.alpha = 0.9f;
+
+			liveImage.color = Color.Lerp( liveImage.color, Color.clear, 0.25f );
 		}
 	}
 
