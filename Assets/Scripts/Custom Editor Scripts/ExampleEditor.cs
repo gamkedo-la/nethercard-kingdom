@@ -1,8 +1,5 @@
-﻿//Thank you Brackeys :)
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEditor;
-
-
 
 public class ExampleEditor : EditorWindow
 {
@@ -17,26 +14,26 @@ public class ExampleEditor : EditorWindow
 
     void OnGUI()
     {
-        
+
         GUILayout.Label("Create card", EditorStyles.boldLabel);
 
         cardName = EditorGUILayout.TextField("Card Name", cardName);
 
-        if(GUILayout.Button("Finish Card"))
+        if (GUILayout.Button("Finish Card"))
         {
             CreateCardVariant();
         }
 
-    }  
+    }
 
     void CreateCardVariant()
     {
         string prefabPath = "Assets/Prefabs/Card Template.prefab";
-        string localPath = "Assets/Prefabs/Player Cards/" +     cardName +".prefab";      
+        string localPath = "Assets/Prefabs/Player Cards/" + cardName + ".prefab";
         Object cardPrefab = (GameObject)AssetDatabase.LoadAssetAtPath(prefabPath, typeof(GameObject));
-        GameObject card = PrefabUtility.InstantiatePrefab(cardPrefab) as GameObject;        
+        GameObject card = PrefabUtility.InstantiatePrefab(cardPrefab) as GameObject;
         GameObject newCard = PrefabUtility.SaveAsPrefabAsset(card, localPath);
         DestroyImmediate(card);
-        
+
     }
 }
