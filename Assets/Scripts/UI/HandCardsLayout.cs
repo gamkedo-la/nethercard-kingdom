@@ -8,9 +8,11 @@ using UnityEngine;
 
 public class HandCardsLayout : MonoBehaviour
 {
+    [Header("Hand Properties")]
     [SerializeField] private float lerpFactor = 0.1f;
-    
-    [Header("Hand Layout Properties")]
+    [SerializeField] private int totalCardsAllowed = 3;
+    [SerializeField] private Vector2 discardedCardOffset = Vector2.zero;
+    [SerializeField] private bool addWidthToDiscardedX = true;
     [SerializeField] private float xOffset = 0f;
     [SerializeField] private float yOffset = 0f;
     [SerializeField] private float angleOffset = 0f;
@@ -31,6 +33,8 @@ public class HandCardsLayout : MonoBehaviour
 
     void Start()
     {
+        if(addWidthToDiscardedX)
+            discardedCardOffset += new Vector2(Screen.width, 0.0f);
     }
 
     private int GetHoverCardIndex( int totalCards )
@@ -63,7 +67,7 @@ public class HandCardsLayout : MonoBehaviour
             }
         }
 
-        if(Card.draggedCard != null)
+        if(Card.draggedCard != null && index < totalCardsAllowed)
         {
             if(Card.draggedCard == transform.GetChild(index).GetComponent<Card>())
             {
@@ -77,6 +81,11 @@ public class HandCardsLayout : MonoBehaviour
             {
                 newCardPosition.y = hideCardsYPositionOnDrag;
             }
+        }
+
+        if(index >= totalCardsAllowed)
+        {
+            newCardPosition = new Vector2(xOffset, yOffset) + discardedCardOffset;
         }
 
         transform.GetChild(index).position = Vector3.Lerp(cardPosition, newCardPosition, lerpFactor);
@@ -101,6 +110,14 @@ public class HandCardsLayout : MonoBehaviour
             {
                 SetCardPosition(totalCards, i, hoverCardIndex);
                 SetCardRotation(totalCards, i, hoverCardIndex);
+            }
+
+            if(i >= totalCardsAllowed)
+            {
+                if(Vector2.Distance(transform.GetChild(i).position, new Vector2(xOffset, yOffset) + discardedCardOffset) < 25f)
+                {
+                    Destroy(transform.GetChild(i).gameObject);
+                }
             }
         }
     }

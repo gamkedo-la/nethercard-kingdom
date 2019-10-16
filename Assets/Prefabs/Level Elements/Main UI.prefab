@@ -306,6 +306,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lerpFactor: 0.25
+  totalCardsAllowed: 3
+  discardedCardOffset: {x: 100, y: 0}
+  addWidthToDiscardedX: 1
   xOffset: 0
   yOffset: 70
   angleOffset: -12.5
@@ -314,7 +317,7 @@ MonoBehaviour:
   angleOffsetBetweenCards: -60
   hoverCardGap: 50
   hoverCardYPosition: 80
-  hoverCardToMousePositionRatio: 0.35
+  hoverCardToMousePositionRatio: 0.25
   draggedCardYPosition: 10
   hideCardsYPositionOnDrag: -40
 --- !u!1 &3893413231366341779
