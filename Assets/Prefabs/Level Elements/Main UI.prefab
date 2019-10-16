@@ -307,14 +307,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lerpFactor: 0.25
   xOffset: 0
-  yOffset: 80
-  angleOffset: -10
-  xOffsetBetweenCards: 250
+  yOffset: 70
+  angleOffset: -12.5
+  xOffsetBetweenCards: 270
   yOffsetBetweenCards: -50
   angleOffsetBetweenCards: -60
   hoverCardGap: 50
   hoverCardYPosition: 80
-  hoverCardToMousePositionRatio: 0.3
+  hoverCardToMousePositionRatio: 0.35
   draggedCardYPosition: 10
   hideCardsYPositionOnDrag: -40
 --- !u!1 &3893413231366341779
@@ -996,6 +996,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684194838893345834, guid: d53af6725d85789418919b90f9ab9991,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684194838893345834, guid: d53af6725d85789418919b90f9ab9991,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684194838893345834, guid: d53af6725d85789418919b90f9ab9991,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684194838893345834, guid: d53af6725d85789418919b90f9ab9991,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684194838893345834, guid: d53af6725d85789418919b90f9ab9991,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d53af6725d85789418919b90f9ab9991, type: 3}
