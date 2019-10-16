@@ -314,6 +314,7 @@ MonoBehaviour:
   angleOffsetBetweenCards: -60
   hoverCardGap: 50
   hoverCardYPosition: 80
+  hoverCardToMousePositionRatio: 0.3
   draggedCardYPosition: 10
   hideCardsYPositionOnDrag: -40
 --- !u!1 &3893413231366341779
@@ -1676,6 +1677,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3893413231254131150}
     m_Modifications:
+    - target: {fileID: 7268366427191236980, guid: 35c73b0121dc76649931f579533a5375,
+        type: 3}
+      propertyPath: m_Name
+      value: Fireball Card
+      objectReference: {fileID: 0}
     - target: {fileID: 300060236646433461, guid: 35c73b0121dc76649931f579533a5375,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1780,11 +1786,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7268366427191236980, guid: 35c73b0121dc76649931f579533a5375,
-        type: 3}
-      propertyPath: m_Name
-      value: Fireball Card
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35c73b0121dc76649931f579533a5375, type: 3}

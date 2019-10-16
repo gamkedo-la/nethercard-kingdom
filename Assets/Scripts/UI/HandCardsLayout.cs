@@ -9,20 +9,21 @@ using UnityEngine;
 public class HandCardsLayout : MonoBehaviour
 {
     [SerializeField] private float lerpFactor = 0.1f;
-
-    [Space]
+    
+    [Header("Hand Layout Properties")]
     [SerializeField] private float xOffset = 0f;
     [SerializeField] private float yOffset = 0f;
     [SerializeField] private float angleOffset = 0f;
 
-    [Space]
+    [Header("Cards Layout Properties")]
     [SerializeField] private float xOffsetBetweenCards = 35.0f;
     [SerializeField] private float yOffsetBetweenCards = 5.0f;
     [SerializeField] private float angleOffsetBetweenCards = 20.0f;
 
-    [Space]
+    [Header("Hover Card Properties")]
     [SerializeField] private float hoverCardGap = 50.0f;
     [SerializeField] private float hoverCardYPosition = 5.0f;
+    [SerializeField] private float hoverCardToMousePositionRatio = 0.05f;
 
     [Space]
     [SerializeField] private float draggedCardYPosition = 10.0f;
@@ -55,7 +56,11 @@ public class HandCardsLayout : MonoBehaviour
         {
             if(index < hoverCardIndex) newCardPosition.x -= hoverCardGap;
             else if(index > hoverCardIndex) newCardPosition.x += hoverCardGap;
-            else newCardPosition.y = hoverCardYPosition;
+            else
+            {
+                newCardPosition.y = hoverCardYPosition;
+                newCardPosition = Vector2.Lerp(newCardPosition, Input.mousePosition, hoverCardToMousePositionRatio);
+            }
         }
 
         if(Card.draggedCard != null)
