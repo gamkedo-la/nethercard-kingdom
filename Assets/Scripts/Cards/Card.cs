@@ -23,6 +23,7 @@ public class Card : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI nameLabel = null;
 	[SerializeField] private TextMeshProUGUI attackLabel = null;
 	[SerializeField] private TextMeshProUGUI hpLabel = null;
+	[SerializeField] private TextMeshProUGUI speedLabel = null;
 	[SerializeField] private TextMeshProUGUI abilityLabel = null;
 	[SerializeField] private TextMeshProUGUI flavorLabel = null;
 
@@ -31,6 +32,7 @@ public class Card : MonoBehaviour
 	[SerializeField] private int useCost = 2;
 	[SerializeField] private int attack = 1;
 	[SerializeField] private int hp = 10;
+	[SerializeField] private float speed = 2.5f;
 	[SerializeField] private string displayName = "Unnamed Card";
 	[SerializeField] private string abilityText = "This is just a test description...";
 	[SerializeField] private string flavorText = "What a lovely card!";
@@ -56,6 +58,7 @@ public class Card : MonoBehaviour
 		Assert.IsNotNull( nameLabel, $"Please assign <b>{nameof( nameLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( attackLabel, $"Please assign <b>{nameof( attackLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( hpLabel, $"Please assign <b>{nameof( hpLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( speedLabel, $"Please assign <b>{nameof( speedLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( abilityLabel, $"Please assign <b>{nameof( abilityLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( flavorLabel, $"Please assign <b>{nameof( flavorLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 	}
@@ -151,6 +154,8 @@ public class Card : MonoBehaviour
 
 	private void PopulateCardInfo( )
 	{
+		var specificCulture = System.Globalization.CultureInfo.GetCultureInfo( "en-US" );
+
 		if ( type == CardType.Unit )
 			statisticsPanel.SetActive( true );
 		else
@@ -160,7 +165,14 @@ public class Card : MonoBehaviour
 		nameLabel.text = displayName;
 		attackLabel.text = attack.ToString( );
 		hpLabel.text = hp.ToString( );
+		speedLabel.text = speed.ToString( "0.0", specificCulture );
 		abilityLabel.text = abilityText;
 		flavorLabel.text = flavorText;
-}
+
+		/*Unit u = toSummon.GetComponent<Unit>( );
+		if ( u )
+		{
+			Debug.Log( u.Side );
+		}*/
+	}
 }

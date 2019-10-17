@@ -4691,12 +4691,14 @@ MonoBehaviour:
   nameLabel: {fileID: 4754171811770632904}
   attackLabel: {fileID: 1681871985583500325}
   hpLabel: {fileID: 6924299368319605650}
+  speedLabel: {fileID: 4306323210595224590}
   abilityLabel: {fileID: 7516414569761794859}
   flavorLabel: {fileID: 3563004026135363423}
   type: 0
   useCost: 1
   attack: 2
   hp: 10
+  speed: 2.56
   displayName: Unnamed Card
   abilityText: This card does...
   flavorText: What a lovely card!
@@ -5721,7 +5723,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3.5
+  m_text: 2.6
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
