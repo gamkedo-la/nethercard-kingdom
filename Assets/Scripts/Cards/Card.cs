@@ -174,4 +174,17 @@ public class Card : MonoBehaviour
 		abilityLabel.text = abilityText;
 		flavorLabel.text = flavorText;
 	}
+
+    public void UpdateCardStatsFromEditor(CardType cardType, string name, int cost, string ability, string flavor)
+    {
+
+        type = cardType;
+        displayName = name;
+        useCost = cost;
+        //attack = attackPower;
+       // hp = hitPoints;
+       // speed = cardSpeed;
+        abilityText = ability;
+        flavorText = flavor;
+    }
 }
