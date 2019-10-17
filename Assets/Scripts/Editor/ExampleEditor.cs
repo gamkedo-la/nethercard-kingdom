@@ -13,7 +13,8 @@ public class ExampleEditor : EditorWindow
     private string abilityText = "Ability";
     private string flavorText = "Lore?";
 
-    private Sprite cardArt = null;
+    private Sprite cardArtFill = null;
+    private Sprite cardArtBorder = null;
 
     private GameObject toSummon;
 
@@ -31,7 +32,8 @@ public class ExampleEditor : EditorWindow
         cardName = EditorGUILayout.TextField("Card Name", cardName);
         cardType = (CardType)EditorGUILayout.EnumFlagsField("Card Type", cardType);
         toSummon = (GameObject)EditorGUILayout.ObjectField("Instance to Summon", toSummon, typeof(GameObject), GUILayout.ExpandWidth(true));
-        cardArt = (Sprite)EditorGUILayout.ObjectField("Card Art",cardArt, typeof(Sprite), true); 
+        cardArtFill = (Sprite)EditorGUILayout.ObjectField("Card Art Fill",cardArtFill, typeof(Sprite), true);
+        cardArtBorder = (Sprite)EditorGUILayout.ObjectField("Card Art Border", cardArtBorder, typeof(Sprite), true);
         cardCost = EditorGUILayout.IntField("Card Cost", cardCost);
         abilityText = EditorGUILayout.TextField("Ability Text", abilityText);
         flavorText = EditorGUILayout.TextField("Flavor Text", flavorText);    
@@ -54,7 +56,7 @@ public class ExampleEditor : EditorWindow
         GameObject newCard = PrefabUtility.SaveAsPrefabAsset(card, localPath);
 
         cardData = newCard.GetComponent<Card>();      
-        cardData.UpdateCardStatsFromEditor(cardType, cardName, cardCost, abilityText, flavorText, cardArt, toSummon);
+        cardData.UpdateCardStatsFromEditor(cardType, cardName, cardCost, abilityText, flavorText, cardArtFill, cardArtBorder, toSummon);
         DestroyImmediate(card);
 
     }
