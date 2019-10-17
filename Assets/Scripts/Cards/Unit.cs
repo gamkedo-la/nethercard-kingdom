@@ -78,7 +78,7 @@ public class Unit : MonoBehaviour
 
 	void OnDrawGizmosSelected( )
 	{
-		/*Color col = Color.green;
+		Color col = Color.green;
 		col.a = 0.3f;
 		Gizmos.color = col;
 		Gizmos.DrawCube( movementOffset, movementRange );
@@ -89,7 +89,7 @@ public class Unit : MonoBehaviour
 		Gizmos.color = Color.red;
 		Gizmos.DrawWireSphere( transform.position + (Vector3)unitCenter, attackRange );
 
-		Gizmos.color = Color.white;*/
+		Gizmos.color = Color.white;
 	}
 
 	private void SearchForOpenentToTarget( )

@@ -128,32 +128,26 @@ PrefabInstance:
       propertyPath: displayName
       value: Archer
       objectReference: {fileID: 0}
-    - target: {fileID: 4499324498473488953, guid: 53475d4f1e5edc741919c3a46dada549,
+    - target: {fileID: 4754171811770632904, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 76.73
+      propertyPath: m_text
+      value: Archer
       objectReference: {fileID: 0}
-    - target: {fileID: 4499324498473488953, guid: 53475d4f1e5edc741919c3a46dada549,
+    - target: {fileID: 4754171811770632904, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -2.2
+      propertyPath: m_textInfo.characterCount
+      value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 4499324498473488953, guid: 53475d4f1e5edc741919c3a46dada549,
+    - target: {fileID: 4754171811770632904, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -16
-      objectReference: {fileID: 0}
-    - target: {fileID: 1908062142719847500, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_Color.a
+      propertyPath: m_textInfo.spaceCount
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1908062142719847500, guid: 53475d4f1e5edc741919c3a46dada549,
+    - target: {fileID: 4754171811770632904, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 3303809366427509900, guid: 17d5d6d0902be654bbbce749868c8774,
-        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3677636612853806921, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -178,6 +172,32 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1908062142719847500, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1908062142719847500, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 3303809366427509900, guid: 17d5d6d0902be654bbbce749868c8774,
+        type: 3}
+    - target: {fileID: 4499324498473488953, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 76.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499324498473488953, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499324498473488953, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -16
       objectReference: {fileID: 0}
     - target: {fileID: 4548337889501478137, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
@@ -229,12 +249,6 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4894562913063567639, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 3303809366427509900, guid: 17d5d6d0902be654bbbce749868c8774,
-        type: 3}
     - target: {fileID: 615058357396955162, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -260,25 +274,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4754171811770632904, guid: 53475d4f1e5edc741919c3a46dada549,
+    - target: {fileID: 4894562913063567639, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
-      propertyPath: m_text
-      value: Archer
-      objectReference: {fileID: 0}
-    - target: {fileID: 4754171811770632904, guid: 53475d4f1e5edc741919c3a46dada549,
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 3303809366427509900, guid: 17d5d6d0902be654bbbce749868c8774,
         type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4754171811770632904, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4754171811770632904, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53475d4f1e5edc741919c3a46dada549, type: 3}

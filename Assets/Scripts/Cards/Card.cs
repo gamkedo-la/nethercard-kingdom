@@ -17,17 +17,23 @@ public class Card : MonoBehaviour
 	[Header("Card Elements")]
 	[SerializeField] private Canvas canvas = null;
 	[SerializeField] private CanvasGroup canvasGroup = null;
+	[SerializeField] private Image liveImage = null;
+	[SerializeField] private GameObject statisticsPanel = null;
+	[SerializeField] private TextMeshProUGUI manaCostLabel = null;
 	[SerializeField] private TextMeshProUGUI nameLabel = null;
+	[SerializeField] private TextMeshProUGUI attackLabel = null;
+	[SerializeField] private TextMeshProUGUI hpLabel = null;
 	[SerializeField] private TextMeshProUGUI abilityLabel = null;
+	[SerializeField] private TextMeshProUGUI flavorLabel = null;
 
 	[Header("Card Parameters")]
 	[SerializeField] private CardType type = CardType.Unit;
-	[SerializeField] private Image liveImage = null;
 	[SerializeField] private int useCost = 2;
-	[SerializeField] private int abilityPower = 0;
+	[SerializeField] private int attack = 1;
+	[SerializeField] private int hp = 10;
 	[SerializeField] private string displayName = "Unnamed Card";
+	[SerializeField] private string abilityText = "This is just a test description...";
 	[SerializeField] private string flavorText = "What a lovely card!";
-	[SerializeField] private string abilityText = "";
 
 	static public Card hoverCard = null;
 	static public Card draggedCard = null;
@@ -39,12 +45,19 @@ public class Card : MonoBehaviour
 
 	void Start( )
 	{
+		Assert.IsNotNull( toSummon, $"Please assign <b>{nameof( toSummon )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+
 		Assert.IsNotNull( canvas, $"Please assign <b>{nameof( canvas )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( canvasGroup, $"Please assign <b>{nameof( canvasGroup )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
-		Assert.IsNotNull( toSummon, $"Please assign <b>{nameof( toSummon )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
-		Assert.IsNotNull( nameLabel, $"Please assign <b>{nameof( nameLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
-		Assert.IsNotNull( abilityLabel, $"Please assign <b>{nameof( abilityLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( liveImage, $"Please assign <b>{nameof( liveImage )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+
+		Assert.IsNotNull( statisticsPanel, $"Please assign <b>{nameof( statisticsPanel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( manaCostLabel, $"Please assign <b>{nameof( manaCostLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( nameLabel, $"Please assign <b>{nameof( nameLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( attackLabel, $"Please assign <b>{nameof( attackLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( hpLabel, $"Please assign <b>{nameof( hpLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( abilityLabel, $"Please assign <b>{nameof( abilityLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( flavorLabel, $"Please assign <b>{nameof( flavorLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 	}
 
 	void Update( )
@@ -138,7 +151,16 @@ public class Card : MonoBehaviour
 
 	private void PopulateCardInfo( )
 	{
+		if ( type == CardType.Unit )
+			statisticsPanel.SetActive( true );
+		else
+			statisticsPanel.SetActive( false );
+
+		manaCostLabel.text = useCost.ToString( );
 		nameLabel.text = displayName;
+		attackLabel.text = attack.ToString( );
+		hpLabel.text = hp.ToString( );
 		abilityLabel.text = abilityText;
-	}
+		flavorLabel.text = flavorText;
+}
 }
