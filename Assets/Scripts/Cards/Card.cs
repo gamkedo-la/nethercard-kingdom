@@ -30,9 +30,6 @@ public class Card : MonoBehaviour
 	[Header("Card Parameters")]
 	[SerializeField] private CardType type = CardType.Unit;
 	[SerializeField] private int useCost = 2;
-	[SerializeField] private int attack = 1;
-	[SerializeField] private int hp = 10;
-	[SerializeField] private float speed = 2.5f;
 	[SerializeField] private string displayName = "Unnamed Card";
 	[SerializeField] private string abilityText = "This is just a test description...";
 	[SerializeField] private string flavorText = "What a lovely card!";
@@ -61,6 +58,8 @@ public class Card : MonoBehaviour
 		Assert.IsNotNull( speedLabel, $"Please assign <b>{nameof( speedLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( abilityLabel, $"Please assign <b>{nameof( abilityLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( flavorLabel, $"Please assign <b>{nameof( flavorLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+
+		PopulateCardInfo( );
 	}
 
 	void Update( )
@@ -157,22 +156,22 @@ public class Card : MonoBehaviour
 		var specificCulture = System.Globalization.CultureInfo.GetCultureInfo( "en-US" );
 
 		if ( type == CardType.Unit )
+		{
 			statisticsPanel.SetActive( true );
+
+			Unit u = toSummon.GetComponent<Unit>( );
+			attackLabel.text = u.DPS.ToString( "0.0", specificCulture );
+			hpLabel.text = u.HP.MaxHP.ToString( );
+			speedLabel.text = u.MoveSpeed.ToString( "0.0", specificCulture );
+		}
 		else
+		{
 			statisticsPanel.SetActive( false );
+		}
 
 		manaCostLabel.text = useCost.ToString( );
 		nameLabel.text = displayName;
-		attackLabel.text = attack.ToString( );
-		hpLabel.text = hp.ToString( );
-		speedLabel.text = speed.ToString( "0.0", specificCulture );
 		abilityLabel.text = abilityText;
 		flavorLabel.text = flavorText;
-
-		/*Unit u = toSummon.GetComponent<Unit>( );
-		if ( u )
-		{
-			Debug.Log( u.Side );
-		}*/
 	}
 }

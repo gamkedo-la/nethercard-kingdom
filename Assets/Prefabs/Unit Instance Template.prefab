@@ -189,6 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: {fileID: 2003592177715405983}
+  attack: {fileID: 1763304012001775943}
   side: 0
   unitCenter: {x: 0, y: 0.76}
   HQ: 0
@@ -265,7 +266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 2003592177715405980}
-  targetType: 4
+  targetType: 0
   side: 0
 --- !u!1 &2003592177863630467
 GameObject:
@@ -626,7 +627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c3832f21c1adc4b8ac5104f029fc0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit: {fileID: 2003592177715405980}
-  sprite: {fileID: 2003592177450988123}
   atackDamage: 2
   atackDelay: 1
+  unit: {fileID: 2003592177715405980}
+  sprite: {fileID: 2003592177450988123}

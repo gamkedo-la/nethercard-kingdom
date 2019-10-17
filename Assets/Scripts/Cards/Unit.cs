@@ -6,7 +6,6 @@
 
 // TODO: Split the class in to separate classes.
 
-using System.Collections;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Events;
@@ -19,9 +18,12 @@ public class Unit : MonoBehaviour
 	public Vector3 Center { get { return transform.position + (Vector3)unitCenter; } }
 	public HP HP { get { return hp; } }
 	public ConflicSide Side { get { return side; } }
+	public float MoveSpeed { get { return moveSpeed; } }
+	public float DPS { get { return attack.DPS; } }
 
 	[Header("External objects")]
 	[SerializeField] private HP hp = null;
+	[SerializeField] private Attack attack = null;
 
 	[Header("Physical parameters")]
 	[SerializeField] private ConflicSide side = ConflicSide.Player;
@@ -50,6 +52,7 @@ public class Unit : MonoBehaviour
 	void Start ()
 	{
 		Assert.IsNotNull( hp, $"Please assign <b>{nameof( hp )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( attack, $"Please assign <b>{nameof( attack )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
 		moveDirection = side == ConflicSide.Player ? Vector2.right : Vector2.left;
 	}

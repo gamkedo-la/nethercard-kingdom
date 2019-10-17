@@ -7,12 +7,10 @@
 using UnityEngine;
 using UnityEngine.Assertions;
 
-public class StandardAttack : MonoBehaviour
+public class StandardAttack : Attack
 {
 	[SerializeField] private Unit unit = null;
 	[SerializeField] private Transform sprite = null;
-	[SerializeField] private float atackDamage = 2f;
-	[SerializeField] private float atackDelay = 1f;
 
 	private float timeToNextAttack = 0;
 	private Vector2 oldSpritePos;
