@@ -15,7 +15,7 @@ public class ExampleEditor : EditorWindow
 
     private Sprite cardArt = null;
 
-    [MenuItem("Window/Card Creator (WIP)")]
+    [MenuItem("Card Creation/Card Creator")]
     public static void ShowWindow()
     {
         GetWindow<ExampleEditor>("Card Creator");
@@ -27,7 +27,8 @@ public class ExampleEditor : EditorWindow
         GUILayout.Label("Create card", EditorStyles.boldLabel);
 
         cardName = EditorGUILayout.TextField("Card Name", cardName);
-        cardType = (CardType)EditorGUILayout.EnumFlagsField("Card Type", cardType);        
+        cardType = (CardType)EditorGUILayout.EnumFlagsField("Card Type", cardType);
+        cardArt = (Sprite)EditorGUILayout.ObjectField("Card Art",cardArt, typeof(Sprite), true); 
         cardCost = EditorGUILayout.IntField("Card Cost", cardCost);
         attack = EditorGUILayout.IntField("Attak Power", attack);
         hp = EditorGUILayout.IntField("Hit Points", hp);
