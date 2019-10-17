@@ -4,13 +4,13 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 7973861647424831005
-    second: Wall
+    second: Wall B
   - first:
       213: 354311051636227858
-    second: Warrior
+    second: Warrior B
   - first:
       213: 3303809366427509900
-    second: Archer
+    second: Archer F
   - first:
       213: 1980258303048866430
     second: Card Front
@@ -19,10 +19,10 @@ TextureImporter:
     second: Card Back
   - first:
       213: -3360004824500145224
-    second: Road
+    second: Road F
   - first:
       213: -8004792755559483454
-    second: Lightning
+    second: Lightning B
   - first:
       213: -2129998704062181561
     second: Card Front Border
@@ -32,6 +32,27 @@ TextureImporter:
   - first:
       213: -4247683970634298323
     second: Fireball
+  - first:
+      213: 6856290872150611796
+    second: Wall F
+  - first:
+      213: 1854890019117783515
+    second: Warrior F
+  - first:
+      213: 7653034149224338685
+    second: Archer B
+  - first:
+      213: 8774831106164560166
+    second: Lightning F
+  - first:
+      213: 649559815794186145
+    second: Ork B
+  - first:
+      213: -5626238198558001666
+    second: Ork F
+  - first:
+      213: -5731183373063819138
+    second: Road B
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -164,7 +185,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Wall
+      name: Wall B
       rect:
         serializedVersion: 2
         x: 275
@@ -185,11 +206,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Warrior
+      name: Warrior B
       rect:
         serializedVersion: 2
-        x: 1031
-        y: 2065
+        x: 56
+        y: 2938
         width: 508
         height: 739
       alignment: 0
@@ -206,7 +227,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Archer
+      name: Archer F
       rect:
         serializedVersion: 2
         x: 1798
@@ -269,13 +290,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Road
+      name: Road F
       rect:
         serializedVersion: 2
-        x: 467
-        y: 293
-        width: 3942
-        height: 1122
+        x: 49
+        y: 637
+        width: 2970
+        height: 836
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -290,11 +311,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lightning
+      name: Lightning B
       rect:
         serializedVersion: 2
-        x: 95
-        y: 2997
+        x: 25
+        y: 3719
         width: 1068
         height: 1240
       alignment: 0
@@ -340,7 +361,7 @@ TextureImporter:
         width: 481
         height: 546
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -361,7 +382,7 @@ TextureImporter:
         width: 467
         height: 478
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -369,6 +390,153 @@ TextureImporter:
       bones: []
       spriteID: 574c3d9e4e5c3d84e982f75c116f2766
       internalID: -4247683970634298323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wall F
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 1800
+        width: 425
+        height: 1062
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b179598fa39ee849a8cb0a38e54f24b
+      internalID: 6856290872150611796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warrior F
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 2055
+        width: 514
+        height: 772
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1793ae250faf1054080d30be00f855be
+      internalID: 1854890019117783515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer B
+      rect:
+        serializedVersion: 2
+        x: 811
+        y: 2979
+        width: 305
+        height: 625
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcd18c591abc07246937018f0288363a
+      internalID: 7653034149224338685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lightning F
+      rect:
+        serializedVersion: 2
+        x: 1185
+        y: 3774
+        width: 1065
+        height: 1188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3461de35696f7745aafe9611a7885c7
+      internalID: 8774831106164560166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ork B
+      rect:
+        serializedVersion: 2
+        x: 1512
+        y: 2829
+        width: 956
+        height: 934
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e1dc837d8286d7488efb881eba313bc
+      internalID: 649559815794186145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ork F
+      rect:
+        serializedVersion: 2
+        x: 3194
+        y: 814
+        width: 892
+        height: 898
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4229da3fe4e3388479e4bccd276be778
+      internalID: -5626238198558001666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Road B
+      rect:
+        serializedVersion: 2
+        x: 2393
+        y: 0
+        width: 2607
+        height: 714
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daa41d07c964a4d4bbc7cc46495e6850
+      internalID: -5731183373063819138
       vertices: []
       indices: 
       edges: []
