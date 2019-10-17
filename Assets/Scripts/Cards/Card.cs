@@ -26,13 +26,17 @@ public class Card : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI speedLabel = null;
 	[SerializeField] private TextMeshProUGUI abilityLabel = null;
 	[SerializeField] private TextMeshProUGUI flavorLabel = null;
+    [SerializeField] private Image cardImageFill;
+    [SerializeField] private Image cardImageBorder;
 
-	[Header("Card Parameters")]
+    [Header("Card Parameters")]
 	[SerializeField] private CardType type = CardType.Unit;
 	[SerializeField] private int useCost = 2;
 	[SerializeField] private string displayName = "Unnamed Card";
 	[SerializeField] private string abilityText = "This is just a test description...";
 	[SerializeField] private string flavorText = "What a lovely card!";
+
+
 
 	static public Card hoverCard = null;
 	static public Card draggedCard = null;
@@ -175,7 +179,7 @@ public class Card : MonoBehaviour
 		flavorLabel.text = flavorText;
 	}
 
-    public void UpdateCardStatsFromEditor(CardType cardType, string name, int cost, string ability, string flavor)
+    public void UpdateCardStatsFromEditor(CardType cardType, string name, int cost, string ability, string flavor, Sprite sprite)
     {
 
         type = cardType;
@@ -186,5 +190,6 @@ public class Card : MonoBehaviour
        // speed = cardSpeed;
         abilityText = ability;
         flavorText = flavor;
+        cardImageBorder.sprite = sprite;
     }
 }

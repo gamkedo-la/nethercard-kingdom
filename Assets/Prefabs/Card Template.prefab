@@ -4818,6 +4818,8 @@ MonoBehaviour:
   speedLabel: {fileID: 4306323210595224590}
   abilityLabel: {fileID: 7516414569761794859}
   flavorLabel: {fileID: 3563004026135363423}
+  cardImageFill: {fileID: 4082654261549637672}
+  cardImageBorder: {fileID: 7709570893905777452}
   type: 0
   useCost: 1
   displayName: Unnamed Card
