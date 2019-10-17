@@ -22,6 +22,7 @@ public class Card : MonoBehaviour
 
 	[Header("Card Parameters")]
 	[SerializeField] private CardType type = CardType.Unit;
+	[SerializeField] private Image liveImage = null;
 	[SerializeField] private int useCost = 2;
 	[SerializeField] private int abilityPower = 0;
 	[SerializeField] private string displayName = "Unnamed Card";
@@ -34,7 +35,6 @@ public class Card : MonoBehaviour
 	[HideInInspector] public float lerpBackTimer = 0f;
 	[HideInInspector] public bool lerpBack = false;
 
-	private Image liveImage;
 	private Vector3 scaleToLerp = Vector3.one;
 
 	void Start( )
@@ -44,8 +44,7 @@ public class Card : MonoBehaviour
 		Assert.IsNotNull( toSummon, $"Please assign <b>{nameof( toSummon )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( nameLabel, $"Please assign <b>{nameof( nameLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( abilityLabel, $"Please assign <b>{nameof( abilityLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
-	
-		liveImage = transform.GetChild( 2 ).GetComponent<Image>( );
+		Assert.IsNotNull( liveImage, $"Please assign <b>{nameof( liveImage )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 	}
 
 	void Update( )

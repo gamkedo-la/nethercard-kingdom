@@ -1,0 +1,667 @@
+fileFormatVersion: 2
+guid: eec036a4e8912074ea1aa999f8f9cafd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6740860238885358372
+    second: Card Example
+  - first:
+      213: -7846339125495398336
+    second: Statistics Right F
+  - first:
+      213: 4654554554481978799
+    second: Statistics Right B
+  - first:
+      213: -149961894600536339
+    second: Card B
+  - first:
+      213: 6358403152897463921
+    second: Card F
+  - first:
+      213: -4504737587374335141
+    second: Image Mask
+  - first:
+      213: 1446466267996628060
+    second: Statistics Left B
+  - first:
+      213: 2475398438351888550
+    second: Statistics Left F
+  - first:
+      213: -1826968586294470258
+    second: Mana Wings
+  - first:
+      213: -1792198959284826984
+    second: Card Back Face
+  - first:
+      213: 7647039655854320828
+    second: Symbol HP
+  - first:
+      213: -5188925053343828951
+    second: Symbol Attack
+  - first:
+      213: 4711321201360168303
+    second: Mana Cost B
+  - first:
+      213: 122687475244146447
+    second: Symbol Speed
+  - first:
+      213: 8419308763442127961
+    second: Mana Cost F
+  - first:
+      213: -7781722894150736118
+    second: Name B
+  - first:
+      213: 6470821125500132729
+    second: Card Art_21
+  - first:
+      213: -1125209247131994208
+    second: Card Art_22
+  - first:
+      213: 7164308459676958337
+    second: Star Small B
+  - first:
+      213: -5763248472502575268
+    second: Start Large B
+  - first:
+      213: -43535338434559512
+    second: Name F
+  - first:
+      213: 4146938708313081758
+    second: Star Small F
+  - first:
+      213: -4621373716434747120
+    second: Start Large F
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Card Example
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 2147
+        width: 514
+        height: 852
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63d98ab9b2bca794c990a4a7e2ff433c
+      internalID: 6740860238885358372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Statistics Right F
+      rect:
+        serializedVersion: 2
+        x: 3014
+        y: 2983
+        width: 122
+        height: 416
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a959ce005f14be459b2860e51783858
+      internalID: -7846339125495398336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Statistics Right B
+      rect:
+        serializedVersion: 2
+        x: 3213
+        y: 2973
+        width: 144
+        height: 434
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09fdbe81d7af47348a2a8e0c08e80b81
+      internalID: 4654554554481978799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Card B
+      rect:
+        serializedVersion: 2
+        x: 1245
+        y: 2147
+        width: 514
+        height: 794
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0965400076f3934ca5cafa0cdf727cd
+      internalID: -149961894600536339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Card F
+      rect:
+        serializedVersion: 2
+        x: 1857
+        y: 2159
+        width: 488
+        height: 772
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03c8d62b7113d5a40b54c9d624122751
+      internalID: 6358403152897463921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Image Mask
+      rect:
+        serializedVersion: 2
+        x: 2447
+        y: 2521
+        width: 488
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e3cb1f8f692ff349aac506a07da14c1
+      internalID: -4504737587374335141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Statistics Left B
+      rect:
+        serializedVersion: 2
+        x: 3004
+        y: 2499
+        width: 144
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8761536dc14479e43854ac4f2972fa8c
+      internalID: 1446466267996628060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Statistics Left F
+      rect:
+        serializedVersion: 2
+        x: 3225
+        y: 2513
+        width: 122
+        height: 416
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b68159b6ad9816d4ca1e951ae1410b78
+      internalID: 2475398438351888550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mana Wings
+      rect:
+        serializedVersion: 2
+        x: 3605
+        y: 2915
+        width: 337
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 626f275035fb24a40845c99a5c5b8461
+      internalID: -1826968586294470258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Card Back Face
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 2201
+        width: 412
+        height: 692
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f442afbf53e35f4081d87b728584dd4
+      internalID: -1792198959284826984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Symbol HP
+      rect:
+        serializedVersion: 2
+        x: 3427
+        y: 2839
+        width: 66
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49811a4e925b89a4f9bb7ab7779c8af2
+      internalID: 7647039655854320828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Symbol Attack
+      rect:
+        serializedVersion: 2
+        x: 3433
+        y: 2717
+        width: 52
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0aea07b16e1e5894bb523ac844c81fbf
+      internalID: -5188925053343828951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mana Cost B
+      rect:
+        serializedVersion: 2
+        x: 3703
+        y: 2689
+        width: 138
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6877159affd2404db72bc98efe4ae78
+      internalID: 4711321201360168303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Symbol Speed
+      rect:
+        serializedVersion: 2
+        x: 3423
+        y: 2591
+        width: 70
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2275218031286c44aa7b7dac474d9d1
+      internalID: 122687475244146447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mana Cost F
+      rect:
+        serializedVersion: 2
+        x: 3711
+        y: 2519
+        width: 120
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a75b8aae528b7d947a1d59bbaffb7d22
+      internalID: 8419308763442127961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Name B
+      rect:
+        serializedVersion: 2
+        x: 3007
+        y: 2329
+        width: 508
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45b022fb77f23e0408a143090411aee8
+      internalID: -7781722894150736118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Card Art_21
+      rect:
+        serializedVersion: 2
+        x: 3603
+        y: 2437
+        width: 58
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9149eca832d22d4409f1d6774e79dd28
+      internalID: 6470821125500132729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Card Art_22
+      rect:
+        serializedVersion: 2
+        x: 3821
+        y: 2441
+        width: 84
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07edb41f9d7ceee49b2b3d8dc126623c
+      internalID: -1125209247131994208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star Small B
+      rect:
+        serializedVersion: 2
+        x: 3603
+        y: 2317
+        width: 58
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0489ec091be41fe4380848ec97fecc5c
+      internalID: 7164308459676958337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Start Large B
+      rect:
+        serializedVersion: 2
+        x: 3821
+        y: 2321
+        width: 84
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8f3ca5ed3e6db941b3a3977592a37ce
+      internalID: -5763248472502575268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Name F
+      rect:
+        serializedVersion: 2
+        x: 3017
+        y: 2179
+        width: 484
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ea2bd5b9c9faea4e972d03e64e71602
+      internalID: -43535338434559512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star Small F
+      rect:
+        serializedVersion: 2
+        x: 3605
+        y: 2209
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cf78f44d8585274fba86a6d5c29f136
+      internalID: 4146938708313081758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Start Large F
+      rect:
+        serializedVersion: 2
+        x: 3821
+        y: 2213
+        width: 82
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5f0dff528c653c4194449b492024fb3
+      internalID: -4621373716434747120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
