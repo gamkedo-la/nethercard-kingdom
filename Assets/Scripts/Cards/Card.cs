@@ -17,7 +17,7 @@ public class Card : MonoBehaviour
 	[Header("Card Elements")]
 	[SerializeField] private Canvas canvas = null;
 	[SerializeField] private CanvasGroup canvasGroup = null;
-	[SerializeField] private Image liveImage = null;
+	[SerializeField] private CanvasGroup liveImage = null;
 	[SerializeField] private GameObject statisticsPanel = null;
 	[SerializeField] private TextMeshProUGUI manaCostLabel = null;
 	[SerializeField] private TextMeshProUGUI nameLabel = null;
@@ -69,7 +69,7 @@ public class Card : MonoBehaviour
 		{
 			transform.position = Vector2.Lerp( transform.position, Input.mousePosition, 0.25f );
 			canvasGroup.alpha = Mathf.Lerp( canvasGroup.alpha, 0.0f, 0.15f );
-			liveImage.color = Color.Lerp( liveImage.color, new Color( 1, 1, 1, 0.5f ), 0.15f );
+			liveImage.alpha = Mathf.Lerp( liveImage.alpha, 0.5f, 0.15f );
 			transform.localScale = Vector3.one;
 		}
 		else
@@ -79,9 +79,9 @@ public class Card : MonoBehaviour
 			else
 				canvasGroup.alpha = 0.9f;
 
-			liveImage.color = Color.Lerp( liveImage.color, Color.clear, 0.25f );
+			liveImage.alpha = Mathf.Lerp( liveImage.alpha, 0f, 0.25f );
 
-			if(lerpBackTimer <= 0f || !lerpBack)
+			if (lerpBackTimer <= 0f || !lerpBack)
 				transform.localScale = Vector3.Lerp(transform.localScale, scaleToLerp, 0.25f);
 		}
 
