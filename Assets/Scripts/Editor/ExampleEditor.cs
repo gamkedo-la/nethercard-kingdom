@@ -15,6 +15,8 @@ public class ExampleEditor : EditorWindow
 
     private Sprite cardArt = null;
 
+    private GameObject toSummon;
+
     [MenuItem("Card Creation/Card Creator")]
     public static void ShowWindow()
     {
@@ -28,6 +30,7 @@ public class ExampleEditor : EditorWindow
 
         cardName = EditorGUILayout.TextField("Card Name", cardName);
         cardType = (CardType)EditorGUILayout.EnumFlagsField("Card Type", cardType);
+        toSummon = (GameObject)EditorGUILayout.ObjectField("Instance to Summon", toSummon, typeof(GameObject), GUILayout.ExpandWidth(true));
         cardArt = (Sprite)EditorGUILayout.ObjectField("Card Art",cardArt, typeof(Sprite), true); 
         cardCost = EditorGUILayout.IntField("Card Cost", cardCost);
         abilityText = EditorGUILayout.TextField("Ability Text", abilityText);
@@ -51,7 +54,7 @@ public class ExampleEditor : EditorWindow
         GameObject newCard = PrefabUtility.SaveAsPrefabAsset(card, localPath);
 
         cardData = newCard.GetComponent<Card>();      
-        cardData.UpdateCardStatsFromEditor(cardType, cardName, cardCost, abilityText, flavorText, cardArt);
+        cardData.UpdateCardStatsFromEditor(cardType, cardName, cardCost, abilityText, flavorText, cardArt, toSummon);
         DestroyImmediate(card);
 
     }

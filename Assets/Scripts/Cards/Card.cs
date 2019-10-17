@@ -179,7 +179,7 @@ public class Card : MonoBehaviour
 		flavorLabel.text = flavorText;
 	}
 
-    public void UpdateCardStatsFromEditor(CardType cardType, string name, int cost, string ability, string flavor, Sprite sprite)
+    public void UpdateCardStatsFromEditor(CardType cardType, string name, int cost, string ability, string flavor, Sprite sprite, GameObject instanceToSummon)
     {
 
         type = cardType;
@@ -191,5 +191,6 @@ public class Card : MonoBehaviour
         abilityText = ability;
         flavorText = flavor;
         cardImageBorder.sprite = sprite;
+        toSummon = instanceToSummon;
     }
 }
