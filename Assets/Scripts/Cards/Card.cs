@@ -93,7 +93,7 @@ public class Card : MonoBehaviour
 
 	void OnValidate( )
 	{
-		PopulateCardInfo( );
+		//PopulateCardInfo( );
 	}
 
 	public void OnOverEnter( )
@@ -155,6 +155,7 @@ public class Card : MonoBehaviour
 		}
 	}
 
+	[ContextMenu( "PopulateCardInfo" )]
 	private void PopulateCardInfo( )
 	{
 		var specificCulture = System.Globalization.CultureInfo.GetCultureInfo( "en-US" );
