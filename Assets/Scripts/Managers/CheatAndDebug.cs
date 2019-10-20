@@ -35,5 +35,10 @@ public class CheatAndDebug : MonoBehaviour
 			paused = !paused;
 			Time.timeScale = paused ? 0f : 1f;
 		}
-	}
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            SummoningManager.Instance.AddMana(5);
+        }
+    }
 }

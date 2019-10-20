@@ -60,7 +60,7 @@ public class SummoningManager : MonoBehaviour
 			Vector2 endPoint = Camera.main.ScreenToWorldPoint( Input.mousePosition );
 
 			line.SetPosition( 0, lineStartPoint );
-			line.SetPosition( 1,  endPoint);
+			line.SetPosition( 1,  endPoint );
 
 			good.transform.position = endPoint;
 			bad.transform.position = endPoint;
@@ -71,11 +71,16 @@ public class SummoningManager : MonoBehaviour
 	}
 
 	private void ManaTick( )
-	{
-		currentMana += manaTickAmount;
-		manaCounter.text = currentMana.ToString( );
-		currentManaProgress = 0;
-	}
+    {
+        AddMana( manaTickAmount );
+    }
+
+    public void AddMana( int manaAmt )
+    {
+        currentMana += manaAmt;
+        manaCounter.text = currentMana.ToString();
+        currentManaProgress = 0;
+    }
 
 	public bool Summoning( Vector2 startPos, CardType type, bool started )
 	{
