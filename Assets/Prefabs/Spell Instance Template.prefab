@@ -122,6 +122,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8767096524210941868}
+  - component: {fileID: 9191908659525124034}
   m_Layer: 0
   m_Name: Spell Instance Template
   m_TagString: Untagged
@@ -144,6 +145,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9191908659525124034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8767096524210941869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1588cd3333378f140b13802204c0fbe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  borderImageSprite: {fileID: 7029198479336346959}
+  fillImageSprite: {fileID: 7659320890257491422}
 --- !u!1 &8913362294073089207
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,8 +1,13 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
+
 public class ExampleEditor : EditorWindow
 {
+    private int toolBarInt = 0;
+    private string[] editorTabs = { "Card Creation", "Unit Creation", "Spell Creation" };
+
+    //Card Variables
     string cardName = "New Card Name";
     CardType cardType;
     private Card cardData;
@@ -17,6 +22,16 @@ public class ExampleEditor : EditorWindow
     private Sprite cardArtBorder = null;
 
     private GameObject toSummon;
+    //Units Instance Variables
+
+    //Spell Instance Variables
+    string spellName = "New Card Name";
+    private CardType spellType;
+
+    private Sprite spellArtFill = null;
+    private Sprite spellArtBorder = null;
+
+    private SpellInstanceImages spellInstanceImages;
 
     [MenuItem("Card Creation/Card Creator")]
     public static void ShowWindow()
@@ -26,21 +41,57 @@ public class ExampleEditor : EditorWindow
 
     void OnGUI()
     {
-        GUILayout.Label("Create card", EditorStyles.boldLabel);
+        toolBarInt = GUILayout.Toolbar(toolBarInt, editorTabs);
 
-        cardName = EditorGUILayout.TextField("Card Name", cardName);
-        cardType = (CardType)EditorGUILayout.EnumFlagsField("Card Type", cardType);
-        toSummon = (GameObject)EditorGUILayout.ObjectField("Instance to Summon", toSummon, typeof(GameObject), false, GUILayout.ExpandWidth(true));
-        cardArtFill = (Sprite)EditorGUILayout.ObjectField("Card Art Fill",cardArtFill, typeof(Sprite), true);
-        cardArtBorder = (Sprite)EditorGUILayout.ObjectField("Card Art Border", cardArtBorder, typeof(Sprite), true);
-        cardCost = EditorGUILayout.IntField("Card Cost", cardCost);
-        abilityText = EditorGUILayout.TextField("Ability Text", abilityText);
-        flavorText = EditorGUILayout.TextField("Flavor Text", flavorText);
-
-        if (GUILayout.Button("Finish Card"))
+        if (toolBarInt == 0)
         {
-            CreateCardVariant();
+            GUILayout.Label("Create card", EditorStyles.boldLabel);
+
+            cardName = EditorGUILayout.TextField("Card Name", cardName);
+            cardType = (CardType)EditorGUILayout.EnumFlagsField("Card Type", cardType);
+            toSummon = (GameObject)EditorGUILayout.ObjectField("Instance to Summon", toSummon, typeof(GameObject), false, GUILayout.ExpandWidth(true));
+            cardArtFill = (Sprite)EditorGUILayout.ObjectField("Card Art Fill", cardArtFill, typeof(Sprite), true);
+            cardArtBorder = (Sprite)EditorGUILayout.ObjectField("Card Art Border", cardArtBorder, typeof(Sprite), true);
+            cardCost = EditorGUILayout.IntField("Card Cost", cardCost);
+            abilityText = EditorGUILayout.TextField("Ability Text", abilityText);
+            flavorText = EditorGUILayout.TextField("Flavor Text", flavorText);
+
+            if (GUILayout.Button("Finish Card"))
+            {
+                CreateCardVariant();
+            }
         }
+        if(toolBarInt == 1)
+        {
+
+        }
+        if(toolBarInt == 2)
+        {
+            GUILayout.Label("Create Spell", EditorStyles.boldLabel);
+
+            spellName = EditorGUILayout.TextField("Card Name", spellName);
+            spellType = (CardType)EditorGUILayout.EnumFlagsField("Spell Type", spellType);
+            spellArtFill = (Sprite)EditorGUILayout.ObjectField("Spell Art Fill", spellArtFill, typeof(Sprite), true);
+            spellArtBorder = (Sprite)EditorGUILayout.ObjectField("Spell Art Border", spellArtBorder, typeof(Sprite), true);        
+                       
+            if (GUILayout.Button("Finish Spell"))
+            {
+                CreateSpellInstance();
+            }
+        }
+    }
+
+    private void CreateSpellInstance()
+    {
+        string prefabPath = "Assets/Prefabs/Spell Instance Template.prefab";
+        string localPath = "Assets/Prefabs/Player Cards/" + spellName + ".prefab";
+        Object spellPrefab = (GameObject)AssetDatabase.LoadAssetAtPath(prefabPath, typeof(GameObject));
+        GameObject spell = PrefabUtility.InstantiatePrefab(spellPrefab) as GameObject;
+        GameObject newSpell = PrefabUtility.SaveAsPrefabAsset(spell, localPath);
+        spellInstanceImages = newSpell.GetComponent<SpellInstanceImages>();
+        spellInstanceImages.UpdateCardDataFromEditor(spellArtBorder, spellArtFill);
+
+        DestroyImmediate(spell);
     }
 
     void CreateCardVariant()
