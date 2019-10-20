@@ -7,9 +7,9 @@ public class ExampleEditor : EditorWindow
     CardType cardType;
     private Card cardData;
     private int cardCost = 0;
-    private int attack = 0;
-    private int hp = 0;
-    private float speed = 0;
+    //private int attack = 0;
+    //private int hp = 0;
+    //private float speed = 0;
     private string abilityText = "Ability";
     private string flavorText = "Lore?";
 
@@ -26,24 +26,21 @@ public class ExampleEditor : EditorWindow
 
     void OnGUI()
     {
-        
         GUILayout.Label("Create card", EditorStyles.boldLabel);
 
         cardName = EditorGUILayout.TextField("Card Name", cardName);
         cardType = (CardType)EditorGUILayout.EnumFlagsField("Card Type", cardType);
-        toSummon = (GameObject)EditorGUILayout.ObjectField("Instance to Summon", toSummon, typeof(GameObject), GUILayout.ExpandWidth(true));
+        toSummon = (GameObject)EditorGUILayout.ObjectField("Instance to Summon", toSummon, typeof(GameObject), false, GUILayout.ExpandWidth(true));
         cardArtFill = (Sprite)EditorGUILayout.ObjectField("Card Art Fill",cardArtFill, typeof(Sprite), true);
         cardArtBorder = (Sprite)EditorGUILayout.ObjectField("Card Art Border", cardArtBorder, typeof(Sprite), true);
         cardCost = EditorGUILayout.IntField("Card Cost", cardCost);
         abilityText = EditorGUILayout.TextField("Ability Text", abilityText);
-        flavorText = EditorGUILayout.TextField("Flavor Text", flavorText);    
+        flavorText = EditorGUILayout.TextField("Flavor Text", flavorText);
 
-    
         if (GUILayout.Button("Finish Card"))
         {
             CreateCardVariant();
         }
-
     }
 
     void CreateCardVariant()
@@ -55,9 +52,8 @@ public class ExampleEditor : EditorWindow
         GameObject card = PrefabUtility.InstantiatePrefab(cardPrefab) as GameObject;
         GameObject newCard = PrefabUtility.SaveAsPrefabAsset(card, localPath);
 
-        cardData = newCard.GetComponent<Card>();      
+        cardData = newCard.GetComponent<Card>();
         cardData.UpdateCardStatsFromEditor(cardType, cardName, cardCost, abilityText, flavorText, cardArtFill, cardArtBorder, toSummon);
         DestroyImmediate(card);
-
     }
 }

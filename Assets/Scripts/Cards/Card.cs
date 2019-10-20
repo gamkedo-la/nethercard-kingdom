@@ -26,8 +26,8 @@ public class Card : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI speedLabel = null;
 	[SerializeField] private TextMeshProUGUI abilityLabel = null;
 	[SerializeField] private TextMeshProUGUI flavorLabel = null;
-    [SerializeField] private Image cardImageFill;
-    [SerializeField] private Image cardImageBorder;
+    [SerializeField] private Image cardImageFill = null;
+    [SerializeField] private Image cardImageBorder = null;
 
     [Header("Card Parameters")]
 	[SerializeField] private CardType type = CardType.Unit;

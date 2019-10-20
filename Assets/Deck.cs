@@ -5,7 +5,7 @@ using UnityEngine;
 public class Deck : MonoBehaviour
 {
     [SerializeField] private float lerpFactor = 0.25f;
-    [SerializeField] private GameObject hand;
+    [SerializeField] private GameObject hand = null;
 
     [Header("Card Draw Conditions")]
     [Tooltip("If card limit <= 0, it means infinite.")]
@@ -18,7 +18,7 @@ public class Deck : MonoBehaviour
     [Header("New Card Properties")]
     [SerializeField] private Vector3 newCardPositionOffset = Vector3.zero;
     [SerializeField] private Vector3 newCardRotationOffset = Vector3.zero;
-    [SerializeField] private GameObject[] cards;
+    [SerializeField] private GameObject[] cards = null;
 
     private Vector3 scaleToLerp = Vector3.one;
     private float autoDrawTimer = 0.0f;
