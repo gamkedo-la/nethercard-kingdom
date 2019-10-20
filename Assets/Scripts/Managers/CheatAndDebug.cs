@@ -10,7 +10,8 @@ using UnityEngine.SceneManagement;
 public class CheatAndDebug : MonoBehaviour
 {
 	public static CheatAndDebug Instance { get; private set; }
-	public bool ShowDebugInfo { get; private set; }
+	public bool ShowDebugInfo { get { return showDebugInfo; } }
+	[SerializeField] private bool showDebugInfo = true;
 
 	private bool paused = false;
 
