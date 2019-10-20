@@ -26,17 +26,15 @@ public class Card : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI speedLabel = null;
 	[SerializeField] private TextMeshProUGUI abilityLabel = null;
 	[SerializeField] private TextMeshProUGUI flavorLabel = null;
-    [SerializeField] private Image cardImageFill = null;
-    [SerializeField] private Image cardImageBorder = null;
+	[SerializeField] private Image cardImageFill = null;
+	[SerializeField] private Image cardImageBorder = null;
 
-    [Header("Card Parameters")]
+	[Header("Card Parameters")]
 	[SerializeField] private CardType type = CardType.Unit;
 	[SerializeField] private int useCost = 2;
 	[SerializeField] private string displayName = "Unnamed Card";
 	[SerializeField] private string abilityText = "This is just a test description...";
 	[SerializeField] private string flavorText = "What a lovely card!";
-
-
 
 	static public Card hoverCard = null;
 	static public Card draggedCard = null;
@@ -84,8 +82,8 @@ public class Card : MonoBehaviour
 
 			liveImage.alpha = Mathf.Lerp( liveImage.alpha, 0f, 0.25f );
 
-			if (lerpBackTimer <= 0f || !lerpBack)
-				transform.localScale = Vector3.Lerp(transform.localScale, scaleToLerp, 0.25f);
+			if ( lerpBackTimer <= 0f || !lerpBack )
+				transform.localScale = Vector3.Lerp( transform.localScale, scaleToLerp, 0.25f );
 		}
 
 		lerpBackTimer -= Time.deltaTime;
@@ -155,6 +153,21 @@ public class Card : MonoBehaviour
 		}
 	}
 
+	public void UpdateCardStatsFromEditor( CardType cardType, string name, int cost, string ability, string flavor, Sprite borderSprite, Sprite fillSprite, GameObject instanceToSummon )
+	{
+		type = cardType;
+		displayName = name;
+		useCost = cost;
+		//attack = attackPower;
+		//hp = hitPoints;
+		//speed = cardSpeed;
+		abilityText = ability;
+		flavorText = flavor;
+		cardImageBorder.sprite = borderSprite;
+		cardImageFill.sprite = fillSprite;
+		toSummon = instanceToSummon;
+	}
+
 	[ContextMenu( "PopulateCardInfo" )]
 	private void PopulateCardInfo( )
 	{
@@ -179,20 +192,4 @@ public class Card : MonoBehaviour
 		abilityLabel.text = abilityText;
 		flavorLabel.text = flavorText;
 	}
-
-    public void UpdateCardStatsFromEditor(CardType cardType, string name, int cost, string ability, string flavor, Sprite borderSprite, Sprite fillSprite, GameObject instanceToSummon)
-    {
-
-        type = cardType;
-        displayName = name;
-        useCost = cost;
-        //attack = attackPower;
-       // hp = hitPoints;
-       // speed = cardSpeed;
-        abilityText = ability;
-        flavorText = flavor;
-        cardImageBorder.sprite = borderSprite;
-        cardImageFill.sprite = fillSprite;
-        toSummon = instanceToSummon;
-    }
 }
