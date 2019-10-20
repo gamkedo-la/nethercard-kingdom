@@ -994,6 +994,11 @@ PrefabInstance:
       propertyPath: summoningAreaAoe
       value: 
       objectReference: {fileID: 1704583966}
+    - target: {fileID: 1289313127792475358, guid: f5ea14b1964d108438ae60eb76c40517,
+        type: 3}
+      propertyPath: showDebugInfo
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5ea14b1964d108438ae60eb76c40517, type: 3}
 --- !u!1001 &1399235466057641047
