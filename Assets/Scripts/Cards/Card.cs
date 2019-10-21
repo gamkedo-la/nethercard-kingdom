@@ -46,6 +46,7 @@ public class Card : MonoBehaviour
 	[HideInInspector] public bool lerpBack = false;
 
 	private Vector3 scaleToLerp = Vector3.one;
+	private Vector3 defaultScale = Vector3.one;
 
 	void Start( )
 	{
@@ -116,9 +117,9 @@ public class Card : MonoBehaviour
 			if ( hoverCard == null )
 				hoverCard = this;
 		}
-		else if ( selectionMode == CardSelectionMode.InCollection )
+		else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
 		{
-			scaleToLerp = Vector3.one * 1.1f;
+			scaleToLerp = defaultScale * 1.1f;
 			lerpBack = false;
 			lerpBackTimer = 0.1f;
 		}
@@ -139,11 +140,21 @@ public class Card : MonoBehaviour
 			if ( hoverCard == this )
 				hoverCard = null;
 		}
-		else if ( selectionMode == CardSelectionMode.InCollection )
+		else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
 		{
-			scaleToLerp = Vector3.one;
+			scaleToLerp = defaultScale;
 			lerpBack = true;
 		}
+	}
+
+	public void CardSelected( bool isSelected )
+	{
+		if ( isSelected )
+			defaultScale = Vector3.one * 1.07f;
+		else
+			defaultScale = Vector3.one;
+
+		scaleToLerp = defaultScale;
 	}
 
 	public void OnCliked( )
@@ -157,6 +168,11 @@ public class Card : MonoBehaviour
 			OnOverEnter( );
 
 			SummoningManager.Instance.Summoning( Camera.main.ScreenToWorldPoint( Input.mousePosition ), type, true );
+		}
+		else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
+		{
+			DeckBuilder.Instance.CardClicked( this, selectionMode );
+			scaleToLerp = defaultScale * 1.1f;
 		}
 	}
 
@@ -200,7 +216,7 @@ public class Card : MonoBehaviour
 		toSummon = instanceToSummon;
 	}
 
-	[ContextMenu( "PopulateCardInfo" )]
+	[ContextMenu( "Update Card Info" )]
 	private void PopulateCardInfo( )
 	{
 		var specificCulture = System.Globalization.CultureInfo.GetCultureInfo( "en-US" );
