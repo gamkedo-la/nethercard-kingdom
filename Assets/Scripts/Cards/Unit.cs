@@ -24,8 +24,10 @@ public class Unit : MonoBehaviour
 	[Header("External objects")]
 	[SerializeField] private HP hp = null;
 	[SerializeField] private Attack attack = null;
+    [SerializeField] private SpriteRenderer borderSprite;
+    [SerializeField] private SpriteRenderer fillSprite;
 
-	[Header("Physical parameters")]
+    [Header("Physical parameters")]
 	[SerializeField] private ConflicSide side = ConflicSide.Player;
 	[SerializeField] private Vector2 unitCenter = new Vector2(0f, 0.7f);
 	[SerializeField] private bool HQ = false;
@@ -196,4 +198,10 @@ public class Unit : MonoBehaviour
 
 		transform.position = newPosition;
 	}
+
+    public void UpdateUnitStatsFromEditor(Sprite unitBorderSprite, Sprite unitFillSprite)
+    {
+        borderSprite.sprite = unitBorderSprite;
+        fillSprite.sprite = unitFillSprite;
+    }
 }

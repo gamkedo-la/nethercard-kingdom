@@ -23,15 +23,20 @@ public class ExampleEditor : EditorWindow
 
     private GameObject toSummon;
     //Units Instance Variables
+    private string unitName = "New Unit Name";
+    private Sprite unitArtFill = null;
+    private Sprite unitArtBorder = null;
+    private Unit unitData;
 
     //Spell Instance Variables
-    string spellName = "New Card Name";
+    private string spellName = "New Spell Name";
     private CardType spellType;
 
     private Sprite spellArtFill = null;
     private Sprite spellArtBorder = null;
 
     private SpellInstanceImages spellInstanceImages;
+
 
     [MenuItem("Card Creation/Card Creator")]
     public static void ShowWindow()
@@ -48,7 +53,7 @@ public class ExampleEditor : EditorWindow
             GUILayout.Label("Create card", EditorStyles.boldLabel);
 
             cardName = EditorGUILayout.TextField("Card Name", cardName);
-            cardType = (CardType)EditorGUILayout.EnumFlagsField("Card Type", cardType);
+            cardType = (CardType)EditorGUILayout.EnumPopup("Card Type", cardType);
             toSummon = (GameObject)EditorGUILayout.ObjectField("Instance to Summon", toSummon, typeof(GameObject), false, GUILayout.ExpandWidth(true));
             cardArtFill = (Sprite)EditorGUILayout.ObjectField("Card Art Fill", cardArtFill, typeof(Sprite), true);
             cardArtBorder = (Sprite)EditorGUILayout.ObjectField("Card Art Border", cardArtBorder, typeof(Sprite), true);
@@ -61,24 +66,50 @@ public class ExampleEditor : EditorWindow
                 CreateCardVariant();
             }
         }
-        if(toolBarInt == 1)
-        {
 
+        if (toolBarInt == 1)
+        {
+            GUILayout.Label("Create Unit", EditorStyles.boldLabel);
+
+            unitName = EditorGUILayout.TextField("Unit Name", unitName);
+            unitArtFill = (Sprite)EditorGUILayout.ObjectField("Unit Art Fill", unitArtFill, typeof(Sprite), true);
+            unitArtBorder = (Sprite)EditorGUILayout.ObjectField("Unit Art Border", unitArtBorder, typeof(Sprite), true);
+
+
+            if (GUILayout.Button("Finish Unit"))
+            {
+                CreateUnitVariant();
+            }
         }
-        if(toolBarInt == 2)
+
+        if (toolBarInt == 2)
         {
             GUILayout.Label("Create Spell", EditorStyles.boldLabel);
 
-            spellName = EditorGUILayout.TextField("Card Name", spellName);
-            spellType = (CardType)EditorGUILayout.EnumFlagsField("Spell Type", spellType);
+            spellName = EditorGUILayout.TextField("Spell Name", spellName);
+            spellType = (CardType)EditorGUILayout.EnumPopup("Spell Type", spellType);
             spellArtFill = (Sprite)EditorGUILayout.ObjectField("Spell Art Fill", spellArtFill, typeof(Sprite), true);
-            spellArtBorder = (Sprite)EditorGUILayout.ObjectField("Spell Art Border", spellArtBorder, typeof(Sprite), true);        
-                       
+            spellArtBorder = (Sprite)EditorGUILayout.ObjectField("Spell Art Border", spellArtBorder, typeof(Sprite), true);           
+
             if (GUILayout.Button("Finish Spell"))
             {
                 CreateSpellInstance();
             }
         }
+    }
+
+    private void CreateUnitVariant()
+    {
+        string prefabPath = "Assets/Prefabs/Unit Instance Template.prefab";
+        string localPath = "Assets/Prefabs/Player Cards/" + unitName + ".prefab";
+        Object unitPrefab = (GameObject)AssetDatabase.LoadAssetAtPath(prefabPath, typeof(GameObject));
+        GameObject unit = PrefabUtility.InstantiatePrefab(unitPrefab) as GameObject;
+        GameObject newUnit = PrefabUtility.SaveAsPrefabAsset(unit, localPath);
+
+        unitData = newUnit.GetComponent<Unit>();
+        unitData.UpdateUnitStatsFromEditor(unitArtBorder, unitArtFill);
+
+        DestroyImmediate(unit);
     }
 
     private void CreateSpellInstance()
@@ -90,6 +121,20 @@ public class ExampleEditor : EditorWindow
         GameObject newSpell = PrefabUtility.SaveAsPrefabAsset(spell, localPath);
         spellInstanceImages = newSpell.GetComponent<SpellInstanceImages>();
         spellInstanceImages.UpdateCardDataFromEditor(spellArtBorder, spellArtFill);
+
+        if (spellType == CardType.AoeSpell)
+        {
+            newSpell.AddComponent<OffensiveAoeSpell>();
+        }
+        else if (spellType == CardType.DirectDefensiveSpell)
+        {
+            newSpell.AddComponent<DirectHealingSpell>();
+        }
+        else if (spellType == CardType.DirectOffensiveSpell)
+        {
+            newSpell.AddComponent<DirectDamageSpell>();
+        }
+
 
         DestroyImmediate(spell);
     }

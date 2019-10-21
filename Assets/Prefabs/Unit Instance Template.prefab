@@ -190,6 +190,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: {fileID: 2003592177715405983}
   attack: {fileID: 1763304012001775943}
+  borderSprite: {fileID: 1389900820131627909}
+  fillSprite: {fileID: 7496335600690224256}
   side: 0
   unitCenter: {x: 0, y: 0.76}
   HQ: 0
