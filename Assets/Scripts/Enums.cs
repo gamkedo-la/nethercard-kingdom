@@ -19,3 +19,10 @@ public enum CardType
 	AoeSpell,
 	None
 }
+
+public enum CardSelectionMode
+{
+	InHand,
+	InCollection,
+	InDeck
+}

@@ -11,6 +11,8 @@ using UnityEngine.UI;
 
 public class Card : MonoBehaviour
 {
+	public CardSelectionMode SelectionMode { get { return selectionMode; } set { selectionMode = value; } }
+
 	[Header("External Objects")]
 	[SerializeField] private GameObject toSummon = null;
 
@@ -31,6 +33,7 @@ public class Card : MonoBehaviour
 
 	[Header("Card Parameters")]
 	[SerializeField] private CardType type = CardType.Unit;
+	[SerializeField] private CardSelectionMode selectionMode = CardSelectionMode.InHand;
 	[SerializeField] private int useCost = 2;
 	[SerializeField] private string displayName = "Unnamed Card";
 	[SerializeField] private string abilityText = "This is just a test description...";
@@ -68,19 +71,25 @@ public class Card : MonoBehaviour
 	{
 		if ( draggedCard == this )
 		{
-			transform.position = Vector2.Lerp( transform.position, Input.mousePosition, 0.25f );
-			canvasGroup.alpha = Mathf.Lerp( canvasGroup.alpha, 0.0f, 0.15f );
-			liveImage.alpha = Mathf.Lerp( liveImage.alpha, 0.5f, 0.15f );
-			transform.localScale = Vector3.one;
+			if ( selectionMode == CardSelectionMode.InHand )
+			{
+				transform.position = Vector2.Lerp( transform.position, Input.mousePosition, 0.25f );
+				canvasGroup.alpha = Mathf.Lerp( canvasGroup.alpha, 0.0f, 0.15f );
+				liveImage.alpha = Mathf.Lerp( liveImage.alpha, 0.5f, 0.15f );
+				transform.localScale = Vector3.one;
+			}
 		}
 		else
 		{
-			if ( SummoningManager.Instance.EnoughMana( useCost ) )
-				canvasGroup.alpha = 1f;
-			else
-				canvasGroup.alpha = 0.9f;
+			if ( selectionMode == CardSelectionMode.InHand )
+			{
+				if ( SummoningManager.Instance.EnoughMana( useCost ) )
+					canvasGroup.alpha = 1f;
+				else
+					canvasGroup.alpha = 0.9f;
 
-			liveImage.alpha = Mathf.Lerp( liveImage.alpha, 0f, 0.25f );
+				liveImage.alpha = Mathf.Lerp( liveImage.alpha, 0f, 0.25f );
+			}
 
 			if ( lerpBackTimer <= 0f || !lerpBack )
 				transform.localScale = Vector3.Lerp( transform.localScale, scaleToLerp, 0.25f );
@@ -96,60 +105,83 @@ public class Card : MonoBehaviour
 
 	public void OnOverEnter( )
 	{
-		scaleToLerp = Vector3.one * 1.3f;
-		lerpBack = false;
-		lerpBackTimer = 0.1f;
-		canvas.overrideSorting = true;
-		canvas.sortingOrder = 1100;
+		if ( selectionMode == CardSelectionMode.InHand )
+		{
+			scaleToLerp = Vector3.one * 1.3f;
+			lerpBack = false;
+			lerpBackTimer = 0.1f;
+			canvas.overrideSorting = true;
+			canvas.sortingOrder = 1100;
 
-		if ( hoverCard == null )
-			hoverCard = this;
+			if ( hoverCard == null )
+				hoverCard = this;
+		}
+		else if ( selectionMode == CardSelectionMode.InCollection )
+		{
+			scaleToLerp = Vector3.one * 1.1f;
+			lerpBack = false;
+			lerpBackTimer = 0.1f;
+		}
 	}
 
 	public void OnOverExit( )
 	{
-		if ( draggedCard == this )
-			return;
+		if ( selectionMode == CardSelectionMode.InHand )
+		{
+			if ( draggedCard == this )
+				return;
 
-		scaleToLerp = Vector3.one;
-		lerpBack = true;
-		canvas.overrideSorting = false;
-		canvas.sortingOrder = 0;
+			scaleToLerp = Vector3.one;
+			lerpBack = true;
+			canvas.overrideSorting = false;
+			canvas.sortingOrder = 0;
 
-		if ( hoverCard == this )
-			hoverCard = null;
+			if ( hoverCard == this )
+				hoverCard = null;
+		}
+		else if ( selectionMode == CardSelectionMode.InCollection )
+		{
+			scaleToLerp = Vector3.one;
+			lerpBack = true;
+		}
 	}
 
 	public void OnCliked( )
 	{
-		if ( !SummoningManager.Instance.EnoughMana( useCost ) )
-			return;
+		if ( selectionMode == CardSelectionMode.InHand )
+		{
+			if ( !SummoningManager.Instance.EnoughMana( useCost ) )
+				return;
 
-		draggedCard = this;
-		OnOverEnter( );
+			draggedCard = this;
+			OnOverEnter( );
 
-		SummoningManager.Instance.Summoning( Camera.main.ScreenToWorldPoint( Input.mousePosition ), type, true );
+			SummoningManager.Instance.Summoning( Camera.main.ScreenToWorldPoint( Input.mousePosition ), type, true );
+		}
 	}
 
 	public void OnReleased( )
 	{
-		if ( draggedCard != this )
-			return;
-
-		canvasGroup.alpha = 1f;
-		draggedCard = null;
-		OnOverExit( );
-
-		bool canSummon = SummoningManager.Instance.Summoning( Vector2.zero, type, false );
-
-		if ( canSummon )
+		if ( selectionMode == CardSelectionMode.InHand )
 		{
-			GameObject instance = Instantiate( toSummon, (Vector2)Camera.main.ScreenToWorldPoint( Input.mousePosition ), Quaternion.identity );
-			if ( type == CardType.DirectDefensiveSpell || type == CardType.DirectOffensiveSpell || type == CardType.AoeSpell )
-				instance.GetComponent<Spell>( ).SetTarget( SummoningManager.Instance.LastTarget );
+			if ( draggedCard != this )
+				return;
 
-			SummoningManager.Instance.UseMana( useCost );
-			Destroy( gameObject );
+			canvasGroup.alpha = 1f;
+			draggedCard = null;
+			OnOverExit( );
+
+			bool canSummon = SummoningManager.Instance.Summoning( Vector2.zero, type, false );
+
+			if ( canSummon )
+			{
+				GameObject instance = Instantiate( toSummon, (Vector2)Camera.main.ScreenToWorldPoint( Input.mousePosition ), Quaternion.identity );
+				if ( type == CardType.DirectDefensiveSpell || type == CardType.DirectOffensiveSpell || type == CardType.AoeSpell )
+					instance.GetComponent<Spell>( ).SetTarget( SummoningManager.Instance.LastTarget );
+
+				SummoningManager.Instance.UseMana( useCost );
+				Destroy( gameObject );
+			}
 		}
 	}
 
