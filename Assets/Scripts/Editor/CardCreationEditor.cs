@@ -23,7 +23,7 @@ public class CardCreationEditor : EditorWindow
     private Sprite cardArtBorder = null;
 
     private GameObject toSummon;
-    
+
     //Units Instance Variables
     private string unitName = "New Unit Name";
     private Sprite unitArtFill = null;
@@ -43,7 +43,7 @@ public class CardCreationEditor : EditorWindow
     [MenuItem("Card Creation/Card Creator")]
     public static void ShowWindow()
     {
-        GetWindow<ExampleEditor>("Card Creator");
+        GetWindow<CardCreationEditor>("Card Creator");
     }
 
     void OnGUI()
@@ -91,7 +91,7 @@ public class CardCreationEditor : EditorWindow
             spellName = EditorGUILayout.TextField("Spell Name", spellName);
             spellType = (CardType)EditorGUILayout.EnumPopup("Spell Type", spellType);
             spellArtFill = (Sprite)EditorGUILayout.ObjectField("Spell Art Fill", spellArtFill, typeof(Sprite), true);
-            spellArtBorder = (Sprite)EditorGUILayout.ObjectField("Spell Art Border", spellArtBorder, typeof(Sprite), true);           
+            spellArtBorder = (Sprite)EditorGUILayout.ObjectField("Spell Art Border", spellArtBorder, typeof(Sprite), true);
 
             if (GUILayout.Button("Finish Spell"))
             {
