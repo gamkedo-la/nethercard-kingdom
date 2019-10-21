@@ -24,7 +24,7 @@ public class HandCardsLayout : MonoBehaviour
 
     [Header("Hover Card Properties")]
     [SerializeField] private float hoverCardGap = 50.0f;
-    [SerializeField] private float hoverCardXPositionFist = 475.0f;
+    [SerializeField] private float hoverCardXPositionFirst = 475.0f;
     [SerializeField] private float hoverCardXPositionLast = 715.0f;
     [SerializeField] private float hoverCardYPosition = 5.0f;
     [SerializeField] private float hoverCardToMousePositionRatio = 0.15f;
@@ -67,10 +67,10 @@ public class HandCardsLayout : MonoBehaviour
 				newCardPosition.y = hoverCardYPosition;
 
 				/*if (hoverCardIndex == 0)
-					newCardPosition.x = hoverCardXPositionFist;*/
+					newCardPosition.x = hoverCardXPositionFirst;
 
 				if ( hoverCardIndex == totalCards-1 )
-					newCardPosition.x = hoverCardXPositionLast;
+					newCardPosition.x = hoverCardXPositionLast;*/
 
 				newCardPosition = Vector2.Lerp(newCardPosition, Input.mousePosition, hoverCardToMousePositionRatio);
 			}
