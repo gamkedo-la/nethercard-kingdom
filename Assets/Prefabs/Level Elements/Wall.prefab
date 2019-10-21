@@ -239,6 +239,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: {fileID: 7832217364804872023}
   attack: {fileID: 46009702003437391}
+  borderSprite: {fileID: 6250777182742533663}
+  fillSprite: {fileID: 2679391589614712076}
   side: 0
   unitCenter: {x: 0, y: 0}
   HQ: 1
@@ -298,6 +300,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: {fileID: 7832217364804872023}
   attack: {fileID: 46009702003437391}
+  borderSprite: {fileID: 6250777182742533663}
+  fillSprite: {fileID: 2679391589614712076}
   side: 0
   unitCenter: {x: 0, y: 0}
   HQ: 1
@@ -613,6 +617,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: {fileID: 7832217364804872023}
   attack: {fileID: 46009702003437391}
+  borderSprite: {fileID: 6250777182742533663}
+  fillSprite: {fileID: 2679391589614712076}
   side: 0
   unitCenter: {x: 0, y: 0}
   HQ: 1
@@ -672,6 +678,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: {fileID: 7832217364804872023}
   attack: {fileID: 46009702003437391}
+  borderSprite: {fileID: 6250777182742533663}
+  fillSprite: {fileID: 2679391589614712076}
   side: 0
   unitCenter: {x: 0, y: 0}
   HQ: 1
