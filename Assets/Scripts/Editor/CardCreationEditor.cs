@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using UnityEditor;
+using System.IO;
 
 
-public class ExampleEditor : EditorWindow
+public class CardCreationEditor : EditorWindow
 {
     private int toolBarInt = 0;
     private string[] editorTabs = { "Card Creation", "Unit Creation", "Spell Creation" };
@@ -22,6 +23,7 @@ public class ExampleEditor : EditorWindow
     private Sprite cardArtBorder = null;
 
     private GameObject toSummon;
+    
     //Units Instance Variables
     private string unitName = "New Unit Name";
     private Sprite unitArtFill = null;
@@ -102,6 +104,10 @@ public class ExampleEditor : EditorWindow
     {
         string prefabPath = "Assets/Prefabs/Unit Instance Template.prefab";
         string localPath = "Assets/Prefabs/Player Cards/" + unitName + ".prefab";
+        if (CheckIfExists(localPath))
+        {
+            return;
+        }
         Object unitPrefab = (GameObject)AssetDatabase.LoadAssetAtPath(prefabPath, typeof(GameObject));
         GameObject unit = PrefabUtility.InstantiatePrefab(unitPrefab) as GameObject;
         GameObject newUnit = PrefabUtility.SaveAsPrefabAsset(unit, localPath);
@@ -116,6 +122,9 @@ public class ExampleEditor : EditorWindow
     {
         string prefabPath = "Assets/Prefabs/Spell Instance Template.prefab";
         string localPath = "Assets/Prefabs/Player Cards/" + spellName + ".prefab";
+        if (CheckIfExists(localPath)) {
+            return;
+        }
         Object spellPrefab = (GameObject)AssetDatabase.LoadAssetAtPath(prefabPath, typeof(GameObject));
         GameObject spell = PrefabUtility.InstantiatePrefab(spellPrefab) as GameObject;
         GameObject newSpell = PrefabUtility.SaveAsPrefabAsset(spell, localPath);
@@ -144,6 +153,10 @@ public class ExampleEditor : EditorWindow
         //TODO: Add some error checking.  Currently, if a new card has the same name as an existing card the existing card's data is overwritten
         string prefabPath = "Assets/Prefabs/Card Template.prefab";
         string localPath = "Assets/Prefabs/Player Cards/" + cardName + ".prefab";
+        if (CheckIfExists(localPath))
+        {
+            return;
+        }
         Object cardPrefab = (GameObject)AssetDatabase.LoadAssetAtPath(prefabPath, typeof(GameObject));
         GameObject card = PrefabUtility.InstantiatePrefab(cardPrefab) as GameObject;
         GameObject newCard = PrefabUtility.SaveAsPrefabAsset(card, localPath);
@@ -151,5 +164,15 @@ public class ExampleEditor : EditorWindow
         cardData = newCard.GetComponent<Card>();
         cardData.UpdateCardStatsFromEditor(cardType, cardName, cardCost, abilityText, flavorText, cardArtFill, cardArtBorder, toSummon);
         DestroyImmediate(card);
+    }
+
+    bool CheckIfExists(string localPath)
+    {
+        if (File.Exists(localPath))
+        {
+            Debug.Log("Card exists already!");
+            return true;
+        }
+        else { return false; }
     }
 }
