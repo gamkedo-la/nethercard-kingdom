@@ -75,7 +75,7 @@ public class SummoningManager : MonoBehaviour
 		if ( type == CardType.Unit || type == CardType.None )
 			summoningAreaUnits.SetActive( started );
 
-		if ( type == CardType.AoeSpell || type == CardType.AoeSpell )
+		if ( type == CardType.AoeSpell )
 			summoningAreaAoe.SetActive( started );
 
 		UsingMode = started ? type : CardType.None;
@@ -111,9 +111,10 @@ public class SummoningManager : MonoBehaviour
 	{
 		LastTarget = target;
 
-		// We aren't summoning anything
+		// We aren't summoning anything (canceled)
 		if ( UsingMode == CardType.None )
 		{
+			overValidTarget = false;
 			good.SetActive( false );
 			bad.SetActive( false );
 
