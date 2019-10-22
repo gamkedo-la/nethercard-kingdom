@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 public class Deck : MonoBehaviour
 {
@@ -6,22 +8,20 @@ public class Deck : MonoBehaviour
     [SerializeField] private GameObject hand = null;
 
     [Header("Card Draw Conditions")]
-    [Tooltip("If card limit <= 0, it means infinite.")]
-    [SerializeField] private int cardLimit = 3;
-    [Tooltip("Auto draw will be disabled if value <= 0")]
-    [SerializeField] private float autoDrawDelay = 0.25f;
+    [SerializeField, Tooltip("If card limit <= 0, it means infinite.")] private int cardLimit = 3;
+    [SerializeField, Tooltip("Auto draw will be disabled if value <= 0")] private float autoDrawDelay = 0.25f;
     [SerializeField] private int drawCost = 1;
     [SerializeField] private int incrementCostPerCard = 1;
 
     [Header("New Card Properties")]
     [SerializeField] private Vector3 newCardPositionOffset = Vector3.zero;
     [SerializeField] private Vector3 newCardRotationOffset = Vector3.zero;
-    [SerializeField] private GameObject[] cards = null;
 
     private Vector3 scaleToLerp = Vector3.one;
     private float autoDrawTimer = 0.0f;
+	private Queue<Card> drawQueue = new Queue<Card>();
 
-    void Update()
+	void Update()
     {
         if (cardLimit <= 0 || hand.transform.childCount < cardLimit)
             if (autoDrawDelay > 0.0f && autoDrawTimer <= 0.0f)
@@ -66,7 +66,17 @@ public class Deck : MonoBehaviour
 
 	private GameObject GetCardFromDeck( )
 	{
-		// Add a queue mechanic here (and get cards from Deck Builder)
-		return cards[Random.Range( 0, cards.Length )];
+		if ( drawQueue.Count <= 0 )
+			drawQueue = NewRandomizedDrawQueue( );
+
+		Card card = drawQueue.Dequeue( );
+
+		return card.Prefab ? card.Prefab : card.gameObject;
+	}
+
+	private Queue<Card> NewRandomizedDrawQueue( )
+	{
+		Card[] cards = DeckBuilder.Instance.GetPlayerDeck( );
+		return new Queue<Card>( cards.OrderBy( x => Random.Range( 0, 10000000 ) ).ToArray( ) );
 	}
 }

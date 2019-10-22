@@ -871,15 +871,15 @@ MonoBehaviour:
   tooltip: {fileID: 4747218210491694307}
   cardsInCollection:
   - Card: {fileID: 5878165872008782306, guid: f4b608c5cc99c6644a3879e8b33224bb, type: 3}
-    Amount: 2
+    Amount: 5
   - Card: {fileID: 949820519525452328, guid: 35c73b0121dc76649931f579533a5375, type: 3}
-    Amount: 0
+    Amount: 5
   - Card: {fileID: 8311138147123623806, guid: 0b0297453a5bfa94a85638fff8e5f6ff, type: 3}
-    Amount: 3
+    Amount: 5
   - Card: {fileID: 6412157164616586719, guid: d53af6725d85789418919b90f9ab9991, type: 3}
-    Amount: 0
+    Amount: 5
   - Card: {fileID: 8013548960502163808, guid: 39305d494c8b56a44b497d389241a5fd, type: 3}
-    Amount: 0
+    Amount: 5
   cardsInDeck:
   - {fileID: 5878165872008782306, guid: f4b608c5cc99c6644a3879e8b33224bb, type: 3}
   - {fileID: 5878165872008782306, guid: f4b608c5cc99c6644a3879e8b33224bb, type: 3}
