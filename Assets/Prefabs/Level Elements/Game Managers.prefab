@@ -302,6 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4d4e574994306a43955286a71ee7702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showDebugInfo: 1
 --- !u!114 &1289313127792475357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,8 +334,9 @@ MonoBehaviour:
   good: {fileID: 1289313127435805898}
   bad: {fileID: 1289313126059173016}
   line: {fileID: 1289313128042809079}
-  manaTickTime: 2
-  manaTickAmount: 1
+  manaTickTime: 5
+  manaTickAmount: 2
+  startMana: 3
 --- !u!1 &1289313128020435011
 GameObject:
   m_ObjectHideFlags: 0

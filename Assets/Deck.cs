@@ -27,7 +27,7 @@ public class Deck : MonoBehaviour
     {
         if (SummoningManager.Instance.EnoughMana(drawCost + (incrementCostPerCard * hand.transform.childCount)))
         {
-            SummoningManager.Instance.UseMana(drawCost + (incrementCostPerCard * hand.transform.childCount));
+            SummoningManager.Instance.RemoveMana(drawCost + (incrementCostPerCard * hand.transform.childCount));
 
             GameObject newCard = Instantiate(cards[Random.Range(0, cards.Length)],
             transform.position + newCardPositionOffset,

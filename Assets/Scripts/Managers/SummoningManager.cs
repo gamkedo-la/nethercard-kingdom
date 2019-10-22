@@ -24,6 +24,7 @@ public class SummoningManager : MonoBehaviour
 	[SerializeField] private LineRenderer line = null;
 	[SerializeField] private float manaTickTime = 2f;
 	[SerializeField] private int manaTickAmount = 1;
+	[SerializeField] private int startMana = 3;
 
 	private Vector2 lineStartPoint;
 	private bool overValidTarget = false;
@@ -50,7 +51,7 @@ public class SummoningManager : MonoBehaviour
 		Assert.IsNotNull( bad, $"Please assign <b>{nameof( bad )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( line, $"Please assign <b>{nameof( line )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
-		InvokeRepeating( nameof( ManaTick ), manaTickTime, manaTickTime );
+		AddMana( startMana );
 	}
 
 	void Update ()
@@ -66,21 +67,8 @@ public class SummoningManager : MonoBehaviour
 			bad.transform.position = endPoint;
 		}
 
-		currentManaProgress += Time.deltaTime / manaTickTime;
-		progressImage.fillAmount = currentManaProgress;
+		ManaProgress( );
 	}
-
-	private void ManaTick( )
-    {
-        AddMana( manaTickAmount );
-    }
-
-    public void AddMana( int manaAmt )
-    {
-        currentMana += manaAmt;
-        manaCounter.text = currentMana.ToString();
-        currentManaProgress = 0;
-    }
 
 	public bool Summoning( Vector2 startPos, CardType type, bool started )
 	{
@@ -106,7 +94,14 @@ public class SummoningManager : MonoBehaviour
 
 	public bool EnoughMana( int amount ) => currentMana >= amount;
 
-	public void UseMana( int amount )
+	public void AddMana( int amount )
+	{
+		currentMana += amount;
+		manaCounter.text = currentMana.ToString( );
+		currentManaProgress = 0;
+	}
+
+	public void RemoveMana( int amount )
 	{
 		currentMana -= amount;
 		manaCounter.text = currentMana.ToString( );
@@ -174,5 +169,16 @@ public class SummoningManager : MonoBehaviour
 
 			return;
 		}
+	}
+
+	private void ManaProgress( )
+	{
+		currentManaProgress += Time.deltaTime / manaTickTime;
+		progressImage.fillAmount = currentManaProgress;
+
+		if ( currentManaProgress < 1 )
+			return;
+
+		AddMana( manaTickAmount );
 	}
 }

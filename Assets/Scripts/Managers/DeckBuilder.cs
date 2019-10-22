@@ -125,7 +125,7 @@ public class DeckBuilder : MonoBehaviour
 	private void TrySwapCards( )
 	{
 		// Tried to add more then max identical Cards to the Deck
-		int sameCardsInDeck = cardsInDeck.Select( card => card.Name == selectedCollectionCard.Name ).Count( );
+		int sameCardsInDeck = cardsInDeck.Count( card => card.Name == selectedCollectionCard.Name );
 		if ( sameCardsInDeck >= maxIdenticalDeckCards &&  selectedCollectionCard.Name != selectedDeckCard.Name )
 		{
 			tooltip.text = "Can't have more then 3 identical cards in Deck";
@@ -137,14 +137,32 @@ public class DeckBuilder : MonoBehaviour
 			return;
 		}
 
-		// swap cards
-			// remove from collection
-			// remove from deck
-			// add to collection
-			// add to deck
-			// update collection
-			// update deck
+		// Swap cards
 
+		// Remove card selected in collection from the collection (by reducing the amount we have)
+		CardInCollection cardInCollectionToSwap = cardsInCollection.First( card => card.Card.Name == selectedCollectionCard.Name );
+		cardInCollectionToSwap.Amount--;
+
+		// Remove card selected in the deck from the deck
+		Card cardInDeckToSwap = selectedDeckCard;
+		// tutaj tylko zostawić wolne miejsce
+		cardsInDeck = cardsInDeck.Where( card => card != cardInDeckToSwap ).ToArray( );
+
+		// Add card selected from the deck to collection
+		CardInCollection cardInCollectionToAddTo = cardsInCollection.First( card => card.Card.Name == selectedDeckCard.Name );
+		cardInCollectionToSwap.Amount++;
+
+		// Add (swap) card selected from the collection to deck
+		Card cardInDeckToAdd = selectedCollectionCard;
+		// a tutaj tylko podmienić
+		System.Array.Resize( ref cardsInDeck, cardsInDeck.Length + 1 );
+		cardsInDeck[cardsInDeck.Length - 1] = cardInDeckToAdd;
+
+		// Cards swapped
+
+		// Update changes
+		UpdateCollection( );
+		UpdateDeck( );
 
 		// Unselect both cards
 		selectedCollectionCard.CardSelected( false );

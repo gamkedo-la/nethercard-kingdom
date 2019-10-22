@@ -28,6 +28,9 @@ public class CardSlot : MonoBehaviour
 
 	public void Set( GameObject card, float amount )
 	{
+		if ( slot.transform.childCount > 0 )
+			Destroy( slot.transform.GetChild( 0 ) );
+
 		this.card = Instantiate( card, slot.transform );
 		this.card.GetComponent<Card>( ).SelectionMode = mode;
 

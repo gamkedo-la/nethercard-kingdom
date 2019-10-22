@@ -196,7 +196,7 @@ public class Card : MonoBehaviour
 				if ( type == CardType.DirectDefensiveSpell || type == CardType.DirectOffensiveSpell || type == CardType.AoeSpell )
 					instance.GetComponent<Spell>( ).SetTarget( SummoningManager.Instance.LastTarget );
 
-				SummoningManager.Instance.UseMana( useCost );
+				SummoningManager.Instance.RemoveMana( useCost );
 				Destroy( gameObject );
 			}
 		}
