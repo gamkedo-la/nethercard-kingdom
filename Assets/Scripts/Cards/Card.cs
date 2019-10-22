@@ -12,6 +12,7 @@ using UnityEngine.UI;
 public class Card : MonoBehaviour
 {
 	public CardSelectionMode SelectionMode { get { return selectionMode; } set { selectionMode = value; } }
+	public string Name { get { return displayName; } }
 
 	[Header("External Objects")]
 	[SerializeField] private GameObject toSummon = null;

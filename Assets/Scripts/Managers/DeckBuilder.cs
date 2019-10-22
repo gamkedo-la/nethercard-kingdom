@@ -32,6 +32,7 @@ public class DeckBuilder : MonoBehaviour
 
 	[Header("Deck")]
 	[SerializeField] private Card[] cardsInDeck = null;
+	[SerializeField] private int maxIdenticalDeckCards = 3;
 
 	private Card selectedCollectionCard = null;
 	private Card selectedDeckCard = null;
@@ -123,6 +124,28 @@ public class DeckBuilder : MonoBehaviour
 
 	private void TrySwapCards( )
 	{
+		// Tried to add more then max identical Cards to the Deck
+		int sameCardsInDeck = cardsInDeck.Select( card => card.Name == selectedCollectionCard.Name ).Count( );
+		if ( sameCardsInDeck >= maxIdenticalDeckCards &&  selectedCollectionCard.Name != selectedDeckCard.Name )
+		{
+			tooltip.text = "Can't have more then 3 identical cards in Deck";
+
+			selectedDeckCard.CardSelected( false );
+			selectedDeckCard.transform.parent.parent.GetComponent<CardSlot>( ).Select( false );
+			selectedDeckCard = null;
+
+			return;
+		}
+
+		// swap cards
+			// remove from collection
+			// remove from deck
+			// add to collection
+			// add to deck
+			// update collection
+			// update deck
+
+
 		// Unselect both cards
 		selectedCollectionCard.CardSelected( false );
 		selectedCollectionCard.transform.parent.parent.GetComponent<CardSlot>( ).Select( false );
