@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Deck : MonoBehaviour
 {
@@ -22,26 +20,6 @@ public class Deck : MonoBehaviour
 
     private Vector3 scaleToLerp = Vector3.one;
     private float autoDrawTimer = 0.0f;
-
-    private void DrawCard()
-    {
-        if (SummoningManager.Instance.EnoughMana(drawCost + (incrementCostPerCard * hand.transform.childCount)))
-        {
-            SummoningManager.Instance.RemoveMana(drawCost + (incrementCostPerCard * hand.transform.childCount));
-
-            GameObject newCard = Instantiate(cards[Random.Range(0, cards.Length)],
-            transform.position + newCardPositionOffset,
-            Quaternion.Euler(newCardRotationOffset.x, newCardRotationOffset.y, newCardRotationOffset.z));
-            newCard.transform.SetParent(hand.transform, true);
-            newCard.transform.SetSiblingIndex(0);
-
-            autoDrawTimer = autoDrawDelay;
-        }
-    }
-
-    void Start()
-    {
-    }
 
     void Update()
     {
@@ -69,4 +47,26 @@ public class Deck : MonoBehaviour
             if (autoDrawDelay <= 0.0f)
                 DrawCard();
     }
+
+	private void DrawCard( )
+	{
+		if ( !SummoningManager.Instance.EnoughMana( drawCost + ( incrementCostPerCard * hand.transform.childCount ) ) )
+			return;
+
+		SummoningManager.Instance.RemoveMana( drawCost + ( incrementCostPerCard * hand.transform.childCount ) );
+
+		GameObject newCard = Instantiate( GetCardFromDeck( ),
+		transform.position + newCardPositionOffset,
+		Quaternion.Euler( newCardRotationOffset.x, newCardRotationOffset.y, newCardRotationOffset.z ) );
+		newCard.transform.SetParent( hand.transform, true );
+		newCard.transform.SetSiblingIndex( 0 );
+
+		autoDrawTimer = autoDrawDelay;
+	}
+
+	private GameObject GetCardFromDeck( )
+	{
+		// Add a queue mechanic here (and get cards from Deck Builder)
+		return cards[Random.Range( 0, cards.Length )];
+	}
 }
