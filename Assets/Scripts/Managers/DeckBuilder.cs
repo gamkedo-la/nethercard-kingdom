@@ -270,5 +270,11 @@ public class DeckBuilder : MonoBehaviour
 		}
 	}
 
+	[ContextMenu( "Remove Saved Card Data" )]
+	private void RemovdSavedCardData( )
+	{
+		PlayerPrefs.DeleteKey( "CardsData" );
+	}
+
 	private Card GetCardByName( string cardName ) => allPlayerCards.First( card => card.Name == cardName );
 }
