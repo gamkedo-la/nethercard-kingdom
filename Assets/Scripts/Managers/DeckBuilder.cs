@@ -4,10 +4,21 @@
  * Copyright: © 2019 Kornel. All rights reserved. For license see: 'LICENSE.txt'
  **/
 
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Xml.Serialization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
+
+[System.Serializable]
+public class CardsData
+{
+	public string[] CollectionCards;
+	public int[] CollectionCardsAmounts;
+	public string[] DeckCards;
+}
 
 [System.Serializable]
 public class CardInCollection
@@ -25,6 +36,7 @@ public class DeckBuilder : MonoBehaviour
 	[SerializeField] private GameObject[] toShowOnClose = null;
 	[SerializeField] private CardSlot[] collectionSlots = null;
 	[SerializeField] private CardSlot[] deckSlots = null;
+	[SerializeField] private Card[] allPlayerCards = null;
 	[SerializeField] private TextMeshProUGUI tooltip = null;
 
 	[Header("Collection")]
@@ -51,18 +63,20 @@ public class DeckBuilder : MonoBehaviour
 	{
 		Assert.IsNotNull( tooltip, $"Please assign <b>{nameof( tooltip )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
-		UpdateCollection( );
-		UpdateDeck( );
-		Open( );
+		OpenAndLoad( );
 	}
 
-	public void Open( )
+	public void OpenAndLoad( )
 	{
 		foreach ( var go in toHideOnClose )
 			go.SetActive( true );
 
 		foreach ( var go in toShowOnClose )
 			go.SetActive( false );
+
+		LoadCollectionAndDeck( );
+		UpdateCollection( );
+		UpdateDeck( );
 	}
 
 	public void Close( )
@@ -73,6 +87,14 @@ public class DeckBuilder : MonoBehaviour
 		foreach ( var go in toShowOnClose )
 			go.SetActive( true );
 	}
+
+	public void CloseAndSave( )
+	{
+		SaveCollectionAndDeck( );
+		Close( );
+	}
+
+	public Card[] GetPlayerDeck( ) => cardsInDeck;
 
 	public void CardClicked( Card card, CardSelectionMode mode )
 	{
@@ -156,6 +178,8 @@ public class DeckBuilder : MonoBehaviour
 		Card cardInDeckToAdd = selectedCollectionCard;
 		cardsInDeck[indexInDeckToSwap] = cardInDeckToAdd;
 
+		tooltip.text = "Cards swapped";
+
 		// -- Cards swapped --
 
 		// Unselect both cards
@@ -165,8 +189,6 @@ public class DeckBuilder : MonoBehaviour
 		selectedDeckCard.transform.parent.parent.GetComponent<CardSlot>( ).Select( false );
 		selectedCollectionCard = null;
 		selectedDeckCard = null;
-
-		tooltip.text = "Cards swapped";
 
 		// Update changes
 		UpdateCollection( );
@@ -196,4 +218,57 @@ public class DeckBuilder : MonoBehaviour
 		for ( int i = 0; i < cardsInDeck.Length; i++ )
 			cardsInDeck[i] = deckSlots[i].Set( cardsInDeck[i].gameObject, 1 );
 	}
+
+	private void SaveCollectionAndDeck( )
+	{
+		CardsData cardsData = new CardsData( )
+		{
+			CollectionCards = cardsInCollection.Select( card => card.Card.Name ).ToArray( ),
+			CollectionCardsAmounts = cardsInCollection.Select( card => card.Amount ).ToArray( ),
+			DeckCards = cardsInDeck.Select( card => card.Name ).ToArray( )
+		};
+
+		XmlSerializer xmlSerializer = new XmlSerializer( typeof( CardsData ) );
+		using ( StringWriter writer = new StringWriter( ) )
+		{
+			xmlSerializer.Serialize( writer, cardsData );
+			PlayerPrefs.SetString( "CardsData", writer.ToString( ) );
+		}
+	}
+
+	private void LoadCollectionAndDeck( )
+	{
+		XmlSerializer xmlSerializer = new XmlSerializer( typeof( CardsData ) );
+		string loadedData = PlayerPrefs.GetString( "CardsData" );
+
+		// No card data found, using defaults
+		if ( loadedData == "" )
+			return;
+
+		// Data found
+		using ( StringReader reader = new StringReader( loadedData ) )
+		{
+			CardsData cardsData = xmlSerializer.Deserialize( reader ) as CardsData;
+
+			List<CardInCollection> loadedCollection = new List<CardInCollection>( );
+			for ( int i = 0; i < cardsData.CollectionCards.Length; i++ )
+			{
+				loadedCollection.Add( new CardInCollection
+				{
+					Card = GetCardByName( cardsData.CollectionCards[i] ),
+					Amount = cardsData.CollectionCardsAmounts[i]
+				} );
+			}
+			cardsInCollection = loadedCollection.ToArray( );
+
+			List<Card> loadedDeck = new List<Card>( );
+			foreach ( var card in cardsData.DeckCards )
+			{
+				loadedDeck.Add( GetCardByName( card ) );
+			}
+			cardsInDeck = loadedDeck.ToArray( );
+		}
+	}
+
+	private Card GetCardByName( string cardName ) => allPlayerCards.First( card => card.Name == cardName );
 }
