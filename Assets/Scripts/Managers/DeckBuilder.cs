@@ -137,7 +137,7 @@ public class DeckBuilder : MonoBehaviour
 			return;
 		}
 
-		// Swap cards
+		// -- Swap cards --
 
 		// Remove card selected in collection from the collection (by reducing the amount we have)
 		CardInCollection cardInCollectionToSwap = cardsInCollection.First( card => card.Card.Name == selectedCollectionCard.Name );
@@ -145,24 +145,18 @@ public class DeckBuilder : MonoBehaviour
 
 		// Remove card selected in the deck from the deck
 		Card cardInDeckToSwap = selectedDeckCard;
-		// tutaj tylko zostawić wolne miejsce
-		cardsInDeck = cardsInDeck.Where( card => card != cardInDeckToSwap ).ToArray( );
+		int indexInDeckToSwap = System.Array.IndexOf( cardsInDeck, cardInDeckToSwap );
+		cardsInDeck[indexInDeckToSwap] = null; // Not strictly necessary
 
 		// Add card selected from the deck to collection
 		CardInCollection cardInCollectionToAddTo = cardsInCollection.First( card => card.Card.Name == selectedDeckCard.Name );
-		cardInCollectionToSwap.Amount++;
+		cardInCollectionToAddTo.Amount++;
 
 		// Add (swap) card selected from the collection to deck
 		Card cardInDeckToAdd = selectedCollectionCard;
-		// a tutaj tylko podmienić
-		System.Array.Resize( ref cardsInDeck, cardsInDeck.Length + 1 );
-		cardsInDeck[cardsInDeck.Length - 1] = cardInDeckToAdd;
+		cardsInDeck[indexInDeckToSwap] = cardInDeckToAdd;
 
-		// Cards swapped
-
-		// Update changes
-		UpdateCollection( );
-		UpdateDeck( );
+		// -- Cards swapped --
 
 		// Unselect both cards
 		selectedCollectionCard.CardSelected( false );
@@ -176,6 +170,10 @@ public class DeckBuilder : MonoBehaviour
 		// Cards fully unselected
 		selectedCollectionCard = null;
 		selectedDeckCard = null;
+
+		// Update changes
+		UpdateCollection( );
+		UpdateDeck( );
 	}
 
 	private void UpdateCollection( )
@@ -189,7 +187,7 @@ public class DeckBuilder : MonoBehaviour
 		{
 			if ( cardsInCollection[i].Amount > 0 )
 			{
-				collectionSlots[i].Set( cardsInCollection[i].Card.gameObject, cardsInCollection[i].Amount );
+				cardsInCollection[i].Card = collectionSlots[i].Set( cardsInCollection[i].Card.gameObject, cardsInCollection[i].Amount );
 			}
 		}
 	}
@@ -199,6 +197,6 @@ public class DeckBuilder : MonoBehaviour
 		cardsInDeck = cardsInDeck.OrderBy( card => card.name ).ToArray( );
 
 		for ( int i = 0; i < cardsInDeck.Length; i++ )
-			deckSlots[i].Set( cardsInDeck[i].gameObject, 1 );
+			cardsInDeck[i] = deckSlots[i].Set( cardsInDeck[i].gameObject, 1 );
 	}
 }

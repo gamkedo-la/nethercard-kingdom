@@ -16,7 +16,7 @@ public class CardSlot : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI amountLabel = null;
 	[SerializeField] private CardSelectionMode mode = CardSelectionMode.InCollection;
 
-	private GameObject card = null;
+	private GameObject cardInSlot;
 
 	void Start ()
 	{
@@ -26,27 +26,32 @@ public class CardSlot : MonoBehaviour
 		Assert.IsNotNull( amountLabel, $"Please assign <b>{nameof( amountLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 	}
 
-	public void Set( GameObject card, float amount )
+	public Card Set( GameObject cardObject, float amount )
 	{
-		if ( slot.transform.childCount > 0 )
-			Destroy( slot.transform.GetChild( 0 ) );
+		SetEmpty( );
 
-		this.card = Instantiate( card, slot.transform );
-		this.card.GetComponent<Card>( ).SelectionMode = mode;
+		GameObject toSpawn = cardObject.GetComponent<Card>( ).Prefab ? cardObject.GetComponent<Card>( ).Prefab : cardObject;
+
+		cardInSlot = Instantiate( toSpawn, slot.transform );
+		Card card = cardInSlot.GetComponent<Card>( );
+		card.SelectionMode = mode;
+		card.Prefab = toSpawn;
 
 		this.amount.SetActive( true );
 		amountLabel.text = amount.ToString( );
 
 		if ( mode != CardSelectionMode.InCollection )
 			this.amount.SetActive( false );
+
+		return card;
 	}
 
 	public void SetEmpty( )
 	{
 		amount.SetActive( false );
 
-		if ( card )
-			Destroy( card );
+		if ( cardInSlot )
+			Destroy( cardInSlot );
 	}
 
 	public void Select( bool selected )
