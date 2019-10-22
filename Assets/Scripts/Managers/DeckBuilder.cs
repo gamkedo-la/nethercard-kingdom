@@ -163,13 +163,10 @@ public class DeckBuilder : MonoBehaviour
 		selectedCollectionCard.transform.parent.parent.GetComponent<CardSlot>( ).Select( false );
 		selectedDeckCard.CardSelected( false );
 		selectedDeckCard.transform.parent.parent.GetComponent<CardSlot>( ).Select( false );
-
-		// Swap cards
-		tooltip.text = "Cards swapped";
-
-		// Cards fully unselected
 		selectedCollectionCard = null;
 		selectedDeckCard = null;
+
+		tooltip.text = "Cards swapped";
 
 		// Update changes
 		UpdateCollection( );
