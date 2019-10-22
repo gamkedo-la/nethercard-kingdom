@@ -5,6 +5,7 @@
  **/
 
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -24,6 +25,7 @@ public class DeckBuilder : MonoBehaviour
 	[SerializeField] private GameObject[] toShowOnClose = null;
 	[SerializeField] private CardSlot[] collectionSlots = null;
 	[SerializeField] private CardSlot[] deckSlots = null;
+	[SerializeField] private TextMeshProUGUI tooltip = null;
 
 	[Header("Collection")]
 	[SerializeField] private CardInCollection[] cardsInCollection = null;
@@ -46,7 +48,7 @@ public class DeckBuilder : MonoBehaviour
 
 	void Start ()
 	{
-		//Assert.IsNotNull( , $"Please assign <b>{nameof(  )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( tooltip, $"Please assign <b>{nameof( tooltip )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
 		UpdateCollection( );
 		UpdateDeck( );
@@ -73,48 +75,66 @@ public class DeckBuilder : MonoBehaviour
 
 	public void CardClicked( Card card, CardSelectionMode mode )
 	{
+		// Clicked card in the Collection
 		if ( mode == CardSelectionMode.InCollection )
 		{
-			if ( selectedCollectionCard )
+			if ( selectedCollectionCard ) // Unselecting the last card
 			{
 				selectedCollectionCard.CardSelected( false );
 				selectedCollectionCard.transform.parent.parent.GetComponent<CardSlot>( ).Select( false );
 			}
 
-			if ( selectedCollectionCard != card )
+			if ( selectedCollectionCard != card ) // Selected another card
 			{
 				selectedCollectionCard = card;
 				selectedCollectionCard.CardSelected( true );
 				selectedCollectionCard.transform.parent.parent.GetComponent<CardSlot>( ).Select( true );
+				tooltip.text = "Select card from Deck to swap";
 			}
-			else
+			else // Last card was unselected
 			{
-				selectedCollectionCard.CardSelected( false );
-				selectedCollectionCard.transform.parent.parent.GetComponent<CardSlot>( ).Select( false );
 				selectedCollectionCard = null;
 			}
 		}
 		else if ( mode == CardSelectionMode.InDeck )
 		{
-			if ( selectedDeckCard )
+			if ( selectedDeckCard ) // Unselecting the last card
 			{
 				selectedDeckCard.CardSelected( false );
 				selectedDeckCard.transform.parent.parent.GetComponent<CardSlot>( ).Select( false );
 			}
 
-			if ( selectedDeckCard != card )
+			if ( selectedDeckCard != card ) // Selected another card
 			{
 				selectedDeckCard = card;
 				selectedDeckCard.CardSelected( true );
 				selectedDeckCard.transform.parent.parent.GetComponent<CardSlot>( ).Select( true );
+				tooltip.text = "Select card from Collection to swap";
 			}
-			else
+			else // Last card was unselected
 			{
-				selectedDeckCard.CardSelected( false );
-				selectedDeckCard.transform.parent.parent.GetComponent<CardSlot>( ).Select( false );
 				selectedDeckCard = null;
 			}
 		}
+
+		if ( selectedCollectionCard && selectedDeckCard )
+			TrySwapCards( );
+	}
+
+	private void TrySwapCards( )
+	{
+		// Unselect both cards
+		selectedCollectionCard.CardSelected( false );
+		selectedCollectionCard.transform.parent.parent.GetComponent<CardSlot>( ).Select( false );
+		selectedDeckCard.CardSelected( false );
+		selectedDeckCard.transform.parent.parent.GetComponent<CardSlot>( ).Select( false );
+
+		// Swap cards
+		tooltip.text = "Cards swapped";
+
+		// Cards fully unselected
+		selectedCollectionCard = null;
+		selectedDeckCard = null;
 	}
 
 	private void UpdateCollection( )
