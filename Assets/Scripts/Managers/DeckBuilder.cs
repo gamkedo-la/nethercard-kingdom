@@ -165,8 +165,20 @@ public class DeckBuilder : MonoBehaviour
 
 	public void UpgradeCard( )
 	{
+		// De-select
+		Card cardToUpgrade = selectedCollectionCard;
 		CardClicked( selectedCollectionCard, CardSelectionMode.InCollection );
-		Debug.Log( "Clicked Upgraded. Doing nothing, for now" );
+
+		// Find selected card in master collection
+		CardInMasterCollection lowerCardVersion = allPlayerCards.First( card => card.Card.Name == cardToUpgrade.Name );
+		// Find it's upgraded version
+		CardInMasterCollection higherCardVersion = allPlayerCards.First( card => card.Card.Name == cardToUpgrade.HigherLevelVersion.Name );
+		// Take 2 source cards...
+		lowerCardVersion.AmountPlayerOwns -= 2;
+		// ...and turn them in to a better one
+		higherCardVersion.AmountPlayerOwns += 1;
+
+		UpdateCollection( );
 	}
 
 	public Card[] GetPlayerDeck( ) => cardsInDeck;

@@ -1269,7 +1269,7 @@ MonoBehaviour:
   tooltip: {fileID: 4747218210491694307}
   allPlayerCards:
   - Card: {fileID: 5878165872008782306, guid: f4b608c5cc99c6644a3879e8b33224bb, type: 3}
-    AmountPlayerOwns: 3
+    AmountPlayerOwns: 20
     AmountInDeck: 3
   - Card: {fileID: 6727232176801188089, guid: 7dc7cebc02c5fa445960646a217fe88c, type: 3}
     AmountPlayerOwns: 0
