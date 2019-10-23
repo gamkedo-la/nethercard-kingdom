@@ -11,6 +11,7 @@ public class CardCreationEditor : EditorWindow
     //Card Variables
     string cardName = "New Card Name";
     CardType cardType;
+    CardLevel cardLevel = CardLevel.Level1;
     private Card cardData;
     private int cardCost = 0;
     //private int attack = 0;
@@ -23,6 +24,8 @@ public class CardCreationEditor : EditorWindow
     private Sprite cardArtBorder = null;
 
     private GameObject toSummon;
+    private Card higherLevelCard = null;
+    private Card lowerLevelCard = null;
 
     //Units Instance Variables
     private string unitName = "New Unit Name";
@@ -56,6 +59,18 @@ public class CardCreationEditor : EditorWindow
 
             cardName = EditorGUILayout.TextField("Card Name", cardName);
             cardType = (CardType)EditorGUILayout.EnumPopup("Card Type", cardType);
+            cardLevel = (CardLevel)EditorGUILayout.EnumPopup("Card Level", cardLevel);
+
+            if (cardLevel == CardLevel.Level1 || cardLevel == CardLevel.Level2)
+            {
+                higherLevelCard = (Card)EditorGUILayout.ObjectField("Higher Level Card", higherLevelCard, typeof(Card), false, GUILayout.ExpandWidth(true));
+            }
+
+            if (cardLevel == CardLevel.Level3 || cardLevel == CardLevel.Level2)
+            {
+                lowerLevelCard = (Card)EditorGUILayout.ObjectField("Lower Level Card", lowerLevelCard, typeof(Card), false, GUILayout.ExpandWidth(true));
+            }
+
             toSummon = (GameObject)EditorGUILayout.ObjectField("Instance to Summon", toSummon, typeof(GameObject), false, GUILayout.ExpandWidth(true));
             cardArtFill = (Sprite)EditorGUILayout.ObjectField("Card Art Fill", cardArtFill, typeof(Sprite), true);
             cardArtBorder = (Sprite)EditorGUILayout.ObjectField("Card Art Border", cardArtBorder, typeof(Sprite), true);
@@ -122,7 +137,8 @@ public class CardCreationEditor : EditorWindow
     {
         string prefabPath = "Assets/Prefabs/Spell Instance Template.prefab";
         string localPath = "Assets/Prefabs/Player Cards/" + spellName + ".prefab";
-        if (CheckIfExists(localPath)) {
+        if (CheckIfExists(localPath))
+        {
             return;
         }
         Object spellPrefab = (GameObject)AssetDatabase.LoadAssetAtPath(prefabPath, typeof(GameObject));
@@ -162,7 +178,7 @@ public class CardCreationEditor : EditorWindow
         GameObject newCard = PrefabUtility.SaveAsPrefabAsset(card, localPath);
 
         cardData = newCard.GetComponent<Card>();
-        cardData.UpdateCardStatsFromEditor(cardType, cardName, cardCost, abilityText, flavorText, cardArtFill, cardArtBorder, toSummon);
+        cardData.UpdateCardStatsFromEditor(cardType, cardLevel, cardName, cardCost, abilityText, flavorText, cardArtFill, cardArtBorder, toSummon);
         DestroyImmediate(card);
     }
 

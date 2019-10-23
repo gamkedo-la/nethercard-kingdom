@@ -272,9 +272,11 @@ public class Card : MonoBehaviour
 		}
 	}
 
-	public void UpdateCardStatsFromEditor( CardType cardType, string name, int cost, string ability, string flavor, Sprite borderSprite, Sprite fillSprite, GameObject instanceToSummon )
+	public void UpdateCardStatsFromEditor(CardType cardType, CardLevel cardLevel, string name, int cost, 
+        string ability, string flavor, Sprite borderSprite, Sprite fillSprite, GameObject instanceToSummon )
 	{
 		type = cardType;
+        level = cardLevel;
 		displayName = name;
 		useCost = cost;
 		//attack = attackPower;
