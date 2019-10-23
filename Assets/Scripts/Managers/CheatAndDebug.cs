@@ -13,7 +13,7 @@ public class CheatAndDebug : MonoBehaviour
 	public bool ShowDebugInfo { get { return showDebugInfo; } }
 	[SerializeField] private bool showDebugInfo = true;
 
-	private bool paused = false;
+	//private bool paused = false;
 
 	private void Awake( )
 	{

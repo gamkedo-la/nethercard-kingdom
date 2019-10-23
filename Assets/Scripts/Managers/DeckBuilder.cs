@@ -32,6 +32,8 @@ public class DeckBuilder : MonoBehaviour
 	public static DeckBuilder Instance { get; private set; }
 
 	[Header("Objects")]
+	[SerializeField] private GameObject[] toShowOnUpgrade = null;
+	[SerializeField] private GameObject[] toHideOnUpgrade = null;
 	[SerializeField] private GameObject[] toHideOnClose = null;
 	[SerializeField] private GameObject[] toShowOnClose = null;
 	[SerializeField] private CardSlot[] collectionSlots = null;
@@ -48,6 +50,7 @@ public class DeckBuilder : MonoBehaviour
 
 	private Card selectedCollectionCard = null;
 	private Card selectedDeckCard = null;
+	private bool upgrading = false;
 
 	private void Awake( )
 	{
@@ -92,6 +95,30 @@ public class DeckBuilder : MonoBehaviour
 	{
 		SaveCollectionAndDeck( );
 		Close( );
+	}
+
+	public void ShowUpgrade( )
+	{
+		foreach ( var go in toHideOnUpgrade )
+			go.SetActive( false );
+
+		foreach ( var go in toShowOnUpgrade )
+			go.SetActive( true );
+
+		upgrading = true;
+		UpdateCollection( );
+	}
+
+	public void HideUpgrade( )
+	{
+		foreach ( var go in toHideOnUpgrade )
+			go.SetActive( true );
+
+		foreach ( var go in toShowOnUpgrade )
+			go.SetActive( false );
+
+		upgrading = false;
+		UpdateCollection( );
 	}
 
 	public Card[] GetPlayerDeck( ) => cardsInDeck;
@@ -197,6 +224,7 @@ public class DeckBuilder : MonoBehaviour
 
 	private void UpdateCollection( )
 	{
+		int minAmount = upgrading ? 1 : 0; // We need more then 1 cards for upgrading and more then 0 for deck building
 		cardsInCollection = cardsInCollection.OrderByDescending( card => card.Amount ).ToArray( );
 
 		foreach ( var slot in collectionSlots )
@@ -204,7 +232,7 @@ public class DeckBuilder : MonoBehaviour
 
 		for ( int i = 0; i < cardsInCollection.Length; i++ )
 		{
-			if ( cardsInCollection[i].Amount > 0 )
+			if ( cardsInCollection[i].Amount > minAmount )
 			{
 				cardsInCollection[i].Card = collectionSlots[i].Set( cardsInCollection[i].Card.gameObject, cardsInCollection[i].Amount );
 			}

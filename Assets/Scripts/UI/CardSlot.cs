@@ -30,6 +30,7 @@ public class CardSlot : MonoBehaviour
 	{
 		SetEmpty( );
 
+		GameObject oldCardInSlot = cardInSlot;
 		GameObject toSpawn = cardObject.GetComponent<Card>( ).Prefab ? cardObject.GetComponent<Card>( ).Prefab : cardObject;
 
 		cardInSlot = Instantiate( toSpawn, slot.transform );
@@ -43,6 +44,9 @@ public class CardSlot : MonoBehaviour
 		if ( mode != CardSelectionMode.InCollection )
 			this.amount.SetActive( false );
 
+		if ( oldCardInSlot )
+			Destroy( oldCardInSlot );
+
 		return card;
 	}
 
@@ -51,7 +55,7 @@ public class CardSlot : MonoBehaviour
 		amount.SetActive( false );
 
 		if ( cardInSlot )
-			Destroy( cardInSlot );
+			cardInSlot.SetActive( false );
 	}
 
 	public void Select( bool selected )

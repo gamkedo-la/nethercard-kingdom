@@ -24,5 +24,6 @@ public enum CardSelectionMode
 {
 	InHand,
 	InCollection,
-	InDeck
+	InDeck,
+	InUpgrade
 }
