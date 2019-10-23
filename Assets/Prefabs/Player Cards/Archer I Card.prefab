@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 7540921270970863072, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: m_Name
-      value: Archer Card
+      value: Archer I Card
       objectReference: {fileID: 0}
     - target: {fileID: 599770410723825185, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
@@ -133,6 +133,12 @@ PrefabInstance:
       propertyPath: flavorText
       value: Keep your distance!
       objectReference: {fileID: 0}
+    - target: {fileID: 96448653850123964, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: higherLevelVersion
+      value: 
+      objectReference: {fileID: 6727232176801188089, guid: 7dc7cebc02c5fa445960646a217fe88c,
+        type: 3}
     - target: {fileID: 3563004026135363423, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: m_text

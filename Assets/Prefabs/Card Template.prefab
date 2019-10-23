@@ -4493,7 +4493,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3857746908915880933}
   m_Layer: 5
-  m_Name: Level 2
+  m_Name: Level 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4807,6 +4807,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toSummon: {fileID: 2003592177715405978, guid: fc6c2faa8ae045542a0960290aa158db,
     type: 3}
+  lowerLevelVersion: {fileID: 0}
+  higherLevelVersion: {fileID: 0}
   canvas: {fileID: 6653159148184624949}
   canvasGroup: {fileID: 1461653268089710984}
   liveImage: {fileID: 2209099149488022857}
@@ -4820,7 +4822,11 @@ MonoBehaviour:
   flavorLabel: {fileID: 3563004026135363423}
   cardImageFill: {fileID: 4082654261549637672}
   cardImageBorder: {fileID: 7709570893905777452}
+  level2Marks: {fileID: 8316853887358613013}
+  level3Marks: {fileID: 6922430876743819119}
   type: 0
+  level: 0
+  selectionMode: 0
   useCost: 1
   displayName: Unnamed Card
   abilityText: This card does...
@@ -5230,7 +5236,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3658921721905854037}
   m_Layer: 5
-  m_Name: Level 1
+  m_Name: Level 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

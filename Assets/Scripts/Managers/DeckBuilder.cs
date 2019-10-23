@@ -15,9 +15,17 @@ using UnityEngine.Assertions;
 [System.Serializable]
 public class CardsData
 {
-	public string[] CollectionCards;
-	public int[] CollectionCardsAmounts;
-	public string[] DeckCards;
+	public string[] Name;
+	public int[] AmountPlayerOwns;
+	public int[] AmountInDeck;
+}
+
+[System.Serializable]
+public class CardInMasterCollection
+{
+	public Card Card;
+	public int AmountPlayerOwns;
+	public int AmountInDeck;
 }
 
 [System.Serializable]
@@ -34,16 +42,18 @@ public class DeckBuilder : MonoBehaviour
 	[Header("Objects")]
 	[SerializeField] private GameObject[] toHideOnClose = null;
 	[SerializeField] private GameObject[] toShowOnClose = null;
-	[SerializeField] private Card[] allPlayerCards = null;
 	[SerializeField] private TextMeshProUGUI tooltip = null;
+
+	[Header("Master Collection")]
+	[SerializeField] private CardInMasterCollection[] allPlayerCards = null;
 
 	[Header("Collection")]
 	[SerializeField] private CardSlot[] collectionSlots = null;
-	[SerializeField] private CardInCollection[] cardsInCollection = null;
+	private CardInCollection[] cardsInCollection = null;
 
 	[Header("Deck")]
 	[SerializeField] private CardSlot[] deckSlots = null;
-	[SerializeField] private Card[] cardsInDeck = null;
+	private Card[] cardsInDeck = null;
 	[SerializeField] private int maxIdenticalDeckCards = 3;
 
 	[Header("Upgrade")]
@@ -54,6 +64,9 @@ public class DeckBuilder : MonoBehaviour
 	private Card selectedCollectionCard = null;
 	private Card selectedDeckCard = null;
 	private bool upgrading = false;
+
+	const int CardsInDeck = 10;
+	const int IdenticalCardsInDeckMax = 3;
 
 	private void Awake( )
 	{
@@ -73,13 +86,16 @@ public class DeckBuilder : MonoBehaviour
 		Assert.AreNotEqual( toShowOnClose.Length, 0, $"Please assign <b>{nameof( toShowOnClose )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.AreNotEqual( allPlayerCards.Length, 0, $"Please assign <b>{nameof( allPlayerCards )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
+		int cardsInDeck = 0;
+		foreach ( var card in allPlayerCards )
+			cardsInDeck += card.AmountInDeck;
+		Assert.AreEqual( cardsInDeck, CardsInDeck, $"<b>{nameof( allPlayerCards )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object has to have <b>exactly</b> {CardsInDeck} cards in deck" );
+
 		Assert.AreNotEqual( collectionSlots.Length, 0, $"Please assign <b>{nameof( collectionSlots )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
-		Assert.AreNotEqual( cardsInCollection.Length, 0, $"Please assign <b>{nameof( cardsInCollection )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		//Assert.AreNotEqual( cardsInCollection.Length, 0, $"Please assign <b>{nameof( cardsInCollection )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
-		Assert.AreEqual( allPlayerCards.Length, cardsInCollection.Length, $"<b>{nameof( allPlayerCards )}</b> and <b>{nameof( cardsInCollection )}</b> must have the same number of elements (<b>{GetType( ).Name}</b> script on <b>{name}</b> object)" );
-
-		Assert.AreEqual( deckSlots.Length, 10, $"Please make sure <b>{nameof( deckSlots )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object has 10 elements (number of cards a Deck should have)" );
-		Assert.AreEqual( cardsInDeck.Length, 10, $"Please make sure <b>{nameof( cardsInDeck )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object has 10 elements (number of cards a Deck should have)" );
+		Assert.AreEqual( deckSlots.Length, CardsInDeck, $"Please make sure <b>{nameof( deckSlots )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object has 10 elements (number of cards a Deck should have)" );
+		//Assert.AreEqual( cardsInDeck.Length, 10, $"Please make sure <b>{nameof( cardsInDeck )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object has 10 elements (number of cards a Deck should have)" );
 
 		Assert.AreEqual( upgradeSlots.Length, 2, $"Please make sure <b>{nameof( upgradeSlots )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object has 2 elements (number of cards needed for an upgrade)" );
 		Assert.AreNotEqual( toShowOnUpgrade.Length, 0, $"Please assign <b>{nameof( toShowOnUpgrade )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
@@ -218,22 +234,19 @@ public class DeckBuilder : MonoBehaviour
 
 		// -- Swap cards --
 
-		// Remove card selected in collection from the collection (by reducing the amount we have)
-		CardInCollection cardInCollectionToSwap = cardsInCollection.First( card => card.Card.Name == selectedCollectionCard.Name );
-		cardInCollectionToSwap.Amount--;
+		// Remove card selected in collection from the master collection (by reducing the amount we have)
+		CardInMasterCollection cardInCollectionToSwap = allPlayerCards.First( card => card.Card.Name == selectedCollectionCard.Name );
+		cardInCollectionToSwap.AmountPlayerOwns--;
 
-		// Remove card selected in the deck from the deck
-		Card cardInDeckToSwap = selectedDeckCard;
-		int indexInDeckToSwap = System.Array.IndexOf( cardsInDeck, cardInDeckToSwap );
-		cardsInDeck[indexInDeckToSwap] = null; // Not strictly necessary
+		// Remove card selected in the deck from the master deck
+		CardInMasterCollection cardInDeckToSwap = allPlayerCards.First( card => card.Card.Name == selectedDeckCard.Name );
+		cardInDeckToSwap.AmountInDeck--;
 
-		// Add card selected from the deck to collection
-		CardInCollection cardInCollectionToAddTo = cardsInCollection.First( card => card.Card.Name == selectedDeckCard.Name );
-		cardInCollectionToAddTo.Amount++;
+		// Add card selected from the collection to master deck
+		cardInCollectionToSwap.AmountInDeck++;
 
-		// Add (swap) card selected from the collection to deck
-		Card cardInDeckToAdd = selectedCollectionCard;
-		cardsInDeck[indexInDeckToSwap] = cardInDeckToAdd;
+		// Add card selected from the deck to master collection
+		cardInDeckToSwap.AmountPlayerOwns++;
 
 		tooltip.text = "Cards swapped";
 
@@ -255,22 +268,43 @@ public class DeckBuilder : MonoBehaviour
 	private void UpdateCollection( )
 	{
 		int minAmount = upgrading ? 1 : 0; // We need more then 1 cards for upgrading and more then 0 for deck building
-		cardsInCollection = cardsInCollection.OrderByDescending( card => card.Amount ).ToArray( );
+
+		// Find all the cards we have or, if we are upgrading, all the cards we can combine
+		Card[] cards = allPlayerCards.Where( card => card.AmountPlayerOwns > minAmount && !( upgrading && card.Card.Level == CardLevel.Level3 ) ).Select( card => card.Card ).ToArray( );
+		int[] amounts = allPlayerCards.Where( card => card.AmountPlayerOwns > minAmount && !( upgrading && card.Card.Level == CardLevel.Level3 ) ).Select( card => card.AmountPlayerOwns ).ToArray( );
+
+		cardsInCollection = new CardInCollection[cards.Length];
+		for ( int i = 0; i < cards.Length; i++ )
+		{
+			cardsInCollection[i] = new CardInCollection( )
+			{
+				Card = cards[i],
+				Amount = amounts[i]
+			};
+		}
+
+		cardsInCollection = cardsInCollection.OrderBy( card => card.Card.name).ToArray( );
 
 		foreach ( var slot in collectionSlots )
 			slot.SetEmpty( );
 
 		for ( int i = 0; i < cardsInCollection.Length; i++ )
-		{
-			if ( cardsInCollection[i].Amount > minAmount )
-			{
-				cardsInCollection[i].Card = collectionSlots[i].Set( cardsInCollection[i].Card.gameObject, cardsInCollection[i].Amount );
-			}
-		}
+			cardsInCollection[i].Card = collectionSlots[i].Set( cardsInCollection[i].Card.gameObject, cardsInCollection[i].Amount );
 	}
 
 	private void UpdateDeck( )
 	{
+		// Find all the cards in master collection that we have in deck
+		List<Card> cards = new List<Card>( );
+		foreach ( var card in allPlayerCards )
+		{
+			for ( int i = 0; i < card.AmountInDeck; i++ )
+			{
+				cards.Add( card.Card );
+			}
+		}
+
+		cardsInDeck = cards.ToArray( );
 		cardsInDeck = cardsInDeck.OrderBy( card => card.name ).ToArray( );
 
 		for ( int i = 0; i < cardsInDeck.Length; i++ )
@@ -281,9 +315,9 @@ public class DeckBuilder : MonoBehaviour
 	{
 		CardsData cardsData = new CardsData( )
 		{
-			CollectionCards = cardsInCollection.Select( card => card.Card.Name ).ToArray( ),
-			CollectionCardsAmounts = cardsInCollection.Select( card => card.Amount ).ToArray( ),
-			DeckCards = cardsInDeck.Select( card => card.Name ).ToArray( )
+			Name = allPlayerCards.Select( card => card.Card.Name ).ToArray( ),
+			AmountPlayerOwns = allPlayerCards.Select( card => card.AmountPlayerOwns ).ToArray( ),
+			AmountInDeck = allPlayerCards.Select( card => card.AmountInDeck ).ToArray( )
 		};
 
 		XmlSerializer xmlSerializer = new XmlSerializer( typeof( CardsData ) );
@@ -308,23 +342,17 @@ public class DeckBuilder : MonoBehaviour
 		{
 			CardsData cardsData = xmlSerializer.Deserialize( reader ) as CardsData;
 
-			List<CardInCollection> loadedCollection = new List<CardInCollection>( );
-			for ( int i = 0; i < cardsData.CollectionCards.Length; i++ )
+			for ( int i = 0; i < cardsData.Name.Length; i++ )
 			{
-				loadedCollection.Add( new CardInCollection
+				if ( allPlayerCards[i].Card.Name != cardsData.Name[i] )
 				{
-					Card = GetCardByName( cardsData.CollectionCards[i] ),
-					Amount = cardsData.CollectionCardsAmounts[i]
-				} );
-			}
-			cardsInCollection = loadedCollection.ToArray( );
+					Debug.LogError( "Saved data out of sync with Master Collection. Save data reset recommended. Using default data." );
+					return;
+				}
 
-			List<Card> loadedDeck = new List<Card>( );
-			foreach ( var card in cardsData.DeckCards )
-			{
-				loadedDeck.Add( GetCardByName( card ) );
+				allPlayerCards[i].AmountInDeck = cardsData.AmountInDeck[i];
+				allPlayerCards[i].AmountPlayerOwns = cardsData.AmountPlayerOwns[i];
 			}
-			cardsInDeck = loadedDeck.ToArray( );
 		}
 	}
 
@@ -334,5 +362,5 @@ public class DeckBuilder : MonoBehaviour
 		PlayerPrefs.DeleteKey( "CardsData" );
 	}
 
-	private Card GetCardByName( string cardName ) => allPlayerCards.First( card => card.Name == cardName );
+	private Card GetCardByName( string cardName ) => allPlayerCards.First( card => card.Card.Name == cardName ).Card;
 }

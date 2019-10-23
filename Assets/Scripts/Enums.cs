@@ -27,3 +27,10 @@ public enum CardSelectionMode
 	InDeck,
 	InUpgrade
 }
+
+public enum CardLevel
+{
+	Level1,
+	Level2,
+	Level3
+}

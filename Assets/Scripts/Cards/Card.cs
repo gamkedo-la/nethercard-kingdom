@@ -13,10 +13,15 @@ public class Card : MonoBehaviour
 {
 	public CardSelectionMode SelectionMode { get { return selectionMode; } set { selectionMode = value; } }
 	public string Name { get { return displayName; } }
+	public Card LowerLevelVersion { get { return lowerLevelVersion; } }
+	public Card HigherLevelVersion { get { return higherLevelVersion; } }
+	public CardLevel Level { get { return level; } }
 	public GameObject Prefab { get; set; }
 
 	[Header("External Objects")]
 	[SerializeField] private GameObject toSummon = null;
+	[SerializeField] private Card lowerLevelVersion = null;
+	[SerializeField] private Card higherLevelVersion = null;
 
 	[Header("Card Elements")]
 	[SerializeField] private Canvas canvas = null;
@@ -32,9 +37,12 @@ public class Card : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI flavorLabel = null;
 	[SerializeField] private Image cardImageFill = null;
 	[SerializeField] private Image cardImageBorder = null;
+	[SerializeField] private GameObject level2Marks = null;
+	[SerializeField] private GameObject level3Marks = null;
 
 	[Header("Card Parameters")]
 	[SerializeField] private CardType type = CardType.Unit;
+	[SerializeField] private CardLevel level = CardLevel.Level1;
 	[SerializeField] private CardSelectionMode selectionMode = CardSelectionMode.InHand;
 	[SerializeField] private int useCost = 2;
 	[SerializeField] private string displayName = "Unnamed Card";
@@ -66,7 +74,14 @@ public class Card : MonoBehaviour
 		Assert.IsNotNull( speedLabel, $"Please assign <b>{nameof( speedLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( abilityLabel, $"Please assign <b>{nameof( abilityLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( flavorLabel, $"Please assign <b>{nameof( flavorLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( level2Marks, $"Please assign <b>{nameof( level2Marks )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( level3Marks, $"Please assign <b>{nameof( level3Marks )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
+		/*if ( level == CardLevel.Level1 || level == CardLevel.Level2 )
+			Assert.IsNotNull( higherLevelVersion, $"Please assign <b>{nameof( higherLevelVersion )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		if ( level == CardLevel.Level2 || level == CardLevel.Level3 )
+			Assert.IsNotNull( lowerLevelVersion, $"Please assign <b>{nameof( lowerLevelVersion )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		*/
 		PopulateCardInfo( );
 	}
 
@@ -241,5 +256,13 @@ public class Card : MonoBehaviour
 		nameLabel.text = displayName;
 		abilityLabel.text = abilityText;
 		flavorLabel.text = flavorText;
+
+		level2Marks.SetActive( false );
+		level3Marks.SetActive( false );
+
+		if ( level == CardLevel.Level2 )
+			level2Marks.SetActive( true );
+		else if ( level == CardLevel.Level3 )
+			level3Marks.SetActive( true );
 	}
 }
