@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 7268366427191236980, guid: 35c73b0121dc76649931f579533a5375,
         type: 3}
       propertyPath: m_Name
-      value: Fireball II Card
+      value: Fireball Spell II Card
       objectReference: {fileID: 0}
     - target: {fileID: 949820519525452328, guid: 35c73b0121dc76649931f579533a5375,
         type: 3}
@@ -30,6 +30,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6686057510297697668, guid: 2be68685b40b396409558bf0d09a8918,
         type: 3}
+    - target: {fileID: 949820519525452328, guid: 35c73b0121dc76649931f579533a5375,
+        type: 3}
+      propertyPath: level
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4516576208258982112, guid: 35c73b0121dc76649931f579533a5375,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -199,6 +204,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156857884253495937, guid: 35c73b0121dc76649931f579533a5375,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35c73b0121dc76649931f579533a5375, type: 3}

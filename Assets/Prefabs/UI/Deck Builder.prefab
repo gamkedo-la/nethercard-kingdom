@@ -1274,21 +1274,45 @@ MonoBehaviour:
   - Card: {fileID: 6727232176801188089, guid: 7dc7cebc02c5fa445960646a217fe88c, type: 3}
     AmountPlayerOwns: 0
     AmountInDeck: 0
-  - Card: {fileID: 6087835434918023698, guid: e424d39b879084242a9f4d18b675b92a, type: 3}
+  - Card: {fileID: 6551081026169414626, guid: a0daeda8c38214247b364ff5bb4539d3, type: 3}
     AmountPlayerOwns: 2
     AmountInDeck: 0
   - Card: {fileID: 949820519525452328, guid: 35c73b0121dc76649931f579533a5375, type: 3}
     AmountPlayerOwns: 1
     AmountInDeck: 1
+  - Card: {fileID: 6930457677133692945, guid: 0b9c379e397653d43ae7e48ca5d309b2, type: 3}
+    AmountPlayerOwns: 0
+    AmountInDeck: 0
+  - Card: {fileID: 6686057510297697668, guid: 2be68685b40b396409558bf0d09a8918, type: 3}
+    AmountPlayerOwns: 0
+    AmountInDeck: 0
   - Card: {fileID: 8311138147123623806, guid: 0b0297453a5bfa94a85638fff8e5f6ff, type: 3}
     AmountPlayerOwns: 3
     AmountInDeck: 1
+  - Card: {fileID: 6970642807188303820, guid: 5f3d14ac1d4a0424da11a2f22523b78e, type: 3}
+    AmountPlayerOwns: 1
+    AmountInDeck: 0
+  - Card: {fileID: 8890918461211719764, guid: dcfc3d036c9a2a046b80f73d504505f8, type: 3}
+    AmountPlayerOwns: 0
+    AmountInDeck: 0
   - Card: {fileID: 6412157164616586719, guid: d53af6725d85789418919b90f9ab9991, type: 3}
     AmountPlayerOwns: 0
     AmountInDeck: 2
+  - Card: {fileID: 222037773591144965, guid: 50f644e35feb661458821404f47f5a33, type: 3}
+    AmountPlayerOwns: 0
+    AmountInDeck: 0
+  - Card: {fileID: 4521816126221080126, guid: da8d7d35f8ce99a4d9e211374288a08b, type: 3}
+    AmountPlayerOwns: 0
+    AmountInDeck: 0
   - Card: {fileID: 8013548960502163808, guid: 39305d494c8b56a44b497d389241a5fd, type: 3}
     AmountPlayerOwns: 0
     AmountInDeck: 3
+  - Card: {fileID: 302018811114448746, guid: 364b5ae33201a35488c849af8147a408, type: 3}
+    AmountPlayerOwns: 0
+    AmountInDeck: 0
+  - Card: {fileID: 8872424807804934014, guid: 76076803edf9a2444907fada0113ed95, type: 3}
+    AmountPlayerOwns: 0
+    AmountInDeck: 0
   collectionSlots:
   - {fileID: 6973805690747645512}
   - {fileID: 4338270280217791843}

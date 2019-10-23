@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 710991440288944973, guid: 0b9c379e397653d43ae7e48ca5d309b2,
         type: 3}
       propertyPath: m_Name
-      value: Fireball III Card
+      value: Fireball Spell III Card
       objectReference: {fileID: 0}
     - target: {fileID: 7577756078311999628, guid: 0b9c379e397653d43ae7e48ca5d309b2,
         type: 3}
@@ -128,6 +128,11 @@ PrefabInstance:
       propertyPath: higherLevelVersion
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6930457677133692945, guid: 0b9c379e397653d43ae7e48ca5d309b2,
+        type: 3}
+      propertyPath: level
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6029620691322415833, guid: 0b9c379e397653d43ae7e48ca5d309b2,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -146,6 +151,16 @@ PrefabInstance:
     - target: {fileID: 6029620691322415833, guid: 0b9c379e397653d43ae7e48ca5d309b2,
         type: 3}
       propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1301592554201278648, guid: 0b9c379e397653d43ae7e48ca5d309b2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 101932661792113090, guid: 0b9c379e397653d43ae7e48ca5d309b2,
+        type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 988360221324430647, guid: 0b9c379e397653d43ae7e48ca5d309b2,

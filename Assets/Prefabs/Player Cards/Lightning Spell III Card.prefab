@@ -128,6 +128,11 @@ PrefabInstance:
       propertyPath: higherLevelVersion
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 222037773591144965, guid: 50f644e35feb661458821404f47f5a33,
+        type: 3}
+      propertyPath: level
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3500630304428556493, guid: 50f644e35feb661458821404f47f5a33,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -146,6 +151,16 @@ PrefabInstance:
     - target: {fileID: 3500630304428556493, guid: 50f644e35feb661458821404f47f5a33,
         type: 3}
       propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8154074079662785196, guid: 50f644e35feb661458821404f47f5a33,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7085036957844220886, guid: 50f644e35feb661458821404f47f5a33,
+        type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7966415592630249251, guid: 50f644e35feb661458821404f47f5a33,
