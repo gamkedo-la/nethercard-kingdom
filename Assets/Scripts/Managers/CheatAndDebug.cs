@@ -30,11 +30,11 @@ public class CheatAndDebug : MonoBehaviour
 		if ( Input.GetKeyDown( KeyCode.R ) )
 			SceneManager.LoadScene( 0 );
 
-		if ( Input.GetKeyDown( KeyCode.P ) )
+		/*if ( Input.GetKeyDown( KeyCode.P ) )
 		{
 			paused = !paused;
 			Time.timeScale = paused ? 0f : 1f;
-		}
+		}*/
 
         if (Input.GetKeyDown(KeyCode.M))
         {
