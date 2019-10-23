@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 7540921270970863072, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: m_Name
-      value: Warrior Card
+      value: Warrior I Card
       objectReference: {fileID: 0}
     - target: {fileID: 599770410723825185, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
@@ -47,6 +47,26 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 0.81
       objectReference: {fileID: 0}
+    - target: {fileID: 1233436760897186984, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 9.300013
+      objectReference: {fileID: 0}
+    - target: {fileID: 1233436760897186984, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.7998931
+      objectReference: {fileID: 0}
+    - target: {fileID: 324323832227509520, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 9.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 324323832227509520, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -7.7
+      objectReference: {fileID: 0}
     - target: {fileID: 96448653850123964, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: toSummon
@@ -78,25 +98,40 @@ PrefabInstance:
       propertyPath: speed
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4754171811770632904, guid: 53475d4f1e5edc741919c3a46dada549,
+    - target: {fileID: 96448653850123964, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
-      propertyPath: m_text
-      value: Mighty Warrio
-      objectReference: {fileID: 0}
-    - target: {fileID: 1908062142719847500, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_Sprite
+      propertyPath: higherLevelVersion
       value: 
-      objectReference: {fileID: 354311051636227858, guid: 17d5d6d0902be654bbbce749868c8774,
+      objectReference: {fileID: 302018811114448746, guid: 364b5ae33201a35488c849af8147a408,
         type: 3}
-    - target: {fileID: 1908062142719847500, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3663340821475619956, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: m_text
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3563004026135363423, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_text
+      value: The backbone of any army
+      objectReference: {fileID: 0}
+    - target: {fileID: 4306323210595224590, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_text
+      value: 1.0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681871985583500325, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_text
+      value: 2.0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681871985583500325, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681871985583500325, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7839664560142848922, guid: 53475d4f1e5edc741919c3a46dada549,
@@ -119,50 +154,21 @@ PrefabInstance:
       propertyPath: m_textInfo.characterCount
       value: 18
       objectReference: {fileID: 0}
-    - target: {fileID: 1681871985583500325, guid: 53475d4f1e5edc741919c3a46dada549,
+    - target: {fileID: 4754171811770632904, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: m_text
-      value: 2.0
+      value: Mighty Warrio
       objectReference: {fileID: 0}
-    - target: {fileID: 1681871985583500325, guid: 53475d4f1e5edc741919c3a46dada549,
+    - target: {fileID: 1908062142719847500, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1681871985583500325, guid: 53475d4f1e5edc741919c3a46dada549,
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 354311051636227858, guid: 17d5d6d0902be654bbbce749868c8774,
         type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4306323210595224590, guid: 53475d4f1e5edc741919c3a46dada549,
+    - target: {fileID: 1908062142719847500, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
-      propertyPath: m_text
-      value: 1.0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3563004026135363423, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_text
-      value: The backbone of any army
-      objectReference: {fileID: 0}
-    - target: {fileID: 324323832227509520, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 9.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 324323832227509520, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -7.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1233436760897186984, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 9.300013
-      objectReference: {fileID: 0}
-    - target: {fileID: 1233436760897186984, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -1.7998931
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53475d4f1e5edc741919c3a46dada549, type: 3}
