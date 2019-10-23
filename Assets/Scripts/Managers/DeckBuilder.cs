@@ -32,21 +32,24 @@ public class DeckBuilder : MonoBehaviour
 	public static DeckBuilder Instance { get; private set; }
 
 	[Header("Objects")]
-	[SerializeField] private GameObject[] toShowOnUpgrade = null;
-	[SerializeField] private GameObject[] toHideOnUpgrade = null;
 	[SerializeField] private GameObject[] toHideOnClose = null;
 	[SerializeField] private GameObject[] toShowOnClose = null;
-	[SerializeField] private CardSlot[] collectionSlots = null;
-	[SerializeField] private CardSlot[] deckSlots = null;
 	[SerializeField] private Card[] allPlayerCards = null;
 	[SerializeField] private TextMeshProUGUI tooltip = null;
 
 	[Header("Collection")]
+	[SerializeField] private CardSlot[] collectionSlots = null;
 	[SerializeField] private CardInCollection[] cardsInCollection = null;
 
 	[Header("Deck")]
+	[SerializeField] private CardSlot[] deckSlots = null;
 	[SerializeField] private Card[] cardsInDeck = null;
 	[SerializeField] private int maxIdenticalDeckCards = 3;
+
+	[Header("Upgrade")]
+	[SerializeField] private CardSlot[] upgradeSlots = null;
+	[SerializeField] private GameObject[] toShowOnUpgrade = null;
+	[SerializeField] private GameObject[] toHideOnUpgrade = null;
 
 	private Card selectedCollectionCard = null;
 	private Card selectedDeckCard = null;
@@ -65,6 +68,22 @@ public class DeckBuilder : MonoBehaviour
 	void Start ()
 	{
 		Assert.IsNotNull( tooltip, $"Please assign <b>{nameof( tooltip )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+
+		Assert.AreNotEqual( toHideOnClose.Length, 0, $"Please assign <b>{nameof( toHideOnClose )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.AreNotEqual( toShowOnClose.Length, 0, $"Please assign <b>{nameof( toShowOnClose )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.AreNotEqual( allPlayerCards.Length, 0, $"Please assign <b>{nameof( allPlayerCards )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+
+		Assert.AreNotEqual( collectionSlots.Length, 0, $"Please assign <b>{nameof( collectionSlots )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.AreNotEqual( cardsInCollection.Length, 0, $"Please assign <b>{nameof( cardsInCollection )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+
+		Assert.AreEqual( allPlayerCards.Length, cardsInCollection.Length, $"<b>{nameof( allPlayerCards )}</b> and <b>{nameof( cardsInCollection )}</b> must have the same number of elements (<b>{GetType( ).Name}</b> script on <b>{name}</b> object)" );
+
+		Assert.AreEqual( deckSlots.Length, 10, $"Please make sure <b>{nameof( deckSlots )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object has 10 elements (number of cards a Deck should have)" );
+		Assert.AreEqual( cardsInDeck.Length, 10, $"Please make sure <b>{nameof( cardsInDeck )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object has 10 elements (number of cards a Deck should have)" );
+
+		Assert.AreEqual( upgradeSlots.Length, 2, $"Please make sure <b>{nameof( upgradeSlots )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object has 2 elements (number of cards needed for an upgrade)" );
+		Assert.AreNotEqual( toShowOnUpgrade.Length, 0, $"Please assign <b>{nameof( toShowOnUpgrade )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.AreNotEqual( toHideOnUpgrade.Length, 0, $"Please assign <b>{nameof( toHideOnUpgrade )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
 		OpenAndLoad( );
 	}
@@ -106,6 +125,9 @@ public class DeckBuilder : MonoBehaviour
 			go.SetActive( true );
 
 		upgrading = true;
+		foreach ( var slot in upgradeSlots )
+			slot.SetEmpty( );
+
 		UpdateCollection( );
 	}
 
@@ -132,6 +154,10 @@ public class DeckBuilder : MonoBehaviour
 			{
 				selectedCollectionCard.CardSelected( false );
 				selectedCollectionCard.transform.parent.parent.GetComponent<CardSlot>( ).Select( false );
+
+				if ( upgrading )
+					foreach ( var slot in upgradeSlots )
+						slot.SetEmpty( );
 			}
 
 			if ( selectedCollectionCard != card ) // Selected another card
@@ -140,6 +166,10 @@ public class DeckBuilder : MonoBehaviour
 				selectedCollectionCard.CardSelected( true );
 				selectedCollectionCard.transform.parent.parent.GetComponent<CardSlot>( ).Select( true );
 				tooltip.text = "Select card from Deck to swap";
+
+				if ( upgrading )
+					foreach ( var slot in upgradeSlots )
+						slot.Set( selectedCollectionCard.gameObject, 1 );
 			}
 			else // Last card was unselected
 			{
