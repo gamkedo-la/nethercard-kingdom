@@ -58,6 +58,8 @@ public class Card : MonoBehaviour
 	private Vector3 scaleToLerp = Vector3.one;
 	private Vector3 defaultScale = Vector3.one;
 
+	private Vector3 previousPosition = Vector3.zero;
+
 	void Start( )
 	{
 		Assert.IsNotNull( toSummon, $"Please assign <b>{nameof( toSummon )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
@@ -95,6 +97,13 @@ public class Card : MonoBehaviour
 				canvasGroup.alpha = Mathf.Lerp( canvasGroup.alpha, 0.0f, 0.15f );
 				liveImage.alpha = Mathf.Lerp( liveImage.alpha, 0.5f, 0.15f );
 				transform.localScale = Vector3.one;
+			}
+			else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
+			{
+				transform.position = Vector2.Lerp( transform.position, Input.mousePosition + new Vector3(0.0f, -140.0f, 0.0f), 0.25f );
+				canvasGroup.alpha = Mathf.Lerp( canvasGroup.alpha, 0.4f, 0.15f );
+				if ( lerpBackTimer <= 0f || !lerpBack )
+					transform.localScale = Vector3.Lerp( transform.localScale, scaleToLerp, 0.25f );
 			}
 		}
 		else
@@ -134,23 +143,44 @@ public class Card : MonoBehaviour
 			if ( hoverCard == null )
 				hoverCard = this;
 		}
-		else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
+		else if ( selectionMode == CardSelectionMode.InCollection )
 		{
-			scaleToLerp = defaultScale * 1.1f;
 			lerpBack = false;
 			lerpBackTimer = 0.1f;
+			scaleToLerp = defaultScale * 1.1f;
+
+			if(DeckBuilder.Instance.IsDeckCardSelected())
+			{
+				DeckBuilder.Instance.CheckCollectionCardSelection(this);
+
+				scaleToLerp = defaultScale * 1.5f;
+			}
+		}
+		else if ( selectionMode == CardSelectionMode.InDeck )
+		{
+			lerpBack = false;
+			lerpBackTimer = 0.1f;
+			scaleToLerp = defaultScale * 1.1f;
+
+			if(DeckBuilder.Instance.IsCollectionCardSelected())
+			{
+				DeckBuilder.Instance.CheckDeckCardSelection(this);
+
+				scaleToLerp = defaultScale * 1.5f;
+			}
 		}
 	}
 
 	public void OnOverExit( )
 	{
+		if ( draggedCard == this )
+			return;
+		
 		if ( selectionMode == CardSelectionMode.InHand )
 		{
-			if ( draggedCard == this )
-				return;
-
 			scaleToLerp = Vector3.one;
 			lerpBack = true;
+
 			canvas.overrideSorting = false;
 			canvas.sortingOrder = 0;
 
@@ -161,6 +191,8 @@ public class Card : MonoBehaviour
 		{
 			scaleToLerp = defaultScale;
 			lerpBack = true;
+
+			DeckBuilder.Instance.CompareAndRemoveSelection(this);
 		}
 	}
 
@@ -188,8 +220,19 @@ public class Card : MonoBehaviour
 		}
 		else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
 		{
-			DeckBuilder.Instance.CardClicked( this, selectionMode );
-			scaleToLerp = defaultScale * 1.1f;
+			//DeckBuilder.Instance.CardClicked( this, selectionMode );
+
+			draggedCard = this;
+
+			DeckBuilder.Instance.CheckCollectionCardSelection(this);
+			DeckBuilder.Instance.CheckDeckCardSelection(this);
+
+			previousPosition = transform.position;
+
+			scaleToLerp = defaultScale * 1.25f;
+
+			canvas.overrideSorting = true;
+			canvas.sortingOrder = 999999;
 		}
 	}
 
@@ -215,6 +258,17 @@ public class Card : MonoBehaviour
 				SummoningManager.Instance.RemoveMana( useCost );
 				Destroy( gameObject );
 			}
+		}
+		else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
+		{
+			transform.position = previousPosition;
+			canvasGroup.alpha = 1.0f;
+
+			canvas.overrideSorting = false;
+			canvas.sortingOrder = 100000;
+
+			draggedCard = null;
+			DeckBuilder.Instance.SwapCards();
 		}
 	}
 

@@ -183,6 +183,13 @@ public class DeckBuilder : MonoBehaviour
 
 	public Card[] GetPlayerDeck( ) => cardsInDeck;
 
+	public void CheckCollectionCardSelection( Card card ) { if(card.SelectionMode == CardSelectionMode.InCollection) selectedCollectionCard = card; }
+	public void CheckDeckCardSelection( Card card ) { if(card.SelectionMode == CardSelectionMode.InDeck) selectedDeckCard = card; }
+	public bool SwapCards() { if(selectedCollectionCard && selectedDeckCard) { TrySwapCards(); return true; } return false; }
+	public bool IsCollectionCardSelected() { return selectedCollectionCard; }
+	public bool IsDeckCardSelected() { return selectedDeckCard; }
+	public void CompareAndRemoveSelection( Card card ) { if(selectedCollectionCard == card) selectedCollectionCard = null; else if(selectedDeckCard == card) selectedDeckCard = null; }
+
 	public void CardClicked( Card card, CardSelectionMode mode )
 	{
 		// Clicked card in the Collection
