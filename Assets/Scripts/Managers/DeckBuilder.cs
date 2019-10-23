@@ -11,6 +11,7 @@ using System.Xml.Serialization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class CardsData
@@ -40,6 +41,7 @@ public class DeckBuilder : MonoBehaviour
 	public static DeckBuilder Instance { get; private set; }
 
 	[Header("Objects")]
+	[SerializeField] private Button combineButton = null;
 	[SerializeField] private GameObject[] toHideOnClose = null;
 	[SerializeField] private GameObject[] toShowOnClose = null;
 	[SerializeField] private TextMeshProUGUI tooltip = null;
@@ -80,6 +82,7 @@ public class DeckBuilder : MonoBehaviour
 
 	void Start ()
 	{
+		Assert.IsNotNull( combineButton, $"Please assign <b>{nameof( combineButton )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( tooltip, $"Please assign <b>{nameof( tooltip )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
 		Assert.AreNotEqual( toHideOnClose.Length, 0, $"Please assign <b>{nameof( toHideOnClose )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
@@ -144,6 +147,7 @@ public class DeckBuilder : MonoBehaviour
 		foreach ( var slot in upgradeSlots )
 			slot.SetEmpty( );
 
+		combineButton.interactable = false;
 		UpdateCollection( );
 	}
 
@@ -159,6 +163,12 @@ public class DeckBuilder : MonoBehaviour
 		UpdateCollection( );
 	}
 
+	public void UpgradeCard( )
+	{
+		CardClicked( selectedCollectionCard, CardSelectionMode.InCollection );
+		Debug.Log( "Clicked Upgraded. Doing nothing, for now" );
+	}
+
 	public Card[] GetPlayerDeck( ) => cardsInDeck;
 
 	public void CardClicked( Card card, CardSelectionMode mode )
@@ -172,8 +182,12 @@ public class DeckBuilder : MonoBehaviour
 				selectedCollectionCard.transform.parent.parent.GetComponent<CardSlot>( ).Select( false );
 
 				if ( upgrading )
+				{
 					foreach ( var slot in upgradeSlots )
 						slot.SetEmpty( );
+
+					combineButton.interactable = false;
+				}
 			}
 
 			if ( selectedCollectionCard != card ) // Selected another card
@@ -184,8 +198,12 @@ public class DeckBuilder : MonoBehaviour
 				tooltip.text = "Select card from Deck to swap";
 
 				if ( upgrading )
+				{
 					foreach ( var slot in upgradeSlots )
 						slot.Set( selectedCollectionCard.gameObject, 1 );
+
+					combineButton.interactable = true;
+				}
 			}
 			else // Last card was unselected
 			{
