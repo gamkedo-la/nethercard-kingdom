@@ -41,6 +41,7 @@ public class DeckBuilder : MonoBehaviour
 	public static DeckBuilder Instance { get; private set; }
 
 	[Header("Objects")]
+	[SerializeField] private Animator animator = null;
 	[SerializeField] private Button combineButton = null;
 	[SerializeField] private GameObject[] toHideOnClose = null;
 	[SerializeField] private GameObject[] toShowOnClose = null;
@@ -84,6 +85,7 @@ public class DeckBuilder : MonoBehaviour
 	{
 		Assert.IsNotNull( combineButton, $"Please assign <b>{nameof( combineButton )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( tooltip, $"Please assign <b>{nameof( tooltip )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( animator, $"Please assign <b>{nameof( animator )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
 		Assert.AreNotEqual( toHideOnClose.Length, 0, $"Please assign <b>{nameof( toHideOnClose )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.AreNotEqual( toShowOnClose.Length, 0, $"Please assign <b>{nameof( toShowOnClose )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
@@ -122,11 +124,16 @@ public class DeckBuilder : MonoBehaviour
 
 	public void Close( )
 	{
-		foreach ( var go in toHideOnClose )
-			go.SetActive( false );
+		animator.SetTrigger( "Close" );
 
 		foreach ( var go in toShowOnClose )
 			go.SetActive( true );
+	}
+
+	public void OnDoneClose( )
+	{
+		foreach ( var go in toHideOnClose )
+			go.SetActive( false );
 	}
 
 	public void CloseAndSave( )
@@ -137,15 +144,17 @@ public class DeckBuilder : MonoBehaviour
 
 	public void ShowUpgrade( )
 	{
-		foreach ( var go in toHideOnUpgrade )
+		/*foreach ( var go in toHideOnUpgrade )
 			go.SetActive( false );
 
 		foreach ( var go in toShowOnUpgrade )
-			go.SetActive( true );
+			go.SetActive( true );*/
 
 		upgrading = true;
 		foreach ( var slot in upgradeSlots )
 			slot.SetEmpty( );
+
+		animator.SetTrigger( "ShowUpgrade" );
 
 		combineButton.interactable = false;
 		UpdateCollection( );
@@ -153,11 +162,13 @@ public class DeckBuilder : MonoBehaviour
 
 	public void HideUpgrade( )
 	{
-		foreach ( var go in toHideOnUpgrade )
+		/*foreach ( var go in toHideOnUpgrade )
 			go.SetActive( true );
 
 		foreach ( var go in toShowOnUpgrade )
-			go.SetActive( false );
+			go.SetActive( false );*/
+
+		animator.SetTrigger( "HideUpgrade" );
 
 		upgrading = false;
 		UpdateCollection( );

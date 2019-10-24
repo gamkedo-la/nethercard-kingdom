@@ -1259,6 +1259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92fe1ad602dfb5740ac1e35849acc316, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 8174036106993548619}
   combineButton: {fileID: 9129103250892139881}
   toHideOnClose:
   - {fileID: 8784778902177653032}
