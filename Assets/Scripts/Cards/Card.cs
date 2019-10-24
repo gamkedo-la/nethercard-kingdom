@@ -269,7 +269,7 @@ public class Card : MonoBehaviour
 			canvas.sortingOrder = 100000;
 
 			draggedCard = null;
-			DeckBuilder.Instance.SwapCards();
+			DeckBuilder.Instance.MoveSlot();
 		}
 	}
 

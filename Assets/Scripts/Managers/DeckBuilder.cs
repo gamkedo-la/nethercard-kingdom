@@ -62,8 +62,11 @@ public class DeckBuilder : MonoBehaviour
 
 	private CardInCollection[] cardsInCollection = null;
 	private Card[] cardsInDeck = null;
-	private Card selectedCollectionCard = null;
-	private Card selectedDeckCard = null;
+
+	public GameObject selectedSlot = null;
+	public GameObject otherSlot = null;
+	//third child of slot will be card
+
 	private bool upgrading = false;
 
 	const int CardsInDeck = 10;
@@ -155,11 +158,16 @@ public class DeckBuilder : MonoBehaviour
 		UpdateCollection( );
 	}
 
+	public Card SelectedCard( ) { return GetCardFromSlot(selectedSlot); }
+	public Card GetCardFromSlot( GameObject slot ) { return slot.transform.GetChild(3).GetChild(0).GetComponent<Card>(); }
+
 	public void UpgradeCard( )
 	{
 		// De-select
-		Card cardToUpgrade = selectedCollectionCard;
-		CardClicked( selectedCollectionCard, CardSelectionMode.InCollection );
+		if(!selectedSlot) return;
+
+		Card cardToUpgrade = SelectedCard().SelectionMode == CardSelectionMode.InCollection ? SelectedCard() : null;
+		//CardClicked( selectedCollectionCard, CardSelectionMode.InCollection );
 
 		// Find selected card in master collection
 		CardInMasterCollection lowerCardVersion = allPlayerCards.First( card => card.Card.Name == cardToUpgrade.Name );
@@ -175,13 +183,48 @@ public class DeckBuilder : MonoBehaviour
 
 	public Card[] GetPlayerDeck( ) => cardsInDeck;
 
-	public void CheckCollectionCardSelection( Card card ) { if(card.SelectionMode == CardSelectionMode.InCollection) selectedCollectionCard = card; }
-	public void CheckDeckCardSelection( Card card ) { if(card.SelectionMode == CardSelectionMode.InDeck) selectedDeckCard = card; }
-	public bool SwapCards() { if(selectedCollectionCard && selectedDeckCard) { TrySwapCards(); return true; } return false; }
-	public bool IsCollectionCardSelected() { return selectedCollectionCard; }
-	public bool IsDeckCardSelected() { return selectedDeckCard; }
-	public void CompareAndRemoveSelection( Card card ) { if(selectedCollectionCard == card) selectedCollectionCard = null; else if(selectedDeckCard == card) selectedDeckCard = null; }
+	public void CheckCollectionCardSelection( Card card )
+	{
+		if(card.SelectionMode == CardSelectionMode.InCollection)
+		{
+			if(!selectedSlot) selectedSlot = card.transform.parent.parent.gameObject;
+			else if(!otherSlot) otherSlot = card.transform.parent.parent.gameObject;
+		}
+	}
 
+	public void CheckDeckCardSelection( Card card )
+	{
+		if(card.SelectionMode == CardSelectionMode.InDeck)
+		{
+			if(!selectedSlot) selectedSlot = card.transform.parent.parent.gameObject;
+			else if(!otherSlot) otherSlot = card.transform.parent.parent.gameObject;
+		}
+	}
+
+	public bool IsCollectionCardSelected()
+	{
+		return (selectedSlot && SelectedCard().SelectionMode == CardSelectionMode.InCollection)
+		|| (otherSlot && GetCardFromSlot(otherSlot).SelectionMode == CardSelectionMode.InCollection);
+	}
+
+	public bool IsDeckCardSelected()
+	{
+		return (selectedSlot && SelectedCard().SelectionMode == CardSelectionMode.InDeck)
+		|| (otherSlot && GetCardFromSlot(otherSlot).SelectionMode == CardSelectionMode.InDeck);
+	}
+
+	public void CompareAndRemoveSelection( Card card )
+	{
+		if(selectedSlot && SelectedCard() == card)
+		{
+			selectedSlot = null;
+			otherSlot = null;
+		}
+		else if(otherSlot && GetCardFromSlot( otherSlot ) == card)
+			otherSlot = null;
+	}
+
+	/*
 	public void CardClicked( Card card, CardSelectionMode mode )
 	{
 		// Clicked card in the Collection
@@ -245,9 +288,24 @@ public class DeckBuilder : MonoBehaviour
 		if ( selectedCollectionCard && selectedDeckCard )
 			TrySwapCards( );
 	}
+	*/
 
-	private void TrySwapCards( )
+	public void MoveSlot()
 	{
+		if(!selectedSlot || !otherSlot) return;
+
+		Card selectedCollectionCard = null;
+		Card selectedDeckCard = null;
+		Card selectedUpgradeCard = null;
+
+		if(SelectedCard().SelectionMode == CardSelectionMode.InCollection) selectedCollectionCard = SelectedCard();
+		else if (SelectedCard().SelectionMode == CardSelectionMode.InDeck) selectedDeckCard = SelectedCard();
+		else if (SelectedCard().SelectionMode == CardSelectionMode.InUpgrade) selectedUpgradeCard = SelectedCard();
+
+		if(GetCardFromSlot( otherSlot ).SelectionMode == CardSelectionMode.InCollection) selectedCollectionCard = GetCardFromSlot( otherSlot );
+		else if (GetCardFromSlot( otherSlot ).SelectionMode == CardSelectionMode.InDeck) selectedDeckCard = GetCardFromSlot( otherSlot );
+		else if (GetCardFromSlot( otherSlot ).SelectionMode == CardSelectionMode.InUpgrade) selectedUpgradeCard = GetCardFromSlot( otherSlot );
+
 		// Tried to add more then max identical Cards to the Deck
 		int sameCardsInDeck = cardsInDeck.Count( card => card.Name == selectedCollectionCard.Name );
 		if ( sameCardsInDeck >= maxIdenticalDeckCards &&  selectedCollectionCard.Name != selectedDeckCard.Name )
@@ -281,13 +339,21 @@ public class DeckBuilder : MonoBehaviour
 
 		// -- Cards swapped --
 
-		// Unselect both cards
+
+		// Unselect both cards ST
 		selectedCollectionCard.CardSelected( false );
-		selectedCollectionCard.transform.parent.parent.GetComponent<CardSlot>( ).Select( false );
 		selectedDeckCard.CardSelected( false );
-		selectedDeckCard.transform.parent.parent.GetComponent<CardSlot>( ).Select( false );
+
+		selectedSlot.GetComponent<CardSlot>( ).Select( false );
+		otherSlot.GetComponent<CardSlot>( ).Select( false );
+
 		selectedCollectionCard = null;
 		selectedDeckCard = null;
+
+		selectedSlot = null;
+		otherSlot = null;
+		//EN
+
 
 		// Update changes
 		UpdateCollection( );
