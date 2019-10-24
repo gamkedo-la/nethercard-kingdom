@@ -51,8 +51,8 @@ MonoBehaviour:
     type: 3}
   summoningPoint: {fileID: 5290041437813572877}
   summonArea: {x: 0.68, y: 1.71}
-  startDelay: 5
-  summonInterval: 5
+  startDelay: 7
+  summonInterval: 8
   summonDelay: 0.5
 --- !u!1 &5290041437813572877
 GameObject:
