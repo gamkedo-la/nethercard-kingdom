@@ -16,6 +16,7 @@ public class Card : MonoBehaviour
 	public Card LowerLevelVersion { get { return lowerLevelVersion; } }
 	public Card HigherLevelVersion { get { return higherLevelVersion; } }
 	public CardLevel Level { get { return level; } }
+    public CardType CardType { get { return type; } }
 	public GameObject Prefab { get; set; }
 
 	[Header("External Objects")]
