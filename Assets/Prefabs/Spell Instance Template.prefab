@@ -123,6 +123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8767096524210941868}
   - component: {fileID: 9191908659525124034}
+  - component: {fileID: 4948250338414745351}
   m_Layer: 0
   m_Name: Spell Instance Template
   m_TagString: Untagged
@@ -159,6 +160,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   borderImageSprite: {fileID: 7029198479336346959}
   fillImageSprite: {fileID: 7659320890257491422}
+--- !u!114 &4948250338414745351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8767096524210941869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ced9a6ed8482ad943a9d033ee9a13e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  toEnableOnDone: []
+  useRandomStartScale: 1
+  startScaleMin: 0
+  startScaleMax: 0
+  useRandomEndScale: 0
+  endScaleMin: 0.6
+  endScaleMax: 1.2
+  startDelayMin: 0
+  startDelayMax: 0
+  durationTimeMin: 0.1
+  durationTimeMax: 0.1
+  runOnStart: 1
+  onDone:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8913362294073089207
 GameObject:
   m_ObjectHideFlags: 0
