@@ -1261,14 +1261,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 8174036106993548619}
   combineButton: {fileID: 9129103250892139881}
+  tooltip: {fileID: 4747218210491694307}
   toHideOnClose:
   - {fileID: 8784778902177653032}
   - {fileID: 8784778902839549714}
   - {fileID: 8784778901841699078}
   - {fileID: 8784778902300243751}
   - {fileID: 5194943639164526079}
-  toShowOnClose: []
-  tooltip: {fileID: 4747218210491694307}
+  toShowOnClose:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   allPlayerCards:
   - Card: {fileID: 5878165872008782306, guid: f4b608c5cc99c6644a3879e8b33224bb, type: 3}
     AmountPlayerOwns: 20
@@ -1351,11 +1357,6 @@ MonoBehaviour:
   upgradeSlots:
   - {fileID: 4576461055572666044}
   - {fileID: 8383710720776567197}
-  toShowOnUpgrade:
-  - {fileID: 562586229586697680}
-  toHideOnUpgrade:
-  - {fileID: 8784778902300243751}
-  - {fileID: 8784778901841699078}
 --- !u!95 &8174036106993548619
 Animator:
   serializedVersion: 3
