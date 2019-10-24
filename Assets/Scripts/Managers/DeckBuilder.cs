@@ -43,27 +43,25 @@ public class DeckBuilder : MonoBehaviour
 	[Header("Objects")]
 	[SerializeField] private Animator animator = null;
 	[SerializeField] private Button combineButton = null;
+	[SerializeField] private TextMeshProUGUI tooltip = null;
 	[SerializeField] private GameObject[] toHideOnClose = null;
 	[SerializeField] private GameObject[] toShowOnClose = null;
-	[SerializeField] private TextMeshProUGUI tooltip = null;
 
 	[Header("Master Collection")]
 	[SerializeField] private CardInMasterCollection[] allPlayerCards = null;
 
 	[Header("Collection")]
 	[SerializeField] private CardSlot[] collectionSlots = null;
-	private CardInCollection[] cardsInCollection = null;
 
 	[Header("Deck")]
 	[SerializeField] private CardSlot[] deckSlots = null;
-	private Card[] cardsInDeck = null;
 	[SerializeField] private int maxIdenticalDeckCards = 3;
 
 	[Header("Upgrade")]
 	[SerializeField] private CardSlot[] upgradeSlots = null;
-	[SerializeField] private GameObject[] toShowOnUpgrade = null;
-	[SerializeField] private GameObject[] toHideOnUpgrade = null;
 
+	private CardInCollection[] cardsInCollection = null;
+	private Card[] cardsInDeck = null;
 	private Card selectedCollectionCard = null;
 	private Card selectedDeckCard = null;
 	private bool upgrading = false;
@@ -97,14 +95,9 @@ public class DeckBuilder : MonoBehaviour
 		Assert.AreEqual( cardsInDeck, CardsInDeck, $"<b>{nameof( allPlayerCards )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object has to have <b>exactly</b> {CardsInDeck} cards in deck" );
 
 		Assert.AreNotEqual( collectionSlots.Length, 0, $"Please assign <b>{nameof( collectionSlots )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
-		//Assert.AreNotEqual( cardsInCollection.Length, 0, $"Please assign <b>{nameof( cardsInCollection )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
-
 		Assert.AreEqual( deckSlots.Length, CardsInDeck, $"Please make sure <b>{nameof( deckSlots )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object has 10 elements (number of cards a Deck should have)" );
-		//Assert.AreEqual( cardsInDeck.Length, 10, $"Please make sure <b>{nameof( cardsInDeck )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object has 10 elements (number of cards a Deck should have)" );
 
 		Assert.AreEqual( upgradeSlots.Length, 2, $"Please make sure <b>{nameof( upgradeSlots )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object has 2 elements (number of cards needed for an upgrade)" );
-		Assert.AreNotEqual( toShowOnUpgrade.Length, 0, $"Please assign <b>{nameof( toShowOnUpgrade )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
-		Assert.AreNotEqual( toHideOnUpgrade.Length, 0, $"Please assign <b>{nameof( toHideOnUpgrade )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
 		OpenAndLoad( );
 	}
@@ -144,12 +137,6 @@ public class DeckBuilder : MonoBehaviour
 
 	public void ShowUpgrade( )
 	{
-		/*foreach ( var go in toHideOnUpgrade )
-			go.SetActive( false );
-
-		foreach ( var go in toShowOnUpgrade )
-			go.SetActive( true );*/
-
 		upgrading = true;
 		foreach ( var slot in upgradeSlots )
 			slot.SetEmpty( );
@@ -162,12 +149,6 @@ public class DeckBuilder : MonoBehaviour
 
 	public void HideUpgrade( )
 	{
-		/*foreach ( var go in toHideOnUpgrade )
-			go.SetActive( true );
-
-		foreach ( var go in toShowOnUpgrade )
-			go.SetActive( false );*/
-
 		animator.SetTrigger( "HideUpgrade" );
 
 		upgrading = false;
