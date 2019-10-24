@@ -58,7 +58,12 @@ public class ScaleChanger : MonoBehaviour
 
 	public void StartScale( )
 	{
-		startDelay = Random.Range( startDelayMin, startDelayMax );
+		StartScale( startDelayMin, startDelayMax );
+	}
+
+	public void StartScale( float min, float max )
+	{
+		startDelay = Random.Range( min, max );
 		StartCoroutine( Scale( ) );
 	}
 

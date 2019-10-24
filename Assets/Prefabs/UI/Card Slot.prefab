@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 3575357662695513748}
   - component: {fileID: 1557468412798329778}
   - component: {fileID: 8857103073058066128}
+  - component: {fileID: 2294193865762560879}
   m_Layer: 5
   m_Name: Card Slot
   m_TagString: Untagged
@@ -104,6 +105,34 @@ MonoBehaviour:
   selection: {fileID: 3590282402871907767}
   amountLabel: {fileID: 3757775396413111799}
   mode: 2
+--- !u!114 &2294193865762560879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2822337573372306729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ced9a6ed8482ad943a9d033ee9a13e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  toEnableOnDone: []
+  useRandomStartScale: 1
+  startScaleMin: 0
+  startScaleMax: 0
+  useRandomEndScale: 0
+  endScaleMin: 0.6
+  endScaleMax: 1.2
+  startDelayMin: 0.3
+  startDelayMax: 0.4
+  durationTimeMin: 0.05
+  durationTimeMax: 0.1
+  runOnStart: 1
+  onDone:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3590282402871907767
 GameObject:
   m_ObjectHideFlags: 0
