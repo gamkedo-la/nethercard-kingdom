@@ -13,6 +13,7 @@ using UnityEngine.UI;
 public class EnemyOponent : MonoBehaviour
 {
 	public static EnemyOponent Instance { get; private set; }
+	public bool IsPlaying { get; set; } = true;
 
 	[SerializeField] private GameObject[] deck = null;
 	[SerializeField] private GameObject spawnIndicator = null;
@@ -55,6 +56,9 @@ public class EnemyOponent : MonoBehaviour
 
 	void Update( )
 	{
+		if ( !IsPlaying )
+			return;
+
 		ManaProgress( );
 		TrySummon( );
 	}

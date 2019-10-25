@@ -14,6 +14,7 @@ public class SummoningManager : MonoBehaviour
 	public static SummoningManager Instance { get; private set; }
 	public CardType UsingMode { get; private set; } = CardType.None;
 	public Targetable LastTarget { get; private set; } = null;
+	public bool CanSummon { get; set; } = true;
 
 	[SerializeField] private TextMeshProUGUI manaCounter = null;
 	[SerializeField] private Image progressImage = null;
@@ -56,22 +57,35 @@ public class SummoningManager : MonoBehaviour
 
 	void Update ()
 	{
-		if ( UsingMode != CardType.None )
-		{
-			Vector2 endPoint = Camera.main.ScreenToWorldPoint( Input.mousePosition );
+		UpdareIndicatorsPos( );
 
-			line.SetPosition( 0, lineStartPoint );
-			line.SetPosition( 1,  endPoint );
-
-			good.transform.position = endPoint;
-			bad.transform.position = endPoint;
-		}
+		if ( !CanSummon )
+			return;
 
 		ManaProgress( );
 	}
 
+	private void UpdareIndicatorsPos( )
+	{
+		Vector2 endPoint = Camera.main.ScreenToWorldPoint( Input.mousePosition );
+
+		//line.SetPosition( 0, lineStartPoint );
+		//line.SetPosition( 1, endPoint );
+
+		good.transform.position = endPoint;
+		bad.transform.position = endPoint;
+	}
+
 	public bool Summoning( Vector2 startPos, CardType type, bool started )
 	{
+		if ( !CanSummon )
+		{
+			bad.SetActive( started );
+			good.SetActive( false );
+
+			return false;
+		}
+
 		if ( type == CardType.Unit || type == CardType.None )
 			summoningAreaUnits.SetActive( started );
 
@@ -109,6 +123,9 @@ public class SummoningManager : MonoBehaviour
 
 	public void MouseOverTarget( bool isOver, CardType type, ConflicSide side, Targetable target )
 	{
+		if ( !CanSummon )
+			return;
+
 		LastTarget = target;
 
 		// We aren't summoning anything (canceled)
