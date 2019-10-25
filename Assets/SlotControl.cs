@@ -15,4 +15,14 @@ public class SlotControl : MonoBehaviour
     {
         
     }
+
+    public void OnClick()
+    {
+    }
+
+    public void OnRelease()
+    {
+        DeckBuilder.Instance.otherSlot = transform.parent.gameObject;
+        DeckBuilder.Instance.MoveSlot();
+    }
 }

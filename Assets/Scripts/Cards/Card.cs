@@ -101,7 +101,7 @@ public class Card : MonoBehaviour
 			}
 			else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
 			{
-				transform.position = Vector2.Lerp( transform.position, Input.mousePosition + new Vector3(0.0f, -140.0f, 0.0f), 0.25f );
+				transform.position = Vector2.Lerp( transform.position, Input.mousePosition + new Vector3(0.0f, -Screen.height/4.0f, 0.0f), 0.25f );
 				canvasGroup.alpha = Mathf.Lerp( canvasGroup.alpha, 0.4f, 0.15f );
 				if ( lerpBackTimer <= 0f || !lerpBack )
 					transform.localScale = Vector3.Lerp( transform.localScale, scaleToLerp, 0.25f );
@@ -277,7 +277,7 @@ public class Card : MonoBehaviour
         string ability, string flavor, Sprite borderSprite, Sprite fillSprite, GameObject instanceToSummon )
 	{
 		type = cardType;
-        level = cardLevel;
+		level = cardLevel;
 		displayName = name;
 		useCost = cost;
 		//attack = attackPower;
