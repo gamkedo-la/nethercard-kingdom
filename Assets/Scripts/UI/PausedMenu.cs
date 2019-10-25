@@ -10,51 +10,50 @@ public class PausedMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pauseMenuUI.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
         {
             if (gameIsPaused)
             {
-                resume();
+                Resume();
             }
             else
             {
-                pause();
+                Pause();
             }
         }
     }
 
-    void resume()
+    public void Resume()
     {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;
     }
 
-    void pause()
+    public void Pause()
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
     }
 
-    void retry()
+    public void Retry()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1f;
     }
 
-    void options()
+    public void Options()
     {
 
     }
 
-    void QuiteGame()
+    public void QuiteGame()
     {
         Application.Quit();
     }
