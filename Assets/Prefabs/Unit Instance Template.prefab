@@ -202,7 +202,7 @@ MonoBehaviour:
   attackRange: 0.86
   moveSpeed: 1
   movementRange: {x: 14.34, y: 3.68}
-  movementOffset: {x: 0, y: 0.02}
+  movementOffset: {x: -20, y: 0}
   onEnemyDetected:
     m_PersistentCalls:
       m_Calls: []
