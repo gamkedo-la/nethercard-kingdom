@@ -23,6 +23,9 @@ public class DirectHealingSpell : Spell
 
 	override public void SetTarget( Targetable target )
 	{
+		if ( !target )
+			Debug.Log( $"Spell {name} has no target. Target probably has been destroyed." );
+
 		base.SetTarget( target );
 
 		HP hp = target.GetComponent<HP>( );
