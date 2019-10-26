@@ -18,12 +18,17 @@ public class CardSlot : MonoBehaviour
 
 	private GameObject cardInSlot;
 
+	private GameObject cancel = null;
+
 	void Start ()
 	{
 		Assert.IsNotNull( amount, $"Please assign <b>{nameof( amount )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( slot, $"Please assign <b>{nameof( slot )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( selection, $"Please assign <b>{nameof( selection )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( amountLabel, $"Please assign <b>{nameof( amountLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+	
+		if(transform.childCount >= 5)
+			cancel = transform.GetChild(4).gameObject;
 	}
 
 	public Card Set( GameObject cardObject, float amount )
@@ -47,7 +52,15 @@ public class CardSlot : MonoBehaviour
 		if ( oldCardInSlot )
 			Destroy( oldCardInSlot );
 
+		if ( cancel )
+			cancel.SetActive( true );
+
 		return card;
+	}
+
+	public bool IsEmpty( )
+	{
+		return !( cardInSlot && cardInSlot.activeSelf );
 	}
 
 	public void SetEmpty( )
@@ -56,6 +69,9 @@ public class CardSlot : MonoBehaviour
 
 		if ( cardInSlot )
 			cardInSlot.SetActive( false );
+
+		if ( cancel )
+			cancel.SetActive( false );
 	}
 
 	public void Select( bool selected )

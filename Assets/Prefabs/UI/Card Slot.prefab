@@ -181,6 +181,7 @@ GameObject:
   - component: {fileID: 6475796774628886203}
   - component: {fileID: 6124142085028249043}
   - component: {fileID: 4180453944289761266}
+  - component: {fileID: 4406526716741586038}
   m_Layer: 5
   m_Name: Slot
   m_TagString: Untagged
@@ -250,6 +251,36 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6124142085028249043}
+          m_MethodName: OnHoverEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6124142085028249043}
+          m_MethodName: OnHoverExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &6124142085028249043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,6 +293,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1959d261ec4528a4295773bdba2da907, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  emptySlotFill: {fileID: 5458630926092660438}
+  hoverColor: {r: 0.8862746, g: 0.8862746, b: 0.8862746, a: 1}
 --- !u!222 &4180453944289761266
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -270,6 +303,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3694055605979371593}
   m_CullTransparentMesh: 0
+--- !u!114 &4406526716741586038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3694055605979371593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &6207084026408804884
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,6 +834,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5350331933894636819, guid: eb4c9452e2cb6884fa33436323a851f5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8298720085237455034, guid: eb4c9452e2cb6884fa33436323a851f5,
         type: 3}
       propertyPath: m_Delegates.Array.size
@@ -848,6 +914,31 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[5].callback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3675264248263211859, guid: eb4c9452e2cb6884fa33436323a851f5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3675264248263211859, guid: eb4c9452e2cb6884fa33436323a851f5,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3675264248263211859, guid: eb4c9452e2cb6884fa33436323a851f5,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3675264248263211859, guid: eb4c9452e2cb6884fa33436323a851f5,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5492659026099516548, guid: eb4c9452e2cb6884fa33436323a851f5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 946270127723140761, guid: eb4c9452e2cb6884fa33436323a851f5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: eb4c9452e2cb6884fa33436323a851f5, type: 3}
@@ -867,5 +958,17 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c44d14f785efbc74da464e22b7a3862e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5458630926092660438 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5492659026099516548, guid: eb4c9452e2cb6884fa33436323a851f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 574538460614351442}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

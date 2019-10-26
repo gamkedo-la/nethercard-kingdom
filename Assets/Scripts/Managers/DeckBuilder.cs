@@ -158,7 +158,7 @@ public class DeckBuilder : MonoBehaviour
   }
 
   public Card SelectedCard() { if (selectedSlot != null) return GetCardFromSlot(selectedSlot); return null; }
-  public Card GetCardFromSlot(GameObject slot) { if (slot != null) return slot.transform.GetChild(3).GetChild(0).GetComponent<Card>(); return null; }
+  public Card GetCardFromSlot(GameObject slot) { if (slot != null && slot.transform.GetChild(3) != null && slot.transform.GetChild(3).GetChild(0) != null && slot.transform.GetChild(3).GetChild(0).GetComponent<Card>() != null) return slot.transform.GetChild(3).GetChild(0).GetComponent<Card>(); return null; }
 
   public void UpgradeCard()
   {
@@ -361,21 +361,25 @@ public class DeckBuilder : MonoBehaviour
         return;
       }
 
-      // -- Swap cards --
+      // -- Set Display for Upgrade Card Slot --
 
       // Remove card selected in collection from the master collection (by reducing the amount we have)
       CardInMasterCollection cardInCollectionToSwap = allPlayerCards.First(card => card.Card.Name == selectedCollectionCard.Name);
-      cardInCollectionToSwap.AmountPlayerOwns--;
+
+      //cardInCollectionToSwap.AmountPlayerOwns--; //Only SHOW in upgrade
 
       // Remove card selected in the upgrade
       CardInMasterCollection cardInUpgradeToSwap = allPlayerCards.First(card => card.Card.Name == selectedUpgradeCard.Name);
       //cardInUpgradeToSwap.AmountInDeck--; // MISSING How can I remove this card from Upgrade?
 
+      //selectedUpgradeCard.transform.parent.parent.GetComponent<CardSlot>().SetEmpty(); //Only SHOW in upgrade
+
       // Add card selected from the collection to upgrade
       //cardInCollectionToSwap.AmountInDeck++; // MISSING How can I add this card to Upgrade?
+      if(otherSlot.GetComponent<CardSlot>().IsEmpty()) otherSlot.GetComponent<CardSlot>().Set( selectedCollectionCard.gameObject, 1 );
 
       // Add card selected from the upgrade to master collection
-      cardInUpgradeToSwap.AmountPlayerOwns++;
+      //cardInUpgradeToSwap.AmountPlayerOwns++; // Only SHOW in upgrade
 
       tooltip.text = "Cards swapped";
 
@@ -387,7 +391,7 @@ public class DeckBuilder : MonoBehaviour
     else if (selectedCollectionCard != null
 		|| selectedDeckCard != null
 		|| selectedUpgradeCard != null)
-    //for adding cards to EMPTY Upgrade slots
+    //for adding cards to empty slots
     {
 			Card selectedCard = null;
 
@@ -400,12 +404,15 @@ public class DeckBuilder : MonoBehaviour
 
 			if(selectedCard == selectedCollectionCard)
 			{
-      	addedCard.AmountPlayerOwns--;
-
 				if(otherSlot.name.Contains("Deck"))
+        {
+          addedCard.AmountPlayerOwns--;
 					addedCard.AmountInDeck++;
+        }
 				else if(otherSlot.name.Contains("Upgrade"))
-					; //addedCard.AmountInDeck++; //MISSING How can I add this card to Upgrade?
+        {
+          otherSlot.GetComponent<CardSlot>().Set( selectedCard.gameObject, 1 );
+        }
 			}
 			else if(selectedCard == selectedDeckCard)
 			{
@@ -413,17 +420,18 @@ public class DeckBuilder : MonoBehaviour
 
 				if(otherSlot.name.Contains("Collection"))
 					addedCard.AmountPlayerOwns++;
-				else if(otherSlot.name.Contains("Upgrade"))
-					; //addedCard.AmountInDeck++; //MISSING How can I add this card to Upgrade?
+
+        //Deck card can not access upgrade
 			}
 			else if(selectedCard == selectedUpgradeCard)
 			{
 				//addedCard.AmountInDeck--; //MISSING How can I remove this card from Upgrade?
+        selectedUpgradeCard.transform.parent.parent.GetComponent<CardSlot>().SetEmpty();
 
 				if(otherSlot.name.Contains("Collection"))
 					addedCard.AmountPlayerOwns++;
-				else if(otherSlot.name.Contains("Deck"))
-					addedCard.AmountInDeck++;
+
+        //Upgrade card can not access deck
 			}
 
       tooltip.text = "Card Moved";
