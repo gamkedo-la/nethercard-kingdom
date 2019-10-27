@@ -10,16 +10,9 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-[System.Serializable]
-public class OponentDeckCard
-{
-	public GameObject Instance;
-	public int SummonCost;
-}
-
 public class EnemyOponentAlt : MonoBehaviour
 {
-	public static EnemyOponent Instance { get; private set; }
+	public static EnemyOponentAlt Instance { get; private set; }
 	public bool IsPlaying { get; set; } = true;
 
 	[SerializeField] private OponentDeckCard[] deck = null;
