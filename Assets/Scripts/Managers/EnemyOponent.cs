@@ -10,12 +10,19 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
 
+[System.Serializable]
+public class OponentDeckCard
+{
+	public GameObject Instance;
+	public int SummonCost;
+}
+
 public class EnemyOponent : MonoBehaviour
 {
 	public static EnemyOponent Instance { get; private set; }
 	public bool IsPlaying { get; set; } = true;
 
-	[SerializeField] private GameObject[] deck = null;
+	[SerializeField] private OponentDeckCard[] deck = null;
 	[SerializeField] private GameObject spawnIndicator = null;
 	[SerializeField] private GameObject summoningPoint = null;
 	//[SerializeField] private TextMeshProUGUI manaCounter = null;
@@ -71,7 +78,7 @@ public class EnemyOponent : MonoBehaviour
 
 		timeToNextSummon = summonInterval;
 
-		StartCoroutine( Summon( deck[Random.Range( 0, deck.Length )], GetRandomPoint( ) ) );
+		StartCoroutine( Summon( deck[Random.Range( 0, deck.Length )].Instance, GetRandomPoint( ) ) );
 	}
 
 	private IEnumerator Summon( GameObject instance, Vector2 pos )
