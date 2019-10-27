@@ -36,6 +36,7 @@ public class CardCreationEditor : EditorWindow
     private Sprite unitArtFill = null;
     private Sprite unitArtBorder = null;
     private Unit unitData;
+    private UnitVisuals unitVisualData;
 
     //Spell Instance Variables
     private string spellName = "New Spell Name";
@@ -147,7 +148,8 @@ public class CardCreationEditor : EditorWindow
         GameObject newUnit = PrefabUtility.SaveAsPrefabAsset(unit, localPath);
 
         unitData = newUnit.GetComponent<Unit>();
-        unitData.UpdateUnitStatsFromEditor(unitArtBorder, unitArtFill);
+		unitVisualData = newUnit.GetComponent<UnitVisuals>();
+		unitVisualData.UpdateUnitStatsFromEditor(unitArtBorder, unitArtFill);
 
         DestroyImmediate(unit);
     }

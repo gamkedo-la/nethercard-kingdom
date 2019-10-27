@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 760942606543455561}
   - component: {fileID: 8851241857563741807}
   - component: {fileID: 6434054621640730110}
+  - component: {fileID: 5883191176973908796}
   m_Layer: 9
   m_Name: Unit Instance Template
   m_TagString: Untagged
@@ -237,8 +238,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: {fileID: 2003592177715405983}
   attack: {fileID: 1763304012001775943}
-  borderSprite: {fileID: 1389900820131627909}
-  fillSprite: {fileID: 7496335600690224256}
   side: 0
   unitCenter: {x: 0, y: 0.76}
   HQ: 0
@@ -362,6 +361,20 @@ MonoBehaviour:
   toEnable:
   - {fileID: 2003592177715405980}
   - {fileID: 2003592177715405983}
+--- !u!114 &5883191176973908796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003592177715405978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8df2828d404aa640bf37201e1b59da9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  borderSprite: {fileID: 1389900820131627909}
+  fillSprite: {fileID: 7496335600690224256}
 --- !u!1 &2003592177863630467
 GameObject:
   m_ObjectHideFlags: 0

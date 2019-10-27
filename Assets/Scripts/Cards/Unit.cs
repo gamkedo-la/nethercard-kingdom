@@ -24,8 +24,6 @@ public class Unit : MonoBehaviour
 	[Header("External objects")]
 	[SerializeField] private HP hp = null;
 	[SerializeField] private Attack attack = null;
-    [SerializeField] private SpriteRenderer borderSprite = null;
-    [SerializeField] private SpriteRenderer fillSprite = null;
 
     [Header("Physical parameters")]
 	[SerializeField] private ConflicSide side = ConflicSide.Player;
@@ -55,8 +53,6 @@ public class Unit : MonoBehaviour
 	{
 		Assert.IsNotNull( hp, $"Please assign <b>{nameof( hp )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( attack, $"Please assign <b>{nameof( attack )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
-		Assert.IsNotNull( borderSprite, $"Please assign <b>{nameof( borderSprite )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
-		Assert.IsNotNull( fillSprite, $"Please assign <b>{nameof( fillSprite )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
 		moveDirection = side == ConflicSide.Player ? Vector2.right : Vector2.left;
 	}
@@ -200,10 +196,4 @@ public class Unit : MonoBehaviour
 
 		transform.position = newPosition;
 	}
-
-    public void UpdateUnitStatsFromEditor(Sprite unitBorderSprite, Sprite unitFillSprite)
-    {
-        borderSprite.sprite = unitBorderSprite;
-        fillSprite.sprite = unitFillSprite;
-    }
 }
