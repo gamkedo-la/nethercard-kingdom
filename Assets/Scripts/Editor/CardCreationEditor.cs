@@ -10,8 +10,8 @@ public class CardCreationEditor : EditorWindow
     private bool overwriteExistingCard = false;
 
     //Card Variables
-    string cardFileName = "New Card Name";
-    string displayName;
+    string cardFileName = "New Card File Name";
+    string displayName = "Card Display Name";
     CardType cardType;
     CardLevel cardLevel = CardLevel.Level1;
     private Card cardData;
@@ -97,6 +97,7 @@ public class CardCreationEditor : EditorWindow
             }
 
             toSummon = (GameObject)EditorGUILayout.ObjectField("Instance to Summon", toSummon, typeof(GameObject), false, GUILayout.ExpandWidth(true));
+            CheckInstanceType();
             cardArtFill = (Sprite)EditorGUILayout.ObjectField("Card Art Fill", cardArtFill, typeof(Sprite), true);
             cardArtBorder = (Sprite)EditorGUILayout.ObjectField("Card Art Border", cardArtBorder, typeof(Sprite), true);
             cardCost = EditorGUILayout.IntField("Card Cost", cardCost);
@@ -155,7 +156,7 @@ public class CardCreationEditor : EditorWindow
 
     private void CheckStringLength(string textField, int characterMax)
     {
-        if (textField.Length > characterMax)
+        if (textField.Length > characterMax && textField != null)
         {
             //fileName = "";
             GUILayout.TextField("Please enter " + characterMax.ToString() + " or less characters.");
@@ -175,8 +176,8 @@ public class CardCreationEditor : EditorWindow
         GameObject newUnit = PrefabUtility.SaveAsPrefabAsset(unit, localPath);
 
         unitData = newUnit.GetComponent<Unit>();
-		unitVisualData = newUnit.GetComponent<UnitVisuals>();
-		unitVisualData.UpdateUnitStatsFromEditor(unitArtBorder, unitArtFill);
+        unitVisualData = newUnit.GetComponent<UnitVisuals>();
+        unitVisualData.UpdateUnitStatsFromEditor(unitArtBorder, unitArtFill);
 
         DestroyImmediate(unit);
     }
@@ -239,5 +240,41 @@ public class CardCreationEditor : EditorWindow
             return true;
         }
         else { return false; }
+    }
+
+    private void CheckInstanceType()
+    {
+        if (toSummon != null)
+        {
+            if (cardType == CardType.Unit)
+            {
+                if (toSummon.GetComponent<Unit>() == null)
+                {
+                    GUILayout.TextField("Card Type does not match Instance Type.");
+                }
+            }
+            if (cardType == CardType.DirectDefensiveSpell)
+            {
+                if (toSummon.GetComponent<DirectHealingSpell>() == null)
+                {
+                    GUILayout.TextField("Card Type does not match Instance Type.");
+                }
+            }
+            if (cardType == CardType.DirectOffensiveSpell)
+            {
+                if (toSummon.GetComponent<DirectDamageSpell>() == null)
+                {
+                    GUILayout.TextField("Card Type does not match Instance Type.");
+                }
+            }
+            if (cardType == CardType.AoeSpell)
+            {
+                if (toSummon.GetComponent<AoeSpell>() == null)
+                {
+                    GUILayout.TextField("Card Type does not match Instance Type.");
+                }
+            }
+        }
+
     }
 }
