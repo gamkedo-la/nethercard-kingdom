@@ -4918,6 +4918,7 @@ MonoBehaviour:
   type: 1
   destroyAfter: 3
   effectAmount: 3
+  targetFreezTime: 1
 --- !u!1 &8468621115787541369
 GameObject:
   m_ObjectHideFlags: 0

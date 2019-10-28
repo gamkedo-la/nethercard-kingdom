@@ -32,6 +32,9 @@ public class StandardAttack : Attack
 
 	private void TryToAttack( )
 	{
+		if ( Flozen )
+			return;
+
 		timeToNextAttack -= Time.deltaTime;
 
 		// Need to be in attack range of an oponent and has no attack cool-down

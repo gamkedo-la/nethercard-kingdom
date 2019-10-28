@@ -6,6 +6,7 @@
 
 // TODO: Split the class in to separate classes.
 
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Events;
@@ -48,6 +49,7 @@ public class Unit : MonoBehaviour
 	private Unit currentOpponent = null;
 	private bool hadOponent = false;
 	private bool inAttackRange = false;
+	private bool frozen = false;
 
 	void Start ()
 	{
@@ -74,6 +76,9 @@ public class Unit : MonoBehaviour
 		if ( HQ )
 			return;
 
+		if ( frozen )
+			return;
+
 		SearchForOpenentToTarget( );
 		SearchForOpenentToAttack( );
 		Move( );
@@ -93,6 +98,21 @@ public class Unit : MonoBehaviour
 		Gizmos.DrawWireSphere( transform.position + (Vector3)unitCenter, attackRange );
 
 		Gizmos.color = Color.white;*/
+	}
+	public void Freez( float duration )
+	{
+		StartCoroutine( DoFreez( duration ) );
+	}
+
+	private IEnumerator DoFreez( float duration )
+	{
+		frozen = true;
+		attack.Flozen = true;
+
+		yield return new WaitForSeconds( duration );
+
+		frozen = false;
+		attack.Flozen = false;
 	}
 
 	private void SearchForOpenentToTarget( )

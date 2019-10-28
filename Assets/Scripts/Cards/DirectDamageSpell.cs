@@ -9,6 +9,8 @@ using UnityEngine.Assertions;
 
 public class DirectDamageSpell : Spell
 {
+	[SerializeField] private float targetFreezTime = 0f;
+
 	override public void Start ()
 	{
 		base.Start( );
@@ -30,5 +32,11 @@ public class DirectDamageSpell : Spell
 
 		HP hp = target.GetComponent<HP>( );
 		hp.DoDamage( effectAmount, transform.position );
+
+		if ( targetFreezTime > 0 )
+		{
+			Unit unit = target.GetComponent<Unit>( );
+			unit.Freez( targetFreezTime );
+		}
 	}
 }

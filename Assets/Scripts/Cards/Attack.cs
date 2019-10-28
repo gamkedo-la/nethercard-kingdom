@@ -13,4 +13,5 @@ public class Attack : MonoBehaviour
 
 	[SerializeField] protected float atackDamage = 2f;
 	[SerializeField] protected float atackDelay = 1f;
+	public bool Flozen { get; set; } = false;
 }
