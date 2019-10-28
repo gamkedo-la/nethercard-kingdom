@@ -345,6 +345,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   borderSprite: {fileID: 1389900820131627909}
   fillSprite: {fileID: 7496335600690224256}
+  group: {fileID: 8992079692198194543}
+  shockLayer: Foreground
+  shockColor: {r: 0.19215687, g: 0.19215687, b: 0.19215687, a: 1}
 --- !u!1 &2003592177863630467
 GameObject:
   m_ObjectHideFlags: 0
