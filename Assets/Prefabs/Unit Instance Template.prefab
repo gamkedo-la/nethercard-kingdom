@@ -129,7 +129,6 @@ GameObject:
   - component: {fileID: 2003592177715405980}
   - component: {fileID: 2003592177715405983}
   - component: {fileID: 760942606543455561}
-  - component: {fileID: 8851241857563741807}
   - component: {fileID: 6434054621640730110}
   - component: {fileID: 5883191176973908796}
   m_Layer: 9
@@ -238,6 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: {fileID: 2003592177715405983}
   attack: {fileID: 1763304012001775943}
+  animator: {fileID: 3543253135044890370}
   side: 0
   unitCenter: {x: 0, y: 0.76}
   HQ: 0
@@ -316,36 +316,6 @@ MonoBehaviour:
   unit: {fileID: 2003592177715405980}
   targetType: 0
   side: 0
---- !u!114 &8851241857563741807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2003592177715405978}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ced9a6ed8482ad943a9d033ee9a13e87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  toEnableOnDone:
-  - {fileID: 2003592177715405983}
-  - {fileID: 2003592177715405980}
-  useRandomStartScale: 1
-  startScaleMin: 0
-  startScaleMax: 0
-  useRandomEndScale: 0
-  endScaleMin: 0.6
-  endScaleMax: 1.2
-  startDelayMin: 0
-  startDelayMax: 0
-  durationTimeMin: 0.2
-  durationTimeMax: 0.2
-  runOnStart: 1
-  onDone:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &6434054621640730110
 MonoBehaviour:
   m_ObjectHideFlags: 0

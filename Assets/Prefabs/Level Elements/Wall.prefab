@@ -239,8 +239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: {fileID: 7832217364804872023}
   attack: {fileID: 46009702003437391}
-  borderSprite: {fileID: 6250777182742533663}
-  fillSprite: {fileID: 2679391589614712076}
+  animator: {fileID: 805658137276375092}
   side: 0
   unitCenter: {x: 0, y: 0}
   HQ: 1
@@ -300,8 +299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: {fileID: 7832217364804872023}
   attack: {fileID: 46009702003437391}
-  borderSprite: {fileID: 6250777182742533663}
-  fillSprite: {fileID: 2679391589614712076}
+  animator: {fileID: 805658137276375092}
   side: 0
   unitCenter: {x: 0, y: 0}
   HQ: 1
@@ -327,6 +325,7 @@ GameObject:
   - component: {fileID: 7832217364804872022}
   - component: {fileID: 7832217364804872023}
   - component: {fileID: 46009702003437391}
+  - component: {fileID: 805658137276375092}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -417,6 +416,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   atackDamage: 0
   atackDelay: 0
+--- !u!95 &805658137276375092
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7832217364804872008}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7832217365449908390
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,8 +635,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: {fileID: 7832217364804872023}
   attack: {fileID: 46009702003437391}
-  borderSprite: {fileID: 6250777182742533663}
-  fillSprite: {fileID: 2679391589614712076}
+  animator: {fileID: 805658137276375092}
   side: 0
   unitCenter: {x: 0, y: 0}
   HQ: 1
@@ -678,8 +695,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: {fileID: 7832217364804872023}
   attack: {fileID: 46009702003437391}
-  borderSprite: {fileID: 6250777182742533663}
-  fillSprite: {fileID: 2679391589614712076}
+  animator: {fileID: 805658137276375092}
   side: 0
   unitCenter: {x: 0, y: 0}
   HQ: 1

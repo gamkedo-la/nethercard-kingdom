@@ -25,6 +25,7 @@ public class Unit : MonoBehaviour
 	[Header("External objects")]
 	[SerializeField] private HP hp = null;
 	[SerializeField] private Attack attack = null;
+	[SerializeField] private Animator animator = null;
 
     [Header("Physical parameters")]
 	[SerializeField] private ConflicSide side = ConflicSide.Player;
@@ -55,6 +56,7 @@ public class Unit : MonoBehaviour
 	{
 		Assert.IsNotNull( hp, $"Please assign <b>{nameof( hp )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( attack, $"Please assign <b>{nameof( attack )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( animator, $"Please assign <b>{nameof( animator )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
 		moveDirection = side == ConflicSide.Player ? Vector2.right : Vector2.left;
 	}
@@ -99,20 +101,25 @@ public class Unit : MonoBehaviour
 
 		Gizmos.color = Color.white;*/
 	}
-	public void Freez( float duration )
+
+	public void Freez( float duration, bool shocked = false )
 	{
-		StartCoroutine( DoFreez( duration ) );
+		StartCoroutine( DoFreez( duration, shocked ) );
 	}
 
-	private IEnumerator DoFreez( float duration )
+	private IEnumerator DoFreez( float duration, bool shocked )
 	{
 		frozen = true;
 		attack.Flozen = true;
+		if ( shocked )
+			animator.SetTrigger( "Shocked" );
 
 		yield return new WaitForSeconds( duration );
 
 		frozen = false;
 		attack.Flozen = false;
+		if ( shocked )
+			animator.SetTrigger( "Moving" );
 	}
 
 	private void SearchForOpenentToTarget( )

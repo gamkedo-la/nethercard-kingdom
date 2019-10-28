@@ -37,7 +37,7 @@ public class DirectDamageSpell : Spell
 		if ( targetFreezTime > 0 )
 		{
 			Unit unit = target.GetComponent<Unit>( );
-			unit.Freez( targetFreezTime );
+			unit.Freez( targetFreezTime, true );
 		}
 
 		if ( shakeStrength > 0 )
