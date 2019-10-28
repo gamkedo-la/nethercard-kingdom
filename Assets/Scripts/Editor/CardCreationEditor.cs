@@ -10,7 +10,7 @@ public class CardCreationEditor : EditorWindow
     private bool overwriteExistingCard = false;
 
     //Card Variables
-    string fileName = "New Card Name";
+    string cardFileName = "New Card Name";
     string displayName;
     CardType cardType;
     CardLevel cardLevel = CardLevel.Level1;
@@ -26,12 +26,14 @@ public class CardCreationEditor : EditorWindow
     private Sprite cardArtBorder = null;
 
     private GameObject toSummon;
+    private Editor summonedInstancePreview;
     private Card higherLevelCard = null;
     private Card lowerLevelCard = null;
 
     private Card cardToBeOverwritten = null;
 
     //Units Instance Variables
+    private string unitFileName = "Unit File Name";
     private string unitName = "New Unit Name";
     private Sprite unitArtFill = null;
     private Sprite unitArtBorder = null;
@@ -39,6 +41,7 @@ public class CardCreationEditor : EditorWindow
     private UnitVisuals unitVisualData;
 
     //Spell Instance Variables
+    private string spellFileName = "Spell File Name";
     private string spellName = "New Spell Name";
     private CardType spellType;
 
@@ -67,7 +70,7 @@ public class CardCreationEditor : EditorWindow
             if (overwriteExistingCard)
             {
                 cardToBeOverwritten = (Card)EditorGUILayout.ObjectField("Choose Card to Overwrite", cardToBeOverwritten, typeof(Card), false, GUILayout.ExpandWidth(true));
-                fileName = cardToBeOverwritten.gameObject.name;
+                cardFileName = cardToBeOverwritten.gameObject.name;
                 displayName = cardToBeOverwritten.Name;
                 cardType = cardToBeOverwritten.CardType;
                 cardLevel = cardToBeOverwritten.Level;
@@ -76,8 +79,10 @@ public class CardCreationEditor : EditorWindow
 
             }
 
-            fileName = EditorGUILayout.TextField("Card File Name", fileName);
+            cardFileName = EditorGUILayout.TextField("Card File Name", cardFileName);
+            CheckStringLength(cardFileName, 100);
             displayName = EditorGUILayout.TextField("Card Display Name", displayName);
+            CheckStringLength(displayName, 20);
             cardType = (CardType)EditorGUILayout.EnumPopup("Card Type", cardType);
             cardLevel = (CardLevel)EditorGUILayout.EnumPopup("Card Level", cardLevel);
 
@@ -95,19 +100,29 @@ public class CardCreationEditor : EditorWindow
             cardArtFill = (Sprite)EditorGUILayout.ObjectField("Card Art Fill", cardArtFill, typeof(Sprite), true);
             cardArtBorder = (Sprite)EditorGUILayout.ObjectField("Card Art Border", cardArtBorder, typeof(Sprite), true);
             cardCost = EditorGUILayout.IntField("Card Cost", cardCost);
+            CheckStringLength(cardCost.ToString(), 2);
             abilityText = EditorGUILayout.TextField("Ability Text", abilityText);
+            CheckStringLength(abilityText, 30);
             flavorText = EditorGUILayout.TextField("Flavor Text", flavorText);
+            CheckStringLength(flavorText, 30);
 
+            /*
+             TODO: Can a Card Preview Window be created?
+            summonedInstancePreview = Editor.CreateEditor(toSummon);
+            summonedInstancePreview.OnInteractivePreviewGUI(GUILayoutUtility.GetRect(50, 50), EditorStyles.whiteLabel);
+            */
             if (GUILayout.Button("Finish Card"))
             {
                 CreateCardVariant();
             }
+            GUILayout.TextArea("File Path is: Assets/Prefabs/Player Cards/" + cardFileName + ".prefab");
         }
 
         if (toolBarInt == 1)
         {
             GUILayout.Label("Create Unit", EditorStyles.boldLabel);
 
+            unitFileName = EditorGUILayout.TextField("Unit File Name", unitFileName);
             unitName = EditorGUILayout.TextField("Unit Name", unitName);
             unitArtFill = (Sprite)EditorGUILayout.ObjectField("Unit Art Fill", unitArtFill, typeof(Sprite), true);
             unitArtBorder = (Sprite)EditorGUILayout.ObjectField("Unit Art Border", unitArtBorder, typeof(Sprite), true);
@@ -117,12 +132,14 @@ public class CardCreationEditor : EditorWindow
             {
                 CreateUnitVariant();
             }
+            GUILayout.TextArea("File Path is: Assets/Prefabs/Player Cards/" + unitFileName + ".prefab");
         }
 
         if (toolBarInt == 2)
         {
             GUILayout.Label("Create Spell", EditorStyles.boldLabel);
 
+            spellFileName = EditorGUILayout.TextField("Spell File Name", spellFileName);
             spellName = EditorGUILayout.TextField("Spell Name", spellName);
             spellType = (CardType)EditorGUILayout.EnumPopup("Spell Type", spellType);
             spellArtFill = (Sprite)EditorGUILayout.ObjectField("Spell Art Fill", spellArtFill, typeof(Sprite), true);
@@ -132,6 +149,16 @@ public class CardCreationEditor : EditorWindow
             {
                 CreateSpellInstance();
             }
+            GUILayout.TextArea("File Path is: Assets/Prefabs/Player Cards/" + spellName + ".prefab");
+        }
+    }
+
+    private void CheckStringLength(string textField, int characterMax)
+    {
+        if (textField.Length > characterMax)
+        {
+            //fileName = "";
+            GUILayout.TextField("Please enter " + characterMax.ToString() + " or less characters.");
         }
     }
 
@@ -189,7 +216,7 @@ public class CardCreationEditor : EditorWindow
     {
         //TODO: Add some error checking.  Currently, if a new card has the same name as an existing card the existing card's data is overwritten
         string prefabPath = "Assets/Prefabs/Card Template.prefab";
-        string localPath = "Assets/Prefabs/Player Cards/" + fileName + ".prefab";
+        string localPath = "Assets/Prefabs/Player Cards/" + cardFileName + ".prefab";
         if (CheckIfExists(localPath) && overwriteExistingCard == false)
         {
             return;
@@ -200,6 +227,7 @@ public class CardCreationEditor : EditorWindow
 
         cardData = newCard.GetComponent<Card>();
         cardData.UpdateCardStatsFromEditor(cardType, cardLevel, displayName, cardCost, abilityText, flavorText, cardArtFill, cardArtBorder, toSummon);
+        cardData.PopulateCardInfo();
         DestroyImmediate(card);
     }
 

@@ -291,7 +291,7 @@ public class Card : MonoBehaviour
 	}
 
 	[ContextMenu( "Update Card Info" )]
-	private void PopulateCardInfo( )
+	public void PopulateCardInfo( )
 	{
 		var specificCulture = System.Globalization.CultureInfo.GetCultureInfo( "en-US" );
 
