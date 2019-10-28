@@ -12,6 +12,127 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lightning Spell III Card
       objectReference: {fileID: 0}
+    - target: {fileID: 222037773591144965, guid: 50f644e35feb661458821404f47f5a33,
+        type: 3}
+      propertyPath: lowerLevelVersion
+      value: 
+      objectReference: {fileID: 222037773591144965, guid: 50f644e35feb661458821404f47f5a33,
+        type: 3}
+    - target: {fileID: 222037773591144965, guid: 50f644e35feb661458821404f47f5a33,
+        type: 3}
+      propertyPath: higherLevelVersion
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 222037773591144965, guid: 50f644e35feb661458821404f47f5a33,
+        type: 3}
+      propertyPath: level
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 222037773591144965, guid: 50f644e35feb661458821404f47f5a33,
+        type: 3}
+      propertyPath: useCost
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 222037773591144965, guid: 50f644e35feb661458821404f47f5a33,
+        type: 3}
+      propertyPath: abilityText
+      value: Does <b>5 damage</b> to enemy unit
+      objectReference: {fileID: 0}
+    - target: {fileID: 222037773591144965, guid: 50f644e35feb661458821404f47f5a33,
+        type: 3}
+      propertyPath: displayName
+      value: Power Lightning
+      objectReference: {fileID: 0}
+    - target: {fileID: 3500630304428556493, guid: 50f644e35feb661458821404f47f5a33,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3500630304428556493, guid: 50f644e35feb661458821404f47f5a33,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3500630304428556493, guid: 50f644e35feb661458821404f47f5a33,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3500630304428556493, guid: 50f644e35feb661458821404f47f5a33,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3500630304428556493, guid: 50f644e35feb661458821404f47f5a33,
+        type: 3}
+      propertyPath: m_text
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7966415592630249251, guid: 50f644e35feb661458821404f47f5a33,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7966415592630249251, guid: 50f644e35feb661458821404f47f5a33,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7966415592630249251, guid: 50f644e35feb661458821404f47f5a33,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7966415592630249251, guid: 50f644e35feb661458821404f47f5a33,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7966415592630249251, guid: 50f644e35feb661458821404f47f5a33,
+        type: 3}
+      propertyPath: m_text
+      value: Power Lightning
+      objectReference: {fileID: 0}
+    - target: {fileID: 7642004513337614226, guid: 50f644e35feb661458821404f47f5a33,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 7642004513337614226, guid: 50f644e35feb661458821404f47f5a33,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7642004513337614226, guid: 50f644e35feb661458821404f47f5a33,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7642004513337614226, guid: 50f644e35feb661458821404f47f5a33,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7642004513337614226, guid: 50f644e35feb661458821404f47f5a33,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7642004513337614226, guid: 50f644e35feb661458821404f47f5a33,
+        type: 3}
+      propertyPath: m_text
+      value: Does <b>5 damage</b> to enemy unit
+      objectReference: {fileID: 0}
+    - target: {fileID: 8154074079662785196, guid: 50f644e35feb661458821404f47f5a33,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7085036957844220886, guid: 50f644e35feb661458821404f47f5a33,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 725257271653212824, guid: 50f644e35feb661458821404f47f5a33,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -116,97 +237,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 222037773591144965, guid: 50f644e35feb661458821404f47f5a33,
-        type: 3}
-      propertyPath: lowerLevelVersion
-      value: 
-      objectReference: {fileID: 222037773591144965, guid: 50f644e35feb661458821404f47f5a33,
-        type: 3}
-    - target: {fileID: 222037773591144965, guid: 50f644e35feb661458821404f47f5a33,
-        type: 3}
-      propertyPath: higherLevelVersion
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 222037773591144965, guid: 50f644e35feb661458821404f47f5a33,
-        type: 3}
-      propertyPath: level
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3500630304428556493, guid: 50f644e35feb661458821404f47f5a33,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3500630304428556493, guid: 50f644e35feb661458821404f47f5a33,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3500630304428556493, guid: 50f644e35feb661458821404f47f5a33,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3500630304428556493, guid: 50f644e35feb661458821404f47f5a33,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8154074079662785196, guid: 50f644e35feb661458821404f47f5a33,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7085036957844220886, guid: 50f644e35feb661458821404f47f5a33,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7966415592630249251, guid: 50f644e35feb661458821404f47f5a33,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7966415592630249251, guid: 50f644e35feb661458821404f47f5a33,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7966415592630249251, guid: 50f644e35feb661458821404f47f5a33,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7966415592630249251, guid: 50f644e35feb661458821404f47f5a33,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7642004513337614226, guid: 50f644e35feb661458821404f47f5a33,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 27
-      objectReference: {fileID: 0}
-    - target: {fileID: 7642004513337614226, guid: 50f644e35feb661458821404f47f5a33,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7642004513337614226, guid: 50f644e35feb661458821404f47f5a33,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7642004513337614226, guid: 50f644e35feb661458821404f47f5a33,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7642004513337614226, guid: 50f644e35feb661458821404f47f5a33,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50f644e35feb661458821404f47f5a33, type: 3}

@@ -29,6 +29,16 @@ PrefabInstance:
       propertyPath: level
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6412157164616586719, guid: d53af6725d85789418919b90f9ab9991,
+        type: 3}
+      propertyPath: displayName
+      value: Stronger Lightning
+      objectReference: {fileID: 0}
+    - target: {fileID: 6412157164616586719, guid: d53af6725d85789418919b90f9ab9991,
+        type: 3}
+      propertyPath: abilityText
+      value: Does <b>4 damage</b> to enemy unit
+      objectReference: {fileID: 0}
     - target: {fileID: 7745316614295420695, guid: d53af6725d85789418919b90f9ab9991,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -69,6 +79,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3847829024448911609, guid: d53af6725d85789418919b90f9ab9991,
+        type: 3}
+      propertyPath: m_text
+      value: Stronger Lightning
+      objectReference: {fileID: 0}
     - target: {fileID: 3595423122201206856, guid: d53af6725d85789418919b90f9ab9991,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -92,6 +107,16 @@ PrefabInstance:
     - target: {fileID: 3595423122201206856, guid: d53af6725d85789418919b90f9ab9991,
         type: 3}
       propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3595423122201206856, guid: d53af6725d85789418919b90f9ab9991,
+        type: 3}
+      propertyPath: m_text
+      value: Does <b>4 damage</b> to enemy unit
+      objectReference: {fileID: 0}
+    - target: {fileID: 3080831539083853174, guid: d53af6725d85789418919b90f9ab9991,
+        type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5906745236138515778, guid: d53af6725d85789418919b90f9ab9991,
@@ -198,11 +223,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3080831539083853174, guid: d53af6725d85789418919b90f9ab9991,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d53af6725d85789418919b90f9ab9991, type: 3}
