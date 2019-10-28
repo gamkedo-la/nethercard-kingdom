@@ -30,7 +30,10 @@ public class CardCreationEditor : EditorWindow
     private Card higherLevelCard = null;
     private Card lowerLevelCard = null;
 
-    private Card cardToBeOverwritten = null;
+    private GameObject cardObjectToOverwrite = null;
+    private Card cardToOverwrite = null;
+
+    private Rect cardDisplay = new Rect(20,20,120,200);
 
     //Units Instance Variables
     private string unitFileName = "Unit File Name";
@@ -69,14 +72,23 @@ public class CardCreationEditor : EditorWindow
 
             if (overwriteExistingCard)
             {
-                cardToBeOverwritten = (Card)EditorGUILayout.ObjectField("Choose Card to Overwrite", cardToBeOverwritten, typeof(Card), false, GUILayout.ExpandWidth(true));
-                cardFileName = cardToBeOverwritten.gameObject.name;
-                displayName = cardToBeOverwritten.Name;
-                cardType = cardToBeOverwritten.CardType;
-                cardLevel = cardToBeOverwritten.Level;
-                higherLevelCard = cardToBeOverwritten.HigherLevelVersion;
-                lowerLevelCard = cardToBeOverwritten.LowerLevelVersion;
-
+                cardObjectToOverwrite = (GameObject)EditorGUILayout.ObjectField("Choose Card to Overwrite", cardObjectToOverwrite, typeof(GameObject), false, GUILayout.ExpandWidth(true));
+                if(cardObjectToOverwrite != null)
+                {
+                    cardToOverwrite = cardObjectToOverwrite.GetComponent<Card>();
+                    cardFileName = cardToOverwrite.gameObject.name;
+                    displayName = cardToOverwrite.Name;
+                    cardType = cardToOverwrite.CardType;
+                    cardLevel = cardToOverwrite.Level;
+                    higherLevelCard = cardToOverwrite.HigherLevelVersion;
+                    lowerLevelCard = cardToOverwrite.LowerLevelVersion;
+                    toSummon = cardToOverwrite.ToSummon;
+                    cardArtFill = cardToOverwrite.CardFill;
+                    cardArtBorder = cardToOverwrite.CardBorder;
+                    cardCost = cardToOverwrite.Cost;
+                    abilityText = cardToOverwrite.Ability;
+                    flavorText = cardToOverwrite.Flavor;
+                }
             }
 
             cardFileName = EditorGUILayout.TextField("Card File Name", cardFileName);
@@ -214,8 +226,7 @@ public class CardCreationEditor : EditorWindow
     }
 
     void CreateCardVariant()
-    {
-        //TODO: Add some error checking.  Currently, if a new card has the same name as an existing card the existing card's data is overwritten
+    {        
         string prefabPath = "Assets/Prefabs/Card Template.prefab";
         string localPath = "Assets/Prefabs/Player Cards/" + cardFileName + ".prefab";
         if (CheckIfExists(localPath) && overwriteExistingCard == false)
@@ -228,9 +239,12 @@ public class CardCreationEditor : EditorWindow
 
         cardData = newCard.GetComponent<Card>();
         cardData.UpdateCardStatsFromEditor(cardType, cardLevel, displayName, cardCost, abilityText, flavorText, cardArtFill, cardArtBorder, toSummon);
-        cardData.PopulateCardInfo();
+        cardData.PopulateCardInfo();        
+        Texture2D texture = AssetPreview.GetAssetPreview(newCard);
+        GUILayout.Box(texture, GUILayout.Height(100), GUILayout.Width(100));
         DestroyImmediate(card);
     }
+   
 
     bool CheckIfExists(string localPath)
     {

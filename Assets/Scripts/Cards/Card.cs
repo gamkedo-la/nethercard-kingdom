@@ -13,13 +13,19 @@ public class Card : MonoBehaviour
 {
 	public CardSelectionMode SelectionMode { get { return selectionMode; } set { selectionMode = value; } }
 	public string Name { get { return displayName; } }
+    public int Cost { get { return useCost; } }
 	public Card LowerLevelVersion { get { return lowerLevelVersion; } }
 	public Card HigherLevelVersion { get { return higherLevelVersion; } }
 	public CardLevel Level { get { return level; } }
     public CardType CardType { get { return type; } }
 	public GameObject Prefab { get; set; }
+    public GameObject ToSummon { get { return toSummon; } }
+    public Sprite CardFill { get { return cardImageFill.sprite; } }
+    public Sprite CardBorder { get { return cardImageBorder.sprite; } }
+    public string Ability { get { return abilityLabel.text; } }
+    public string Flavor { get { return flavorLabel.text; } }
 
-	[Header("External Objects")]
+    [Header("External Objects")]
 	[SerializeField] private GameObject toSummon = null;
 	[SerializeField] private Card lowerLevelVersion = null;
 	[SerializeField] private Card higherLevelVersion = null;
