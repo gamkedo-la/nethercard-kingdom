@@ -1,5 +1,5 @@
 ﻿/**
- * Description: Tests mouse detection.
+ * Description: Tests different things.
  * Authors: Kornel
  * Copyright: © 2019 Kornel. All rights reserved. For license see: 'LICENSE.txt'
  **/
@@ -7,7 +7,7 @@
 using UnityEngine;
 using UnityEngine.Assertions;
 
-public class DetectionTester : MonoBehaviour
+public class TesterScript : MonoBehaviour
 {
 	void Start ()
 	{
@@ -28,6 +28,18 @@ public class DetectionTester : MonoBehaviour
 	public void OnExit( )
 	{
 		Debug.Log( "Off" );
+	}
+
+	public void DoShake( )
+	{
+		Debug.Log( "Screenshake..." );
+		ScreenshakeManager.Instance.DoShake( );
+	}
+
+	public void DoShake( float strength )
+	{
+		Debug.Log( "Screenshake with strength..." );
+		ScreenshakeManager.Instance.DoShake( strength );
 	}
 
 	private void OnMouseEnter( )

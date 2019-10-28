@@ -10,6 +10,7 @@ using UnityEngine.Assertions;
 public class DirectDamageSpell : Spell
 {
 	[SerializeField] private float targetFreezTime = 0f;
+	[SerializeField] private float shakeStrength = 1f;
 
 	override public void Start ()
 	{
@@ -38,5 +39,8 @@ public class DirectDamageSpell : Spell
 			Unit unit = target.GetComponent<Unit>( );
 			unit.Freez( targetFreezTime );
 		}
+
+		if ( shakeStrength > 0 )
+			ScreenshakeManager.Instance.DoShake( shakeStrength );
 	}
 }
