@@ -26,6 +26,7 @@ public class Unit : MonoBehaviour
 	[SerializeField] private HP hp = null;
 	[SerializeField] private Attack attack = null;
 	[SerializeField] private Animator animator = null;
+	[SerializeField] private UnitVisuals visuals = null;
 
     [Header("Physical parameters")]
 	[SerializeField] private ConflicSide side = ConflicSide.Player;
@@ -57,6 +58,7 @@ public class Unit : MonoBehaviour
 		Assert.IsNotNull( hp, $"Please assign <b>{nameof( hp )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( attack, $"Please assign <b>{nameof( attack )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( animator, $"Please assign <b>{nameof( animator )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( visuals, $"Please assign <b>{nameof( visuals )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
 		moveDirection = side == ConflicSide.Player ? Vector2.right : Vector2.left;
 	}
@@ -202,6 +204,7 @@ public class Unit : MonoBehaviour
 			onEnemyInRange.Invoke( currentOpponent );
 		}
 
+		visuals.MoveDir( Vector2.zero, 0 ); // We are standing still
 		inAttackRange = true;
 	}
 
@@ -212,6 +215,7 @@ public class Unit : MonoBehaviour
 			return;
 
 		Vector2 newPosition = transform.position + (Vector3)moveDirection * moveSpeed * Time.deltaTime;
+		visuals.MoveDir( moveDirection, moveSpeed );
 
 		// Restrict movement
 		float maxX = movementOffset.x + movementRange.x / 2;

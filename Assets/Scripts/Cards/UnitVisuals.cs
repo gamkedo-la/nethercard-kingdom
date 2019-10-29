@@ -16,6 +16,12 @@ public class UnitVisuals : MonoBehaviour
 	[SerializeField] private SpriteRenderer fillSprite = null;
 	[SerializeField] private SortingGroup group = null;
 
+	[Header("Movement")]
+	[SerializeField] private GameObject mainSprites = null;
+	[SerializeField] private GameObject mainSpritesPivot = null;
+	[SerializeField] private int dirOfMovement = 1;
+	[SerializeField] private float anglePerSpeed = -10f;
+
 	[Header("Healing")]
 	[SerializeField] private ParticleSystem healEffect = null;
 
@@ -25,14 +31,19 @@ public class UnitVisuals : MonoBehaviour
 	[SerializeField] private string shockLayer = "Foreground";
 	[SerializeField] private Color shockColor = Color.black;
 
+	private float originalXScale;
+
 	void Start( )
 	{
 		Assert.IsNotNull( fillSprite, $"Please assign <b>{nameof( fillSprite )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( borderSprite, $"Please assign <b>{nameof( borderSprite )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( group, $"Please assign <b>{nameof( group )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( mainSprites, $"Please assign <b>{nameof( mainSprites )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( healEffect, $"Please assign <b>{nameof( healEffect )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( skeleton, $"Please assign <b>{nameof( skeleton )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( shadow, $"Please assign <b>{nameof( shadow )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+
+		originalXScale = mainSprites.transform.localScale.x;
 	}
 
 	public void Shocked( float time )
@@ -43,6 +54,21 @@ public class UnitVisuals : MonoBehaviour
 	public void Healed( )
 	{
 		healEffect.Play( );
+	}
+
+	public void MoveDir( Vector2 dir, float speed )
+	{
+		if ( dir.x < 0 )
+			mainSprites.transform.localScale = new Vector3( -dirOfMovement * originalXScale, mainSprites.transform.localScale.y, mainSprites.transform.localScale.z );
+		else if ( dir.x > 0 )
+			mainSprites.transform.localScale = new Vector3( dirOfMovement * originalXScale, mainSprites.transform.localScale.y, mainSprites.transform.localScale.z );
+
+		mainSpritesPivot.transform.localRotation = Quaternion.Euler
+		(
+			mainSpritesPivot.transform.localRotation.eulerAngles.x,
+			mainSpritesPivot.transform.localRotation.eulerAngles.y,
+			speed * anglePerSpeed
+		);
 	}
 
 	public void UpdateVisuals( Sprite unitBorderSprite, Sprite unitFillSprite )
