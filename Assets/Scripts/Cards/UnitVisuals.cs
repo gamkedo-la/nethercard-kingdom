@@ -21,6 +21,7 @@ public class UnitVisuals : MonoBehaviour
 
 	[Header("Shock")]
 	[SerializeField] private GameObject skeleton = null;
+	[SerializeField] private GameObject shadow = null;
 	[SerializeField] private string shockLayer = "Foreground";
 	[SerializeField] private Color shockColor = Color.black;
 
@@ -31,6 +32,7 @@ public class UnitVisuals : MonoBehaviour
 		Assert.IsNotNull( group, $"Please assign <b>{nameof( group )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( healEffect, $"Please assign <b>{nameof( healEffect )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( skeleton, $"Please assign <b>{nameof( skeleton )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( shadow, $"Please assign <b>{nameof( shadow )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 	}
 
 	public void Shocked( float time )
@@ -56,6 +58,7 @@ public class UnitVisuals : MonoBehaviour
 		int order = fillSprite.sortingOrder;
 
 		fillSprite.color = shockColor;
+		shadow.SetActive( false );
 
 		fillSprite.sortingLayerID = SortingLayer.NameToID( shockLayer );
 		borderSprite.sortingLayerID = SortingLayer.NameToID( shockLayer );
@@ -69,6 +72,7 @@ public class UnitVisuals : MonoBehaviour
 		yield return new WaitForSeconds( time );
 
 		fillSprite.color = col;
+		shadow.SetActive( true );
 
 		fillSprite.sortingLayerID = layer;
 		borderSprite.sortingLayerID = layer;

@@ -14,6 +14,12 @@ TextureImporter:
   - first:
       213: 883978694477290645
     second: Bones Rib
+  - first:
+      213: 3139343632262704481
+    second: Shadow Blury
+  - first:
+      213: -8027143870899560236
+    second: Shadow Sharp
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -118,7 +124,7 @@ TextureImporter:
         width: 268
         height: 268
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -139,7 +145,7 @@ TextureImporter:
         width: 145
         height: 84
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -160,7 +166,7 @@ TextureImporter:
         width: 318
         height: 72
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -181,7 +187,7 @@ TextureImporter:
         width: 320
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -189,6 +195,48 @@ TextureImporter:
       bones: []
       spriteID: 88a0ec00a8b7cf54cbb4d14c2d594136
       internalID: 883978694477290645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shadow Blury
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 3873
+        width: 370
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 694381ccf6077f54cb817e19c86c5f9d
+      internalID: 3139343632262704481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shadow Sharp
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 3615
+        width: 370
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 313104a20121f7948be8d9bb6f4ab89c
+      internalID: -8027143870899560236
       vertices: []
       indices: 
       edges: []
