@@ -41,7 +41,7 @@ public class DirectDamageSpell : Spell
 			unit.Freez( targetFreezTime, true );
 
 			UnitVisuals unitVis = target.GetComponent<UnitVisuals>( );
-			unitVis.Shock( targetShockTime );
+			unitVis.Shocked( targetShockTime );
 		}
 
 		if ( shakeStrength > 0 )

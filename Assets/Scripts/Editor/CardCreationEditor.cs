@@ -189,7 +189,7 @@ public class CardCreationEditor : EditorWindow
 
         unitData = newUnit.GetComponent<Unit>();
         unitVisualData = newUnit.GetComponent<UnitVisuals>();
-        unitVisualData.UpdateUnitStatsFromEditor(unitArtBorder, unitArtFill);
+        unitVisualData.UpdateVisuals(unitArtBorder, unitArtFill);
 
         DestroyImmediate(unit);
     }
