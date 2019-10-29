@@ -5027,6 +5027,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  optionalToSpawn: {fileID: 0}
   destroyAfter: 3
   effectAmount: 3
   targetFreezTime: 1
@@ -5161,6 +5162,11 @@ PrefabInstance:
     - target: {fileID: 8767096524210941868, guid: 0df3e6601848bcf4d9998dd67658fa77,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4948250338414745351, guid: 0df3e6601848bcf4d9998dd67658fa77,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8767096523365276322, guid: 0df3e6601848bcf4d9998dd67658fa77,
