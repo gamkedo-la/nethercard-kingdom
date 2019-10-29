@@ -10,6 +10,7 @@ using UnityEngine.Assertions;
 public class Spell : MonoBehaviour
 {
 	[SerializeField] protected CardType type = CardType.DirectOffensiveSpell;
+	[SerializeField] private GameObject optionalToSpawn = null;
 	[SerializeField] private float destroyAfter = 0.3f;
 	[SerializeField] protected float effectAmount = 1f;
 
@@ -26,6 +27,9 @@ public class Spell : MonoBehaviour
 
 	virtual public void SetTarget( Targetable target )
 	{
+		if ( optionalToSpawn )
+			Instantiate( optionalToSpawn, transform.position, Quaternion.identity );
+
 		Invoke( nameof( DestroyMe ), destroyAfter );
 	}
 
