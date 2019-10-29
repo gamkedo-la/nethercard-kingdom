@@ -29,6 +29,16 @@ PrefabInstance:
       propertyPath: level
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8311138147123623806, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+        type: 3}
+      propertyPath: displayName
+      value: More Healing
+      objectReference: {fileID: 0}
+    - target: {fileID: 8311138147123623806, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+        type: 3}
+      propertyPath: abilityText
+      value: Heal <b>5 HP</b> of one of your units
+      objectReference: {fileID: 0}
     - target: {fileID: 4672329062808591798, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -68,6 +78,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2219618173437999704, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+        type: 3}
+      propertyPath: m_text
+      value: More Healing
       objectReference: {fileID: 0}
     - target: {fileID: 1895475223519920873, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
         type: 3}
@@ -92,6 +107,16 @@ PrefabInstance:
     - target: {fileID: 1895475223519920873, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
         type: 3}
       propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895475223519920873, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+        type: 3}
+      propertyPath: m_text
+      value: Heal <b>5 HP</b> of one of your units
+      objectReference: {fileID: 0}
+    - target: {fileID: 102132662992068567, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+        type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8814511579970584547, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
@@ -198,11 +223,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 102132662992068567, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b0297453a5bfa94a85638fff8e5f6ff, type: 3}

@@ -12,6 +12,127 @@ PrefabInstance:
       propertyPath: m_Name
       value: Healing Spell III Card
       objectReference: {fileID: 0}
+    - target: {fileID: 6970642807188303820, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
+        type: 3}
+      propertyPath: lowerLevelVersion
+      value: 
+      objectReference: {fileID: 6970642807188303820, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
+        type: 3}
+    - target: {fileID: 6970642807188303820, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
+        type: 3}
+      propertyPath: higherLevelVersion
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970642807188303820, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
+        type: 3}
+      propertyPath: level
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970642807188303820, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
+        type: 3}
+      propertyPath: useCost
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970642807188303820, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
+        type: 3}
+      propertyPath: abilityText
+      value: Heal <b>10 HP</b> of one of your units
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970642807188303820, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
+        type: 3}
+      propertyPath: displayName
+      value: Big Heal!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997906471107937540, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997906471107937540, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997906471107937540, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997906471107937540, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997906471107937540, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
+        type: 3}
+      propertyPath: m_text
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 947445153001546474, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 947445153001546474, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 947445153001546474, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 947445153001546474, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 947445153001546474, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
+        type: 3}
+      propertyPath: m_text
+      value: Big Heal!
+      objectReference: {fileID: 0}
+    - target: {fileID: 695170639243434587, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 695170639243434587, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 695170639243434587, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 695170639243434587, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 695170639243434587, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 695170639243434587, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
+        type: 3}
+      propertyPath: m_text
+      value: Heal <b>10 HP</b> of one of your units
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333474175595841381, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 142847511094685215, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7618055629451683665, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -116,97 +237,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6970642807188303820, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
-        type: 3}
-      propertyPath: lowerLevelVersion
-      value: 
-      objectReference: {fileID: 6970642807188303820, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
-        type: 3}
-    - target: {fileID: 6970642807188303820, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
-        type: 3}
-      propertyPath: higherLevelVersion
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6970642807188303820, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
-        type: 3}
-      propertyPath: level
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5997906471107937540, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5997906471107937540, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5997906471107937540, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5997906471107937540, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1333474175595841381, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 142847511094685215, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 947445153001546474, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 947445153001546474, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 947445153001546474, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 947445153001546474, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 695170639243434587, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 695170639243434587, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 695170639243434587, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 695170639243434587, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 695170639243434587, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f3d14ac1d4a0424da11a2f22523b78e, type: 3}
