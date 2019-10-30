@@ -24,6 +24,7 @@ public class Card : MonoBehaviour
     public Sprite CardBorder { get { return cardImageBorder.sprite; } }
     public string Ability { get { return abilityLabel.text; } }
     public string Flavor { get { return flavorLabel.text; } }
+	public bool Revealing { get; private set; } = true;
 
     [Header("External Objects")]
 	[SerializeField] private GameObject toSummon = null;
@@ -31,7 +32,8 @@ public class Card : MonoBehaviour
 	[SerializeField] private Card higherLevelVersion = null;
 
 	[Header("Card Elements")]
-	[SerializeField] private Canvas canvas = null;
+	[SerializeField] private Canvas frontCanvas = null;
+	[SerializeField] private Canvas backCanvas = null;
 	[SerializeField] private CanvasGroup canvasGroup = null;
 	[SerializeField] private CanvasGroup liveImage = null;
 	[SerializeField] private GameObject statisticsPanel = null;
@@ -51,6 +53,7 @@ public class Card : MonoBehaviour
 	[SerializeField] private CardType type = CardType.Unit;
 	[SerializeField] private CardLevel level = CardLevel.Level1;
 	[SerializeField] private CardSelectionMode selectionMode = CardSelectionMode.InHand;
+	[SerializeField] private float revealTime = 0.7f;
 	[SerializeField] private int useCost = 2;
 	[SerializeField] private string displayName = "Unnamed Card";
 	[SerializeField] private string abilityText = "This is just a test description...";
@@ -71,7 +74,8 @@ public class Card : MonoBehaviour
 	{
 		Assert.IsNotNull( toSummon, $"Please assign <b>{nameof( toSummon )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
-		Assert.IsNotNull( canvas, $"Please assign <b>{nameof( canvas )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( frontCanvas, $"Please assign <b>{nameof( frontCanvas )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( backCanvas, $"Please assign <b>{nameof( backCanvas )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( canvasGroup, $"Please assign <b>{nameof( canvasGroup )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( liveImage, $"Please assign <b>{nameof( liveImage )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
@@ -92,6 +96,7 @@ public class Card : MonoBehaviour
 			Assert.IsNotNull( lowerLevelVersion, $"Please assign <b>{nameof( lowerLevelVersion )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
 		PopulateCardInfo( );
+		RevealCard( );
 	}
 
 	void Update( )
@@ -144,8 +149,8 @@ public class Card : MonoBehaviour
 			scaleToLerp = Vector3.one * 1.3f;
 			lerpBack = false;
 			lerpBackTimer = 0.1f;
-			canvas.overrideSorting = true;
-			canvas.sortingOrder = 1100;
+			frontCanvas.overrideSorting = true;
+			frontCanvas.sortingOrder = 1100;
 
 			if ( hoverCard == null )
 				hoverCard = this;
@@ -188,8 +193,8 @@ public class Card : MonoBehaviour
 			scaleToLerp = Vector3.one;
 			lerpBack = true;
 
-			canvas.overrideSorting = false;
-			canvas.sortingOrder = 0;
+			frontCanvas.overrideSorting = false;
+			frontCanvas.sortingOrder = 0;
 
 			if ( hoverCard == this )
 				hoverCard = null;
@@ -238,8 +243,8 @@ public class Card : MonoBehaviour
 
 			scaleToLerp = defaultScale * 1.25f;
 
-			canvas.overrideSorting = true;
-			canvas.sortingOrder = 999999;
+			frontCanvas.overrideSorting = true;
+			frontCanvas.sortingOrder = 999999;
 		}
 	}
 
@@ -271,8 +276,8 @@ public class Card : MonoBehaviour
 			transform.position = previousPosition;
 			canvasGroup.alpha = 1.0f;
 
-			canvas.overrideSorting = false;
-			canvas.sortingOrder = 100000;
+			frontCanvas.overrideSorting = false;
+			frontCanvas.sortingOrder = 100000;
 
 			draggedCard = null;
 			DeckBuilder.Instance.MoveSlot();
@@ -327,5 +332,38 @@ public class Card : MonoBehaviour
 			level2Marks.SetActive( true );
 		else if ( level == CardLevel.Level3 )
 			level3Marks.SetActive( true );
+	}
+
+	private void RevealCard( )
+	{
+		frontCanvas.gameObject.SetActive( false );
+		backCanvas.gameObject.SetActive( true );
+		canvasGroup.interactable = false;
+
+		StartCoroutine( Utilities.ChangeOverTime( revealTime / 2, RevealAnimationBack, RevealAnimationBackDone ) );
+	}
+
+	private void RevealAnimationBack( float progress )
+	{
+		transform.localScale = new Vector3( 1 - progress, 1, 1 );
+	}
+
+	private void RevealAnimationBackDone( )
+	{
+		frontCanvas.gameObject.SetActive( true );
+		backCanvas.gameObject.SetActive( false );
+
+		StartCoroutine( Utilities.ChangeOverTime( revealTime / 2, RevealAnimationFace, RevealAnimationFaceDone ) );
+	}
+
+	private void RevealAnimationFace( float progress )
+	{
+		transform.localScale = new Vector3( progress, 1, 1 );
+	}
+
+	private void RevealAnimationFaceDone( )
+	{
+		canvasGroup.interactable = true;
+		Revealing = false;
 	}
 }
