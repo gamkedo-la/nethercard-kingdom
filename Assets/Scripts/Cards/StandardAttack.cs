@@ -53,19 +53,19 @@ public class StandardAttack : Attack
 		newSpritePos = sprite.localPosition + moveDirection * 0.2f;
 		sprite.localPosition = newSpritePos;
 
-		animator.SetTrigger( "Attack" );
+		//animator.SetTrigger( "Attack" );
 		animator.enabled = false;
-		StartCoroutine( Utilities.ChangeOverTime( 0.3f, MoveBack ) );
+		StartCoroutine( Utilities.ChangeOverTime( 0.3f, MoveBack, OnDoneAttack ) );
 	}
 
 	private void MoveBack( float percent )
 	{
 		sprite.localPosition = Vector2.Lerp( newSpritePos, oldSpritePos, percent );
+	}
 
-		if ( percent >= 1 )
-		{
-			animator.enabled = true;
-			animator.SetTrigger( "Idle" );
-		}
+	private void OnDoneAttack( )
+	{
+		animator.enabled = true;
+		animator.SetTrigger( "Idle" );
 	}
 }

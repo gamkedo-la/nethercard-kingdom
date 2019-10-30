@@ -7270,7 +7270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   atackDamage: 2
-  atackDelay: 1
+  atackDelay: 2
   unit: {fileID: 2003592177715405980}
   sprite: {fileID: 2003592177450988123}
 --- !u!1 &8909582900415529237

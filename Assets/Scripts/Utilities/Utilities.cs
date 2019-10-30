@@ -29,4 +29,27 @@ public class Utilities
 		}
 		while ( progress < 1 );
 	}
+
+	public static IEnumerator ChangeOverTime( float timeLength, System.Action<float> methodWithParameter, System.Action onDone )
+	{
+		float currentTime = 0;
+		float durationTime = timeLength;
+
+		float progress;
+		do
+		{
+			currentTime += Time.deltaTime;
+			currentTime = currentTime < durationTime ? currentTime : durationTime;
+
+			progress = currentTime / durationTime;
+			progress = progress < 1.0f ? progress : 1.0f;
+
+			methodWithParameter( progress );
+
+			yield return null;
+		}
+		while ( progress < 1 );
+
+		onDone( );
+	}
 }
