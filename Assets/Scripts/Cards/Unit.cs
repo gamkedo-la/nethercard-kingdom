@@ -148,6 +148,7 @@ public class Unit : MonoBehaviour
 				Debug.Log( $"{name} lost oponent" );
 
 			currentOpponent = null;
+			onEnemyDetected.Invoke( null );
 			hadOponent = false;
 			moveDirection = side == ConflicSide.Player ? Vector2.right : Vector2.left;
 
@@ -187,9 +188,9 @@ public class Unit : MonoBehaviour
 					Debug.Log( $"{name} lost attack target" );
 
 				onEnemyInRange.Invoke( null );
-				animator.SetTrigger( "Moving" );
 			}
 
+			animator.SetTrigger( "Moving" );
 			inAttackRange = false;
 
 			return;
