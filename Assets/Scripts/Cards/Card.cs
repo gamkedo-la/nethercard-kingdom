@@ -86,11 +86,11 @@ public class Card : MonoBehaviour
 		Assert.IsNotNull( level2Marks, $"Please assign <b>{nameof( level2Marks )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( level3Marks, $"Please assign <b>{nameof( level3Marks )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
-		/*if ( level == CardLevel.Level1 || level == CardLevel.Level2 )
+		if ( level == CardLevel.Level1 || level == CardLevel.Level2 )
 			Assert.IsNotNull( higherLevelVersion, $"Please assign <b>{nameof( higherLevelVersion )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		if ( level == CardLevel.Level2 || level == CardLevel.Level3 )
 			Assert.IsNotNull( lowerLevelVersion, $"Please assign <b>{nameof( lowerLevelVersion )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
-		*/
+
 		PopulateCardInfo( );
 	}
 
@@ -182,7 +182,7 @@ public class Card : MonoBehaviour
 	{
 		if ( draggedCard == this )
 			return;
-		
+
 		if ( selectionMode == CardSelectionMode.InHand )
 		{
 			scaleToLerp = Vector3.one;
@@ -279,7 +279,7 @@ public class Card : MonoBehaviour
 		}
 	}
 
-	public void UpdateCardStatsFromEditor(CardType cardType, CardLevel cardLevel, string name, int cost, 
+	public void UpdateCardStatsFromEditor(CardType cardType, CardLevel cardLevel, string name, int cost,
         string ability, string flavor, Sprite borderSprite, Sprite fillSprite, GameObject instanceToSummon )
 	{
 		type = cardType;

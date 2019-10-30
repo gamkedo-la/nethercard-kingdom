@@ -55,9 +55,12 @@ public class Deck : MonoBehaviour
 
 		SummoningManager.Instance.RemoveMana( drawCost + ( incrementCostPerCard * hand.transform.childCount ) );
 
-		GameObject newCard = Instantiate( GetCardFromDeck( ),
-		transform.position + newCardPositionOffset,
-		Quaternion.Euler( newCardRotationOffset.x, newCardRotationOffset.y, newCardRotationOffset.z ) );
+		GameObject newCard = Instantiate
+		(
+			GetCardFromDeck( ),
+			transform.position + newCardPositionOffset,
+			Quaternion.Euler( newCardRotationOffset.x, newCardRotationOffset.y, newCardRotationOffset.z )
+		);
 		newCard.transform.SetParent( hand.transform, true );
 		newCard.transform.SetSiblingIndex( 0 );
 
