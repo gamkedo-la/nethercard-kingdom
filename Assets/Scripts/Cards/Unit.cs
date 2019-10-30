@@ -182,8 +182,13 @@ public class Unit : MonoBehaviour
 		{
 			// We lost target
 			if ( inAttackRange )
+			{
 				if ( CheatAndDebug.Instance.ShowDebugInfo )
 					Debug.Log( $"{name} lost attack target" );
+
+				onEnemyInRange.Invoke( null );
+				animator.SetTrigger( "Moving" );
+			}
 
 			inAttackRange = false;
 
@@ -201,7 +206,9 @@ public class Unit : MonoBehaviour
 		{
 			if ( CheatAndDebug.Instance.ShowDebugInfo )
 				Debug.Log( $"{name} attacking: {currentOpponent.name}" );
+
 			onEnemyInRange.Invoke( currentOpponent );
+			animator.SetTrigger( "Idle" );
 		}
 
 		visuals.MoveDir( Vector2.zero, 0 ); // We are standing still
