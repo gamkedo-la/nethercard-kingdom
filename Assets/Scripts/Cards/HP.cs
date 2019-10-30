@@ -75,12 +75,14 @@ public class HP : MonoBehaviour
 	/// Applies damage to current HP. Respects HP restrictions and fires events if necessary.
 	/// </summary>
 	/// <param name="damage">Amount of taken damage.</param>
-	public void DoDamage( float damage, Vector2 contact )
+	public void DoDamage( float damage, Vector2 contact, bool special = false )
 	{
 		if ( !canBeDamaged )
 			return;
 
-		onDamage.Invoke( );
+		if ( !special )
+			onDamage.Invoke( );
+
 		ChangeHP( -damage );
 
 		if ( hpBar && !hpBar.gameObject.activeSelf && hideHpBar )

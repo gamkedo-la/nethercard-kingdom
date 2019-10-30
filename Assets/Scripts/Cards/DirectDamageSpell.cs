@@ -33,7 +33,7 @@ public class DirectDamageSpell : Spell
 		base.SetTarget( target );
 
 		HP hp = target.GetComponent<HP>( );
-		hp.DoDamage( effectAmount, transform.position );
+		hp.DoDamage( effectAmount, transform.position, targetFreezTime > 0 );
 
 		if ( targetFreezTime > 0 )
 		{
