@@ -81,7 +81,8 @@ public class UnitVisuals : MonoBehaviour
 	{
 		Color col = fillSprite.color;
 		int layer = fillSprite.sortingLayerID;
-		int order = fillSprite.sortingOrder;
+		int orderFill = fillSprite.sortingOrder;
+		int orderBorder = borderSprite.sortingOrder;
 
 		fillSprite.color = shockColor;
 		shadow.SetActive( false );
@@ -104,8 +105,8 @@ public class UnitVisuals : MonoBehaviour
 		borderSprite.sortingLayerID = layer;
 		group.sortingLayerID = layer;
 
-		fillSprite.sortingOrder = order;
-		borderSprite.sortingOrder = order;
+		fillSprite.sortingOrder = orderFill;
+		borderSprite.sortingOrder = orderBorder;
 
 		skeleton.SetActive( false );
 	}

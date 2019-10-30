@@ -677,7 +677,18 @@ MonoBehaviour:
       m_Calls: []
   onDamage:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8178515475512907163}
+        m_MethodName: Blink
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onHeal:
     m_PersistentCalls:
       m_Calls:
@@ -1906,6 +1917,58 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &5495107672125516430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9209974058053671104}
+  - component: {fileID: 8178515475512907163}
+  m_Layer: 9
+  m_Name: Blinking
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9209974058053671104
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5495107672125516430}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6006760235945739861}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8178515475512907163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5495107672125516430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ce2769c4a41e3d4583e4ce2ac07a8ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spritesToBlink:
+  - {fileID: 1389900820131627909}
+  normalMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  blinkMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  blinkAmount: 1
+  mode: 0
+  changeColor: 1
+  blinkColor: {r: 0.9764706, g: 0.9764706, b: 0.9764706, a: 1}
+  blinkTime: 0.2
 --- !u!1 &5519469328974552665
 GameObject:
   m_ObjectHideFlags: 0
@@ -7155,6 +7218,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4334383905625937651}
+  - {fileID: 9209974058053671104}
   m_Father: {fileID: 2003592177715405981}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7201,6 +7265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c3832f21c1adc4b8ac5104f029fc0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   atackDamage: 2
   atackDelay: 1
   unit: {fileID: 2003592177715405980}
