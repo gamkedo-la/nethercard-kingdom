@@ -17,8 +17,10 @@ public class StandardAttack : Attack
 	private Vector2 newSpritePos;
 	private Unit currentOpponent = null;
 
-	void Start ()
+	override protected void Start ()
 	{
+		base.Start( );
+
 		Assert.IsNotNull( unit, $"Please assign <b>{nameof( unit )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( sprite, $"Please assign <b>{nameof( sprite )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 	}
@@ -50,11 +52,20 @@ public class StandardAttack : Attack
 		oldSpritePos = sprite.localPosition;
 		newSpritePos = sprite.localPosition + moveDirection * 0.2f;
 		sprite.localPosition = newSpritePos;
+
+		animator.SetTrigger( "Attack" );
+		animator.enabled = false;
 		StartCoroutine( Utilities.ChangeOverTime( 0.3f, MoveBack ) );
 	}
 
 	private void MoveBack( float percent )
 	{
 		sprite.localPosition = Vector2.Lerp( newSpritePos, oldSpritePos, percent );
+
+		if ( percent >= 1 )
+		{
+			animator.enabled = true;
+			animator.SetTrigger( "Idle" );
+		}
 	}
 }

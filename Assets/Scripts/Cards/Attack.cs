@@ -10,8 +10,14 @@ using UnityEngine.Assertions;
 public class Attack : MonoBehaviour
 {
 	public float DPS { get { return atackDamage / atackDelay; } }
+	public bool Flozen { get; set; } = false;
 
+	[SerializeField] protected Animator animator = null;
 	[SerializeField] protected float atackDamage = 2f;
 	[SerializeField] protected float atackDelay = 1f;
-	public bool Flozen { get; set; } = false;
+
+	virtual protected void Start( )
+	{
+		Assert.IsNotNull( animator, $"Please assign <b>{nameof( animator )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+	}
 }

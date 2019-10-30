@@ -169,6 +169,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0.929
       objectReference: {fileID: 0}
+    - target: {fileID: 1763304012001775943, guid: fc6c2faa8ae045542a0960290aa158db,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 2136978878973634175}
     - target: {fileID: 1531710661000496397, guid: fc6c2faa8ae045542a0960290aa158db,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -806,3 +811,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc6c2faa8ae045542a0960290aa158db, type: 3}
+--- !u!95 &2136978878973634175 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3543253135044890370, guid: fc6c2faa8ae045542a0960290aa158db,
+    type: 3}
+  m_PrefabInstance: {fileID: 3207753722190866813}
+  m_PrefabAsset: {fileID: 0}

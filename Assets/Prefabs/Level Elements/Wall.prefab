@@ -5172,6 +5172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23394822a4123ba459fcabcdde7d6b64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 805658137276375092}
   atackDamage: 0
   atackDelay: 0
 --- !u!95 &805658137276375092
@@ -5220,7 +5221,9 @@ MonoBehaviour:
   fillSprite: {fileID: 2679391589614712076}
   group: {fileID: 8518868799031875330}
   mainSprites: {fileID: 3677590739787345377}
+  mainSpritesPivot: {fileID: 0}
   dirOfMovement: 1
+  anglePerSpeed: -10
   healEffect: {fileID: 8643044762387669224}
   skeleton: {fileID: 3677590739787345377}
   shadow: {fileID: 3677590739787345377}
