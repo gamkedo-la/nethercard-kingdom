@@ -31,6 +31,7 @@ public class HP : MonoBehaviour
 	[SerializeField] private Vector3 scaleFactor = Vector3.one * 2f;
 	[SerializeField] private float scaleTime = 0.3f;
 	[SerializeField] private float underChangeTime = 1f;
+	[SerializeField] private bool floatingTextLeftDir = false;
 
 	[Header("Events")]
 	[SerializeField] private UnityEvent onHealthChange = null;
@@ -95,9 +96,9 @@ public class HP : MonoBehaviour
 
 		if ( floatingTextDamage )
 		{
-			/*GameObject go = Instantiate( floatingTextDamage, contact, Quaternion.identity );
+			GameObject go = Instantiate( floatingTextDamage, contact, Quaternion.identity );
 			FloatingText ft = go.GetComponent<FloatingText>( );
-			ft.SetPrameters( damage.ToString( ), 1.0f, 1.0f, Color.white );*/
+			ft.SetPrameters( damage.ToString( ), floatingTextLeftDir, 1.0f, 1.0f, Color.white );
 		}
 
 		if ( delayNextDamage )
@@ -121,12 +122,12 @@ public class HP : MonoBehaviour
 			if ( CurrentHP + heal > maxHP )
 				healed = maxHP - CurrentHP;
 
-			if ( healed > 0 )
-			{
-				/*GameObject go = Instantiate( floatingTextHeal, transform.position, Quaternion.identity );
+			//if ( healed > 0 )
+			//{
+				GameObject go = Instantiate( floatingTextHeal, transform.position, Quaternion.identity );
 				FloatingText ft = go.GetComponent<FloatingText>( );
-				ft.SetPrameters( $"+{heal}", 1.0f, 1.0f, Color.white );*/
-			}
+				ft.SetPrameters( $"+{healed}", floatingTextLeftDir, 1.0f, 1.0f, Color.white );
+			//}
 		}
 
 		ChangeHP( heal );

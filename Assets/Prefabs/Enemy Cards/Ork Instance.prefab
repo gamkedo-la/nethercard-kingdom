@@ -122,6 +122,11 @@ PrefabInstance:
       propertyPath: maxHP
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 2003592177715405983, guid: fc6c2faa8ae045542a0960290aa158db,
+        type: 3}
+      propertyPath: floatingTextLeftDir
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7496335600690224256, guid: fc6c2faa8ae045542a0960290aa158db,
         type: 3}
       propertyPath: m_Sprite

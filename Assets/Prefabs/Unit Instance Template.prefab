@@ -661,8 +661,10 @@ MonoBehaviour:
   hpBar: {fileID: 0}
   hpBarUnder: {fileID: 0}
   label: {fileID: 2003592177863630469}
-  floatingTextDamage: {fileID: 0}
-  floatingTextHeal: {fileID: 0}
+  floatingTextDamage: {fileID: 9019960086119594430, guid: cda0f9ec0d436d24bbf7cc8ce7d0ba8f,
+    type: 3}
+  floatingTextHeal: {fileID: 1803036402048619639, guid: a6ab49c6a116a484facf1898577418ad,
+    type: 3}
   maxHP: 10
   destroyOnNoHP: 1
   delayNextDamage: 0
@@ -672,6 +674,7 @@ MonoBehaviour:
   scaleFactor: {x: 2, y: 2, z: 2}
   scaleTime: 0.3
   underChangeTime: 1
+  floatingTextLeftDir: 0
   onHealthChange:
     m_PersistentCalls:
       m_Calls: []
