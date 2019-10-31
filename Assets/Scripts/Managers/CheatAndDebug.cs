@@ -11,9 +11,11 @@ public class CheatAndDebug : MonoBehaviour
 {
 	public static CheatAndDebug Instance { get; private set; }
 	public bool ShowDebugInfo { get { return showDebugInfo; } }
-	[SerializeField] private bool showDebugInfo = true;
+	[SerializeField] private bool showDebugInfo = false;
 
-	//private bool paused = false;
+	public bool AllowCheats { get { return allowCheats; } }
+	[SerializeField] private bool allowCheats = true;
+	[SerializeField] private int manaCheatAmount = 20;
 
 	private void Awake( )
 	{
@@ -30,15 +32,15 @@ public class CheatAndDebug : MonoBehaviour
 		if ( Input.GetKeyDown( KeyCode.R ) )
 			SceneManager.LoadScene( 0 );
 
-		/*if ( Input.GetKeyDown( KeyCode.P ) )
-		{
-			paused = !paused;
-			Time.timeScale = paused ? 0f : 1f;
-		}*/
-
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            SummoningManager.Instance.AddMana(5);
-        }
+		if ( AllowCheats && Input.GetKeyDown( KeyCode.M ) )
+			SummoningManager.Instance.AddMana( manaCheatAmount );
     }
+
+	public void AddMana( )
+	{
+		if ( !AllowCheats )
+			return;
+
+		SummoningManager.Instance.AddMana( manaCheatAmount );
+	}
 }
