@@ -14,8 +14,6 @@ public class TesterScript : MonoBehaviour
 	void Start ()
 	{
 		//Assert.IsNotNull( , $"Please assign <b>{nameof(  )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
-        //Test Commit.  First go at a club Unity project, will remove shortly
-
 	}
 
 	void Update ()
