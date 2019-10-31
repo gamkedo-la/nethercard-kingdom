@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class Deck : MonoBehaviour
 {
-    [SerializeField] private float lerpFactor = 0.25f;
+	[Header("Objects and Parameters")]
     [SerializeField] private GameObject hand = null;
+    [SerializeField] private Animator animator = null;
+	[SerializeField] private float lerpFactor = 0.25f;
 
     [Header("Card Draw Conditions")]
     [SerializeField, Tooltip("If card limit <= 0, it means infinite.")] private int cardLimit = 3;
     [SerializeField, Tooltip("Auto draw will be disabled if value <= 0")] private float autoDrawDelay = 0.25f;
     [SerializeField] private int drawCost = 1;
     [SerializeField] private int incrementCostPerCard = 1;
+    [SerializeField] private float delayAfterDraw = 3f;
 
     [Header("New Card Properties")]
     [SerializeField] private Vector3 newCardPositionOffset = Vector3.zero;
@@ -19,10 +22,13 @@ public class Deck : MonoBehaviour
 
     private Vector3 scaleToLerp = Vector3.one;
     private float autoDrawTimer = 0.0f;
+    private float timeTillNextDraw = 0.0f;
 	private Queue<Card> drawQueue = new Queue<Card>();
 
 	void Update()
     {
+		timeTillNextDraw -= Time.deltaTime;
+
         if (cardLimit <= 0 || hand.transform.childCount < cardLimit)
             if (autoDrawDelay > 0.0f && autoDrawTimer <= 0.0f)
                 DrawCard();
@@ -50,6 +56,14 @@ public class Deck : MonoBehaviour
 
 	private void DrawCard( )
 	{
+		// We wait between draws
+		if ( timeTillNextDraw > 0 )
+			return;
+		timeTillNextDraw = delayAfterDraw;
+
+		animator.enabled = true;
+		animator.Play( 0 );
+
 		if ( !SummoningManager.Instance.EnoughMana( drawCost + ( incrementCostPerCard * hand.transform.childCount ) ) )
 			return;
 
@@ -63,6 +77,7 @@ public class Deck : MonoBehaviour
 		);
 		newCard.transform.SetParent( hand.transform, true );
 		newCard.transform.SetSiblingIndex( 0 );
+		newCard.GetComponent<Card>( ).DoCardReveal( );
 
 		autoDrawTimer = autoDrawDelay;
 	}

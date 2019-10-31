@@ -24,12 +24,13 @@ public class Card : MonoBehaviour
     public Sprite CardBorder { get { return cardImageBorder.sprite; } }
     public string Ability { get { return abilityLabel.text; } }
     public string Flavor { get { return flavorLabel.text; } }
-	public bool Revealing { get; private set; } = true;
+	public bool Revealing { get; private set; } = false;
 
     [Header("External Objects")]
 	[SerializeField] private GameObject toSummon = null;
 	[SerializeField] private Card lowerLevelVersion = null;
 	[SerializeField] private Card higherLevelVersion = null;
+	[SerializeField] private Animator animator = null;
 
 	[Header("Card Elements")]
 	[SerializeField] private Canvas frontCanvas = null;
@@ -78,6 +79,7 @@ public class Card : MonoBehaviour
 		Assert.IsNotNull( backCanvas, $"Please assign <b>{nameof( backCanvas )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( canvasGroup, $"Please assign <b>{nameof( canvasGroup )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( liveImage, $"Please assign <b>{nameof( liveImage )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( animator, $"Please assign <b>{nameof( animator )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
 		Assert.IsNotNull( statisticsPanel, $"Please assign <b>{nameof( statisticsPanel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( manaCostLabel, $"Please assign <b>{nameof( manaCostLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
@@ -96,7 +98,7 @@ public class Card : MonoBehaviour
 			Assert.IsNotNull( lowerLevelVersion, $"Please assign <b>{nameof( lowerLevelVersion )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
 		PopulateCardInfo( );
-		RevealCard( );
+		//RevealCard( );
 	}
 
 	void Update( )
@@ -140,6 +142,18 @@ public class Card : MonoBehaviour
 	void OnValidate( )
 	{
 		//PopulateCardInfo( );
+	}
+
+	public void DoCardReveal( )
+	{
+		Revealing = true;
+		animator.enabled = true;
+	}
+
+	public void CardRevealDone( )
+	{
+		Revealing = false;
+		animator.enabled = false;
 	}
 
 	public void OnOverEnter( )
