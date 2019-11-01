@@ -35,6 +35,11 @@ PrefabInstance:
       propertyPath: level
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 949820519525452328, guid: 35c73b0121dc76649931f579533a5375,
+        type: 3}
+      propertyPath: displayName
+      value: Fireball II
+      objectReference: {fileID: 0}
     - target: {fileID: 4516576208258982112, guid: 35c73b0121dc76649931f579533a5375,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -74,6 +79,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6968408178156668686, guid: 35c73b0121dc76649931f579533a5375,
+        type: 3}
+      propertyPath: m_text
+      value: Fireball II
       objectReference: {fileID: 0}
     - target: {fileID: 7221376913968005055, guid: 35c73b0121dc76649931f579533a5375,
         type: 3}
@@ -98,6 +108,11 @@ PrefabInstance:
     - target: {fileID: 7221376913968005055, guid: 35c73b0121dc76649931f579533a5375,
         type: 3}
       propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156857884253495937, guid: 35c73b0121dc76649931f579533a5375,
+        type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 300060236646433461, guid: 35c73b0121dc76649931f579533a5375,
@@ -204,11 +219,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9156857884253495937, guid: 35c73b0121dc76649931f579533a5375,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35c73b0121dc76649931f579533a5375, type: 3}
