@@ -234,16 +234,16 @@ public class Card : MonoBehaviour
 	{
 		if ( selectionMode == CardSelectionMode.InHand )
 			StartSummoning( );
-		//else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
-			//StartDraggingInDeckBuilding( );
+		else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
+			StartDraggingInDeckBuilding( );
 	}
 
 	public void OnEndDrag( )
 	{
 		if ( selectionMode == CardSelectionMode.InHand )
 			EndSummoning( );
-		//else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
-			//EndDraggingInDeckBuilding( );
+		else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
+			EndDraggingInDeckBuilding( );
 	}
 
 	public void OnCliked( )
@@ -271,7 +271,7 @@ public class Card : MonoBehaviour
 			else
 			{
 				selected = true;*/
-			StartDraggingInDeckBuilding( );
+			//StartDraggingInDeckBuilding( );
 			//}
 		}
 	}
@@ -281,7 +281,7 @@ public class Card : MonoBehaviour
 		if ( selectionMode == CardSelectionMode.InHand )
 		{ }
 		else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
-		{ EndDraggingInDeckBuilding( ); }
+		{ }
 	}
 
 	public void UpdateCardStatsFromEditor(CardType cardType, CardLevel cardLevel, string name, int cost,
