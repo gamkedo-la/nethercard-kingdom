@@ -69,6 +69,7 @@ public class Card : MonoBehaviour
 	private Vector3 defaultScale = Vector3.one;
 	private Vector3 previousPosition = Vector3.zero;
 	private bool selected = false;
+	private bool canBeUnselected = false;
 
 	void Start( )
 	{
@@ -135,6 +136,13 @@ public class Card : MonoBehaviour
 		}
 
 		lerpBackTimer -= Time.deltaTime;
+
+		if ( draggedCard == this && canBeUnselected && Input.GetMouseButtonDown(0) )
+		{
+			selected = false;
+			canBeUnselected = false;
+			EndDraggingInDeckBuilding( );
+		}
 	}
 
 	void OnValidate( )
@@ -263,16 +271,12 @@ public class Card : MonoBehaviour
 		}
 		else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
 		{
-			/*if ( selected )
+			if ( !selected && !draggedCard )
 			{
-				selected = false;
-				EndDraggingInDeckBuilding( );
+				selected = true;
+				Invoke( nameof( CanBeUnselected ), 0.01f );
+				StartDraggingInDeckBuilding( );
 			}
-			else
-			{
-				selected = true;*/
-			//StartDraggingInDeckBuilding( );
-			//}
 		}
 	}
 
@@ -333,6 +337,8 @@ public class Card : MonoBehaviour
 		else if ( level == CardLevel.Level3 )
 			level3Marks.SetActive( true );
 	}
+
+	private void CanBeUnselected( ) => canBeUnselected = true;
 
 	private void StartSummoning( )
 	{
