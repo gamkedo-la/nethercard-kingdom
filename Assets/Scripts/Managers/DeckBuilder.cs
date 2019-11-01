@@ -310,8 +310,32 @@ public class DeckBuilder : MonoBehaviour
 
     if (selectedCollectionCard != null && selectedDeckCard != null)
     {
-      // Tried to add more then max identical Cards to the Deck
-      int sameCardsInDeck = cardsInDeck.Count(card => card.Name == selectedCollectionCard.Name);
+			// Count the number of the same cards (even if they are of different levels)
+			int sameCardsInDeck = 0;
+			foreach ( var card in cardsInDeck )
+			{
+				// Same level cards
+				if ( card.Name == selectedCollectionCard.Name )
+					sameCardsInDeck++;
+
+				// Level 2 or Level 3 card vs. lower level
+				if ( card.LowerLevelVersion && card.LowerLevelVersion.Name == selectedCollectionCard.Name )
+					sameCardsInDeck++;
+
+				// Level 3 card vs. Level 1
+				if ( card.LowerLevelVersion && card.LowerLevelVersion.LowerLevelVersion && card.LowerLevelVersion.LowerLevelVersion.Name == selectedCollectionCard.Name )
+					sameCardsInDeck++;
+
+				// Level 1 and Level 2 card vs. higher level
+				if ( card.HigherLevelVersion && card.HigherLevelVersion.Name == selectedCollectionCard.Name )
+					sameCardsInDeck++;
+
+				// Level 1 card vs. Level 3
+				if ( card.HigherLevelVersion && card.HigherLevelVersion.HigherLevelVersion && card.HigherLevelVersion.HigherLevelVersion.Name == selectedCollectionCard.Name )
+					sameCardsInDeck++;
+			}
+
+	  // Tried to add more then max identical Cards to the Deck
       if (sameCardsInDeck >= maxIdenticalDeckCards && selectedCollectionCard.Name != selectedDeckCard.Name)
       {
         tooltip.text = "Can't have more then 3 identical cards in Deck";
