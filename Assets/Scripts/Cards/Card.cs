@@ -68,8 +68,8 @@ public class Card : MonoBehaviour
 
 	private Vector3 scaleToLerp = Vector3.one;
 	private Vector3 defaultScale = Vector3.one;
-
 	private Vector3 previousPosition = Vector3.zero;
+	private bool selected = false;
 
 	void Start( )
 	{
@@ -98,7 +98,6 @@ public class Card : MonoBehaviour
 			Assert.IsNotNull( lowerLevelVersion, $"Please assign <b>{nameof( lowerLevelVersion )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
 		PopulateCardInfo( );
-		//RevealCard( );
 	}
 
 	void Update( )
@@ -232,70 +231,58 @@ public class Card : MonoBehaviour
 		scaleToLerp = defaultScale;
 	}
 
+	public void OnBeginDrag( )
+	{
+		if ( selectionMode == CardSelectionMode.InHand )
+			StartSummoning( );
+		//else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
+			//StartDraggingInDeckBuilding( );
+	}
+
+	public void OnEndDrag( )
+	{
+		if ( selectionMode == CardSelectionMode.InHand )
+			EndSummoning( );
+		//else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
+			//EndDraggingInDeckBuilding( );
+	}
+
 	public void OnCliked( )
 	{
 		if ( selectionMode == CardSelectionMode.InHand )
 		{
-			if ( !SummoningManager.Instance.EnoughMana( useCost ) )
-				return;
-
-			draggedCard = this;
-			OnOverEnter( );
-
-			SummoningManager.Instance.Summoning( Camera.main.ScreenToWorldPoint( Input.mousePosition ), type, true );
+			if ( selected )
+			{
+				selected = false;
+				EndSummoning( );
+			}
+			else
+			{
+				selected = true;
+				StartSummoning( );
+			}
 		}
 		else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
 		{
-			//DeckBuilder.Instance.CardClicked( this, selectionMode );
-
-			draggedCard = this;
-
-			DeckBuilder.Instance.CheckCollectionCardSelection(this);
-			DeckBuilder.Instance.CheckDeckCardSelection(this);
-
-			previousPosition = transform.position;
-
-			scaleToLerp = defaultScale * 1.25f;
-
-			frontCanvas.overrideSorting = true;
-			frontCanvas.sortingOrder = 999999;
+			/*if ( selected )
+			{
+				selected = false;
+				EndDraggingInDeckBuilding( );
+			}
+			else
+			{
+				selected = true;*/
+			StartDraggingInDeckBuilding( );
+			//}
 		}
 	}
 
 	public void OnReleased( )
 	{
 		if ( selectionMode == CardSelectionMode.InHand )
-		{
-			if ( draggedCard != this )
-				return;
-
-			canvasGroup.alpha = 1f;
-			draggedCard = null;
-			OnOverExit( );
-
-			bool canSummon = SummoningManager.Instance.Summoning( Vector2.zero, type, false );
-
-			if ( canSummon )
-			{
-				GameObject instance = Instantiate( toSummon, (Vector2)Camera.main.ScreenToWorldPoint( Input.mousePosition ), Quaternion.identity );
-				if ( type == CardType.DirectDefensiveSpell || type == CardType.DirectOffensiveSpell || type == CardType.AoeSpell )
-					instance.GetComponent<Spell>( ).SetTarget( SummoningManager.Instance.LastTarget );
-
-				SummoningManager.Instance.RemoveMana( useCost );
-				Destroy( gameObject );
-			}
-		}
+		{ }
 		else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
-		{
-			transform.position = previousPosition;
-			canvasGroup.alpha = 1.0f;
-
-			frontCanvas.overrideSorting = false;
-			frontCanvas.sortingOrder = 100000;
-
-			draggedCard = null;
-			DeckBuilder.Instance.MoveSlot();
-		}
+		{ EndDraggingInDeckBuilding( ); }
 	}
 
 	public void UpdateCardStatsFromEditor(CardType cardType, CardLevel cardLevel, string name, int cost,
@@ -348,36 +335,65 @@ public class Card : MonoBehaviour
 			level3Marks.SetActive( true );
 	}
 
-	private void RevealCard( )
+	private void StartSummoning( )
 	{
-		frontCanvas.gameObject.SetActive( false );
-		backCanvas.gameObject.SetActive( true );
-		canvasGroup.interactable = false;
+		if ( !SummoningManager.Instance.EnoughMana( useCost ) )
+			return;
 
-		StartCoroutine( Utilities.ChangeOverTime( revealTime / 2, RevealAnimationBack, RevealAnimationBackDone ) );
+		draggedCard = this;
+		OnOverEnter( );
+
+		SummoningManager.Instance.Summoning( Camera.main.ScreenToWorldPoint( Input.mousePosition ), type, true );
 	}
 
-	private void RevealAnimationBack( float progress )
+	private void EndSummoning( )
 	{
-		transform.localScale = new Vector3( 1 - progress, 1, 1 );
+		if ( draggedCard != this )
+			return;
+
+		canvasGroup.alpha = 1f;
+		draggedCard = null;
+		OnOverExit( );
+
+		bool canSummon = SummoningManager.Instance.Summoning( Vector2.zero, type, false );
+
+		if ( canSummon )
+		{
+			GameObject instance = Instantiate( toSummon, (Vector2)Camera.main.ScreenToWorldPoint( Input.mousePosition ), Quaternion.identity );
+			if ( type == CardType.DirectDefensiveSpell || type == CardType.DirectOffensiveSpell || type == CardType.AoeSpell )
+				instance.GetComponent<Spell>( ).SetTarget( SummoningManager.Instance.LastTarget );
+
+			SummoningManager.Instance.RemoveMana( useCost );
+			Destroy( gameObject );
+		}
 	}
 
-	private void RevealAnimationBackDone( )
+	private void StartDraggingInDeckBuilding( )
 	{
-		frontCanvas.gameObject.SetActive( true );
-		backCanvas.gameObject.SetActive( false );
+		//DeckBuilder.Instance.CardClicked( this, selectionMode );
 
-		StartCoroutine( Utilities.ChangeOverTime( revealTime / 2, RevealAnimationFace, RevealAnimationFaceDone ) );
+		draggedCard = this;
+
+		DeckBuilder.Instance.CheckCollectionCardSelection( this );
+		DeckBuilder.Instance.CheckDeckCardSelection( this );
+
+		previousPosition = transform.position;
+
+		scaleToLerp = defaultScale * 1.25f;
+
+		frontCanvas.overrideSorting = true;
+		frontCanvas.sortingOrder = 999999;
 	}
 
-	private void RevealAnimationFace( float progress )
+	private void EndDraggingInDeckBuilding( )
 	{
-		transform.localScale = new Vector3( progress, 1, 1 );
-	}
+		transform.position = previousPosition;
+		canvasGroup.alpha = 1.0f;
 
-	private void RevealAnimationFaceDone( )
-	{
-		canvasGroup.interactable = true;
-		Revealing = false;
+		frontCanvas.overrideSorting = false;
+		frontCanvas.sortingOrder = 100000;
+
+		draggedCard = null;
+		DeckBuilder.Instance.MoveSlot( );
 	}
 }
