@@ -1971,6 +1971,8 @@ MonoBehaviour:
   mode: 0
   changeColor: 1
   blinkColor: {r: 0.9764706, g: 0.9764706, b: 0.9764706, a: 1}
+  toScale: {fileID: 3140674097483239845}
+  scale: {x: 0.5, y: 1.4, z: 1}
   blinkTime: 0.2
 --- !u!1 &5519469328974552665
 GameObject:
@@ -7268,11 +7270,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c3832f21c1adc4b8ac5104f029fc0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 3543253135044890370}
   atackDamage: 2
   atackDelay: 2
   unit: {fileID: 2003592177715405980}
   sprite: {fileID: 2003592177450988123}
+  attackLength: 0.2
+  attackTime: 0.03
+  attackBackTime: 0.3
+  yAttackPosition:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &8909582900415529237
 GameObject:
   m_ObjectHideFlags: 0

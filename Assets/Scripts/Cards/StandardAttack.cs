@@ -12,6 +12,12 @@ public class StandardAttack : Attack
 	[SerializeField] private Unit unit = null;
 	[SerializeField] private Transform sprite = null;
 
+	[Header("Attack animation")]
+	[SerializeField] private float attackLength = 0.2f;
+	[SerializeField] private float attackTime = 0.1f;
+	[SerializeField] private float attackBackTime = 0.3f;
+	[SerializeField] private AnimationCurve yAttackPosition = new AnimationCurve();
+
 	private float timeToNextAttack = 0;
 	private Vector2 oldSpritePos;
 	private Vector2 newSpritePos;
@@ -48,19 +54,29 @@ public class StandardAttack : Attack
 		if ( CheatAndDebug.Instance.ShowDebugInfo )
 			Debug.DrawLine( unit.Center, currentOpponent.Center, Color.red, 0.2f );
 
-		Vector3 moveDirection = currentOpponent.Center - unit.Center;
-		oldSpritePos = sprite.localPosition;
-		newSpritePos = sprite.localPosition + moveDirection * 0.2f;
-		sprite.localPosition = newSpritePos;
-
 		//animator.SetTrigger( "Attack" );
 		animator.enabled = false;
-		StartCoroutine( Utilities.ChangeOverTime( 0.3f, MoveBack, OnDoneAttack ) );
+
+		Vector3 moveDirection = currentOpponent.Center - unit.Center;
+		oldSpritePos = sprite.localPosition;
+		newSpritePos = sprite.localPosition + moveDirection * attackLength;
+
+		StartCoroutine( Utilities.ChangeOverTime( attackTime, Attack, StartMoveBack ) );
+	}
+
+	private void Attack( float percent )
+	{
+		sprite.localPosition = Vector2.Lerp( oldSpritePos, newSpritePos, percent );
 	}
 
 	private void MoveBack( float percent )
 	{
 		sprite.localPosition = Vector2.Lerp( newSpritePos, oldSpritePos, percent );
+	}
+
+	private void StartMoveBack( )
+	{
+		StartCoroutine( Utilities.ChangeOverTime( attackBackTime, MoveBack, OnDoneAttack ) );
 	}
 
 	private void OnDoneAttack( )

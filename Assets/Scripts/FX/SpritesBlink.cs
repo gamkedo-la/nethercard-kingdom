@@ -23,10 +23,13 @@ public class SpritesBlink : MonoBehaviour
 	[SerializeField] private BlinkMode mode = BlinkMode.Change;
 	[SerializeField] private bool changeColor = false;
 	[SerializeField] private Color blinkColor = Color.red;
+	[SerializeField] private GameObject toScale = null;
+	[SerializeField] private Vector3 scale = new Vector3(0.8f, 1.2f, 1f);
 
 	[Header("Tweakable")]
 	[SerializeField] private float blinkTime = 0.1f;
 
+	private Vector3 scaleOriginal;
 	private Color originalColor;
 	private bool blinking = false;
 	private int blinksLeft = 0;
@@ -47,6 +50,9 @@ public class SpritesBlink : MonoBehaviour
 
 		if ( changeColor )
 			originalColor = spritesToBlink[0].color;
+
+		if ( toScale )
+			scaleOriginal = toScale.transform.localScale;
 	}
 
 	/// <summary>
@@ -80,6 +86,9 @@ public class SpritesBlink : MonoBehaviour
 		else
 			Hide( true );
 
+		if ( toScale )
+			toScale.transform.localScale = scale;
+
 		Invoke( "Unblink", time );
 	}
 
@@ -91,6 +100,9 @@ public class SpritesBlink : MonoBehaviour
 			SwapMaterial( normalMaterial, originalColor );
 		else
 			Hide( false );
+
+		if ( toScale )
+			toScale.transform.localScale = scaleOriginal;
 
 		if ( blinksLeft > 0 )
 			Invoke( "ReBlink", blinkTime );
