@@ -54,7 +54,6 @@ public class Card : MonoBehaviour
 	[SerializeField] private CardType type = CardType.Unit;
 	[SerializeField] private CardLevel level = CardLevel.Level1;
 	[SerializeField] private CardSelectionMode selectionMode = CardSelectionMode.InHand;
-	[SerializeField] private float revealTime = 0.7f;
 	[SerializeField] private int useCost = 2;
 	[SerializeField] private string displayName = "Unnamed Card";
 	[SerializeField] private string abilityText = "This is just a test description...";
