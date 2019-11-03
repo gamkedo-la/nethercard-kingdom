@@ -26,7 +26,7 @@ public class HP : MonoBehaviour
 	[SerializeField] private bool destroyOnNoHP = true;
 	[SerializeField] private bool delayNextDamage = false;
 	[SerializeField] private float nextDamageDelay = 1f;
-	[SerializeField] private bool hideHpBar = true;
+	[SerializeField] private bool hideHpBar = false;
 	[SerializeField] private bool scaleOnDamage = true;
 	[SerializeField] private Vector3 scaleFactor = Vector3.one * 2f;
 	[SerializeField] private float scaleTime = 0.3f;
