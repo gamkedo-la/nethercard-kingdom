@@ -1,5 +1,5 @@
 ﻿/**
- * Description: Allows to enable components.
+ * Description: Gives the ability to enable many components at once.
  * Authors: Kornel
  * Copyright: © 2019 Kornel. All rights reserved. For license see: 'LICENSE.txt'
  **/
@@ -14,7 +14,6 @@ public class EnableComponents : MonoBehaviour
 	void Start( )
 	{
 		Assert.AreNotEqual( toEnable.Length, 0, $"Please assign <b>{nameof( toEnable )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
-
 	}
 
 	public void DoEnabling( )

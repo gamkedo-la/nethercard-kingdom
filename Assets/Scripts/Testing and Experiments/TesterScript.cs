@@ -5,21 +5,10 @@
  **/
 
 using UnityEngine;
-using UnityEngine.Assertions;
 
 public class TesterScript : MonoBehaviour
 {
 	[SerializeField] private FloatingText floatingText = null;
-
-	void Start ()
-	{
-		//Assert.IsNotNull( , $"Please assign <b>{nameof(  )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
-	}
-
-	void Update ()
-	{
-
-	}
 
 	public void OnEnter()
 	{

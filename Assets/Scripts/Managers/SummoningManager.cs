@@ -27,7 +27,6 @@ public class SummoningManager : MonoBehaviour
 	[SerializeField] private int manaTickAmount = 1;
 	[SerializeField] private int startMana = 3;
 
-	private Vector2 lineStartPoint;
 	private bool overValidTarget = false;
 	private int currentMana = 0;
 	private float currentManaProgress = 0;
@@ -69,9 +68,6 @@ public class SummoningManager : MonoBehaviour
 	{
 		Vector2 endPoint = Camera.main.ScreenToWorldPoint( Input.mousePosition );
 
-		//line.SetPosition( 0, lineStartPoint );
-		//line.SetPosition( 1, endPoint );
-
 		good.transform.position = endPoint;
 		bad.transform.position = endPoint;
 	}
@@ -94,8 +90,6 @@ public class SummoningManager : MonoBehaviour
 
 		UsingMode = started ? type : CardType.None;
 		bad.SetActive( started );
-		//line.enabled = started;
-		lineStartPoint = startPos;
 
 		if ( !started )
 			good.SetActive( false );

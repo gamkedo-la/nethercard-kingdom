@@ -4,8 +4,6 @@
  * Copyright: © 2019 Kornel. All rights reserved. For license see: 'LICENSE.txt'
  **/
 
-// TODO: Split the class in to separate classes.
-
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -90,7 +88,7 @@ public class Unit : MonoBehaviour
 
 	void OnDrawGizmosSelected( )
 	{
-		/*Color col = Color.green;
+		Color col = Color.green;
 		col.a = 0.3f;
 		Gizmos.color = col;
 		Gizmos.DrawCube( movementOffset, movementRange );
@@ -101,7 +99,7 @@ public class Unit : MonoBehaviour
 		Gizmos.color = Color.red;
 		Gizmos.DrawWireSphere( transform.position + (Vector3)unitCenter, attackRange );
 
-		Gizmos.color = Color.white;*/
+		Gizmos.color = Color.white;
 	}
 
 	public void Freez( float duration, bool shocked = false )

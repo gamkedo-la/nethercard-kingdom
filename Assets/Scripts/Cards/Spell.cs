@@ -5,25 +5,13 @@
  **/
 
 using UnityEngine;
-using UnityEngine.Assertions;
 
 public class Spell : MonoBehaviour
 {
-	[SerializeField] protected CardType type = CardType.DirectOffensiveSpell;
 	[SerializeField] private GameObject optionalToSpawn = null;
-	[SerializeField] private float destroyAfter = 0.3f;
+	[SerializeField] protected CardType type = CardType.DirectOffensiveSpell;
 	[SerializeField] protected float effectAmount = 1f;
-
-	virtual public void Start ()
-	{
-		//Assert.IsNotNull( , $"Please assign <b>{nameof(  )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
-
-	}
-
-	virtual public void Update ()
-	{
-
-	}
+	[SerializeField] private float destroyAfter = 0.3f;
 
 	virtual public void SetTarget( Targetable target )
 	{

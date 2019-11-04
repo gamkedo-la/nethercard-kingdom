@@ -1,11 +1,21 @@
-﻿using UnityEngine;
+﻿/**
+ * Description: Adds mana on clicking.
+ * Authors: Kornel, Cole
+ * Copyright: © 2019 Kornel. All rights reserved. For license see: 'LICENSE.txt'
+ **/
 
-public class AddManaCheat : MonoBehaviour
+using UnityEngine;
+using UnityEngine.EventSystems;
+
+public class AddManaCheat : MonoBehaviour, IPointerDownHandler
 {
-    [SerializeField] private int cheatAmount = 5;
+	public void OnPointerDown( PointerEventData eventData )
+	{
+		OnClicked( );
+	}
 
-    public void OnClick()
-    {
-        SummoningManager.Instance.AddMana(cheatAmount);
-    }
+	public void OnClicked( )
+	{
+		CheatAndDebug.Instance.AddMana( );
+	}
 }

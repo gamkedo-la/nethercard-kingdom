@@ -1,5 +1,5 @@
 ﻿/**
- * Description: Game enums.
+ * Description: Enums used in the game.
  * Authors: Kornel
  * Copyright: © 2019 Kornel. All rights reserved. For license see: 'LICENSE.txt'
  **/

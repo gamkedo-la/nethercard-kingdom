@@ -5,25 +5,12 @@
  **/
 
 using UnityEngine;
-using UnityEngine.Assertions;
 
 public class DirectDamageSpell : Spell
 {
 	[SerializeField] private float targetFreezTime = 0f;
 	[SerializeField] private float targetShockTime = 0.2f;
 	[SerializeField] private float shakeStrength = 1f;
-
-	override public void Start ()
-	{
-		base.Start( );
-		//Assert.IsNotNull( , $"Please assign <b>{nameof(  )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
-
-	}
-
-	override public void Update ()
-	{
-		base.Update( );
-	}
 
 	override public void SetTarget( Targetable target )
 	{

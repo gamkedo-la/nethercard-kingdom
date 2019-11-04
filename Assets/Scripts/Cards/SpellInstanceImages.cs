@@ -3,7 +3,6 @@ using UnityEngine.Assertions;
 
 public class SpellInstanceImages : MonoBehaviour
 {
-
     [SerializeField] private SpriteRenderer borderImageSprite = null;
     [SerializeField] private SpriteRenderer fillImageSprite = null;
 

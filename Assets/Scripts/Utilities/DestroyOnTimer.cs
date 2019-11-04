@@ -1,7 +1,7 @@
 ﻿/**
  * Description: Destroys GameObject after x seconds.
  * Authors: Kornel
- * Copyright: © 2018-2019 Rebel Game Studio. All rights reserved. For license see: 'LICENSE' file.
+ * Copyright: © 2018-2019 Kornel & Rebel Game Studio. All rights reserved. For license see: 'LICENSE' file.
  **/
 
 using UnityEngine;

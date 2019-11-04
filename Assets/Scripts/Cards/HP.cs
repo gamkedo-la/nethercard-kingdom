@@ -122,12 +122,9 @@ public class HP : MonoBehaviour
 			if ( CurrentHP + heal > maxHP )
 				healed = maxHP - CurrentHP;
 
-			//if ( healed > 0 )
-			//{
-				GameObject go = Instantiate( floatingTextHeal, transform.position, Quaternion.identity );
-				FloatingText ft = go.GetComponent<FloatingText>( );
-				ft.SetPrameters( $"+{healed}", floatingTextLeftDir, 1.0f, 1.0f, Color.white );
-			//}
+			GameObject go = Instantiate( floatingTextHeal, transform.position, Quaternion.identity );
+			FloatingText ft = go.GetComponent<FloatingText>( );
+			ft.SetPrameters( $"+{healed}", floatingTextLeftDir, 1.0f, 1.0f, Color.white );
 		}
 
 		ChangeHP( heal );

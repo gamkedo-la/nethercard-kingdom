@@ -11,9 +11,9 @@ public class CheatAndDebug : MonoBehaviour
 {
 	public static CheatAndDebug Instance { get; private set; }
 	public bool ShowDebugInfo { get { return showDebugInfo; } }
-	[SerializeField] private bool showDebugInfo = false;
-
 	public bool AllowCheats { get { return allowCheats; } }
+
+	[SerializeField] private bool showDebugInfo = false;
 	[SerializeField] private bool allowCheats = true;
 	[SerializeField] private int manaCheatAmount = 20;
 
@@ -33,7 +33,7 @@ public class CheatAndDebug : MonoBehaviour
 			SceneManager.LoadScene( 0 );
 
 		if ( AllowCheats && Input.GetKeyDown( KeyCode.M ) )
-			SummoningManager.Instance.AddMana( manaCheatAmount );
+			AddMana( );
     }
 
 	public void AddMana( )

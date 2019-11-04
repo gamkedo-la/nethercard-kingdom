@@ -1,5 +1,5 @@
 ﻿/**
- * Description: Enemy oponent player.
+ * Description: Enemy player.
  * Authors: Kornel
  * Copyright: © 2019 Kornel. All rights reserved. For license see: 'LICENSE.txt'
  **/

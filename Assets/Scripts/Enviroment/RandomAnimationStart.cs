@@ -9,6 +9,8 @@ using UnityEngine.Assertions;
 
 public class RandomAnimationStart : MonoBehaviour
 {
+	[SerializeField] private float maxDelay = 0.3f;
+
 	private Animator animator = null;
 
 	void Start( )
@@ -20,6 +22,6 @@ public class RandomAnimationStart : MonoBehaviour
 	void OnEnable( )
 	{
 		animator = GetComponent<Animator>( );
-		animator.Play( 0, 0, Random.Range( 0f, 0.3f ) );
+		animator.Play( 0, 0, Random.Range( 0f, maxDelay ) );
 	}
 }

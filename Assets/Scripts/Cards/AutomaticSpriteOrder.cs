@@ -19,8 +19,5 @@ public class AutomaticSpriteOrder : MonoBehaviour
 		Assert.IsNotNull( sorting, $"Please assign <b>{nameof( sorting )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 	}
 
-	void FixedUpdate ()
-	{
-		sorting.sortingOrder = -(int)(transform.position.y * 100);
-	}
+	void FixedUpdate( ) => sorting.sortingOrder = -(int)( transform.position.y * 100 );
 }

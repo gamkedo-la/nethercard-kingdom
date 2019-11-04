@@ -10,15 +10,15 @@ public class DefaultCursorControl : MonoBehaviour
     void Start()
     {
         current = this;
-        reset();
+        Reset();
     }
 
-    public static void resetCursor()
+    public static void ResetCursor()
     {
-        current?.reset();
+        current?.Reset();
     }
 
-    public void reset()
+    public void Reset()
     {
         Cursor.SetCursor(cursorTexture, hotSpot, CursorMode.Auto);
     }

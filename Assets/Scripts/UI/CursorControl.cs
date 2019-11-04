@@ -5,6 +5,7 @@ public class CursorControl : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 {
     public Texture2D cursorTexture = null;
     public Vector2 hotSpot = Vector2.zero;
+
     public void OnPointerEnter(PointerEventData pointerEventData)
     {
         //Debug.Log("POINTER ENTER");
@@ -15,7 +16,6 @@ public class CursorControl : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         // Debug.Log("POINTER EXIT");
         //Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
-        DefaultCursorControl.resetCursor();
+        DefaultCursorControl.ResetCursor();
     }
-
 }

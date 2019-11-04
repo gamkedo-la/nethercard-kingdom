@@ -2,7 +2,6 @@
 using UnityEditor;
 using System.IO;
 
-
 public class CardCreationEditor : EditorWindow
 {
     private int toolBarInt = 0;
@@ -140,7 +139,6 @@ public class CardCreationEditor : EditorWindow
             unitArtFill = (Sprite)EditorGUILayout.ObjectField("Unit Art Fill", unitArtFill, typeof(Sprite), true);
             unitArtBorder = (Sprite)EditorGUILayout.ObjectField("Unit Art Border", unitArtBorder, typeof(Sprite), true);
 
-
             if (GUILayout.Button("Finish Unit"))
             {
                 CreateUnitVariant();
@@ -221,12 +219,11 @@ public class CardCreationEditor : EditorWindow
             newSpell.AddComponent<DirectDamageSpell>();
         }
 
-
         DestroyImmediate(spell);
     }
 
     void CreateCardVariant()
-    {        
+    {
         string prefabPath = "Assets/Prefabs/Card Template.prefab";
         string localPath = "Assets/Prefabs/Player Cards/" + cardFileName + ".prefab";
         if (CheckIfExists(localPath) && overwriteExistingCard == false)
@@ -239,12 +236,11 @@ public class CardCreationEditor : EditorWindow
 
         cardData = newCard.GetComponent<Card>();
         cardData.UpdateCardStatsFromEditor(cardType, cardLevel, displayName, cardCost, abilityText, flavorText, cardArtFill, cardArtBorder, toSummon);
-        cardData.PopulateCardInfo();        
+        cardData.PopulateCardInfo();
         Texture2D texture = AssetPreview.GetAssetPreview(newCard);
         GUILayout.Box(texture, GUILayout.Height(100), GUILayout.Width(100));
         DestroyImmediate(card);
     }
-   
 
     bool CheckIfExists(string localPath)
     {
@@ -289,6 +285,5 @@ public class CardCreationEditor : EditorWindow
                 }
             }
         }
-
     }
 }

@@ -16,7 +16,6 @@ public class StandardAttack : Attack
 	[SerializeField] private float attackLength = 0.2f;
 	[SerializeField] private float attackTime = 0.1f;
 	[SerializeField] private float attackBackTime = 0.3f;
-	[SerializeField] private AnimationCurve yAttackPosition = new AnimationCurve();
 
 	private float timeToNextAttack = 0;
 	private Vector2 oldSpritePos;
@@ -45,7 +44,7 @@ public class StandardAttack : Attack
 
 		timeToNextAttack -= Time.deltaTime;
 
-		// Need to be in attack range of an oponent and has no attack cool-down
+		// Needs to be in attack range of an oponent and have no attack cool-down
 		if ( !currentOpponent || timeToNextAttack > 0 )
 			return;
 
@@ -54,7 +53,6 @@ public class StandardAttack : Attack
 		if ( CheatAndDebug.Instance.ShowDebugInfo )
 			Debug.DrawLine( unit.Center, currentOpponent.Center, Color.red, 0.2f );
 
-		//animator.SetTrigger( "Attack" );
 		animator.enabled = false;
 
 		Vector3 moveDirection = currentOpponent.Center - unit.Center;

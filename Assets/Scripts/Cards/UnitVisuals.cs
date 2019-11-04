@@ -46,15 +46,9 @@ public class UnitVisuals : MonoBehaviour
 		originalXScale = mainSprites.transform.localScale.x;
 	}
 
-	public void Shocked( float time )
-	{
-		StartCoroutine( DoShock( time ) );
-	}
+	public void Shocked( float time ) => StartCoroutine( DoShock( time ) );
 
-	public void Healed( )
-	{
-		healEffect.Play( );
-	}
+	public void Healed( ) => healEffect.Play( );
 
 	public void MoveDir( Vector2 dir, float speed )
 	{

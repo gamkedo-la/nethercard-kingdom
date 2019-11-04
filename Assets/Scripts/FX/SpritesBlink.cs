@@ -89,7 +89,7 @@ public class SpritesBlink : MonoBehaviour
 		if ( toScale )
 			toScale.transform.localScale = scale;
 
-		Invoke( "Unblink", time );
+		Invoke( nameof( Unblink ), time );
 	}
 
 	private void Unblink( )
@@ -105,7 +105,7 @@ public class SpritesBlink : MonoBehaviour
 			toScale.transform.localScale = scaleOriginal;
 
 		if ( blinksLeft > 0 )
-			Invoke( "ReBlink", blinkTime );
+			Invoke( nameof( ReBlink ), blinkTime );
 	}
 
 	private void SwapMaterial( Material material, Color color )

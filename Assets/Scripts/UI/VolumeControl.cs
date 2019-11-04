@@ -1,5 +1,5 @@
 ﻿/**
- * Description: Controls the volume of the game.
+ * Description: Controls the volume of a game mixer/bus.
  * Authors: Kornel, Stebs
  * Copyright: © 2019 Kornel. All rights reserved. For license see: 'LICENSE.txt'
  **/

@@ -34,7 +34,6 @@ public class PlaySound : MonoBehaviour
 		Assert.IsNotNull( audioSource, $"Please assign <b>{nameof( audioSource )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( sounds, $"Please assign <b>{nameof( sounds )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
-		//Assert.AreNotEqual( sounds.Length, 0, $"Please assign <b>{nameof( sounds )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		if ( sounds.Length == 0 )
 			Debug.LogWarning( "No sound added to " + transform.parent.name );
 		else if ( playOnStart )

@@ -145,11 +145,6 @@ public class Card : MonoBehaviour
 		}
 	}
 
-	void OnValidate( )
-	{
-		//PopulateCardInfo( );
-	}
-
 	public void DoCardReveal( )
 	{
 		Revealing = true;
@@ -295,9 +290,6 @@ public class Card : MonoBehaviour
 		level = cardLevel;
 		displayName = name;
 		useCost = cost;
-		//attack = attackPower;
-		//hp = hitPoints;
-		//speed = cardSpeed;
 		abilityText = ability;
 		flavorText = flavor;
 		cardImageBorder.sprite = borderSprite;
@@ -375,8 +367,6 @@ public class Card : MonoBehaviour
 
 	private void StartDraggingInDeckBuilding( )
 	{
-		//DeckBuilder.Instance.CardClicked( this, selectionMode );
-
 		draggedCard = this;
 
 		DeckBuilder.Instance.CheckCollectionCardSelection( this );

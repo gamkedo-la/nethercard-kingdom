@@ -75,7 +75,7 @@ public class ScaleChanger : MonoBehaviour
 
 		yield return new WaitForSeconds( startDelay );
 
-		float progress = 0;
+		float progress;
 		do
 		{
 			currentTime += Time.deltaTime;
