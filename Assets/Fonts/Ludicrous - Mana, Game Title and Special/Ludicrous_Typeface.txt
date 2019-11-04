@@ -1,0 +1,28 @@
+UPDATE: December 2016. I've done some gentle rearranging of glyphs, and added in a ton more accented characters. Plus, now Ludicrous is available in both OTF and TTF formats. Plus, hey, some new promo images!
+
+It's time for another free font!
+
+With every font, I learn something new. This time around, I did my first ligatures. I've included the 15 lowercase letter pairs I thought were most common. (I skipped over "uu," because I don't know about you, but I don't type "vacuum" all that often.) (Note: I hadn't included "cc" originally. But the more I thought about it, the more words I thought of with that double-c in them. So I added "cc" to the mix.)
+
+This was also my first attempt at creating the letters in Photoshop, instead of in Illustrator. Still not sure which one I like better; more testing is required.
+
+I've also added in a few little extras in the Private Use Area.
+
+As always, this font is free for personal and commercial use (see included license for limitations). I'd love to see what you do with it -- drop me a line!
+
+
+
+Not sure how to access the alternate characters (ligatures, accented characters, dingbats, etc.) in a font?
+* Adobe Photoshop: Window ^ Glyphs
+* Adobe Illustrator: Window ^ Type ^ Glyphs
+* Adobe InDesign: Window ^ Type & Tables ^ Glyphs
+* Windows: Program "Character Map" (Start Menu ^ type in "charmap")
+* Mac: Program "Font Book"
+
+
+
+
+Download Ludicrous from my Sellfy shop!
+(File is pay-what-you-want; for free, just enter "0"!)
+
+https://www.behance.net/gallery/36680155/Ludicrous-a-free-handwriting-font

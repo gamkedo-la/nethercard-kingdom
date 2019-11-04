@@ -122,11 +122,6 @@ PrefabInstance:
       propertyPath: speedSideways
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2771766655865205605, guid: cda0f9ec0d436d24bbf7cc8ce7d0ba8f,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 18.87
-      objectReference: {fileID: 0}
     - target: {fileID: 5349083896971805775, guid: cda0f9ec0d436d24bbf7cc8ce7d0ba8f,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -161,6 +156,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_firstOverflowCharacterIndex
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2771766655865205605, guid: cda0f9ec0d436d24bbf7cc8ce7d0ba8f,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 24.48
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cda0f9ec0d436d24bbf7cc8ce7d0ba8f, type: 3}
