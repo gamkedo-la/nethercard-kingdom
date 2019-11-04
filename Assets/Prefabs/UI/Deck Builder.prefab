@@ -1962,16 +1962,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8784778902839050014}
     m_Modifications:
-    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: m_Name
-      value: Collection Slot (8)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3575357662695513748, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2077,6 +2067,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: m_Name
+      value: Collection Slot (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: mode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53ae0d0f1c9f4344093da86cd81ff3df, type: 3}
 --- !u!114 &8883345521222373584 stripped
@@ -2104,16 +2104,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8784778902839050014}
     m_Modifications:
-    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: m_Name
-      value: Collection Slot (13)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3575357662695513748, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2219,6 +2209,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: m_Name
+      value: Collection Slot (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: mode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53ae0d0f1c9f4344093da86cd81ff3df, type: 3}
 --- !u!114 &9177938470887921182 stripped
@@ -2246,11 +2246,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8784778902190248689}
     m_Modifications:
-    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: m_Name
-      value: Deck Slot
-      objectReference: {fileID: 0}
     - target: {fileID: 3575357662695513748, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2356,6 +2351,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: m_Name
+      value: Deck Slot
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53ae0d0f1c9f4344093da86cd81ff3df, type: 3}
 --- !u!114 &8584452512140530992 stripped
@@ -2383,21 +2383,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1356685264965256255}
     m_Modifications:
-    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: m_Name
-      value: Upgrade Slot (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: mode
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 284256759022761703, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3575357662695513748, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2503,6 +2488,21 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: m_Name
+      value: Upgrade Slot (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 284256759022761703, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2294193865762560879, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
         type: 3}
       propertyPath: m_Enabled
@@ -2535,16 +2535,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8784778902839050014}
     m_Modifications:
-    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: m_Name
-      value: Collection Slot (17)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3575357662695513748, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2650,6 +2640,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: m_Name
+      value: Collection Slot (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: mode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53ae0d0f1c9f4344093da86cd81ff3df, type: 3}
 --- !u!224 &2418081132231879732 stripped
@@ -2677,16 +2677,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8784778902839050014}
     m_Modifications:
-    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: m_Name
-      value: Collection Slot (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3575357662695513748, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2792,6 +2782,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: m_Name
+      value: Collection Slot (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: mode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53ae0d0f1c9f4344093da86cd81ff3df, type: 3}
 --- !u!114 &7777512920221527699 stripped
@@ -2819,16 +2819,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8784778902839050014}
     m_Modifications:
-    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: m_Name
-      value: Collection Slot (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3575357662695513748, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2934,6 +2924,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: m_Name
+      value: Collection Slot (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: mode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53ae0d0f1c9f4344093da86cd81ff3df, type: 3}
 --- !u!224 &2639110014604985448 stripped
@@ -2961,16 +2961,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8784778902839050014}
     m_Modifications:
-    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: m_Name
-      value: Collection Slot
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3575357662695513748, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3076,6 +3066,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: m_Name
+      value: Collection Slot
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: mode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53ae0d0f1c9f4344093da86cd81ff3df, type: 3}
 --- !u!224 &3148886794848058892 stripped
@@ -3103,16 +3103,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8784778902839050014}
     m_Modifications:
-    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: m_Name
-      value: Collection Slot (16)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3575357662695513748, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3218,6 +3208,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: m_Name
+      value: Collection Slot (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: mode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53ae0d0f1c9f4344093da86cd81ff3df, type: 3}
 --- !u!224 &1334016612865849759 stripped
@@ -3245,16 +3245,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8784778902839050014}
     m_Modifications:
-    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: m_Name
-      value: Collection Slot (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3575357662695513748, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3360,6 +3350,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: m_Name
+      value: Collection Slot (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: mode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53ae0d0f1c9f4344093da86cd81ff3df, type: 3}
 --- !u!224 &1323570877995875848 stripped
@@ -3387,16 +3387,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8784778902839050014}
     m_Modifications:
-    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: m_Name
-      value: Collection Slot (15)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3575357662695513748, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3502,6 +3492,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: m_Name
+      value: Collection Slot (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: mode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53ae0d0f1c9f4344093da86cd81ff3df, type: 3}
 --- !u!224 &1708981554246108805 stripped
@@ -3529,16 +3529,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8784778902839050014}
     m_Modifications:
-    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: m_Name
-      value: Collection Slot (10)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3575357662695513748, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3644,6 +3634,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: m_Name
+      value: Collection Slot (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: mode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53ae0d0f1c9f4344093da86cd81ff3df, type: 3}
 --- !u!224 &2236524196945940429 stripped
@@ -3671,16 +3671,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8784778902839050014}
     m_Modifications:
-    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: m_Name
-      value: Collection Slot (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3575357662695513748, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3786,6 +3776,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: m_Name
+      value: Collection Slot (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: mode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53ae0d0f1c9f4344093da86cd81ff3df, type: 3}
 --- !u!114 &6187654603276294997 stripped
@@ -3813,16 +3813,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8784778902839050014}
     m_Modifications:
-    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: m_Name
-      value: Collection Slot (7)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3575357662695513748, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3928,6 +3918,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: m_Name
+      value: Collection Slot (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: mode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53ae0d0f1c9f4344093da86cd81ff3df, type: 3}
 --- !u!114 &5467223336389532363 stripped
@@ -3955,16 +3955,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8784778902839050014}
     m_Modifications:
-    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: m_Name
-      value: Collection Slot (12)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3575357662695513748, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4070,6 +4060,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: m_Name
+      value: Collection Slot (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: mode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53ae0d0f1c9f4344093da86cd81ff3df, type: 3}
 --- !u!224 &212170087972576434 stripped
@@ -4097,16 +4097,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8784778902839050014}
     m_Modifications:
-    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: m_Name
-      value: Collection Slot (14)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3575357662695513748, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4211,6 +4201,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: m_Name
+      value: Collection Slot (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: mode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53ae0d0f1c9f4344093da86cd81ff3df, type: 3}
@@ -4424,16 +4424,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8784778902839050014}
     m_Modifications:
-    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: m_Name
-      value: Collection Slot (6)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3575357662695513748, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4539,6 +4529,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: m_Name
+      value: Collection Slot (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: mode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53ae0d0f1c9f4344093da86cd81ff3df, type: 3}
 --- !u!114 &4979826456758618963 stripped
@@ -4566,16 +4566,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8784778902839050014}
     m_Modifications:
-    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: m_Name
-      value: Collection Slot (18)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3575357662695513748, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4681,6 +4671,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: m_Name
+      value: Collection Slot (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: mode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53ae0d0f1c9f4344093da86cd81ff3df, type: 3}
 --- !u!224 &8154481045914962209 stripped
@@ -4708,21 +4708,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1356685264965256255}
     m_Modifications:
-    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: m_Name
-      value: Upgrade Slot
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: mode
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 284256759022761703, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3575357662695513748, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4828,6 +4813,21 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: m_Name
+      value: Upgrade Slot
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 284256759022761703, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2294193865762560879, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
         type: 3}
       propertyPath: m_Enabled
@@ -4860,16 +4860,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8784778902839050014}
     m_Modifications:
-    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: m_Name
-      value: Collection Slot (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3575357662695513748, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4974,6 +4964,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: m_Name
+      value: Collection Slot (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: mode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53ae0d0f1c9f4344093da86cd81ff3df, type: 3}
@@ -5374,16 +5374,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8784778902839050014}
     m_Modifications:
-    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: m_Name
-      value: Collection Slot (9)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3575357662695513748, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5489,6 +5479,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: m_Name
+      value: Collection Slot (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: mode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53ae0d0f1c9f4344093da86cd81ff3df, type: 3}
 --- !u!224 &7277730192231342923 stripped
@@ -5516,16 +5516,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8784778902839050014}
     m_Modifications:
-    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: m_Name
-      value: Collection Slot (19)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3575357662695513748, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5630,6 +5620,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: m_Name
+      value: Collection Slot (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: mode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53ae0d0f1c9f4344093da86cd81ff3df, type: 3}
@@ -6003,16 +6003,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8784778902839050014}
     m_Modifications:
-    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: m_Name
-      value: Collection Slot (11)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3575357662695513748, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6118,6 +6108,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: m_Name
+      value: Collection Slot (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857103073058066128, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: mode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53ae0d0f1c9f4344093da86cd81ff3df, type: 3}
 --- !u!224 &5190868937177606619 stripped
@@ -6145,11 +6145,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8784778902190248689}
     m_Modifications:
-    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: m_Name
-      value: Deck Slot (8)
-      objectReference: {fileID: 0}
     - target: {fileID: 3575357662695513748, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6255,6 +6250,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: m_Name
+      value: Deck Slot (8)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53ae0d0f1c9f4344093da86cd81ff3df, type: 3}
 --- !u!114 &217032116652474505 stripped
@@ -6282,11 +6282,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8784778902190248689}
     m_Modifications:
-    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: m_Name
-      value: Deck Slot (6)
-      objectReference: {fileID: 0}
     - target: {fileID: 3575357662695513748, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6392,6 +6387,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: m_Name
+      value: Deck Slot (6)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53ae0d0f1c9f4344093da86cd81ff3df, type: 3}
 --- !u!224 &5221911707527348513 stripped
@@ -6419,11 +6419,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8784778902190248689}
     m_Modifications:
-    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: m_Name
-      value: Deck Slot (5)
-      objectReference: {fileID: 0}
     - target: {fileID: 3575357662695513748, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6529,6 +6524,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: m_Name
+      value: Deck Slot (5)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53ae0d0f1c9f4344093da86cd81ff3df, type: 3}
 --- !u!224 &5221911707414285600 stripped
@@ -6556,11 +6556,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8784778902190248689}
     m_Modifications:
-    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: m_Name
-      value: Deck Slot (9)
-      objectReference: {fileID: 0}
     - target: {fileID: 3575357662695513748, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6666,6 +6661,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: m_Name
+      value: Deck Slot (9)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53ae0d0f1c9f4344093da86cd81ff3df, type: 3}
 --- !u!114 &217032116814825784 stripped
@@ -6693,11 +6693,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8784778902190248689}
     m_Modifications:
-    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: m_Name
-      value: Deck Slot (3)
-      objectReference: {fileID: 0}
     - target: {fileID: 3575357662695513748, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6803,6 +6798,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: m_Name
+      value: Deck Slot (3)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53ae0d0f1c9f4344093da86cd81ff3df, type: 3}
 --- !u!224 &5221911706603888055 stripped
@@ -6830,11 +6830,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8784778902190248689}
     m_Modifications:
-    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: m_Name
-      value: Deck Slot (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 3575357662695513748, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6940,6 +6935,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: m_Name
+      value: Deck Slot (1)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53ae0d0f1c9f4344093da86cd81ff3df, type: 3}
 --- !u!224 &5221911706847101570 stripped
@@ -6967,11 +6967,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8784778902190248689}
     m_Modifications:
-    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: m_Name
-      value: Deck Slot (7)
-      objectReference: {fileID: 0}
     - target: {fileID: 3575357662695513748, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7077,6 +7072,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: m_Name
+      value: Deck Slot (7)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53ae0d0f1c9f4344093da86cd81ff3df, type: 3}
 --- !u!114 &217032115806340583 stripped
@@ -7104,11 +7104,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8784778902190248689}
     m_Modifications:
-    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: m_Name
-      value: Deck Slot (4)
-      objectReference: {fileID: 0}
     - target: {fileID: 3575357662695513748, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7214,6 +7209,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: m_Name
+      value: Deck Slot (4)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53ae0d0f1c9f4344093da86cd81ff3df, type: 3}
 --- !u!224 &5221911705534523066 stripped
@@ -7241,11 +7241,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8784778902190248689}
     m_Modifications:
-    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
-        type: 3}
-      propertyPath: m_Name
-      value: Deck Slot (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 3575357662695513748, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7350,6 +7345,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
+        type: 3}
+      propertyPath: m_Name
+      value: Deck Slot (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53ae0d0f1c9f4344093da86cd81ff3df, type: 3}
