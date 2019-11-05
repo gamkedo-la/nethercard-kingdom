@@ -5,50 +5,23 @@
  **/
 
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Xml.Serialization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
-
-[System.Serializable]
-public class CardsData
-{
-	public string[] Name;
-	public int[] AmountPlayerOwns;
-	public int[] AmountInDeck;
-}
-
-[System.Serializable]
-public class CardInMasterCollection
-{
-	public Card Card;
-	public int AmountPlayerOwns;
-	public int AmountInDeck;
-}
-
-[System.Serializable]
-public class CardInCollection
-{
-	public Card Card;
-	public int Amount;
-}
 
 public class DeckBuilder : MonoBehaviour
 {
 	public static DeckBuilder Instance { get; private set; }
 
 	[Header("Objects")]
+	[SerializeField] private PlayerCards playerCards = null;
 	[SerializeField] private Animator animator = null;
 	[SerializeField] private Button combineButton = null;
 	[SerializeField] private TextMeshProUGUI tooltip = null;
 	[SerializeField] private GameObject[] toHideOnClose = null;
 	[SerializeField] private GameObject[] toShowOnClose = null;
-
-	[Header("Master Collection")]
-	[SerializeField] private CardInMasterCollection[] allPlayerCards = null;
 
 	[Header("Collection")]
 	[SerializeField] private CardSlot[] collectionSlots = null;
@@ -60,16 +33,10 @@ public class DeckBuilder : MonoBehaviour
 	[Header("Upgrade")]
 	[SerializeField] private CardSlot[] upgradeSlots = null;
 
-	private CardInCollection[] cardsInCollection = null;
-	private Card[] cardsInDeck = null;
-
 	public GameObject selectedSlot = null;
 	public GameObject otherSlot = null;
 
 	private bool upgrading = false;
-
-	const int CardsInDeck = 10;
-	const int IdenticalCardsInDeckMax = 3;
 
 	private void Awake( )
 	{
@@ -83,21 +50,16 @@ public class DeckBuilder : MonoBehaviour
 
 	void Start( )
 	{
+		Assert.IsNotNull( playerCards, $"Please assign <b>{nameof( playerCards )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( combineButton, $"Please assign <b>{nameof( combineButton )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( tooltip, $"Please assign <b>{nameof( tooltip )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( animator, $"Please assign <b>{nameof( animator )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
 		Assert.AreNotEqual( toHideOnClose.Length, 0, $"Please assign <b>{nameof( toHideOnClose )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.AreNotEqual( toShowOnClose.Length, 0, $"Please assign <b>{nameof( toShowOnClose )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
-		Assert.AreNotEqual( allPlayerCards.Length, 0, $"Please assign <b>{nameof( allPlayerCards )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
-
-		int cardsInDeck = 0;
-		foreach ( var card in allPlayerCards )
-			cardsInDeck += card.AmountInDeck;
-		Assert.AreEqual( cardsInDeck, CardsInDeck, $"<b>{nameof( allPlayerCards )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object has to have <b>exactly</b> {CardsInDeck} cards in deck" );
 
 		Assert.AreNotEqual( collectionSlots.Length, 0, $"Please assign <b>{nameof( collectionSlots )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
-		Assert.AreEqual( deckSlots.Length, CardsInDeck, $"Please make sure <b>{nameof( deckSlots )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object has 10 elements (number of cards a Deck should have)" );
+		Assert.AreEqual( deckSlots.Length, PlayerCards.MaxCardsInDeck, $"Please make sure <b>{nameof( deckSlots )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object has {PlayerCards.MaxCardsInDeck} elements (number of cards a Deck should have)" );
 
 		Assert.AreEqual( upgradeSlots.Length, 2, $"Please make sure <b>{nameof( upgradeSlots )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object has 2 elements (number of cards needed for an upgrade)" );
 
@@ -170,18 +132,18 @@ public class DeckBuilder : MonoBehaviour
 		//CardClicked( selectedCollectionCard, CardSelectionMode.InCollection );
 
 		// Find selected card in master collection
-		CardInMasterCollection lowerCardVersion = allPlayerCards.First( card => card.Card.Name == cardToUpgrade.Name );
+		PlayerCard lowerCardVersion = playerCards.Collection.First( card => card.Card.Name == cardToUpgrade.Name );
 		// Find it's upgraded version
-		CardInMasterCollection higherCardVersion = allPlayerCards.First( card => card.Card.Name == cardToUpgrade.HigherLevelVersion.Name );
+		PlayerCard higherCardVersion = playerCards.Collection.First( card => card.Card.Name == cardToUpgrade.HigherLevelVersion.Name );
 		// Take 2 source cards...
-		lowerCardVersion.AmountPlayerOwns -= 2;
+		lowerCardVersion.Amount -= 2;
 		// ...and turn them in to a better one
-		higherCardVersion.AmountPlayerOwns += 1;
+		higherCardVersion.Amount += 1;
 
 		UpdateCollection( );
 	}
 
-	public Card[] GetPlayerDeck( ) => cardsInDeck;
+	public Card[] GetPlayerDeck( ) => playerCards.Deck.Select( card => card.Card ).ToArray( );
 
 	public void CheckCollectionCardSelection( Card card )
 	{
@@ -324,26 +286,26 @@ public class DeckBuilder : MonoBehaviour
 		{
 			// Count the number of the same cards (even if they are of different levels)
 			int sameCardsInDeck = 0;
-			foreach ( var card in cardsInDeck )
+			foreach ( var card in playerCards.Deck )
 			{
 				// Same level cards
-				if ( card.Name == selectedCollectionCard.Name )
+				if ( card.Card.Name == selectedCollectionCard.Name )
 					sameCardsInDeck++;
 
 				// Level 2 or Level 3 card vs. lower level
-				if ( card.LowerLevelVersion && card.LowerLevelVersion.Name == selectedCollectionCard.Name )
+				if ( card.Card.LowerLevelVersion && card.Card.LowerLevelVersion.Name == selectedCollectionCard.Name )
 					sameCardsInDeck++;
 
 				// Level 3 card vs. Level 1
-				if ( card.LowerLevelVersion && card.LowerLevelVersion.LowerLevelVersion && card.LowerLevelVersion.LowerLevelVersion.Name == selectedCollectionCard.Name )
+				if ( card.Card.LowerLevelVersion && card.Card.LowerLevelVersion.LowerLevelVersion && card.Card.LowerLevelVersion.LowerLevelVersion.Name == selectedCollectionCard.Name )
 					sameCardsInDeck++;
 
 				// Level 1 and Level 2 card vs. higher level
-				if ( card.HigherLevelVersion && card.HigherLevelVersion.Name == selectedCollectionCard.Name )
+				if ( card.Card.HigherLevelVersion && card.Card.HigherLevelVersion.Name == selectedCollectionCard.Name )
 					sameCardsInDeck++;
 
 				// Level 1 card vs. Level 3
-				if ( card.HigherLevelVersion && card.HigherLevelVersion.HigherLevelVersion && card.HigherLevelVersion.HigherLevelVersion.Name == selectedCollectionCard.Name )
+				if ( card.Card.HigherLevelVersion && card.Card.HigherLevelVersion.HigherLevelVersion && card.Card.HigherLevelVersion.HigherLevelVersion.Name == selectedCollectionCard.Name )
 					sameCardsInDeck++;
 			}
 
@@ -362,18 +324,18 @@ public class DeckBuilder : MonoBehaviour
 			// -- Swap cards --
 
 			// Remove card selected in collection from the master collection (by reducing the amount we have)
-			CardInMasterCollection cardInCollectionToSwap = allPlayerCards.First( card => card.Card.Name == selectedCollectionCard.Name );
-			cardInCollectionToSwap.AmountPlayerOwns--;
+			PlayerCard cardInCollectionToSwap = playerCards.Collection.First( card => card.Card.Name == selectedCollectionCard.Name );
+			cardInCollectionToSwap.Amount--;
 
 			// Remove card selected in the deck from the master deck
-			CardInMasterCollection cardInDeckToSwap = allPlayerCards.First( card => card.Card.Name == selectedDeckCard.Name );
-			cardInDeckToSwap.AmountInDeck--;
+			PlayerCard cardInDeckToSwap = playerCards.Deck.First( card => card.Card.Name == selectedDeckCard.Name );
+			cardInDeckToSwap.Amount--;
 
 			// Add card selected from the collection to master deck
-			cardInCollectionToSwap.AmountInDeck++;
+			cardInCollectionToSwap.Amount++;
 
 			// Add card selected from the deck to master collection
-			cardInDeckToSwap.AmountPlayerOwns++;
+			cardInDeckToSwap.Amount++;
 
 			tooltip.text = "Cards swapped";
 
@@ -385,7 +347,7 @@ public class DeckBuilder : MonoBehaviour
 		else if ( selectedCollectionCard != null && selectedUpgradeCard != null )
 		{
 			// Tried to add more then max identical Cards to the Deck
-			int sameCardsInDeck = cardsInDeck.Count( card => card.Name == selectedCollectionCard.Name );
+			int sameCardsInDeck = playerCards.Deck.Count( card => card.Card.Name == selectedCollectionCard.Name );
 			if ( sameCardsInDeck >= maxIdenticalDeckCards && selectedCollectionCard.Name != selectedUpgradeCard.Name )
 			{
 				tooltip.text = "Can't have more then 3 identical cards in Deck";
@@ -400,12 +362,12 @@ public class DeckBuilder : MonoBehaviour
 			// -- Set Display for Upgrade Card Slot --
 
 			// Remove card selected in collection from the master collection (by reducing the amount we have)
-			CardInMasterCollection cardInCollectionToSwap = allPlayerCards.First( card => card.Card.Name == selectedCollectionCard.Name );
+			PlayerCard cardInCollectionToSwap = playerCards.Collection.First( card => card.Card.Name == selectedCollectionCard.Name );
 
 			//cardInCollectionToSwap.AmountPlayerOwns--; //Only SHOW in upgrade
 
 			// Remove card selected in the upgrade
-			CardInMasterCollection cardInUpgradeToSwap = allPlayerCards.First( card => card.Card.Name == selectedUpgradeCard.Name );
+			PlayerCard cardInUpgradeToSwap = playerCards.Collection.First( card => card.Card.Name == selectedUpgradeCard.Name );
 			//cardInUpgradeToSwap.AmountInDeck--; // MISSING How can I remove this card from Upgrade?
 
 			//selectedUpgradeCard.transform.parent.parent.GetComponent<CardSlot>().SetEmpty(); //Only SHOW in upgrade
@@ -440,14 +402,14 @@ public class DeckBuilder : MonoBehaviour
 				selectedCard = selectedUpgradeCard;
 
 			// Remove card selected in collection from the master collection (by reducing the amount we have)
-			CardInMasterCollection addedCard = allPlayerCards.First( card => card.Card.Name == selectedCard.Name );
+			PlayerCard addedCard = playerCards.Collection.First( card => card.Card.Name == selectedCard.Name );
 
 			if ( selectedCard == selectedCollectionCard )
 			{
 				if ( otherSlot.name.Contains( "Deck" ) )
 				{
-					addedCard.AmountPlayerOwns--;
-					addedCard.AmountInDeck++;
+					//addedCard.DefaultPlayerOwned--;
+					//addedCard.DefaultInDeck++;
 				}
 				else if ( otherSlot.name.Contains( "Upgrade" ) )
 				{
@@ -456,10 +418,10 @@ public class DeckBuilder : MonoBehaviour
 			}
 			else if ( selectedCard == selectedDeckCard )
 			{
-				addedCard.AmountInDeck--;
+				//addedCard.DefaultInDeck--;
 
-				if ( otherSlot.name.Contains( "Collection" ) )
-					addedCard.AmountPlayerOwns++;
+				//if ( otherSlot.name.Contains( "Collection" ) )
+					//addedCard.DefaultPlayerOwned++;
 
 				//Deck card can not access upgrade
 			}
@@ -468,8 +430,8 @@ public class DeckBuilder : MonoBehaviour
 				//addedCard.AmountInDeck--; //MISSING How can I remove this card from Upgrade?
 				selectedUpgradeCard.transform.parent.parent.GetComponent<CardSlot>( ).SetEmpty( );
 
-				if ( otherSlot.name.Contains( "Collection" ) )
-					addedCard.AmountPlayerOwns++;
+				//if ( otherSlot.name.Contains( "Collection" ) )
+					//addedCard.DefaultPlayerOwned++;
 
 				//Upgrade card can not access deck
 			}
@@ -500,97 +462,48 @@ public class DeckBuilder : MonoBehaviour
 		int minAmount = upgrading ? 1 : 0; // We need more then 1 cards for upgrading and more then 0 for deck building
 
 		// Find all the cards we have or, if we are upgrading, all the cards we can combine
-		Card[] cards = allPlayerCards.Where( card => card.AmountPlayerOwns > minAmount && !( upgrading && card.Card.Level == CardLevel.Level3 ) ).Select( card => card.Card ).ToArray( );
-		int[] amounts = allPlayerCards.Where( card => card.AmountPlayerOwns > minAmount && !( upgrading && card.Card.Level == CardLevel.Level3 ) ).Select( card => card.AmountPlayerOwns ).ToArray( );
+		Card[] cards = playerCards.Collection.Where( card => card.Amount > minAmount && !( upgrading && card.Card.Level == CardLevel.Level3 ) ).Select( card => card.Card ).ToArray( );
+		int[] amounts = playerCards.Collection.Where( card => card.Amount > minAmount && !( upgrading && card.Card.Level == CardLevel.Level3 ) ).Select( card => card.Amount ).ToArray( );
 
-		cardsInCollection = new CardInCollection[cards.Length];
+		playerCards.Collection.Clear( );
 		for ( int i = 0; i < cards.Length; i++ )
 		{
-			cardsInCollection[i] = new CardInCollection( )
+			playerCards.Collection.Add( new PlayerCard( )
 			{
 				Card = cards[i],
 				Amount = amounts[i]
-			};
+			} );
 		}
 
-		cardsInCollection = cardsInCollection.OrderBy( card => card.Card.name ).ToArray( );
+		playerCards.Collection = playerCards.Collection.OrderBy( card => card.Card.name ).ToList( );
 
 		foreach ( var slot in collectionSlots )
 			slot.SetEmpty( );
 
-		for ( int i = 0; i < cardsInCollection.Length; i++ )
-			cardsInCollection[i].Card = collectionSlots[i].Set( cardsInCollection[i].Card.gameObject, cardsInCollection[i].Amount );
+		for ( int i = 0; i < playerCards.Collection.Count; i++ )
+			playerCards.Collection[i].Card = collectionSlots[i].Set( playerCards.Collection[i].Card.gameObject, playerCards.Collection[i].Amount );
 	}
 
 	private void UpdateDeck( )
 	{
 		// Find all the cards in master collection that we have in deck
-		List<Card> cards = new List<Card>( );
-		foreach ( var card in allPlayerCards )
+		List<PlayerCard> cards = new List<PlayerCard>( );
+		foreach ( var card in playerCards.Collection )
 		{
-			for ( int i = 0; i < card.AmountInDeck; i++ )
+			for ( int i = 0; i < card.Amount; i++ )
 			{
-				cards.Add( card.Card );
+				cards.Add( new PlayerCard( ) { Card = card.Card, Amount = card.Amount } );
 			}
 		}
 
-		cardsInDeck = cards.ToArray( );
-		cardsInDeck = cardsInDeck.OrderBy( card => card.name ).ToArray( );
+		playerCards.Collection = cards;
+		playerCards.Deck = playerCards.Deck.OrderBy( card => card.Card.Name ).ToList( );
 
-		for ( int i = 0; i < cardsInDeck.Length; i++ )
-			cardsInDeck[i] = deckSlots[i].Set( cardsInDeck[i].gameObject, 1 );
+		for ( int i = 0; i < playerCards.Deck.Count; i++ )
+			playerCards.Deck[i].Card = deckSlots[i].Set( playerCards.Deck[i].Card.gameObject, 1 );
 	}
 
-	private void SaveCollectionAndDeck( )
-	{
-		CardsData cardsData = new CardsData( )
-		{
-			Name = allPlayerCards.Select( card => card.Card.Name ).ToArray( ),
-			AmountPlayerOwns = allPlayerCards.Select( card => card.AmountPlayerOwns ).ToArray( ),
-			AmountInDeck = allPlayerCards.Select( card => card.AmountInDeck ).ToArray( )
-		};
+	private void LoadCollectionAndDeck( ) => playerCards.LoadPlayerCardsData( );
 
-		XmlSerializer xmlSerializer = new XmlSerializer( typeof( CardsData ) );
-		using ( StringWriter writer = new StringWriter( ) )
-		{
-			xmlSerializer.Serialize( writer, cardsData );
-			PlayerPrefs.SetString( "CardsData", writer.ToString( ) );
-		}
-	}
-
-	private void LoadCollectionAndDeck( )
-	{
-		XmlSerializer xmlSerializer = new XmlSerializer( typeof( CardsData ) );
-		string loadedData = PlayerPrefs.GetString( "CardsData" );
-
-		// No card data found, using defaults
-		if ( loadedData == "" )
-			return;
-
-		// Data found
-		using ( StringReader reader = new StringReader( loadedData ) )
-		{
-			CardsData cardsData = xmlSerializer.Deserialize( reader ) as CardsData;
-
-			for ( int i = 0; i < cardsData.Name.Length; i++ )
-			{
-				if ( allPlayerCards[i].Card.Name != cardsData.Name[i] )
-				{
-					Debug.LogError( "Saved data out of sync with Master Collection. Save data reset recommended. Using default data." );
-					return;
-				}
-
-				allPlayerCards[i].AmountInDeck = cardsData.AmountInDeck[i];
-				allPlayerCards[i].AmountPlayerOwns = cardsData.AmountPlayerOwns[i];
-			}
-		}
-	}
-
-	[ContextMenu( "Remove Saved Card Data" )]
-	private void RemovdSavedCardData( )
-	{
-		PlayerPrefs.DeleteKey( "CardsData" );
-	}
-
-	private Card GetCardByName( string cardName ) => allPlayerCards.First( card => card.Card.Name == cardName ).Card;
+	private void SaveCollectionAndDeck( ) => playerCards.SavePlayerCardsData( );
 }
