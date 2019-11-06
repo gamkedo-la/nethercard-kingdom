@@ -53,14 +53,14 @@ public class CollectionManager : MonoBehaviour
 
 	private void DisplayCollection( )
 	{
-		// Clear slots
+		// Clear all slots
 		foreach ( var slot in slots )
 			slot.SetEmpty( );
-		Debug.Log( collection.Count );
+
 		// Add cards
 		for ( int i = 0; i < collection.Count; i++ )
 		{
-			if ( collection[i].Card )
+			if ( collection[i].Card ) // Non-empty position
 				slots[i].Set( collection[i].Card.gameObject, collection[i].Amount );
 		}
 	}

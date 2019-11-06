@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 3575357662695513748}
   - component: {fileID: 1557468412798329778}
   - component: {fileID: 8857103073058066128}
+  - component: {fileID: 4645033337603713149}
   - component: {fileID: 2294193865762560879}
   m_Layer: 5
   m_Name: Card Slot
@@ -101,10 +102,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amount: {fileID: 284256759022761703}
-  cardHolder: {fileID: 5058088333761975802}
+  cardHolder: {fileID: 4015544092573026473}
   selection: {fileID: 3590282402871907767}
   amountLabel: {fileID: 3757775396413111799}
   mode: 2
+--- !u!114 &4645033337603713149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2822337573372306729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1871c203cdb0004889112ff77077b93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotFill: {fileID: 5458630926092660438}
+  hoverColor: {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 1}
 --- !u!114 &2294193865762560879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,7 +194,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8187904322003101470}
   - component: {fileID: 6475796774628886203}
-  - component: {fileID: 6124142085028249043}
   - component: {fileID: 3183206142362448172}
   - component: {fileID: 4563383128174697183}
   m_Layer: 5
@@ -225,23 +239,12 @@ MonoBehaviour:
   - eventID: 2
     callback:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 6124142085028249043}
-          m_MethodName: OnClick
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
   - eventID: 6
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 6124142085028249043}
+        - m_Target: {fileID: 8857103073058066128}
           m_MethodName: OnRelease
           m_Mode: 1
           m_Arguments:
@@ -256,7 +259,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 6124142085028249043}
+        - m_Target: {fileID: 4645033337603713149}
           m_MethodName: OnHoverEnter
           m_Mode: 1
           m_Arguments:
@@ -271,7 +274,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 6124142085028249043}
+        - m_Target: {fileID: 4645033337603713149}
           m_MethodName: OnHoverExit
           m_Mode: 1
           m_Arguments:
@@ -282,20 +285,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &6124142085028249043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3694055605979371593}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1959d261ec4528a4295773bdba2da907, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  emptySlotFill: {fileID: 5458630926092660438}
-  hoverColor: {r: 0.8862746, g: 0.8862746, b: 0.8862746, a: 1}
 --- !u!222 &3183206142362448172
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -894,17 +883,17 @@ PrefabInstance:
     - target: {fileID: 3675264248263211859, guid: eb4c9452e2cb6884fa33436323a851f5,
         type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.9764706
       objectReference: {fileID: 0}
     - target: {fileID: 3675264248263211859, guid: eb4c9452e2cb6884fa33436323a851f5,
         type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.9764706
       objectReference: {fileID: 0}
     - target: {fileID: 3675264248263211859, guid: eb4c9452e2cb6884fa33436323a851f5,
         type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0.9764706
       objectReference: {fileID: 0}
     - target: {fileID: 8298720085237455034, guid: eb4c9452e2cb6884fa33436323a851f5,
         type: 3}

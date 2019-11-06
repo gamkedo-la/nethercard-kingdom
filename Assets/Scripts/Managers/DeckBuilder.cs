@@ -119,8 +119,21 @@ public class DeckBuilder : MonoBehaviour
 		UpdateCollection( );
 	}
 
-	public Card SelectedCard( ) { if ( selectedSlot != null ) return GetCardFromSlot( selectedSlot ); return null; }
-	public Card GetCardFromSlot( GameObject slot ) { if ( slot != null && slot.transform.GetChild( 3 ) != null && slot.transform.GetChild( 3 ).GetChild( 0 ) != null && slot.transform.GetChild( 3 ).GetChild( 0 ).GetComponent<Card>( ) != null ) return slot.transform.GetChild( 3 ).GetChild( 0 ).GetComponent<Card>( ); return null; }
+	public Card SelectedCard( )
+	{
+		/*if ( selectedSlot != null )
+			return GetCardFromSlot( selectedSlot );
+		*/
+		return null;
+	}
+
+	public Card GetCardFromSlot( GameObject slot )
+	{
+		/*if ( slot != null && slot.transform.GetChild( 3 ) != null && slot.transform.GetChild( 3 ).GetChild( 0 ) != null && slot.transform.GetChild( 3 ).GetChild( 0 ).GetComponent<Card>( ) != null )
+			return slot.transform.GetChild( 3 ).GetChild( 0 ).GetComponent<Card>( );
+		*/
+		return null;
+	}
 
 	public void UpgradeCard( )
 	{
@@ -169,14 +182,16 @@ public class DeckBuilder : MonoBehaviour
 
 	public bool IsCollectionCardSelected( )
 	{
-		return ( selectedSlot && SelectedCard( )?.SelectionMode == CardSelectionMode.InCollection )
-		|| ( otherSlot && GetCardFromSlot( otherSlot )?.SelectionMode == CardSelectionMode.InCollection );
+		/*return ( selectedSlot && SelectedCard( )?.SelectionMode == CardSelectionMode.InCollection )
+		|| ( otherSlot && GetCardFromSlot( otherSlot )?.SelectionMode == CardSelectionMode.InCollection );*/
+		return false;
 	}
 
 	public bool IsDeckCardSelected( )
 	{
-		return ( selectedSlot && SelectedCard( ).SelectionMode == CardSelectionMode.InDeck )
-		|| ( otherSlot && GetCardFromSlot( otherSlot ).SelectionMode == CardSelectionMode.InDeck );
+		/*return ( selectedSlot && SelectedCard( ).SelectionMode == CardSelectionMode.InDeck )
+		|| ( otherSlot && GetCardFromSlot( otherSlot ).SelectionMode == CardSelectionMode.InDeck );*/
+		return false;
 	}
 
 	public void CompareAndRemoveSelection( Card card )
@@ -421,7 +436,7 @@ public class DeckBuilder : MonoBehaviour
 				//addedCard.DefaultInDeck--;
 
 				//if ( otherSlot.name.Contains( "Collection" ) )
-					//addedCard.DefaultPlayerOwned++;
+				//addedCard.DefaultPlayerOwned++;
 
 				//Deck card can not access upgrade
 			}
@@ -431,7 +446,7 @@ public class DeckBuilder : MonoBehaviour
 				selectedUpgradeCard.transform.parent.parent.GetComponent<CardSlot>( ).SetEmpty( );
 
 				//if ( otherSlot.name.Contains( "Collection" ) )
-					//addedCard.DefaultPlayerOwned++;
+				//addedCard.DefaultPlayerOwned++;
 
 				//Upgrade card can not access deck
 			}
@@ -477,11 +492,11 @@ public class DeckBuilder : MonoBehaviour
 
 		///playerCards.Collection = playerCards.Collection.OrderBy( card => card.Card.name ).ToList( );
 
-		foreach ( var slot in collectionSlots )
+		/*foreach ( var slot in collectionSlots )
 			slot.SetEmpty( );
 
 		for ( int i = 0; i < playerCards.GetCollection.Count; i++ )
-			playerCards.GetCollection[i].Card = collectionSlots[i].Set( playerCards.GetCollection[i].Card.gameObject, playerCards.GetCollection[i].Amount );
+			playerCards.GetCollection[i].Card = collectionSlots[i].Set( playerCards.GetCollection[i].Card.gameObject, playerCards.GetCollection[i].Amount );*/
 	}
 
 	private void UpdateDeck( )
@@ -500,7 +515,7 @@ public class DeckBuilder : MonoBehaviour
 		playerCards.Deck = playerCards.Deck.OrderBy( card => card.Card.Name ).ToList( );
 
 		for ( int i = 0; i < playerCards.Deck.Count; i++ )
-			playerCards.Deck[i].Card = deckSlots[i].Set( playerCards.Deck[i].Card.gameObject, 1 );
+			deckSlots[i].Set( playerCards.Deck[i].Card.gameObject, 1 );
 	}
 
 	private void LoadCollectionAndDeck( ) => playerCards.LoadPlayerCardsData( );

@@ -7,6 +7,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Card : MonoBehaviour
@@ -58,6 +59,10 @@ public class Card : MonoBehaviour
 	[SerializeField] private string displayName = "Unnamed Card";
 	[SerializeField] private string abilityText = "This is just a test description...";
 	[SerializeField] private string flavorText = "What a lovely card!";
+
+	[Header("Events")]
+	public UnityEvent onStartedDrag = null;
+	public UnityEvent onEndedDrag = null;
 
 	static public Card hoverCard = null;
 	static public Card draggedCard = null;
@@ -113,10 +118,10 @@ public class Card : MonoBehaviour
 			}
 			else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
 			{
-				transform.position = Vector2.Lerp( transform.position, Input.mousePosition + new Vector3(0.0f, -Screen.height/4.0f, 0.0f), 0.25f );
+				/*transform.position = Vector2.Lerp( transform.position, Input.mousePosition + new Vector3(0.0f, -Screen.height/4.0f, 0.0f), 0.25f );
 				canvasGroup.alpha = Mathf.Lerp( canvasGroup.alpha, 0.4f, 0.15f );
 				if ( lerpBackTimer <= 0f || !lerpBack )
-					transform.localScale = Vector3.Lerp( transform.localScale, scaleToLerp, 0.25f );
+					transform.localScale = Vector3.Lerp( transform.localScale, scaleToLerp, 0.25f );*/
 			}
 		}
 		else
@@ -235,6 +240,8 @@ public class Card : MonoBehaviour
 
 	public void OnBeginDrag( )
 	{
+		onStartedDrag?.Invoke( );
+
 		if ( selectionMode == CardSelectionMode.InHand )
 			StartSummoning( );
 		else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
@@ -243,6 +250,11 @@ public class Card : MonoBehaviour
 
 	public void OnEndDrag( )
 	{
+		onEndedDrag?.Invoke( );
+
+		scaleToLerp = defaultScale;
+		lerpBack = true;
+
 		if ( selectionMode == CardSelectionMode.InHand )
 			EndSummoning( );
 		else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
@@ -389,6 +401,6 @@ public class Card : MonoBehaviour
 		frontCanvas.sortingOrder = 100000;
 
 		draggedCard = null;
-		DeckBuilder.Instance.MoveSlot( );
+		//DeckBuilder.Instance.MoveSlot( );
 	}
 }

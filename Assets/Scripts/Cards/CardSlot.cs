@@ -11,13 +11,13 @@ using UnityEngine.Assertions;
 public class CardSlot : MonoBehaviour
 {
 	[SerializeField] private GameObject amount = null;
-	[SerializeField] private GameObject cardHolder = null;
+	[SerializeField] private Transform cardHolder = null;
 	[SerializeField] private GameObject selection = null;
 	[SerializeField] private TextMeshProUGUI amountLabel = null;
 	[SerializeField] private CardSelectionMode mode = CardSelectionMode.InCollection;
 
-	private GameObject cardInSlot;
-	private GameObject cancel = null;
+	private Card cardInSlot;
+	private bool isBeingDraged = false;
 
 	void Start ()
 	{
@@ -25,41 +25,39 @@ public class CardSlot : MonoBehaviour
 		Assert.IsNotNull( cardHolder, $"Please assign <b>{nameof( cardHolder )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( selection, $"Please assign <b>{nameof( selection )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( amountLabel, $"Please assign <b>{nameof( amountLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
-
-		if(transform.childCount >= 5)
-			cancel = transform.GetChild(4).gameObject;
 	}
 
-	public Card Set( GameObject cardObject, float amount )
+	void Update( )
+	{
+		if ( isBeingDraged && cardInSlot )
+		{
+			cardInSlot.transform.position = Vector2.Lerp( cardInSlot.transform.position, Input.mousePosition + new Vector3( 0.0f, -Screen.height / 4.0f, 0.0f ), 0.25f );
+		}
+		else if ( cardInSlot )
+		{
+			cardInSlot.transform.position = Vector2.Lerp( cardInSlot.transform.position, cardHolder.position, 0.15f );
+		}
+	}
+
+	public void Set( GameObject cardObject, float amount )
 	{
 		SetEmpty( );
 
-		GameObject oldCardInSlot = cardInSlot;
-		GameObject toSpawn = cardObject.GetComponent<Card>( ).Prefab ? cardObject.GetComponent<Card>( ).Prefab : cardObject;
+		GameObject go = Instantiate( cardObject, cardHolder );
+		cardInSlot = go.GetComponent<Card>( );
+		cardInSlot.SelectionMode = mode;
+		cardInSlot.onStartedDrag.AddListener( ( ) => isBeingDraged = true );
+		cardInSlot.onEndedDrag.AddListener( ( ) => isBeingDraged = false );
 
-		cardInSlot = Instantiate( toSpawn, cardHolder.transform );
-		Card card = cardInSlot.GetComponent<Card>( );
-		card.SelectionMode = mode;
-		card.Prefab = toSpawn;
-
-		this.amount.SetActive( true );
 		amountLabel.text = amount.ToString( );
 
-		if ( mode != CardSelectionMode.InCollection )
-			this.amount.SetActive( false );
-
-		if ( oldCardInSlot )
-			Destroy( oldCardInSlot );
-
-		if ( cancel )
-			cancel.SetActive( true );
-
-		return card;
+		if ( mode == CardSelectionMode.InCollection )
+			this.amount.SetActive( true );
 	}
 
 	public bool IsEmpty( )
 	{
-		return !( cardInSlot && cardInSlot.activeSelf );
+		return !cardInSlot;
 	}
 
 	public void SetEmpty( )
@@ -67,14 +65,21 @@ public class CardSlot : MonoBehaviour
 		amount.SetActive( false );
 
 		if ( cardInSlot )
-			cardInSlot.SetActive( false );
-
-		if ( cancel )
-			cancel.SetActive( false );
+		{
+			cardInSlot.onStartedDrag.RemoveAllListeners( );
+			cardInSlot.onEndedDrag.RemoveAllListeners( );
+			Destroy( cardInSlot.gameObject );
+		}
 	}
 
 	public void Select( bool selected )
 	{
 		selection.SetActive( selected );
+	}
+
+	public void OnRelease( )
+	{
+		///DeckBuilder.Instance.otherSlot = transform.parent.gameObject;
+		///DeckBuilder.Instance.MoveSlot( );
 	}
 }
