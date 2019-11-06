@@ -95,16 +95,19 @@ public class CardCreationEditor : EditorWindow
             displayName = EditorGUILayout.TextField("Card Display Name", displayName);
             CheckStringLength(displayName, 20);
             cardType = (CardType)EditorGUILayout.EnumPopup("Card Type", cardType);
-            cardLevel = (CardLevel)EditorGUILayout.EnumPopup("Card Level", cardLevel);
+            GUIContent cardLevelInfo = new GUIContent("Card Level", "Cards can have higher and lower level versions.");
+            cardLevel = (CardLevel)EditorGUILayout.EnumPopup(cardLevelInfo, cardLevel);
 
             if (cardLevel == CardLevel.Level1 || cardLevel == CardLevel.Level2)
             {
-                higherLevelCard = (Card)EditorGUILayout.ObjectField("Higher Level Card", higherLevelCard, typeof(Card), false, GUILayout.ExpandWidth(true));
+                GUIContent higherLevelInfo = new GUIContent("Higher Level Card", "If a higher level version of this card exists drag from Project Menu to here.");
+                higherLevelCard = (Card)EditorGUILayout.ObjectField(higherLevelInfo, higherLevelCard, typeof(Card), false, GUILayout.ExpandWidth(true));
             }
 
             if (cardLevel == CardLevel.Level3 || cardLevel == CardLevel.Level2)
             {
-                lowerLevelCard = (Card)EditorGUILayout.ObjectField("Lower Level Card", lowerLevelCard, typeof(Card), false, GUILayout.ExpandWidth(true));
+                GUIContent lowerLevelInfo = new GUIContent("Lower Level Card", "If a lower level version of this card exists drag from Project Menu to here.");
+                lowerLevelCard = (Card)EditorGUILayout.ObjectField(lowerLevelInfo, lowerLevelCard, typeof(Card), false, GUILayout.ExpandWidth(true));
             }
 
             toSummon = (GameObject)EditorGUILayout.ObjectField("Instance to Summon", toSummon, typeof(GameObject), false, GUILayout.ExpandWidth(true));
