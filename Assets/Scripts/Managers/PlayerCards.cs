@@ -21,7 +21,7 @@ public class PlayerCards : MonoBehaviour
 		public int[] Amount;
 	}
 
-	public List<PlayerCard> Collection { get; set; } = new List<PlayerCard>( );
+	public List<PlayerCard> GetCollection { get { return new List<PlayerCard>( collection ); } }
 	public List<PlayerCard> Deck { get; set; } = new List<PlayerCard>( );
 
 	public const int MaxCardsInDeck = 10;
@@ -29,6 +29,8 @@ public class PlayerCards : MonoBehaviour
 
 	private const string PlayerCollection = "Player Collection";
 	private const string PlayerDeck = "Player Deck";
+
+	private List<PlayerCard> collection = new List<PlayerCard>( );
 
 	private AllGameCards gameCards;
 
@@ -45,8 +47,8 @@ public class PlayerCards : MonoBehaviour
 		// Collection
 		CardsSaveData collectionData = new CardsSaveData( )
 		{
-			Name = Collection.Select( card => card.Card.Name ).ToArray( ),
-			Amount = Collection.Select( card => card.Amount ).ToArray( )
+			Name = collection.Select( card => card.Card.Name ).ToArray( ),
+			Amount = collection.Select( card => card.Amount ).ToArray( )
 		};
 
 		using ( StringWriter writer = new StringWriter( ) )
@@ -85,7 +87,7 @@ public class PlayerCards : MonoBehaviour
 
 		// Data found
 
-		Collection.Clear( );
+		collection.Clear( );
 		Deck.Clear( );
 
 		using ( StringReader reader = new StringReader( loadedPlayerCollection ) ) // Collection
@@ -103,7 +105,7 @@ public class PlayerCards : MonoBehaviour
 					return;
 				}
 
-				Collection.Add( new PlayerCard( ) { Card = loadedCard, Amount = cardsData.Amount[i] } );
+				collection.Add( new PlayerCard( ) { Card = loadedCard, Amount = cardsData.Amount[i] } );
 			}
 		}
 
@@ -129,14 +131,14 @@ public class PlayerCards : MonoBehaviour
 
 	private void LoadDefaultPlayerCards( )
 	{
-		Collection.Clear( );
+		collection.Clear( );
 		Deck.Clear( );
 
 		foreach ( var card in gameCards.GamesPlayerCards )
 		{
 			// Collection
 			if ( card.DefaultPlayerOwned > 0 )
-				Collection.Add( new PlayerCard( ) { Card = card.Card, Amount = card.DefaultPlayerOwned } );
+				collection.Add( new PlayerCard( ) { Card = card.Card, Amount = card.DefaultPlayerOwned } );
 
 			// Deck
 			if ( card.DefaultInDeck > 0 )

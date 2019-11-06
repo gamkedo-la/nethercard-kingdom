@@ -132,9 +132,9 @@ public class DeckBuilder : MonoBehaviour
 		//CardClicked( selectedCollectionCard, CardSelectionMode.InCollection );
 
 		// Find selected card in master collection
-		PlayerCard lowerCardVersion = playerCards.Collection.First( card => card.Card.Name == cardToUpgrade.Name );
+		PlayerCard lowerCardVersion = playerCards.GetCollection.First( card => card.Card.Name == cardToUpgrade.Name );
 		// Find it's upgraded version
-		PlayerCard higherCardVersion = playerCards.Collection.First( card => card.Card.Name == cardToUpgrade.HigherLevelVersion.Name );
+		PlayerCard higherCardVersion = playerCards.GetCollection.First( card => card.Card.Name == cardToUpgrade.HigherLevelVersion.Name );
 		// Take 2 source cards...
 		lowerCardVersion.Amount -= 2;
 		// ...and turn them in to a better one
@@ -324,7 +324,7 @@ public class DeckBuilder : MonoBehaviour
 			// -- Swap cards --
 
 			// Remove card selected in collection from the master collection (by reducing the amount we have)
-			PlayerCard cardInCollectionToSwap = playerCards.Collection.First( card => card.Card.Name == selectedCollectionCard.Name );
+			PlayerCard cardInCollectionToSwap = playerCards.GetCollection.First( card => card.Card.Name == selectedCollectionCard.Name );
 			cardInCollectionToSwap.Amount--;
 
 			// Remove card selected in the deck from the master deck
@@ -362,12 +362,12 @@ public class DeckBuilder : MonoBehaviour
 			// -- Set Display for Upgrade Card Slot --
 
 			// Remove card selected in collection from the master collection (by reducing the amount we have)
-			PlayerCard cardInCollectionToSwap = playerCards.Collection.First( card => card.Card.Name == selectedCollectionCard.Name );
+			PlayerCard cardInCollectionToSwap = playerCards.GetCollection.First( card => card.Card.Name == selectedCollectionCard.Name );
 
 			//cardInCollectionToSwap.AmountPlayerOwns--; //Only SHOW in upgrade
 
 			// Remove card selected in the upgrade
-			PlayerCard cardInUpgradeToSwap = playerCards.Collection.First( card => card.Card.Name == selectedUpgradeCard.Name );
+			PlayerCard cardInUpgradeToSwap = playerCards.GetCollection.First( card => card.Card.Name == selectedUpgradeCard.Name );
 			//cardInUpgradeToSwap.AmountInDeck--; // MISSING How can I remove this card from Upgrade?
 
 			//selectedUpgradeCard.transform.parent.parent.GetComponent<CardSlot>().SetEmpty(); //Only SHOW in upgrade
@@ -402,7 +402,7 @@ public class DeckBuilder : MonoBehaviour
 				selectedCard = selectedUpgradeCard;
 
 			// Remove card selected in collection from the master collection (by reducing the amount we have)
-			PlayerCard addedCard = playerCards.Collection.First( card => card.Card.Name == selectedCard.Name );
+			PlayerCard addedCard = playerCards.GetCollection.First( card => card.Card.Name == selectedCard.Name );
 
 			if ( selectedCard == selectedCollectionCard )
 			{
@@ -462,33 +462,33 @@ public class DeckBuilder : MonoBehaviour
 		int minAmount = upgrading ? 1 : 0; // We need more then 1 cards for upgrading and more then 0 for deck building
 
 		// Find all the cards we have or, if we are upgrading, all the cards we can combine
-		Card[] cards = playerCards.Collection.Where( card => card.Amount > minAmount && !( upgrading && card.Card.Level == CardLevel.Level3 ) ).Select( card => card.Card ).ToArray( );
-		int[] amounts = playerCards.Collection.Where( card => card.Amount > minAmount && !( upgrading && card.Card.Level == CardLevel.Level3 ) ).Select( card => card.Amount ).ToArray( );
+		Card[] cards = playerCards.GetCollection.Where( card => card.Amount > minAmount && !( upgrading && card.Card.Level == CardLevel.Level3 ) ).Select( card => card.Card ).ToArray( );
+		int[] amounts = playerCards.GetCollection.Where( card => card.Amount > minAmount && !( upgrading && card.Card.Level == CardLevel.Level3 ) ).Select( card => card.Amount ).ToArray( );
 
-		playerCards.Collection.Clear( );
+		playerCards.GetCollection.Clear( );
 		for ( int i = 0; i < cards.Length; i++ )
 		{
-			playerCards.Collection.Add( new PlayerCard( )
+			playerCards.GetCollection.Add( new PlayerCard( )
 			{
 				Card = cards[i],
 				Amount = amounts[i]
 			} );
 		}
 
-		playerCards.Collection = playerCards.Collection.OrderBy( card => card.Card.name ).ToList( );
+		///playerCards.Collection = playerCards.Collection.OrderBy( card => card.Card.name ).ToList( );
 
 		foreach ( var slot in collectionSlots )
 			slot.SetEmpty( );
 
-		for ( int i = 0; i < playerCards.Collection.Count; i++ )
-			playerCards.Collection[i].Card = collectionSlots[i].Set( playerCards.Collection[i].Card.gameObject, playerCards.Collection[i].Amount );
+		for ( int i = 0; i < playerCards.GetCollection.Count; i++ )
+			playerCards.GetCollection[i].Card = collectionSlots[i].Set( playerCards.GetCollection[i].Card.gameObject, playerCards.GetCollection[i].Amount );
 	}
 
 	private void UpdateDeck( )
 	{
 		// Find all the cards in master collection that we have in deck
 		List<PlayerCard> cards = new List<PlayerCard>( );
-		foreach ( var card in playerCards.Collection )
+		foreach ( var card in playerCards.GetCollection )
 		{
 			for ( int i = 0; i < card.Amount; i++ )
 			{
@@ -496,7 +496,7 @@ public class DeckBuilder : MonoBehaviour
 			}
 		}
 
-		playerCards.Collection = cards;
+		///playerCards.Collection = cards;
 		playerCards.Deck = playerCards.Deck.OrderBy( card => card.Card.Name ).ToList( );
 
 		for ( int i = 0; i < playerCards.Deck.Count; i++ )
