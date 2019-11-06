@@ -15,7 +15,7 @@ using UnityEngine.Assertions;
 public class PlayerCards : MonoBehaviour
 {
 	[System.Serializable]
-	private class CardsSaveData
+	public class CardsSaveData
 	{
 		public string[] Name;
 		public int[] Amount;
