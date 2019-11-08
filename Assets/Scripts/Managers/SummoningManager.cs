@@ -53,7 +53,7 @@ public class SummoningManager : MonoBehaviour
 		Assert.IsNotNull( bad, $"Please assign <b>{nameof( bad )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( line, $"Please assign <b>{nameof( line )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
-		AddMana( startMana );
+		AddMana( startMana, false );
 	}
 
 	void Update ()
@@ -104,9 +104,11 @@ public class SummoningManager : MonoBehaviour
 
 	public bool EnoughMana( int amount ) => currentMana >= amount;
 
-	public void AddMana( int amount )
+	public void AddMana( int amount, bool playSound = true )
 	{
-		manaSound.Play( );
+		if ( playSound )
+			manaSound.Play( );
+
 		currentMana += amount;
 		manaCounter.text = currentMana.ToString( );
 		currentManaProgress = 0;

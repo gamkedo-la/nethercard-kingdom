@@ -28,6 +28,8 @@ public class Card : MonoBehaviour
 	public bool Revealing { get; private set; } = false;
 
     [Header("External Objects")]
+	[SerializeField] private PlaySound playSound = null;
+	[SerializeField] private PlaySound backSound = null;
 	[SerializeField] private GameObject toSummon = null;
 	[SerializeField] private Card lowerLevelVersion = null;
 	[SerializeField] private Card higherLevelVersion = null;
@@ -78,6 +80,8 @@ public class Card : MonoBehaviour
 
 	void Start( )
 	{
+		Assert.IsNotNull( playSound, $"Please assign <b>{nameof( playSound )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( backSound, $"Please assign <b>{nameof( backSound )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( toSummon, $"Please assign <b>{nameof( toSummon )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
 		Assert.IsNotNull( frontCanvas, $"Please assign <b>{nameof( frontCanvas )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
@@ -353,6 +357,7 @@ public class Card : MonoBehaviour
 		OnOverEnter( );
 
 		SummoningManager.Instance.Summoning( Camera.main.ScreenToWorldPoint( Input.mousePosition ), type, true );
+		playSound.Play( );
 	}
 
 	private void EndSummoning( )
@@ -375,6 +380,8 @@ public class Card : MonoBehaviour
 			SummoningManager.Instance.RemoveMana( useCost );
 			Destroy( gameObject );
 		}
+		else
+			backSound.Play( );
 	}
 
 	private void StartDraggingInDeckBuilding( )
