@@ -30,6 +30,7 @@ public class Card : MonoBehaviour
     [Header("External Objects")]
 	[SerializeField] private PlaySound playSound = null;
 	[SerializeField] private PlaySound backSound = null;
+	[SerializeField] private PlaySound overSound = null;
 	[SerializeField] private GameObject toSummon = null;
 	[SerializeField] private Card lowerLevelVersion = null;
 	[SerializeField] private Card higherLevelVersion = null;
@@ -82,6 +83,7 @@ public class Card : MonoBehaviour
 	{
 		Assert.IsNotNull( playSound, $"Please assign <b>{nameof( playSound )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( backSound, $"Please assign <b>{nameof( backSound )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( overSound, $"Please assign <b>{nameof( overSound )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( toSummon, $"Please assign <b>{nameof( toSummon )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
 		Assert.IsNotNull( frontCanvas, $"Please assign <b>{nameof( frontCanvas )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
@@ -177,7 +179,10 @@ public class Card : MonoBehaviour
 			frontCanvas.sortingOrder = 1100;
 
 			if ( hoverCard == null )
+			{
+				overSound.Play( );
 				hoverCard = this;
+			}
 		}
 		else if ( selectionMode == CardSelectionMode.InCollection )
 		{

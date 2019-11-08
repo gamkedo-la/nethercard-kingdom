@@ -60,7 +60,7 @@ public class PlaySound : MonoBehaviour
 	/// <param name="pitch">Desired pitch.</param>
 	public void Play( float pitch )
 	{
-		if ( currentLimitBetweenSounds > 0 )
+		if ( currentLimitBetweenSounds > 0 || sounds == null || sounds.Length == 0 || !audioSource )
 			return;
 
 		if ( limitFequencyOfPlays )

@@ -1,9 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class Deck : MonoBehaviour
 {
+	[Header("Sounds")]
+	[SerializeField] private PlaySound shuffleSound = null;
+	[SerializeField] private PlaySound drawSound = null;
+	[SerializeField] private float drawSoundDelay = 0.3f;
+	[SerializeField] private float shuffleSoundDelay = 0.5f;
+
 	[Header("Objects and Parameters")]
     [SerializeField] private GameObject hand = null;
     [SerializeField] private Animator animator = null;
@@ -15,6 +22,7 @@ public class Deck : MonoBehaviour
     [SerializeField] private int drawCost = 1;
     [SerializeField] private int incrementCostPerCard = 1;
     [SerializeField] private float delayAfterDraw = 3f;
+    [SerializeField] private float startTime = 2f;
 
     [Header("New Card Properties")]
     [SerializeField] private Vector3 newCardPositionOffset = Vector3.zero;
@@ -24,6 +32,19 @@ public class Deck : MonoBehaviour
     private float autoDrawTimer = 0.0f;
     private float timeTillNextDraw = 0.0f;
 	private Queue<Card> drawQueue = new Queue<Card>();
+
+	void OnEnable( )
+	{
+		animator.enabled = true;
+		animator.SetTrigger( "Shuffle" );
+		shuffleSound.Play( );
+		timeTillNextDraw = startTime;
+	}
+
+	void OnDisable( )
+	{
+		animator.enabled = false;
+	}
 
 	void Update()
     {
@@ -61,8 +82,7 @@ public class Deck : MonoBehaviour
 			return;
 		timeTillNextDraw = delayAfterDraw;
 
-		animator.enabled = true;
-		animator.Play( 0 );
+		animator.SetTrigger( "Draw" );
 
 		if ( !SummoningManager.Instance.EnoughMana( drawCost + ( incrementCostPerCard * hand.transform.childCount ) ) )
 			return;
@@ -80,6 +100,22 @@ public class Deck : MonoBehaviour
 		newCard.GetComponent<Card>( ).DoCardReveal( );
 
 		autoDrawTimer = autoDrawDelay;
+
+		StartCoroutine( PlayDrawSound( ) );
+	}
+
+	private IEnumerator PlayDrawSound()
+	{
+		yield return new WaitForSeconds( drawSoundDelay );
+
+		drawSound.Play( );
+	}
+
+	private IEnumerator PlayShuffleSound( )
+	{
+		yield return new WaitForSeconds( shuffleSoundDelay );
+
+		shuffleSound.Play( );
 	}
 
 	private GameObject GetCardFromDeck( )
