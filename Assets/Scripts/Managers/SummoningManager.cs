@@ -16,6 +16,7 @@ public class SummoningManager : MonoBehaviour
 	public Targetable LastTarget { get; private set; } = null;
 	public bool CanSummon { get; set; } = true;
 
+	[SerializeField] private PlaySound manaSound = null;
 	[SerializeField] private TextMeshProUGUI manaCounter = null;
 	[SerializeField] private Image progressImage = null;
 	[SerializeField] private GameObject summoningAreaUnits = null;
@@ -43,6 +44,7 @@ public class SummoningManager : MonoBehaviour
 
 	void Start ()
 	{
+		Assert.IsNotNull( manaSound, $"Please assign <b>{nameof( manaSound )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( manaCounter, $"Please assign <b>{nameof( manaCounter )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( progressImage, $"Please assign <b>{nameof( progressImage )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( summoningAreaUnits, $"Please assign <b>{nameof( summoningAreaUnits )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
@@ -104,6 +106,7 @@ public class SummoningManager : MonoBehaviour
 
 	public void AddMana( int amount )
 	{
+		manaSound.Play( );
 		currentMana += amount;
 		manaCounter.text = currentMana.ToString( );
 		currentManaProgress = 0;
