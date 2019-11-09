@@ -4168,8 +4168,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e8e7ef14427c4868bcd1f855b4c18bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cursorTexture: {fileID: 2800000, guid: cf9f861c057b09a47ad5388ac4ae6566, type: 3}
-  hotSpot: {x: 0, y: 0}
+  onMouseOver:
+    texture: {fileID: 2800000, guid: cf9f861c057b09a47ad5388ac4ae6566, type: 3}
+    hotSpot: {x: 16, y: 0}
+  onMouseDragging:
+    texture: {fileID: 2800000, guid: 197edbb8bc4648c4da2f09fd18e37694, type: 3}
+    hotSpot: {x: 16, y: 16}
 --- !u!1 &7696609029408239655
 GameObject:
   m_ObjectHideFlags: 0
