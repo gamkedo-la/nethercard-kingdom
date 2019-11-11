@@ -12,20 +12,20 @@ using UnityEngine.UI;
 
 public class CardAudioVisuals : MonoBehaviour
 {
-	//public CardSelectionMode SelectionMode { get { return selectionMode; } set { selectionMode = value; } }
+	public CardSelectionMode SelectionMode { get; set; }
 	//public string Name { get { return displayName; } }
 	//public int Cost { get { return useCost; } }
 	//public Card LowerLevelVersion { get { return lowerLevelVersion; } }
 	//public Card HigherLevelVersion { get { return higherLevelVersion; } }
 	//public CardLevel Level { get { return level; } }
 	//public CardType CardType { get { return type; } }
-	public GameObject Prefab { get; set; }
 	//public GameObject ToSummon { get { return toSummon; } }
 	public Sprite CardFill { get { return cardImageFill.sprite; } }
 	public Sprite CardBorder { get { return cardImageBorder.sprite; } }
 	public string Ability { get { return abilityLabel.text; } }
 	public string Flavor { get { return flavorLabel.text; } }
 	public bool Revealing { get; private set; } = false;
+	public Vector2 Position { get; set; }
 
 	[Header("External Objects")]
 	[SerializeField] private PlaySound playSound = null;
@@ -51,13 +51,25 @@ public class CardAudioVisuals : MonoBehaviour
 	[SerializeField] private GameObject level2Marks = null;
 	[SerializeField] private GameObject level3Marks = null;
 
+	[Header("Parameters")]
+	[SerializeField] private Vector3 overInBuilderScale = Vector3.one * 1.07f;
+	[SerializeField] private Vector3 overInHandScale = Vector3.one * 1.07f;
+	[SerializeField] private float dragAlpha = 0.9f;
+
 	private Card hoverCard = null;
 	private Card draggedCard = null;
 
+	private bool dragging = false;
+	private bool over = false;
+	private float alpha = 1.0f;
+
 	private float lerpBackTimer = 0f;
 	private bool lerpBack = false;
+	private Vector2 mouseOffset = Vector3.one;
+	private Vector2 mousePosOld = Vector3.one;
 
 	private Vector3 scaleToLerp = Vector3.one;
+	private Vector3 overScale = Vector3.one;
 	private Vector3 defaultScale = Vector3.one;
 	private Vector3 previousPosition = Vector3.zero;
 	private bool selected = false;
@@ -86,28 +98,41 @@ public class CardAudioVisuals : MonoBehaviour
 		Assert.IsNotNull( level2Marks, $"Please assign <b>{nameof( level2Marks )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( level3Marks, $"Please assign <b>{nameof( level3Marks )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
+		overScale = overInBuilderScale; // TODO: Get info from CardNew and set the correct scale
+
 		PopulateCardInfo( );
 	}
 
 	void Update( )
 	{
-		/*if ( draggedCard == this )
+		transform.localScale = Vector3.Lerp( transform.localScale, scaleToLerp, 0.25f );
+		canvasGroup.alpha = Mathf.Lerp( canvasGroup.alpha, alpha, 0.15f );
+		//transform.position = Vector2.Lerp( transform.position, Position, 0.15f );
+
+		if ( dragging && SelectionMode == CardSelectionMode.InHand )
 		{
-			if ( selectionMode == CardSelectionMode.InHand )
-			{
-				transform.position = Vector2.Lerp( transform.position, Input.mousePosition, 0.25f );
-				canvasGroup.alpha = Mathf.Lerp( canvasGroup.alpha, 0.0f, 0.15f );
-				liveImage.alpha = Mathf.Lerp( liveImage.alpha, 0.5f, 0.15f );
-				transform.localScale = Vector3.one;
-			}
-			else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
-			{
-				/*transform.position = Vector2.Lerp( transform.position, Input.mousePosition + new Vector3(0.0f, -Screen.height/4.0f, 0.0f), 0.25f );
-				canvasGroup.alpha = Mathf.Lerp( canvasGroup.alpha, 0.4f, 0.15f );
-				if ( lerpBackTimer <= 0f || !lerpBack )
-					transform.localScale = Vector3.Lerp( transform.localScale, scaleToLerp, 0.25f );*/
-			/*}
+			/*transform.position = Vector2.Lerp( transform.position, Input.mousePosition, 0.25f );
+			canvasGroup.alpha = Mathf.Lerp( canvasGroup.alpha, 0.0f, 0.15f );
+			liveImage.alpha = Mathf.Lerp( liveImage.alpha, 0.5f, 0.15f );
+			transform.localScale = Vector3.one;*/
 		}
+		else if ( dragging && ( SelectionMode == CardSelectionMode.InCollection || SelectionMode == CardSelectionMode.InDeck ) )
+		{
+			Vector2 mouseNewPos = (Vector2)Input.mousePosition + mouseOffset;
+			//Vector2 moveOffset = mousePosOld - mouseNewPos;
+			//mousePosOld = mouseNewPos;
+
+			//Vector2 newPos = transform.position - (Vector3)moveOffset;
+			//Debug.Log( newPos );
+			mouseNewPos += new Vector2( 0.0f, -Screen.height * 0.1f );
+
+			//transform.position = Vector2.Lerp( transform.position, mouseNewPos, 0.25f );
+			//transform.position = newPos;
+			//transform.position = mouseNewPos;
+			//Position = mouseNewPos;
+		}
+
+		/*}
 		else
 		{
 			if ( selectionMode == CardSelectionMode.InHand )
@@ -125,13 +150,6 @@ public class CardAudioVisuals : MonoBehaviour
 		}*/
 
 		lerpBackTimer -= Time.deltaTime;
-
-		if ( draggedCard == this && canBeUnselected && Input.GetMouseButtonDown( 0 ) )
-		{
-			selected = false;
-			canBeUnselected = false;
-			EndDraggingInDeckBuilding( );
-		}
 	}
 
 	public void DoCardReveal( )
@@ -148,6 +166,9 @@ public class CardAudioVisuals : MonoBehaviour
 
 	public void OnOverEnter( )
 	{
+		over = true;
+		ShowBigger( );
+
 		/*if ( selectionMode == CardSelectionMode.InHand )
 		{
 			scaleToLerp = Vector3.one * 1.3f;
@@ -192,6 +213,9 @@ public class CardAudioVisuals : MonoBehaviour
 
 	public void OnOverExit( )
 	{
+		over = false;
+		ShowNormal( );
+
 		/*if ( draggedCard == this )
 			return;
 
@@ -215,18 +239,17 @@ public class CardAudioVisuals : MonoBehaviour
 		}*/
 	}
 
-	public void CardSelected( bool isSelected )
-	{
-		if ( isSelected )
-			defaultScale = Vector3.one * 1.07f;
-		else
-			defaultScale = Vector3.one;
-
-		scaleToLerp = defaultScale;
-	}
-
 	public void OnBeginDrag( )
 	{
+		dragging = true;
+		alpha = dragAlpha;
+		//canvasGroup.blocksRaycasts = false;
+
+		frontCanvas.overrideSorting = true;
+		frontCanvas.sortingOrder = 10200;
+
+		mouseOffset = transform.position - Input.mousePosition;
+		mousePosOld = Input.mousePosition;
 		/*onStartedDrag?.Invoke( );
 
 		if ( selectionMode == CardSelectionMode.InHand )
@@ -237,6 +260,12 @@ public class CardAudioVisuals : MonoBehaviour
 
 	public void OnEndDrag( )
 	{
+		dragging = false;
+		alpha = 1.0f;
+
+		ShowNormal( );
+		//canvasGroup.blocksRaycasts = true;
+
 		/*onEndedDrag?.Invoke( );
 
 		scaleToLerp = defaultScale;
@@ -329,7 +358,29 @@ public class CardAudioVisuals : MonoBehaviour
 			level3Marks.SetActive( true );*/
 	}
 
-	private void CanBeUnselected( ) => canBeUnselected = true;
+	private void ShowNormal( )
+	{
+		if ( over )
+			return;
+
+		defaultScale = Vector3.one;
+		scaleToLerp = defaultScale;
+
+		if ( !dragging )
+		{
+			frontCanvas.overrideSorting = false;
+			frontCanvas.sortingOrder = 0;
+		}
+	}
+
+	private void ShowBigger( )
+	{
+		defaultScale = overScale;
+		scaleToLerp = defaultScale;
+
+		frontCanvas.overrideSorting = true;
+		frontCanvas.sortingOrder = 10100;
+	}
 
 	private void StartSummoning( )
 	{

@@ -13,7 +13,7 @@ public class CardNew : MonoBehaviour
 	[System.Serializable]
 	public class CardEvent : UnityEvent<CardNew> { }
 
-	public CardSelectionMode SelectionMode { get { return selectionMode; } set { selectionMode = value; } }
+	public CardSelectionMode SelectionMode { get; set; }
 	public string Name { get { return displayName; } }
 	public Card LowerLevelVersion { get { return lowerLevelVersion; } }
 	public Card HigherLevelVersion { get { return higherLevelVersion; } }
@@ -26,7 +26,6 @@ public class CardNew : MonoBehaviour
 	[Header("Card Parameters")]
 	[SerializeField] private CardType type = CardType.Unit;
 	[SerializeField] private CardLevel level = CardLevel.Level1;
-	[SerializeField] private CardSelectionMode selectionMode = CardSelectionMode.InHand;
 	[SerializeField] private int useCost = 2;
 	[SerializeField] private string displayName = "Unnamed Card";
 	[SerializeField] private string abilityText = "This is just a test description...";
@@ -38,9 +37,7 @@ public class CardNew : MonoBehaviour
 	public CardEvent onOverEnter = null;
 	public CardEvent onOverExit = null;
 
-	private bool selected = false;
 	private bool dragging = false;
-	private bool canBeUnselected = false;
 
 	void Start( )
 	{
@@ -296,8 +293,6 @@ public class CardNew : MonoBehaviour
 		else if ( level == CardLevel.Level3 )
 			level3Marks.SetActive( true );*/
 	}
-
-	private void CanBeUnselected( ) => canBeUnselected = true;
 
 	private void StartSummoning( )
 	{

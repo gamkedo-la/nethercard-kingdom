@@ -4234,23 +4234,66 @@ MonoBehaviour:
   higherLevelVersion: {fileID: 0}
   type: 0
   level: 0
-  selectionMode: 0
   useCost: 2
   displayName: Unnamed Card
   abilityText: This is just a test description...
   flavorText: What a lovely card!
   onStartedDrag:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4395479231106108376}
+        m_MethodName: OnBeginDrag
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onEndedDrag:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4395479231106108376}
+        m_MethodName: OnEndDrag
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onOverEnter:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4395479231106108376}
+        m_MethodName: OnOverEnter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onOverExit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4395479231106108376}
+        m_MethodName: OnOverExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4395479231106108376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4283,6 +4326,9 @@ MonoBehaviour:
   cardImageBorder: {fileID: 7709570893905777452}
   level2Marks: {fileID: 8316853887358613013}
   level3Marks: {fileID: 6922430876743819119}
+  overInBuilderScale: {x: 1.07, y: 1.07, z: 1.07}
+  overInHandScale: {x: 1.07, y: 1.07, z: 1.07}
+  dragAlpha: 0.9
 --- !u!114 &2212851026527666623
 MonoBehaviour:
   m_ObjectHideFlags: 0

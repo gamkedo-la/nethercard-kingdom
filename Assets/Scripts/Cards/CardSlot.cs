@@ -31,7 +31,7 @@ public class CardSlot : MonoBehaviour
 	{
 		if ( isBeingDraged && cardInSlot )
 		{
-			cardInSlot.transform.position = Vector2.Lerp( cardInSlot.transform.position, Input.mousePosition + new Vector3( 0.0f, -Screen.height / 4.0f, 0.0f ), 0.25f );
+			cardInSlot.transform.position = Vector2.Lerp( cardInSlot.transform.position, Input.mousePosition + new Vector3( 0.0f, -Screen.height * 0.2f, 0.0f ), 0.25f );
 		}
 		else if ( cardInSlot )
 		{
@@ -43,8 +43,13 @@ public class CardSlot : MonoBehaviour
 	{
 		SetEmpty( );
 
-		GameObject go = Instantiate( cardObject, cardHolder );
+		GameObject go = Instantiate( cardObject, cardHolder.position, Quaternion.identity, cardHolder );
 		cardInSlot = go.GetComponent<Card>( );
+		go.GetComponent<CardNew>( ).SelectionMode = mode;
+		go.GetComponent<CardNew>( ).onStartedDrag.AddListener( card => isBeingDraged = true );
+		go.GetComponent<CardNew>( ).onEndedDrag.AddListener( card => isBeingDraged = false );
+		go.GetComponent<CardNew>( ).SelectionMode = mode;
+		go.GetComponent<CardAudioVisuals>( ).SelectionMode = mode;
 		cardInSlot.SelectionMode = mode;
 		cardInSlot.onStartedDrag.AddListener( ( ) => isBeingDraged = true );
 		cardInSlot.onEndedDrag.AddListener( ( ) => isBeingDraged = false );
@@ -68,6 +73,7 @@ public class CardSlot : MonoBehaviour
 		{
 			cardInSlot.onStartedDrag.RemoveAllListeners( );
 			cardInSlot.onEndedDrag.RemoveAllListeners( );
+
 			Destroy( cardInSlot.gameObject );
 		}
 	}
