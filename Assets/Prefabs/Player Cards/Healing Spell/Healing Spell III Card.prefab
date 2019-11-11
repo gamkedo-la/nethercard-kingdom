@@ -43,6 +43,12 @@ PrefabInstance:
       propertyPath: displayName
       value: Big Heal!
       objectReference: {fileID: 0}
+    - target: {fileID: 6970642807188303820, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
+        type: 3}
+      propertyPath: toSummon
+      value: 
+      objectReference: {fileID: 2605829621075570950, guid: 4f1427784ee38e9429b2eccdbf712700,
+        type: 3}
     - target: {fileID: 5997906471107937540, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -71,12 +77,12 @@ PrefabInstance:
     - target: {fileID: 947445153001546474, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 947445153001546474, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 947445153001546474, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
         type: 3}
@@ -96,7 +102,7 @@ PrefabInstance:
     - target: {fileID: 695170639243434587, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 30
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 695170639243434587, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
         type: 3}
@@ -237,6 +243,38 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501903596962825678, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
+        type: 3}
+      propertyPath: toSummon
+      value: 
+      objectReference: {fileID: 2605829621075570950, guid: 4f1427784ee38e9429b2eccdbf712700,
+        type: 3}
+    - target: {fileID: 8501903596962825678, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
+        type: 3}
+      propertyPath: lowerLevelVersion
+      value: 
+      objectReference: {fileID: 6970642807188303820, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
+        type: 3}
+    - target: {fileID: 8501903596962825678, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
+        type: 3}
+      propertyPath: higherLevelVersion
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501903596962825678, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
+        type: 3}
+      propertyPath: useCost
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501903596962825678, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
+        type: 3}
+      propertyPath: displayName
+      value: Big Heal!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501903596962825678, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
+        type: 3}
+      propertyPath: abilityText
+      value: Heal <b>10 HP</b> of one of your units
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f3d14ac1d4a0424da11a2f22523b78e, type: 3}

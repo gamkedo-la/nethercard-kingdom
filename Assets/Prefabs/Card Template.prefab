@@ -3505,11 +3505,33 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1447557084115629246}
+          m_MethodName: OnOverEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 1
     callback:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 96448653850123964}
+          m_MethodName: OnOverExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1447557084115629246}
           m_MethodName: OnOverExit
           m_Mode: 1
           m_Arguments:
@@ -3535,11 +3557,33 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1447557084115629246}
+          m_MethodName: OnCliked
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 3
     callback:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 96448653850123964}
+          m_MethodName: OnReleased
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1447557084115629246}
           m_MethodName: OnReleased
           m_Mode: 1
           m_Arguments:
@@ -3565,11 +3609,33 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1447557084115629246}
+          m_MethodName: OnBeginDrag
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 14
     callback:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 96448653850123964}
+          m_MethodName: OnEndDrag
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1447557084115629246}
           m_MethodName: OnEndDrag
           m_Mode: 1
           m_Arguments:
@@ -4054,6 +4120,8 @@ GameObject:
   - component: {fileID: 599770410723825185}
   - component: {fileID: 8901727659587730298}
   - component: {fileID: 96448653850123964}
+  - component: {fileID: 1447557084115629246}
+  - component: {fileID: 4395479231106108376}
   - component: {fileID: 2212851026527666623}
   m_Layer: 5
   m_Name: Card Template
@@ -4156,6 +4224,66 @@ MonoBehaviour:
       m_Calls: []
   lerpBackTimer: 0
   lerpBack: 0
+--- !u!114 &1447557084115629246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7540921270970863072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9be4f77d07755d14497f87197e44566f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toSummon: {fileID: 0}
+  lowerLevelVersion: {fileID: 0}
+  higherLevelVersion: {fileID: 0}
+  type: 0
+  level: 0
+  selectionMode: 0
+  useCost: 2
+  displayName: Unnamed Card
+  abilityText: This is just a test description...
+  flavorText: What a lovely card!
+  onStartedDrag:
+    m_PersistentCalls:
+      m_Calls: []
+  onEndedDrag:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &4395479231106108376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7540921270970863072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faba6afcebcb47c439fecf9b4291423e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playSound: {fileID: 5193147127782270129}
+  backSound: {fileID: 5970511334334010940}
+  overSound: {fileID: 6375235643774120619}
+  animator: {fileID: 8901727659587730298}
+  frontCanvas: {fileID: 6653159148184624949}
+  backCanvas: {fileID: 6920798455085627038}
+  canvasGroup: {fileID: 1461653268089710984}
+  liveImage: {fileID: 2209099149488022857}
+  statisticsPanel: {fileID: 2532555429442962509}
+  manaCostLabel: {fileID: 3663340821475619956}
+  nameLabel: {fileID: 7839664560142848922}
+  attackLabel: {fileID: 1681871985583500325}
+  hpLabel: {fileID: 6924299368319605650}
+  speedLabel: {fileID: 4306323210595224590}
+  abilityLabel: {fileID: 7516414569761794859}
+  flavorLabel: {fileID: 7516414569761794859}
+  cardImageFill: {fileID: 4082654261549637672}
+  cardImageBorder: {fileID: 7709570893905777452}
+  level2Marks: {fileID: 8316853887358613013}
+  level3Marks: {fileID: 6922430876743819119}
 --- !u!114 &2212851026527666623
 MonoBehaviour:
   m_ObjectHideFlags: 0

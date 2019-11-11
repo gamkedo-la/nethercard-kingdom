@@ -63,12 +63,12 @@ PrefabInstance:
     - target: {fileID: 6968408178156668686, guid: 35c73b0121dc76649931f579533a5375,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 8
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6968408178156668686, guid: 35c73b0121dc76649931f579533a5375,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6968408178156668686, guid: 35c73b0121dc76649931f579533a5375,
         type: 3}
@@ -84,6 +84,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: Fireball II
+      objectReference: {fileID: 0}
+    - target: {fileID: 6968408178156668686, guid: 35c73b0121dc76649931f579533a5375,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7221376913968005055, guid: 35c73b0121dc76649931f579533a5375,
         type: 3}
@@ -220,5 +225,28 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1760369034310967338, guid: 35c73b0121dc76649931f579533a5375,
+        type: 3}
+      propertyPath: displayName
+      value: Fireball II
+      objectReference: {fileID: 0}
+    - target: {fileID: 1760369034310967338, guid: 35c73b0121dc76649931f579533a5375,
+        type: 3}
+      propertyPath: toSummon
+      value: 
+      objectReference: {fileID: 3636380218574456984, guid: 3732c59ee00412a448a1d610cfed3cda,
+        type: 3}
+    - target: {fileID: 1760369034310967338, guid: 35c73b0121dc76649931f579533a5375,
+        type: 3}
+      propertyPath: lowerLevelVersion
+      value: 
+      objectReference: {fileID: 949820519525452328, guid: 35c73b0121dc76649931f579533a5375,
+        type: 3}
+    - target: {fileID: 1760369034310967338, guid: 35c73b0121dc76649931f579533a5375,
+        type: 3}
+      propertyPath: higherLevelVersion
+      value: 
+      objectReference: {fileID: 6686057510297697668, guid: 2be68685b40b396409558bf0d09a8918,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35c73b0121dc76649931f579533a5375, type: 3}

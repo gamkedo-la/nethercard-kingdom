@@ -34,6 +34,12 @@ PrefabInstance:
       propertyPath: displayName
       value: Experienced Warrior
       objectReference: {fileID: 0}
+    - target: {fileID: 8013548960502163808, guid: 39305d494c8b56a44b497d389241a5fd,
+        type: 3}
+      propertyPath: toSummon
+      value: 
+      objectReference: {fileID: 5600428393731920040, guid: f68a5cb553071cc4abc6e10195d38b54,
+        type: 3}
     - target: {fileID: 6680442199305241512, guid: 39305d494c8b56a44b497d389241a5fd,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -57,7 +63,7 @@ PrefabInstance:
     - target: {fileID: 193490655470363718, guid: 39305d494c8b56a44b497d389241a5fd,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 14
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 193490655470363718, guid: 39305d494c8b56a44b497d389241a5fd,
         type: 3}
@@ -278,6 +284,34 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8824168672960201570, guid: 39305d494c8b56a44b497d389241a5fd,
+        type: 3}
+      propertyPath: lowerLevelVersion
+      value: 
+      objectReference: {fileID: 8013548960502163808, guid: 39305d494c8b56a44b497d389241a5fd,
+        type: 3}
+    - target: {fileID: 8824168672960201570, guid: 39305d494c8b56a44b497d389241a5fd,
+        type: 3}
+      propertyPath: higherLevelVersion
+      value: 
+      objectReference: {fileID: 8872424807804934014, guid: 76076803edf9a2444907fada0113ed95,
+        type: 3}
+    - target: {fileID: 8824168672960201570, guid: 39305d494c8b56a44b497d389241a5fd,
+        type: 3}
+      propertyPath: toSummon
+      value: 
+      objectReference: {fileID: 5600428393731920040, guid: f68a5cb553071cc4abc6e10195d38b54,
+        type: 3}
+    - target: {fileID: 8824168672960201570, guid: 39305d494c8b56a44b497d389241a5fd,
+        type: 3}
+      propertyPath: level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8824168672960201570, guid: 39305d494c8b56a44b497d389241a5fd,
+        type: 3}
+      propertyPath: displayName
+      value: Experienced Warrior
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39305d494c8b56a44b497d389241a5fd, type: 3}
