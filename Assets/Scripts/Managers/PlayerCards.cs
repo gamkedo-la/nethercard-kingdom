@@ -22,7 +22,7 @@ public class PlayerCards : MonoBehaviour
 	}
 
 	public List<PlayerCard> GetCollection { get { return new List<PlayerCard>( collection ); } }
-	public List<PlayerCard> Deck { get; set; } = new List<PlayerCard>( );
+	public List<PlayerCard> GetDeck { get { return new List<PlayerCard>( deck ); } }
 
 	public const int MaxCardsInDeck = 10;
 	public const int MaxIdenticalCardsInDeck = 3;
@@ -31,6 +31,7 @@ public class PlayerCards : MonoBehaviour
 	private const string PlayerDeck = "Player Deck";
 
 	private List<PlayerCard> collection = new List<PlayerCard>( );
+	private List<PlayerCard> deck = new List<PlayerCard>( );
 
 	private AllGameCards gameCards;
 
@@ -60,8 +61,8 @@ public class PlayerCards : MonoBehaviour
 		// Deck
 		CardsSaveData deckData = new CardsSaveData( )
 		{
-			Name = Deck.Select( card => card.Card.Name ).ToArray( ),
-			Amount = Deck.Select( card => card.Amount ).ToArray( )
+			Name = deck.Select( card => card.Card.Name ).ToArray( ),
+			Amount = deck.Select( card => card.Amount ).ToArray( )
 		};
 
 		using ( StringWriter writer = new StringWriter( ) )
@@ -88,7 +89,7 @@ public class PlayerCards : MonoBehaviour
 		// Data found
 
 		collection.Clear( );
-		Deck.Clear( );
+		deck.Clear( );
 
 		using ( StringReader reader = new StringReader( loadedPlayerCollection ) ) // Collection
 		{
@@ -124,7 +125,7 @@ public class PlayerCards : MonoBehaviour
 					return;
 				}
 
-				Deck.Add( new PlayerCard( ) { Card = loadedCard, Amount = cardsData.Amount[i] } );
+				deck.Add( new PlayerCard( ) { Card = loadedCard, Amount = cardsData.Amount[i] } );
 			}
 		}
 	}
@@ -132,7 +133,7 @@ public class PlayerCards : MonoBehaviour
 	private void LoadDefaultPlayerCards( )
 	{
 		collection.Clear( );
-		Deck.Clear( );
+		deck.Clear( );
 
 		foreach ( var card in gameCards.GamesPlayerCards )
 		{
@@ -142,7 +143,7 @@ public class PlayerCards : MonoBehaviour
 
 			// Deck
 			if ( card.DefaultInDeck > 0 )
-				Deck.Add( new PlayerCard( ) { Card = card.Card, Amount = card.DefaultInDeck } );
+				deck.Add( new PlayerCard( ) { Card = card.Card, Amount = card.DefaultInDeck } );
 		}
 	}
 

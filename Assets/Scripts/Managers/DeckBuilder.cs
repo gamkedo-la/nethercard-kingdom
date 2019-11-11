@@ -156,7 +156,7 @@ public class DeckBuilder : MonoBehaviour
 		UpdateCollection( );
 	}
 
-	public Card[] GetPlayerDeck( ) => playerCards.Deck.Select( card => card.Card ).ToArray( );
+	public Card[] GetPlayerDeck( ) => playerCards.GetDeck.Select( card => card.Card ).ToArray( );
 
 	public void CheckCollectionCardSelection( Card card )
 	{
@@ -301,7 +301,7 @@ public class DeckBuilder : MonoBehaviour
 		{
 			// Count the number of the same cards (even if they are of different levels)
 			int sameCardsInDeck = 0;
-			foreach ( var card in playerCards.Deck )
+			foreach ( var card in playerCards.GetDeck )
 			{
 				// Same level cards
 				if ( card.Card.Name == selectedCollectionCard.Name )
@@ -343,7 +343,7 @@ public class DeckBuilder : MonoBehaviour
 			cardInCollectionToSwap.Amount--;
 
 			// Remove card selected in the deck from the master deck
-			PlayerCard cardInDeckToSwap = playerCards.Deck.First( card => card.Card.Name == selectedDeckCard.Name );
+			PlayerCard cardInDeckToSwap = playerCards.GetDeck.First( card => card.Card.Name == selectedDeckCard.Name );
 			cardInDeckToSwap.Amount--;
 
 			// Add card selected from the collection to master deck
@@ -362,7 +362,7 @@ public class DeckBuilder : MonoBehaviour
 		else if ( selectedCollectionCard != null && selectedUpgradeCard != null )
 		{
 			// Tried to add more then max identical Cards to the Deck
-			int sameCardsInDeck = playerCards.Deck.Count( card => card.Card.Name == selectedCollectionCard.Name );
+			int sameCardsInDeck = playerCards.GetDeck.Count( card => card.Card.Name == selectedCollectionCard.Name );
 			if ( sameCardsInDeck >= maxIdenticalDeckCards && selectedCollectionCard.Name != selectedUpgradeCard.Name )
 			{
 				tooltip.text = "Can't have more then 3 identical cards in Deck";
@@ -512,10 +512,10 @@ public class DeckBuilder : MonoBehaviour
 		}
 
 		///playerCards.Collection = cards;
-		playerCards.Deck = playerCards.Deck.OrderBy( card => card.Card.Name ).ToList( );
+		///playerCards.Deck = playerCards.GetDeck.OrderBy( card => card.Card.Name ).ToList( );
 
-		for ( int i = 0; i < playerCards.Deck.Count; i++ )
-			deckSlots[i].Set( playerCards.Deck[i].Card.gameObject, 1 );
+		for ( int i = 0; i < playerCards.GetDeck.Count; i++ )
+			deckSlots[i].Set( playerCards.GetDeck[i].Card.gameObject, 1 );
 	}
 
 	private void LoadCollectionAndDeck( ) => playerCards.LoadPlayerCardsData( );
