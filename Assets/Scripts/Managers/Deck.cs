@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Deck : MonoBehaviour
 {
+	[Header("External")]
+	[SerializeField] private PlayerCards playerCards = null;
+
 	[Header("Sounds")]
 	[SerializeField] private PlaySound shuffleSound = null;
 	[SerializeField] private PlaySound drawSound = null;
@@ -130,7 +133,9 @@ public class Deck : MonoBehaviour
 
 	private Queue<Card> NewRandomizedDrawQueue( )
 	{
-		Card[] cards = DeckBuilder.Instance.GetPlayerDeck( );
-		return new Queue<Card>( cards.OrderBy( x => Random.Range( 0, 10000000 ) ).ToArray( ) );
+		IEnumerable<Card> cards = playerCards.GetDeck.Select( card => card.Card );
+		cards = cards.OrderBy( x => Random.Range( 0, 10000000 ) );
+
+		return new Queue<Card>( cards );
 	}
 }
