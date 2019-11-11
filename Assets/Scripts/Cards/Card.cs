@@ -113,6 +113,9 @@ public class Card : MonoBehaviour
 
 	void Update( )
 	{
+		if ( CheatAndDebug.Instance.UseAlternateImplementations )
+			return;
+
 		if ( draggedCard == this )
 		{
 			if ( selectionMode == CardSelectionMode.InHand )
@@ -158,18 +161,27 @@ public class Card : MonoBehaviour
 
 	public void DoCardReveal( )
 	{
+		if ( CheatAndDebug.Instance.UseAlternateImplementations )
+			return;
+
 		Revealing = true;
 		animator.enabled = true;
 	}
 
 	public void CardRevealDone( )
 	{
+		if ( CheatAndDebug.Instance.UseAlternateImplementations )
+			return;
+
 		Revealing = false;
 		animator.enabled = false;
 	}
 
 	public void OnOverEnter( )
 	{
+		if ( CheatAndDebug.Instance.UseAlternateImplementations )
+			return;
+
 		if ( selectionMode == CardSelectionMode.InHand )
 		{
 			scaleToLerp = Vector3.one * 1.3f;
@@ -214,6 +226,9 @@ public class Card : MonoBehaviour
 
 	public void OnOverExit( )
 	{
+		if ( CheatAndDebug.Instance.UseAlternateImplementations )
+			return;
+
 		if ( draggedCard == this )
 			return;
 
@@ -239,6 +254,9 @@ public class Card : MonoBehaviour
 
 	public void CardSelected( bool isSelected )
 	{
+		if ( CheatAndDebug.Instance.UseAlternateImplementations )
+			return;
+
 		if ( isSelected )
 			defaultScale = Vector3.one * 1.07f;
 		else
@@ -249,6 +267,9 @@ public class Card : MonoBehaviour
 
 	public void OnBeginDrag( )
 	{
+		if ( CheatAndDebug.Instance.UseAlternateImplementations )
+			return;
+
 		onStartedDrag?.Invoke( );
 
 		if ( selectionMode == CardSelectionMode.InHand )
@@ -259,6 +280,9 @@ public class Card : MonoBehaviour
 
 	public void OnEndDrag( )
 	{
+		if ( CheatAndDebug.Instance.UseAlternateImplementations )
+			return;
+
 		onEndedDrag?.Invoke( );
 
 		scaleToLerp = defaultScale;
@@ -272,6 +296,9 @@ public class Card : MonoBehaviour
 
 	public void OnCliked( )
 	{
+		if ( CheatAndDebug.Instance.UseAlternateImplementations )
+			return;
+
 		if ( selectionMode == CardSelectionMode.InHand )
 		{
 			if ( selected )
@@ -298,6 +325,9 @@ public class Card : MonoBehaviour
 
 	public void OnReleased( )
 	{
+		if ( CheatAndDebug.Instance.UseAlternateImplementations )
+			return;
+
 		if ( selectionMode == CardSelectionMode.InHand )
 		{ }
 		else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
@@ -307,6 +337,9 @@ public class Card : MonoBehaviour
 	public void UpdateCardStatsFromEditor(CardType cardType, CardLevel cardLevel, string name, int cost,
         string ability, string flavor, Sprite borderSprite, Sprite fillSprite, GameObject instanceToSummon )
 	{
+		if ( CheatAndDebug.Instance.UseAlternateImplementations )
+			return;
+
 		type = cardType;
 		level = cardLevel;
 		displayName = name;
@@ -321,6 +354,9 @@ public class Card : MonoBehaviour
 	[ContextMenu( "Update Card Info" )]
 	public void PopulateCardInfo( )
 	{
+		if ( CheatAndDebug.Instance.UseAlternateImplementations )
+			return;
+
 		var specificCulture = System.Globalization.CultureInfo.GetCultureInfo( "en-US" );
 
 		if ( type == CardType.Unit )
@@ -355,6 +391,9 @@ public class Card : MonoBehaviour
 
 	private void StartSummoning( )
 	{
+		if ( CheatAndDebug.Instance.UseAlternateImplementations )
+			return;
+
 		if ( !SummoningManager.Instance.EnoughMana( useCost ) )
 			return;
 
@@ -367,6 +406,9 @@ public class Card : MonoBehaviour
 
 	private void EndSummoning( )
 	{
+		if ( CheatAndDebug.Instance.UseAlternateImplementations )
+			return;
+
 		if ( draggedCard != this )
 			return;
 
@@ -391,6 +433,9 @@ public class Card : MonoBehaviour
 
 	private void StartDraggingInDeckBuilding( )
 	{
+		if ( CheatAndDebug.Instance.UseAlternateImplementations )
+			return;
+
 		draggedCard = this;
 
 		DeckBuilder.Instance.CheckCollectionCardSelection( this );
@@ -406,6 +451,9 @@ public class Card : MonoBehaviour
 
 	private void EndDraggingInDeckBuilding( )
 	{
+		if ( CheatAndDebug.Instance.UseAlternateImplementations )
+			return;
+
 		transform.position = previousPosition;
 		canvasGroup.alpha = 1.0f;
 

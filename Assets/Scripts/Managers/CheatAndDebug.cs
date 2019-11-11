@@ -12,7 +12,7 @@ public class CheatAndDebug : MonoBehaviour
 	public static CheatAndDebug Instance { get; private set; }
 	public bool ShowDebugInfo { get { return showDebugInfo; } }
 	public bool AllowCheats { get { return allowCheats; } }
-	public bool UseAlternate { get { return useAlternate; } }
+	public bool UseAlternateImplementations { get { return useAlternate; } }
 
 	[Header("Debug Flags")]
 	[Tooltip("Show debug informations")]
