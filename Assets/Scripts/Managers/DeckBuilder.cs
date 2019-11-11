@@ -466,7 +466,6 @@ public class DeckBuilder : MonoBehaviour
 		selectedSlot = null;
 		otherSlot = null;
 
-
 		// Update changes
 		UpdateCollection( );
 		UpdateDeck( );
@@ -474,7 +473,7 @@ public class DeckBuilder : MonoBehaviour
 
 	private void UpdateCollection( )
 	{
-		int minAmount = upgrading ? 1 : 0; // We need more then 1 cards for upgrading and more then 0 for deck building
+		/*int minAmount = upgrading ? 1 : 0; // We need more then 1 cards for upgrading and more then 0 for deck building
 
 		// Find all the cards we have or, if we are upgrading, all the cards we can combine
 		Card[] cards = playerCards.GetCollection.Where( card => card.Amount > minAmount && !( upgrading && card.Card.Level == CardLevel.Level3 ) ).Select( card => card.Card ).ToArray( );
@@ -488,7 +487,7 @@ public class DeckBuilder : MonoBehaviour
 				Card = cards[i],
 				Amount = amounts[i]
 			} );
-		}
+		}*/
 
 		///playerCards.Collection = playerCards.Collection.OrderBy( card => card.Card.name ).ToList( );
 
@@ -502,7 +501,7 @@ public class DeckBuilder : MonoBehaviour
 	private void UpdateDeck( )
 	{
 		// Find all the cards in master collection that we have in deck
-		List<PlayerCard> cards = new List<PlayerCard>( );
+		/*List<PlayerCard> cards = new List<PlayerCard>( );
 		foreach ( var card in playerCards.GetCollection )
 		{
 			for ( int i = 0; i < card.Amount; i++ )
@@ -515,7 +514,7 @@ public class DeckBuilder : MonoBehaviour
 		///playerCards.Deck = playerCards.GetDeck.OrderBy( card => card.Card.Name ).ToList( );
 
 		for ( int i = 0; i < playerCards.GetDeck.Count; i++ )
-			deckSlots[i].Set( playerCards.GetDeck[i].Card.gameObject, 1 );
+			deckSlots[i].Set( playerCards.GetDeck[i].Card.gameObject, 1 );*/
 	}
 
 	private void LoadCollectionAndDeck( ) => playerCards.LoadPlayerCardsData( );
