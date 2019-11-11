@@ -143,7 +143,8 @@ public class PlayerCards : MonoBehaviour
 
 			// Deck
 			if ( card.DefaultInDeck > 0 )
-				deck.Add( new PlayerCard( ) { Card = card.Card, Amount = card.DefaultInDeck } );
+				for ( int i = 0; i < card.DefaultInDeck; i++ ) // Add as many cards of this type as we have
+					deck.Add( new PlayerCard( ) { Card = card.Card, Amount = 1 } );
 		}
 	}
 
