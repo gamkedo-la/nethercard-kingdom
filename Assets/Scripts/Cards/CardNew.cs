@@ -10,6 +10,9 @@ using UnityEngine.Events;
 
 public class CardNew : MonoBehaviour
 {
+	[System.Serializable]
+	public class CardEvent : UnityEvent<CardNew> { }
+
 	public CardSelectionMode SelectionMode { get { return selectionMode; } set { selectionMode = value; } }
 	public string Name { get { return displayName; } }
 	public Card LowerLevelVersion { get { return lowerLevelVersion; } }
@@ -30,10 +33,13 @@ public class CardNew : MonoBehaviour
 	[SerializeField] private string flavorText = "What a lovely card!";
 
 	[Header("Events")]
-	public UnityEvent onStartedDrag = null;
-	public UnityEvent onEndedDrag = null;
+	public CardEvent onStartedDrag = null;
+	public CardEvent onEndedDrag = null;
+	public CardEvent onOverEnter = null;
+	public CardEvent onOverExit = null;
 
 	private bool selected = false;
+	private bool dragging = false;
 	private bool canBeUnselected = false;
 
 	void Start( )
@@ -50,16 +56,22 @@ public class CardNew : MonoBehaviour
 
 	void Update( )
 	{
-		/*if ( draggedCard == this && canBeUnselected && Input.GetMouseButtonDown( 0 ) )
-		{
-			selected = false;
-			canBeUnselected = false;
-			EndDraggingInDeckBuilding( );
-		}*/
+		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
+			return;
+
+		// We were 'click dragging' and pressed our mouse button
+		if ( dragging && Input.GetMouseButtonDown( 0 ) )
+			OnEndDrag( );
 	}
 
 	public void OnOverEnter( )
 	{
+		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
+			return;
+
+		//Debug.Log( $"On Enter: {name}" );
+		onOverEnter?.Invoke( this );
+
 		/*if ( selectionMode == CardSelectionMode.InHand )
 		{
 			scaleToLerp = Vector3.one * 1.3f;
@@ -104,6 +116,12 @@ public class CardNew : MonoBehaviour
 
 	public void OnOverExit( )
 	{
+		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
+			return;
+
+		//Debug.Log( $"On Exit: {name}" );
+		onOverExit?.Invoke( this );
+
 		/*if ( draggedCard == this )
 			return;
 
@@ -127,39 +145,27 @@ public class CardNew : MonoBehaviour
 		}*/
 	}
 
-	public void CardSelected( bool isSelected )
-	{
-		/*if ( isSelected )
-			defaultScale = Vector3.one * 1.07f;
-		else
-			defaultScale = Vector3.one;
-
-		scaleToLerp = defaultScale;*/
-	}
-
-	public void OnBeginDrag( )
-	{
-		onStartedDrag?.Invoke( );
-
-		if ( selectionMode == CardSelectionMode.InHand )
-			StartSummoning( );
-		else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
-			StartDraggingInDeckBuilding( );
-	}
-
-	public void OnEndDrag( )
-	{
-		onEndedDrag?.Invoke( );
-
-		if ( selectionMode == CardSelectionMode.InHand )
-			EndSummoning( );
-		else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
-			EndDraggingInDeckBuilding( );
-	}
-
 	public void OnCliked( )
 	{
-		if ( selectionMode == CardSelectionMode.InHand )
+		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
+			return;
+
+		Debug.Log( $"On Clicked: {name}" );
+
+		OnBeginDrag( );
+
+		/*if ( selected )
+		{
+			selected = false;
+			OnEndDrag( );
+		}
+		else
+		{
+			selected = true;
+			OnBeginDrag( );
+		}*/
+
+		/*if ( selectionMode == CardSelectionMode.InHand )
 		{
 			if ( selected )
 			{
@@ -174,27 +180,77 @@ public class CardNew : MonoBehaviour
 		}
 		else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
 		{
-			if ( !selected /*&& !draggedCard*/ )
+			if ( !selected /*&& !draggedCard*//* )
 			{
 				selected = true;
 				Invoke( nameof( CanBeUnselected ), 0.01f );
 				StartDraggingInDeckBuilding( );
 			}
-		}
+		}*/
 	}
 
-	public void OnReleased( )
+	public void OnBeginDrag( )
 	{
-		if ( selectionMode == CardSelectionMode.InHand )
-		{ }
+		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
+			return;
+
+		// Only execute if the card is NOT being dragged
+		if ( dragging )
+			return;
+		else
+			dragging = true;
+
+		Debug.Log( $"On Begin Drag: {name}" );
+		onStartedDrag?.Invoke( this );
+
+		/*if ( selectionMode == CardSelectionMode.InHand )
+			StartSummoning( );
 		else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
-		{ }
+			StartDraggingInDeckBuilding( );*/
+	}
+
+	public void OnEndDrag( )
+	{
+		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
+			return;
+
+		// Only execute if the card was being dragged
+		if ( !dragging )
+			return;
+		else
+			dragging = false;
+
+		Debug.Log( $"On End Drag: {name}" );
+		onEndedDrag?.Invoke( this );
+
+		/*if ( selectionMode == CardSelectionMode.InHand )
+			EndSummoning( );
+		else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
+			EndDraggingInDeckBuilding( );*/
+	}
+
+	public void CardSelected( bool isSelected )
+	{
+		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
+			return;
+
+		Debug.Log( $"On Selected: {name}" );
+
+		/*if ( isSelected )
+			defaultScale = Vector3.one * 1.07f;
+		else
+			defaultScale = Vector3.one;
+
+		scaleToLerp = defaultScale;*/
 	}
 
 	public void UpdateCardStatsFromEditor( CardType cardType, CardLevel cardLevel, string name, int cost,
 		string ability, string flavor, Sprite borderSprite, Sprite fillSprite, GameObject instanceToSummon )
 	{
-		type = cardType;
+		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
+			return;
+
+		/*type = cardType;
 		level = cardLevel;
 		displayName = name;
 		useCost = cost;
@@ -202,12 +258,15 @@ public class CardNew : MonoBehaviour
 		flavorText = flavor;
 		//cardImageBorder.sprite = borderSprite;
 		//cardImageFill.sprite = fillSprite;
-		toSummon = instanceToSummon;
+		toSummon = instanceToSummon;*/
 	}
 
 	[ContextMenu( "Update Card Info" )]
 	public void PopulateCardInfo( )
 	{
+		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
+			return;
+
 		/*var specificCulture = System.Globalization.CultureInfo.GetCultureInfo( "en-US" );
 
 		if ( type == CardType.Unit )
@@ -242,22 +301,32 @@ public class CardNew : MonoBehaviour
 
 	private void StartSummoning( )
 	{
-		if ( !SummoningManager.Instance.EnoughMana( useCost ) )
+		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
+			return;
+
+		Debug.Log( $"On Start Summoning: {name}" );
+
+		/*if ( !SummoningManager.Instance.EnoughMana( useCost ) )
 			return;
 
 		//draggedCard = this;
 		OnOverEnter( );
 
 		SummoningManager.Instance.Summoning( Camera.main.ScreenToWorldPoint( Input.mousePosition ), type, true );
-		//playSound.Play( );
+		//playSound.Play( );*/
 	}
 
 	private void EndSummoning( )
 	{
+		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
+			return;
+
+		Debug.Log( $"On End Summoning: {name}" );
+
 		/*if ( draggedCard != this )
 			return;*/
 
-		OnOverExit( );
+		/*OnOverExit( );
 
 		bool canSummon = SummoningManager.Instance.Summoning( Vector2.zero, type, false );
 
@@ -269,13 +338,18 @@ public class CardNew : MonoBehaviour
 
 			SummoningManager.Instance.RemoveMana( useCost );
 			Destroy( gameObject );
-		}
+		}*/
 		//else
-			//backSound.Play( );
+		//backSound.Play( );
 	}
 
 	private void StartDraggingInDeckBuilding( )
 	{
+		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
+			return;
+
+		Debug.Log( $"On Start Summoning: {name}" );
+
 		/*draggedCard = this;
 
 		DeckBuilder.Instance.CheckCollectionCardSelection( this );
@@ -291,6 +365,9 @@ public class CardNew : MonoBehaviour
 
 	private void EndDraggingInDeckBuilding( )
 	{
+		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
+			return;
+
 		/*transform.position = previousPosition;
 		canvasGroup.alpha = 1.0f;
 

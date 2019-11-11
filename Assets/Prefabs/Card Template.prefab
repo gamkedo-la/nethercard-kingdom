@@ -3557,33 +3557,11 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 1447557084115629246}
-          m_MethodName: OnCliked
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
   - eventID: 3
     callback:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 96448653850123964}
-          m_MethodName: OnReleased
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1447557084115629246}
           m_MethodName: OnReleased
           m_Mode: 1
           m_Arguments:
@@ -3637,6 +3615,21 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 1447557084115629246}
           m_MethodName: OnEndDrag
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1447557084115629246}
+          m_MethodName: OnCliked
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -4250,6 +4243,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onEndedDrag:
+    m_PersistentCalls:
+      m_Calls: []
+  onOverEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onOverExit:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &4395479231106108376
