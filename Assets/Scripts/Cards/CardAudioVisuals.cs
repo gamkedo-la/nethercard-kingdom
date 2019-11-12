@@ -229,7 +229,7 @@ public class CardAudioVisuals : MonoBehaviour
 		frontCanvas.sortingOrder = 0;
 	}
 
-	public void Dragging( )
+	public void DraggedCard( )
 	{
 		frontCanvas.overrideSorting = true;
 		frontCanvas.sortingOrder = 10200;

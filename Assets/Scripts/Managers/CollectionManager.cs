@@ -12,6 +12,7 @@ public class CollectionManager : MonoBehaviour
 {
 	[Header("External Objects")]
 	[SerializeField] private PlayerCards playerCards = null;
+	[SerializeField] private DeckManager deckManager = null;
 
 	[Header("Objects")]
 	[SerializeField] private GameObject collectionSlot = null;
@@ -22,17 +23,30 @@ public class CollectionManager : MonoBehaviour
 
 	private List<CardSlot> slots = new List<CardSlot>();
 	private List<PlayerCard> collection = new List<PlayerCard>();
-	private int draggedIndex = int.MinValue;
+	private int draggedSlotIndex = int.MinValue;
+	private PlayerCard cardDragged;
+	private PlayerCard cardDraggedFromDeck;
 
 	void Start ()
 	{
 		Assert.IsNotNull( playerCards, $"Please assign <b>{nameof( playerCards )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( deckManager, $"Please assign <b>{nameof( deckManager )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( collectionSlot, $"Please assign <b>{nameof( collectionSlot )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( slotsParent, $"Please assign <b>{nameof( slotsParent )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
 		GetCollectionCards( );
 		CreateLayout( );
 		DisplayCollection( );
+	}
+
+	public void SetDraggedCard( PlayerCard card )
+	{
+		cardDraggedFromDeck = card;
+	}
+
+	public PlayerCard GetDraggedCard( )
+	{
+		return cardDragged;
 	}
 
 	private void GetCollectionCards( )
@@ -62,24 +76,67 @@ public class CollectionManager : MonoBehaviour
 
 	private void DisplayCollection( )
 	{
-		for ( int i = 0; i < collection.Count; i++ ) // Add cards
-		{
-			if ( collection[i] != null ) // Non-empty slot
-				slots[i].Set( collection[i].Card.gameObject, collection[i].Amount, i, CardDragedEvent, CardDroppedEvent );
-			else // Empty slot
-				slots[i].Set( null, 0, i, CardDragedEvent, CardDroppedEvent );
-		}
+		for ( int i = 0; i < collection.Count; i++ )
+			slots[i].Set( collection[i], i, CardDragedEvent, DroppedOnSlotEvent );
 	}
 
-	private void CardDroppedEvent( int index )
+	private void DroppedOnSlotEvent( int dropSlotIndex )
 	{
-		Debug.Log( $"Collection dropped: {index}" );
+		//Debug.Log( $"Collection dropped: {dropSlotIndex}" );
+		PlayerCard cardInDestinationSlot = slots[dropSlotIndex].Card;
+
+		// Dragging within Collection
+		if ( cardDragged != null )
+		{
+			// Same card
+			if ( cardDragged == cardInDestinationSlot )
+				return;
+
+			// Combine piles cards (card of the same name dropped on one another)
+
+			// Swap cards
+			collection[dropSlotIndex] = cardDragged;
+			collection[draggedSlotIndex] = cardInDestinationSlot;
+			DisplayCollection( );
+
+			slots[draggedSlotIndex].DoMove( slots[dropSlotIndex].CardPosition );
+
+			return;
+		}
+
+		// Dragging from Deck
+		if ( cardDraggedFromDeck != null )
+		{
+			Debug.Log( "Received drag from Deck." );
+			// To same type of cards
+			if ( collection[dropSlotIndex].Card.Name == deckManager.GetDraggedCard( ).Card.Name )
+			{
+				Debug.Log( "Same cards. Skipping." );
+				return;
+			}
+
+			// To empty slot
+
+			// To different type of cards
+		}
 	}
 
 	private void CardDragedEvent( int index, bool endOfDrag )
 	{
+		if ( endOfDrag )
+		{
+			//Debug.Log( $"End of drag: {index}" );
+			cardDragged = null;
+			deckManager.SetDraggedCard( cardDragged );
+		}
+		else
+		{
+			cardDragged = slots[index].Card;
+			deckManager.SetDraggedCard( cardDragged );
+		}
+
 		//string s = endOfDrag ? "stop" : "start";
 		//Debug.Log( $"Collection dragged: {s} {index}" );
-		draggedIndex = endOfDrag ? int.MinValue : index; // Index od the dragged card or "null"
+		draggedSlotIndex = endOfDrag ? int.MinValue : index; // Index od the dragged card or "null"
 	}
 }

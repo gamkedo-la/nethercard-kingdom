@@ -11,6 +11,9 @@ using UnityEngine.Assertions;
 
 public class CardSlot : MonoBehaviour
 {
+	public PlayerCard Card { get; private set; }
+	public Vector2 CardPosition { get { return cardHolder.position; } }
+
 	[SerializeField] private GameObject amount = null;
 	[SerializeField] private Transform cardHolder = null;
 	[SerializeField] private GameObject selection = null;
@@ -50,20 +53,20 @@ public class CardSlot : MonoBehaviour
 		}
 	}
 
-	public void Set( GameObject cardObject, float amount, int index, System.Action<int,bool> onDrag, System.Action<int> onDrop )
+	public void Set( PlayerCard playerCard, int index, System.Action<int,bool> onDrag, System.Action<int> onDrop )
 	{
+		Clear( );
+
+		Card = playerCard;
 		this.index = index;
 		this.onDrag = onDrag;
 		this.onDrop = onDrop;
 
-		// Clean up previous card
-		Clear( );
-
 		// Empty slot
-		if ( !cardObject )
+		if ( playerCard == null )
 			return;
 
-		GameObject go = Instantiate( cardObject, cardHolder.position, Quaternion.identity, cardHolder );
+		GameObject go = Instantiate( playerCard.Card.gameObject, cardHolder.position, Quaternion.identity, cardHolder );
 		cardInSlot = go.GetComponent<Card>( );
 		go.GetComponent<CardNew>( ).SelectionMode = mode;
 		go.GetComponent<CardNew>( ).onStartedDrag.AddListener( card => OnCardStartDragging( ) );
@@ -78,10 +81,10 @@ public class CardSlot : MonoBehaviour
 		cardInSlot.onStartedDrag.AddListener( ( ) => cardIsDraged = true );
 		cardInSlot.onEndedDrag.AddListener( ( ) => cardIsDraged = false );
 
-		amountLabel.text = amount.ToString( );
+		amountLabel.text = playerCard.Amount.ToString( );
 
 		if ( mode == CardSelectionMode.InCollection )
-			this.amount.SetActive( true );
+			amount.SetActive( true );
 	}
 
 	public bool IsEmpty( )
@@ -89,9 +92,18 @@ public class CardSlot : MonoBehaviour
 		return !cardInSlot;
 	}
 
+	public void DoMove( Vector2 position )
+	{
+		cardInSlot.transform.position = position;
+		cardInSlot.GetComponent<CardAudioVisuals>( ).DraggedCard( );
+		returning = true;
+	}
+
 	public void Clear( )
 	{
 		amount.SetActive( false );
+		cardIsDraged = false;
+		Card = null;
 
 		if ( cardInSlot )
 		{
@@ -137,7 +149,7 @@ public class CardSlot : MonoBehaviour
 	private void OnCardStartDragging( )
 	{
 		cardIsDraged = true;
-		cardInSlot.GetComponent<CardAudioVisuals>( ).Dragging( );
+		cardInSlot.GetComponent<CardAudioVisuals>( ).DraggedCard( );
 		onDrag.Invoke( index, false );
 	}
 
