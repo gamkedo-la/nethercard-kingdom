@@ -49,6 +49,19 @@ public class CollectionManager : MonoBehaviour
 		return cardDragged;
 	}
 
+	public void DraggedCardAddedToDeck( )
+	{
+		collection[draggedSlotIndex].Amount--;
+
+		if ( collection[draggedSlotIndex].Amount == 0 )
+			collection[draggedSlotIndex] = null;
+
+		cardDragged = null;
+		cardDraggedFromDeck = null;
+
+		DisplayCollection( );
+	}
+
 	private void GetCollectionCards( )
 	{
 		playerCards.LoadPlayerCardsData( );
@@ -97,6 +110,10 @@ public class CollectionManager : MonoBehaviour
 			// Swap cards
 			collection[dropSlotIndex] = cardDragged;
 			collection[draggedSlotIndex] = cardInDestinationSlot;
+
+			cardDragged = null;
+			cardDraggedFromDeck = null;
+
 			DisplayCollection( );
 
 			slots[draggedSlotIndex].DoMove( slots[dropSlotIndex].CardPosition );
@@ -107,17 +124,31 @@ public class CollectionManager : MonoBehaviour
 		// Dragging from Deck
 		if ( cardDraggedFromDeck != null )
 		{
-			Debug.Log( "Received drag from Deck." );
-			// To same type of cards
-			if ( collection[dropSlotIndex].Card.Name == deckManager.GetDraggedCard( ).Card.Name )
+			Debug.Log( "Received drag from Deck" );
+			PlayerCard cardFromDeck = deckManager.GetDraggedCard( );
+
+			// To empty slot
+			if ( slots[dropSlotIndex].Card == null )
 			{
-				Debug.Log( "Same cards. Skipping." );
+				Debug.Log( "Putting in to an empty slot" );
+
+				collection[dropSlotIndex] = cardFromDeck;
+				deckManager.DraggedCardAddedToCollection( );
+
+				DisplayCollection( );
+
 				return;
 			}
 
-			// To empty slot
+			// To same type of cards
+			if ( collection[dropSlotIndex].Card.Name == cardFromDeck.Card.Name )
+			{
+				Debug.Log( "Same cards, skipping" );
+				return;
+			}
 
 			// To different type of cards
+			Debug.Log( "Different cards, NO FUNCTIONALITY YET" );
 		}
 	}
 
