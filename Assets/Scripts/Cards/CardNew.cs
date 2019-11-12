@@ -36,6 +36,7 @@ public class CardNew : MonoBehaviour
 	public CardEvent onEndedDrag = null;
 	public CardEvent onOverEnter = null;
 	public CardEvent onOverExit = null;
+	public CardEvent onRelease = null;
 
 	private bool dragging = false;
 
@@ -184,6 +185,12 @@ public class CardNew : MonoBehaviour
 				StartDraggingInDeckBuilding( );
 			}
 		}*/
+	}
+
+	public void OnRelease( )
+	{
+		Debug.Log( $"On Release: {name}" );
+		onRelease?.Invoke( this );
 	}
 
 	public void OnBeginDrag( )

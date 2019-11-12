@@ -166,8 +166,8 @@ public class CardAudioVisuals : MonoBehaviour
 
 	public void OnOverEnter( )
 	{
-		over = true;
-		ShowBigger( );
+		//over = true;
+		//ShowBigger( );
 
 		/*if ( selectionMode == CardSelectionMode.InHand )
 		{
@@ -211,10 +211,34 @@ public class CardAudioVisuals : MonoBehaviour
 		}*/
 	}
 
+	public void HighlightCard( )
+	{
+		defaultScale = overScale;
+		scaleToLerp = defaultScale;
+
+		frontCanvas.overrideSorting = true;
+		frontCanvas.sortingOrder = 10100;
+	}
+
+	public void NormalCard( )
+	{
+		defaultScale = Vector3.one;
+		scaleToLerp = defaultScale;
+
+		frontCanvas.overrideSorting = false;
+		frontCanvas.sortingOrder = 0;
+	}
+
+	public void Dragging( )
+	{
+		frontCanvas.overrideSorting = true;
+		frontCanvas.sortingOrder = 10200;
+	}
+
 	public void OnOverExit( )
 	{
-		over = false;
-		ShowNormal( );
+		//over = false;
+		//ShowNormal( );
 
 		/*if ( draggedCard == this )
 			return;
@@ -241,7 +265,7 @@ public class CardAudioVisuals : MonoBehaviour
 
 	public void OnBeginDrag( )
 	{
-		dragging = true;
+		/*dragging = true;
 		alpha = dragAlpha;
 		//canvasGroup.blocksRaycasts = false;
 
@@ -249,7 +273,7 @@ public class CardAudioVisuals : MonoBehaviour
 		frontCanvas.sortingOrder = 10200;
 
 		mouseOffset = transform.position - Input.mousePosition;
-		mousePosOld = Input.mousePosition;
+		mousePosOld = Input.mousePosition;*/
 		/*onStartedDrag?.Invoke( );
 
 		if ( selectionMode == CardSelectionMode.InHand )
@@ -260,10 +284,10 @@ public class CardAudioVisuals : MonoBehaviour
 
 	public void OnEndDrag( )
 	{
-		dragging = false;
+		/*dragging = false;
 		alpha = 1.0f;
 
-		ShowNormal( );
+		ShowNormal( );*/
 		//canvasGroup.blocksRaycasts = true;
 
 		/*onEndedDrag?.Invoke( );

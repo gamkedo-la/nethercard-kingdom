@@ -4,6 +4,7 @@
  * Copyright: © 2019 Kornel. All rights reserved. For license see: 'LICENSE.txt'
  **/
 
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -17,7 +18,8 @@ public class CardSlot : MonoBehaviour
 	[SerializeField] private CardSelectionMode mode = CardSelectionMode.InCollection;
 
 	private Card cardInSlot;
-	private bool isBeingDraged = false;
+	private bool cardIsDraged = false;
+	private bool returning = false;
 
 	void Start ()
 	{
@@ -29,13 +31,19 @@ public class CardSlot : MonoBehaviour
 
 	void Update( )
 	{
-		if ( isBeingDraged && cardInSlot )
+		if ( cardIsDraged && cardInSlot )
 		{
-			cardInSlot.transform.position = Vector2.Lerp( cardInSlot.transform.position, Input.mousePosition + new Vector3( 0.0f, -Screen.height * 0.2f, 0.0f ), 0.25f );
+			cardInSlot.transform.position = Vector2.Lerp( cardInSlot.transform.position, Input.mousePosition + new Vector3( 0.0f, -Screen.height * 0.25f, 0.0f ), 0.25f );
 		}
 		else if ( cardInSlot )
 		{
 			cardInSlot.transform.position = Vector2.Lerp( cardInSlot.transform.position, cardHolder.position, 0.15f );
+
+			if ( returning && Vector2.Distance( cardInSlot.transform.position, cardHolder.position ) < 5 )
+			{
+				returning = false;
+				cardInSlot.GetComponent<CardAudioVisuals>( ).NormalCard( );
+			}
 		}
 	}
 
@@ -46,13 +54,16 @@ public class CardSlot : MonoBehaviour
 		GameObject go = Instantiate( cardObject, cardHolder.position, Quaternion.identity, cardHolder );
 		cardInSlot = go.GetComponent<Card>( );
 		go.GetComponent<CardNew>( ).SelectionMode = mode;
-		go.GetComponent<CardNew>( ).onStartedDrag.AddListener( card => isBeingDraged = true );
-		go.GetComponent<CardNew>( ).onEndedDrag.AddListener( card => isBeingDraged = false );
+		go.GetComponent<CardNew>( ).onStartedDrag.AddListener( card => OnCardStartDragging( ) );
+		go.GetComponent<CardNew>( ).onEndedDrag.AddListener( card => OnCardEndDragging( ) );
+		go.GetComponent<CardNew>( ).onOverEnter.AddListener( card => OnCardOverEnter( ) );
+		go.GetComponent<CardNew>( ).onOverExit.AddListener( card => OnCardOverExit( ) );
+		go.GetComponent<CardNew>( ).onRelease.AddListener( card => OnCardRelease( ) );
 		go.GetComponent<CardNew>( ).SelectionMode = mode;
 		go.GetComponent<CardAudioVisuals>( ).SelectionMode = mode;
 		cardInSlot.SelectionMode = mode;
-		cardInSlot.onStartedDrag.AddListener( ( ) => isBeingDraged = true );
-		cardInSlot.onEndedDrag.AddListener( ( ) => isBeingDraged = false );
+		cardInSlot.onStartedDrag.AddListener( ( ) => cardIsDraged = true );
+		cardInSlot.onEndedDrag.AddListener( ( ) => cardIsDraged = false );
 
 		amountLabel.text = amount.ToString( );
 
@@ -73,6 +84,11 @@ public class CardSlot : MonoBehaviour
 		{
 			cardInSlot.onStartedDrag.RemoveAllListeners( );
 			cardInSlot.onEndedDrag.RemoveAllListeners( );
+			cardInSlot.GetComponent<CardNew>( ).onStartedDrag.RemoveAllListeners( );
+			cardInSlot.GetComponent<CardNew>( ).onEndedDrag.RemoveAllListeners( );
+			cardInSlot.GetComponent<CardNew>( ).onOverEnter.RemoveAllListeners( );
+			cardInSlot.GetComponent<CardNew>( ).onOverExit.RemoveAllListeners( );
+			cardInSlot.GetComponent<CardNew>( ).onRelease.RemoveAllListeners( );
 
 			Destroy( cardInSlot.gameObject );
 		}
@@ -83,9 +99,38 @@ public class CardSlot : MonoBehaviour
 		selection.SetActive( selected );
 	}
 
-	public void OnRelease( )
+	public void OnDrop( )
 	{
 		///DeckBuilder.Instance.otherSlot = transform.parent.gameObject;
 		///DeckBuilder.Instance.MoveSlot( );
+	}
+
+	private void OnCardOverEnter( )
+	{
+		if ( !cardIsDraged )
+			cardInSlot.GetComponent<CardAudioVisuals>( ).HighlightCard( );
+	}
+
+	private void OnCardOverExit( )
+	{
+		if ( !cardIsDraged )
+			cardInSlot.GetComponent<CardAudioVisuals>( ).NormalCard( );
+	}
+
+	private void OnCardStartDragging( )
+	{
+		cardIsDraged = true;
+		cardInSlot.GetComponent<CardAudioVisuals>( ).Dragging( );
+	}
+
+	private void OnCardEndDragging( )
+	{
+		cardIsDraged = false;
+		returning = true;
+	}
+
+	private void OnCardRelease( )
+	{
+		Debug.Log( $"{name} drop event" );
 	}
 }
