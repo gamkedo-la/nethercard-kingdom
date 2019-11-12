@@ -241,7 +241,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 8857103073058066128}
-          m_MethodName: OnDrop
+          m_MethodName: OnCardDrop
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

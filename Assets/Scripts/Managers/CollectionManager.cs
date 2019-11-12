@@ -21,7 +21,8 @@ public class CollectionManager : MonoBehaviour
 	[SerializeField] private int minSlots = 20;
 
 	private List<CardSlot> slots = new List<CardSlot>();
-	private List<PlayerCard> collection;
+	private List<PlayerCard> collection = new List<PlayerCard>();
+	private int draggedIndex = int.MinValue;
 
 	void Start ()
 	{
@@ -37,7 +38,15 @@ public class CollectionManager : MonoBehaviour
 	private void GetCollectionCards( )
 	{
 		playerCards.LoadPlayerCardsData( );
-		collection = playerCards.GetCollection;
+		List<PlayerCard> playerCollection = playerCards.GetCollection;
+
+		for ( int i = 0; i < minSlots; i++ )
+		{
+			if ( i < playerCollection.Count )
+				collection.Add( playerCollection[i] );
+			else
+				collection.Add( null );
+		}
 	}
 
 	private void CreateLayout( )
@@ -53,15 +62,24 @@ public class CollectionManager : MonoBehaviour
 
 	private void DisplayCollection( )
 	{
-		// Clear all slots
-		foreach ( var slot in slots )
-			slot.SetEmpty( );
-
-		// Add cards
-		for ( int i = 0; i < collection.Count; i++ )
+		for ( int i = 0; i < collection.Count; i++ ) // Add cards
 		{
-			if ( collection[i].Card ) // Non-empty position
-				slots[i].Set( collection[i].Card.gameObject, collection[i].Amount );
+			if ( collection[i] != null ) // Non-empty slot
+				slots[i].Set( collection[i].Card.gameObject, collection[i].Amount, i, CardDragedEvent, CardDroppedEvent );
+			else // Empty slot
+				slots[i].Set( null, 0, i, CardDragedEvent, CardDroppedEvent );
 		}
+	}
+
+	private void CardDroppedEvent( int index )
+	{
+		Debug.Log( $"Collection dropped: {index}" );
+	}
+
+	private void CardDragedEvent( int index, bool endOfDrag )
+	{
+		//string s = endOfDrag ? "stop" : "start";
+		//Debug.Log( $"Collection dragged: {s} {index}" );
+		draggedIndex = endOfDrag ? int.MinValue : index; // Index od the dragged card or "null"
 	}
 }

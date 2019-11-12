@@ -37,6 +37,7 @@ public class CardNew : MonoBehaviour
 	public CardEvent onOverEnter = null;
 	public CardEvent onOverExit = null;
 	public CardEvent onRelease = null;
+	public CardEvent onDrop = null;
 
 	private bool dragging = false;
 
@@ -148,7 +149,7 @@ public class CardNew : MonoBehaviour
 		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
 			return;
 
-		Debug.Log( $"On Clicked: {name}" );
+		//Debug.Log( $"On Clicked: {name}" );
 
 		OnBeginDrag( );
 
@@ -189,8 +190,14 @@ public class CardNew : MonoBehaviour
 
 	public void OnRelease( )
 	{
-		Debug.Log( $"On Release: {name}" );
+		//Debug.Log( $"On Release: {name}" );
 		onRelease?.Invoke( this );
+	}
+
+	public void OnDrop( )
+	{
+		//Debug.Log( $"On Release: {name}" );
+		onDrop?.Invoke( this );
 	}
 
 	public void OnBeginDrag( )
@@ -204,7 +211,7 @@ public class CardNew : MonoBehaviour
 		else
 			dragging = true;
 
-		Debug.Log( $"On Begin Drag: {name}" );
+		//Debug.Log( $"On Begin Drag: {name}" );
 		onStartedDrag?.Invoke( this );
 
 		/*if ( selectionMode == CardSelectionMode.InHand )
@@ -224,7 +231,7 @@ public class CardNew : MonoBehaviour
 		else
 			dragging = false;
 
-		Debug.Log( $"On End Drag: {name}" );
+		//Debug.Log( $"On End Drag: {name}" );
 		onEndedDrag?.Invoke( this );
 
 		/*if ( selectionMode == CardSelectionMode.InHand )
@@ -238,7 +245,7 @@ public class CardNew : MonoBehaviour
 		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
 			return;
 
-		Debug.Log( $"On Selected: {name}" );
+		//Debug.Log( $"On Selected: {name}" );
 
 		/*if ( isSelected )
 			defaultScale = Vector3.one * 1.07f;
@@ -306,7 +313,7 @@ public class CardNew : MonoBehaviour
 		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
 			return;
 
-		Debug.Log( $"On Start Summoning: {name}" );
+		//Debug.Log( $"On Start Summoning: {name}" );
 
 		/*if ( !SummoningManager.Instance.EnoughMana( useCost ) )
 			return;
@@ -323,7 +330,7 @@ public class CardNew : MonoBehaviour
 		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
 			return;
 
-		Debug.Log( $"On End Summoning: {name}" );
+		//Debug.Log( $"On End Summoning: {name}" );
 
 		/*if ( draggedCard != this )
 			return;*/
@@ -350,7 +357,7 @@ public class CardNew : MonoBehaviour
 		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
 			return;
 
-		Debug.Log( $"On Start Summoning: {name}" );
+		//Debug.Log( $"On Start Summoning: {name}" );
 
 		/*draggedCard = this;
 

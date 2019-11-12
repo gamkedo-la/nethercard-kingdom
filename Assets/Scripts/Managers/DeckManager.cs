@@ -18,8 +18,9 @@ public class DeckManager : MonoBehaviour
 	[SerializeField] private Transform slotsParent = null;
 
 	private List<CardSlot> slots = new List<CardSlot>();
-	private List<PlayerCard> deck;
+	private List<PlayerCard> deck = new List<PlayerCard>();
 	private int slotNumber;
+	private int draggedIndex = int.MinValue;
 
 	void Start( )
 	{
@@ -37,7 +38,15 @@ public class DeckManager : MonoBehaviour
 	private void GetDeckCards( )
 	{
 		playerCards.LoadPlayerCardsData( );
-		deck = playerCards.GetDeck;
+		List<PlayerCard> playerDeck = playerCards.GetDeck;
+
+		for ( int i = 0; i < slotNumber; i++ )
+		{
+			if ( i < playerDeck.Count )
+				deck.Add( playerDeck[i] );
+			else
+				deck.Add( null );
+		}
 	}
 
 	private void CreateLayout( )
@@ -53,15 +62,24 @@ public class DeckManager : MonoBehaviour
 
 	private void DisplayDeck( )
 	{
-		// Clear all slots
-		foreach ( var slot in slots )
-			slot.SetEmpty( );
-
-		// Add cards
-		for ( int i = 0; i < deck.Count; i++ )
+		for ( int i = 0; i < deck.Count; i++ ) // Add cards
 		{
-			if ( deck[i].Card ) // Non-empty position
-				slots[i].Set( deck[i].Card.gameObject, deck[i].Amount );
+			if ( deck[i] != null ) // Non-empty slot
+				slots[i].Set( deck[i].Card.gameObject, deck[i].Amount, i, CardDragedEvent, CardDroppedEvent );
+			else // Empty slot
+				slots[i].Set( null, 0, i, CardDragedEvent, CardDroppedEvent );
 		}
+	}
+
+	private void CardDroppedEvent( int index )
+	{
+		Debug.Log( $"Deck dropped: {index}" );
+	}
+
+	private void CardDragedEvent( int index, bool endOfDrag )
+	{
+		//string s = endOfDrag ? "stop" : "start";
+		//Debug.Log( $"Collection dragged: {s} {index}" );
+		draggedIndex = endOfDrag ? int.MinValue : index; // Index od the dragged card or "null"
 	}
 }

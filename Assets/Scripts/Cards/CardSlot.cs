@@ -20,6 +20,9 @@ public class CardSlot : MonoBehaviour
 	private Card cardInSlot;
 	private bool cardIsDraged = false;
 	private bool returning = false;
+	private int index;
+	private System.Action<int,bool> onDrag;
+	private System.Action<int> onDrop;
 
 	void Start ()
 	{
@@ -47,9 +50,18 @@ public class CardSlot : MonoBehaviour
 		}
 	}
 
-	public void Set( GameObject cardObject, float amount )
+	public void Set( GameObject cardObject, float amount, int index, System.Action<int,bool> onDrag, System.Action<int> onDrop )
 	{
-		SetEmpty( );
+		this.index = index;
+		this.onDrag = onDrag;
+		this.onDrop = onDrop;
+
+		// Clean up previous card
+		Clear( );
+
+		// Empty slot
+		if ( !cardObject )
+			return;
 
 		GameObject go = Instantiate( cardObject, cardHolder.position, Quaternion.identity, cardHolder );
 		cardInSlot = go.GetComponent<Card>( );
@@ -58,6 +70,7 @@ public class CardSlot : MonoBehaviour
 		go.GetComponent<CardNew>( ).onEndedDrag.AddListener( card => OnCardEndDragging( ) );
 		go.GetComponent<CardNew>( ).onOverEnter.AddListener( card => OnCardOverEnter( ) );
 		go.GetComponent<CardNew>( ).onOverExit.AddListener( card => OnCardOverExit( ) );
+		go.GetComponent<CardNew>( ).onDrop.AddListener( card => OnCardDrop( ) );
 		go.GetComponent<CardNew>( ).onRelease.AddListener( card => OnCardRelease( ) );
 		go.GetComponent<CardNew>( ).SelectionMode = mode;
 		go.GetComponent<CardAudioVisuals>( ).SelectionMode = mode;
@@ -76,7 +89,7 @@ public class CardSlot : MonoBehaviour
 		return !cardInSlot;
 	}
 
-	public void SetEmpty( )
+	public void Clear( )
 	{
 		amount.SetActive( false );
 
@@ -88,6 +101,7 @@ public class CardSlot : MonoBehaviour
 			cardInSlot.GetComponent<CardNew>( ).onEndedDrag.RemoveAllListeners( );
 			cardInSlot.GetComponent<CardNew>( ).onOverEnter.RemoveAllListeners( );
 			cardInSlot.GetComponent<CardNew>( ).onOverExit.RemoveAllListeners( );
+			cardInSlot.GetComponent<CardNew>( ).onDrop.RemoveAllListeners( );
 			cardInSlot.GetComponent<CardNew>( ).onRelease.RemoveAllListeners( );
 
 			Destroy( cardInSlot.gameObject );
@@ -99,10 +113,13 @@ public class CardSlot : MonoBehaviour
 		selection.SetActive( selected );
 	}
 
-	public void OnDrop( )
+	public void OnCardDrop( )
 	{
 		///DeckBuilder.Instance.otherSlot = transform.parent.gameObject;
 		///DeckBuilder.Instance.MoveSlot( );
+		//Debug.Log( $"Drop: {name} -> {cardInSlot.GetComponent<CardNew>( ).Name}" );
+		//Debug.Log( $"Drop: {name}" );
+		onDrop.Invoke( index );
 	}
 
 	private void OnCardOverEnter( )
@@ -121,16 +138,18 @@ public class CardSlot : MonoBehaviour
 	{
 		cardIsDraged = true;
 		cardInSlot.GetComponent<CardAudioVisuals>( ).Dragging( );
+		onDrag.Invoke( index, false );
 	}
 
 	private void OnCardEndDragging( )
 	{
 		cardIsDraged = false;
 		returning = true;
+		onDrag.Invoke( index, true );
 	}
 
 	private void OnCardRelease( )
 	{
-		Debug.Log( $"{name} drop event" );
+		//Debug.Log( $"{name} drop event" );
 	}
 }

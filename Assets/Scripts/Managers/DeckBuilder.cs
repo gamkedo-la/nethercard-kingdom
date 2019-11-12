@@ -103,7 +103,7 @@ public class DeckBuilder : MonoBehaviour
 	{
 		upgrading = true;
 		foreach ( var slot in upgradeSlots )
-			slot.SetEmpty( );
+			slot.Clear( );
 
 		animator.SetTrigger( "ShowUpgrade" );
 
@@ -390,7 +390,7 @@ public class DeckBuilder : MonoBehaviour
 			// Add card selected from the collection to upgrade
 			//cardInCollectionToSwap.AmountInDeck++; // MISSING How can I add this card to Upgrade?
 			if ( otherSlot.GetComponent<CardSlot>( ).IsEmpty( ) )
-				otherSlot.GetComponent<CardSlot>( ).Set( selectedCollectionCard.gameObject, 1 );
+				otherSlot.GetComponent<CardSlot>( ).Set( selectedCollectionCard.gameObject, 1, 0, ( x, y ) => { }, x => { } );
 
 			// Add card selected from the upgrade to master collection
 			//cardInUpgradeToSwap.AmountPlayerOwns++; // Only SHOW in upgrade
@@ -428,7 +428,7 @@ public class DeckBuilder : MonoBehaviour
 				}
 				else if ( otherSlot.name.Contains( "Upgrade" ) )
 				{
-					otherSlot.GetComponent<CardSlot>( ).Set( selectedCard.gameObject, 1 );
+					otherSlot.GetComponent<CardSlot>( ).Set( selectedCard.gameObject, 1, 0, ( x, y ) => { }, x => { } );
 				}
 			}
 			else if ( selectedCard == selectedDeckCard )
@@ -443,7 +443,7 @@ public class DeckBuilder : MonoBehaviour
 			else if ( selectedCard == selectedUpgradeCard )
 			{
 				//addedCard.AmountInDeck--; //MISSING How can I remove this card from Upgrade?
-				selectedUpgradeCard.transform.parent.parent.GetComponent<CardSlot>( ).SetEmpty( );
+				selectedUpgradeCard.transform.parent.parent.GetComponent<CardSlot>( ).Clear( );
 
 				//if ( otherSlot.name.Contains( "Collection" ) )
 				//addedCard.DefaultPlayerOwned++;
