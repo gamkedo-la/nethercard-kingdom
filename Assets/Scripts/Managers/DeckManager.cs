@@ -151,20 +151,16 @@ public class DeckManager : MonoBehaviour
 			}
 
 			// Different card types
-			if ( deck[dropSlotIndex].Card.Name != cardFromCollection.Card.Name )
-			{
-				Debug.Log( "Swapping cards: collection -> deck" );
+			// deck[dropSlotIndex].Card.Name != cardFromCollection.Card.Name
+			Debug.Log( "Swapping cards: collection -> deck" );
 
-				PlayerCard cardToSwap = deck[dropSlotIndex];
-				cardToSwap.Amount = 1;
+			PlayerCard cardToSwap = deck[dropSlotIndex];
+			cardToSwap.Amount = 1;
 
-				deck[dropSlotIndex] = cardFromCollection;
-				collectionManager.DraggedCardAddedToDeck( slots[dropSlotIndex].CardPosition, cardToSwap );
+			deck[dropSlotIndex] = cardFromCollection;
+			collectionManager.DraggedCardAddedToDeck( slots[dropSlotIndex].CardPosition, cardToSwap );
 
-				DisplayDeck( );
-
-				return;
-			}
+			DisplayDeck( );
 		}
 	}
 
