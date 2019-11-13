@@ -158,6 +158,15 @@ public class CollectionManager : MonoBehaviour
 				return;
 
 			// Combine piles cards (card of the same name dropped on one another)
+			if ( cardDragged.Card.Name == cardInDestinationSlot.Card.Name )
+			{
+				cardInDestinationSlot.Amount += cardDragged.Amount;
+				collection[draggedSlotIndex] = null;
+
+				DisplayCollection( );
+
+				return;
+			}
 
 			// Swap cards
 			collection[dropSlotIndex] = cardDragged;
