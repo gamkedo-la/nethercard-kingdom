@@ -240,9 +240,13 @@ public class CollectionManager : MonoBehaviour
 
 			// To different types of cards
 			// collection[dropSlotIndex].Card.Name != cardFromDeck.Card.Name
+			PlayerCard cardToSwap = collection[dropSlotIndex];
+
+			if ( deckManager.WillWeExceedSameCardLimit( cardToSwap ) )
+				return;
+
 			tooltip.text = "Swapped card from deck -> collection";
 
-			PlayerCard cardToSwap = collection[dropSlotIndex];
 			draggedSlotIndex = dropSlotIndex;
 			deckManager.DraggedCardAddedToCollection( slots[dropSlotIndex].CardPosition, cardToSwap );
 			DraggedCardAddedToDeck( Vector2.zero, cardFromDeck );

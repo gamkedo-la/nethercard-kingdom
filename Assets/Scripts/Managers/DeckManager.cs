@@ -70,6 +70,47 @@ public class DeckManager : MonoBehaviour
 			slots[draggedSlotIndex].DoMove( position );
 	}
 
+	// Count the number of cards of the same type (even if they are of different levels)
+	public bool WillWeExceedSameCardLimit( PlayerCard newCard )
+	{
+		int sameCardsInDeck = 1; // Start with 1 to account for the card that we want to include in deck
+		foreach ( var card in deck )
+		{
+			// Skipp empty slots
+			if ( card == null )
+				continue;
+
+			// Same level cards
+			if ( card.Card.Name == newCard.Card.Name )
+				sameCardsInDeck++;
+
+			// Level 2 or Level 3 card vs. lower level
+			if ( card.Card.LowerLevelVersion && card.Card.LowerLevelVersion.Name == newCard.Card.Name )
+				sameCardsInDeck++;
+
+			// Level 3 card vs. Level 1
+			if ( card.Card.LowerLevelVersion && card.Card.LowerLevelVersion.LowerLevelVersion && card.Card.LowerLevelVersion.LowerLevelVersion.Name == newCard.Card.Name )
+				sameCardsInDeck++;
+
+			// Level 1 and Level 2 card vs. higher level
+			if ( card.Card.HigherLevelVersion && card.Card.HigherLevelVersion.Name == newCard.Card.Name )
+				sameCardsInDeck++;
+
+			// Level 1 card vs. Level 3
+			if ( card.Card.HigherLevelVersion && card.Card.HigherLevelVersion.HigherLevelVersion && card.Card.HigherLevelVersion.HigherLevelVersion.Name == newCard.Card.Name )
+				sameCardsInDeck++;
+		}
+
+		if ( sameCardsInDeck > PlayerCards.MaxIdenticalCardsInDeck )
+		{
+			tooltip.text = $"Can't have more then {PlayerCards.MaxIdenticalCardsInDeck} cards of the same type in deck";
+
+			return true;
+		}
+
+		return false; // We are good (can add this card)
+	}
+
 	private void GetDeckCards( )
 	{
 		playerCards.LoadPlayerCardsData( );
@@ -144,6 +185,9 @@ public class DeckManager : MonoBehaviour
 			// To empty slot
 			if ( slots[dropSlotIndex].Card == null )
 			{
+				if ( WillWeExceedSameCardLimit( cardFromCollection ) )
+					return;
+
 				tooltip.text = "Card from collection put in to empty slot";
 
 				deck[dropSlotIndex] = cardFromCollection;
@@ -164,9 +208,13 @@ public class DeckManager : MonoBehaviour
 
 			// Different card types
 			// deck[dropSlotIndex].Card.Name != cardFromCollection.Card.Name
+			PlayerCard cardToSwap = deck[dropSlotIndex];
+
+			if ( WillWeExceedSameCardLimit( cardFromCollection ) )
+				return;
+
 			tooltip.text = "Swapped card from collection -> deck";
 
-			PlayerCard cardToSwap = deck[dropSlotIndex];
 			cardToSwap.Amount = 1;
 
 			deck[dropSlotIndex] = cardFromCollection;
