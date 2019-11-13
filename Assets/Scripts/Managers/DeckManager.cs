@@ -5,7 +5,7 @@
  **/
 
 using System.Collections.Generic;
-using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -14,6 +14,7 @@ public class DeckManager : MonoBehaviour
 	[Header("External Objects")]
 	[SerializeField] private PlayerCards playerCards = null;
 	[SerializeField] private CollectionManager collectionManager = null;
+	[SerializeField] private TextMeshProUGUI tooltip = null;
 
 	[Header("Objects")]
 	[SerializeField] private GameObject deckSlot = null;
@@ -32,6 +33,7 @@ public class DeckManager : MonoBehaviour
 		Assert.IsNotNull( collectionManager, $"Please assign <b>{nameof( collectionManager )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( deckSlot, $"Please assign <b>{nameof( deckSlot )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( slotsParent, $"Please assign <b>{nameof( slotsParent )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( tooltip, $"Please assign <b>{nameof( tooltip )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
 		slotNumber = PlayerCards.MaxCardsInDeck;
 

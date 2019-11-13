@@ -6,6 +6,7 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -14,6 +15,7 @@ public class CollectionManager : MonoBehaviour
 	[Header("External Objects")]
 	[SerializeField] private PlayerCards playerCards = null;
 	[SerializeField] private DeckManager deckManager = null;
+	[SerializeField] private TextMeshProUGUI tooltip = null;
 
 	[Header("Objects")]
 	[SerializeField] private GameObject collectionSlot = null;
@@ -34,6 +36,7 @@ public class CollectionManager : MonoBehaviour
 		Assert.IsNotNull( deckManager, $"Please assign <b>{nameof( deckManager )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( collectionSlot, $"Please assign <b>{nameof( collectionSlot )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( slotsParent, $"Please assign <b>{nameof( slotsParent )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( tooltip, $"Please assign <b>{nameof( tooltip )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
 		GetCollectionCards( );
 		CreateLayout( );
@@ -147,7 +150,6 @@ public class CollectionManager : MonoBehaviour
 
 	private void DroppedOnSlotEvent( int dropSlotIndex )
 	{
-		//Debug.Log( $"Collection dropped: {dropSlotIndex}" );
 		PlayerCard cardInDestinationSlot = slots[dropSlotIndex].Card;
 
 		// Dragging within Collection
@@ -155,11 +157,17 @@ public class CollectionManager : MonoBehaviour
 		{
 			// Same card
 			if ( cardDragged == cardInDestinationSlot )
+			{
+				tooltip.text = "Same cards in collection swapped";
+
 				return;
+			}
 
 			// Combine piles cards (card of the same name dropped on one another)
 			if ( cardDragged.Card.Name == cardInDestinationSlot.Card.Name )
 			{
+				tooltip.text = "Cards in collection combined";
+
 				cardInDestinationSlot.Amount += cardDragged.Amount;
 				collection[draggedSlotIndex] = null;
 
@@ -168,7 +176,9 @@ public class CollectionManager : MonoBehaviour
 				return;
 			}
 
-			// Swap cards
+			// Different types of cards
+			tooltip.text = "Cards in collection swapped";
+
 			collection[dropSlotIndex] = cardDragged;
 			collection[draggedSlotIndex] = cardInDestinationSlot;
 
@@ -185,13 +195,12 @@ public class CollectionManager : MonoBehaviour
 		// Dragging from Deck
 		if ( cardDraggedFromDeck != null )
 		{
-			Debug.Log( "Received drag from Deck" );
 			PlayerCard cardFromDeck = deckManager.GetDraggedCard( );
 
 			// To empty slot
 			if ( slots[dropSlotIndex].Card == null )
 			{
-				Debug.Log( "Putting in to an empty slot" );
+				tooltip.text = "Card from deck put in to empty slot";
 
 				collection[dropSlotIndex] = cardFromDeck;
 				cardFromDeck.Amount = 1;
@@ -205,7 +214,7 @@ public class CollectionManager : MonoBehaviour
 			// To same type of cards
 			if ( collection[dropSlotIndex].Card.Name == cardFromDeck.Card.Name )
 			{
-				Debug.Log( "Same cards, combining" );
+				tooltip.text = "Merged card from deck in to collection";
 
 				collection[dropSlotIndex].Amount++;
 				deckManager.DraggedCardAddedToCollection( );
@@ -215,10 +224,10 @@ public class CollectionManager : MonoBehaviour
 				return;
 			}
 
-			// To different type of cards
+			// To different types of cards
 			if ( collection[dropSlotIndex].Card.Name != cardFromDeck.Card.Name )
 			{
-				Debug.Log( "Swapping cards: deck -> collection" );
+				tooltip.text = "Swapped card from deck -> collection";
 
 				PlayerCard cardToSwap = collection[dropSlotIndex];
 				draggedSlotIndex = dropSlotIndex;

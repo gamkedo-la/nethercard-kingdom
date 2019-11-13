@@ -1799,6 +1799,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCards: {fileID: 5548607029597499622}
   collectionManager: {fileID: 3632447726344125409}
+  tooltip: {fileID: 4747218210491694307}
   deckSlot: {fileID: 2822337573372306729, guid: 53ae0d0f1c9f4344093da86cd81ff3df,
     type: 3}
   slotsParent: {fileID: 8784778902190248689}
@@ -1989,6 +1990,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCards: {fileID: 5548607029597499622}
   deckManager: {fileID: 3988884854569613930}
+  tooltip: {fileID: 4747218210491694307}
   collectionSlot: {fileID: 3727036373476896495, guid: 0bdcde3adabcbda4a9efa4783d66f277,
     type: 3}
   slotsParent: {fileID: 8784778902839050014}
