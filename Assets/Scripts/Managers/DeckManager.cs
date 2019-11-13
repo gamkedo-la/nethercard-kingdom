@@ -133,7 +133,6 @@ public class DeckManager : MonoBehaviour
 		// Dragging from Collection
 		if ( cardDraggedFromCollection != null )
 		{
-			Debug.Log( "Received drag from Collection" );
 			PlayerCard cardFromCollection = collectionManager.GetDraggedCard( );
 
 			// To empty slot

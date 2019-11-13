@@ -164,6 +164,19 @@ public class CollectionManager : MonoBehaviour
 				return;
 			}
 
+			// Dropped in to empty slot
+			if ( cardInDestinationSlot == null )
+			{
+				tooltip.text = "Card in collection moved";
+
+				collection[dropSlotIndex] = cardDragged;
+				collection[draggedSlotIndex] = null;
+
+				DisplayCollection( );
+
+				return;
+			}
+
 			// Combine piles cards (card of the same name dropped on one another)
 			if ( cardDragged.Card.Name == cardInDestinationSlot.Card.Name )
 			{
