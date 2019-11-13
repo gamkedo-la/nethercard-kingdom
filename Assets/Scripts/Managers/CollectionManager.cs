@@ -63,7 +63,7 @@ public class CollectionManager : MonoBehaviour
 		DisplayCollection( );
 	}*/
 
-	public void DraggedCardAddedToDeck( PlayerCard cardToSwap = null, Vector2 position = default )
+	public void DraggedCardAddedToDeck( Vector2 position = default, PlayerCard cardToSwap = null ) // Order of parameters to force the supply of 'position' if someone supply 'cardToSwap'
 	{
 		int newSlotIndex = 0;
 		collection[draggedSlotIndex].Amount--;
@@ -110,7 +110,7 @@ public class CollectionManager : MonoBehaviour
 
 		DisplayCollection( );
 
-		if ( cardToSwap != null )
+		if ( cardToSwap != null && position != default )
 			slots[newSlotIndex].DoMove( position );
 	}
 
@@ -218,13 +218,12 @@ public class CollectionManager : MonoBehaviour
 			// To different type of cards
 			if ( collection[dropSlotIndex].Card.Name != cardFromDeck.Card.Name )
 			{
-				Debug.Log( "Swapping cards: deck -> collection (NOT YET IMPLEMENTED)" );
+				Debug.Log( "Swapping cards: deck -> collection" );
 
 				PlayerCard cardToSwap = collection[dropSlotIndex];
-				//collection[dropSlotIndex] = cardFromDeck;
-				//deckManager.DraggedCardAddedToCollection( cardToSwap, slots[dropSlotIndex].CardPosition );
-
-				DisplayCollection( );
+				draggedSlotIndex = dropSlotIndex;
+				deckManager.DraggedCardAddedToCollection( slots[dropSlotIndex].CardPosition, cardToSwap );
+				DraggedCardAddedToDeck( Vector2.zero, cardFromDeck );
 
 				return;
 			}

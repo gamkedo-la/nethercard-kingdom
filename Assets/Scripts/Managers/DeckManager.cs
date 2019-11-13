@@ -50,13 +50,18 @@ public class DeckManager : MonoBehaviour
 		return cardDragged;
 	}
 
-	public void DraggedCardAddedToCollection( )
+	public void DraggedCardAddedToCollection( Vector2 position = default, PlayerCard cardFromCollection = null )
 	{
-		deck[draggedSlotIndex] = null;
+		deck[draggedSlotIndex] = cardFromCollection;
+
 		cardDragged = null;
 		cardDraggedFromCollection = null;
 
 		DisplayDeck( );
+
+		if ( cardFromCollection != null )
+			slots[draggedSlotIndex].DoMove( position );
+
 		// TODO: Can't save deck if less then 10 cards
 	}
 
@@ -152,7 +157,7 @@ public class DeckManager : MonoBehaviour
 				cardToSwap.Amount = 1;
 
 				deck[dropSlotIndex] = cardFromCollection;
-				collectionManager.DraggedCardAddedToDeck( cardToSwap, slots[dropSlotIndex].CardPosition );
+				collectionManager.DraggedCardAddedToDeck( slots[dropSlotIndex].CardPosition, cardToSwap );
 
 				DisplayDeck( );
 
