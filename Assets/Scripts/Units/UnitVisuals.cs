@@ -31,7 +31,12 @@ public class UnitVisuals : MonoBehaviour
 	[SerializeField] private string shockLayer = "Foreground";
 	[SerializeField] private Color shockColor = Color.black;
 
+	[Header("Other Effects")]
+	[SerializeField] private GameObject footprints = null;
+	[SerializeField] private float footprintsScale = 1.0f;
+
 	private float originalXScale;
+	private Transform prints;
 
 	void Start( )
 	{
@@ -44,6 +49,18 @@ public class UnitVisuals : MonoBehaviour
 		Assert.IsNotNull( shadow, $"Please assign <b>{nameof( shadow )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
 		originalXScale = mainSprites.transform.localScale.x;
+
+		if ( footprints )
+		{
+			prints = Instantiate( footprints, transform.position, Quaternion.identity ).transform;
+			prints.localScale = Vector3.one * footprintsScale;
+		}
+	}
+
+	void Update( )
+	{
+		if ( footprints )
+			prints.position = transform.position;
 	}
 
 	public void Shocked( float time ) => StartCoroutine( DoShock( time ) );
