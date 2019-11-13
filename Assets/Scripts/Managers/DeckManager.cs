@@ -5,6 +5,7 @@
  **/
 
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -19,6 +20,10 @@ public class DeckManager : MonoBehaviour
 	[Header("Objects")]
 	[SerializeField] private GameObject deckSlot = null;
 	[SerializeField] private Transform slotsParent = null;
+
+	[Header("Objects")]
+	[SerializeField] private UnityEventBool onCanSaveDeck = null;
+
 
 	private List<CardSlot> slots = new List<CardSlot>();
 	private List<PlayerCard> deck = new List<PlayerCard>();
@@ -63,8 +68,6 @@ public class DeckManager : MonoBehaviour
 
 		if ( cardFromCollection != null )
 			slots[draggedSlotIndex].DoMove( position );
-
-		// TODO: Can't save deck if less then 10 cards
 	}
 
 	private void GetDeckCards( )
@@ -96,6 +99,9 @@ public class DeckManager : MonoBehaviour
 	{
 		for ( int i = 0; i < deck.Count; i++ )
 			slots[i].Set( deck[i], i, CardDragedEvent, CardDroppedEvent );
+
+		int cardsInDeck = deck.Where( card => card != null ).Count( );
+		onCanSaveDeck?.Invoke( cardsInDeck == PlayerCards.MaxCardsInDeck );
 	}
 
 	private void CardDroppedEvent( int dropSlotIndex )
