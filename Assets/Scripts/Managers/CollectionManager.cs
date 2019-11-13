@@ -205,7 +205,13 @@ public class CollectionManager : MonoBehaviour
 			// To same type of cards
 			if ( collection[dropSlotIndex].Card.Name == cardFromDeck.Card.Name )
 			{
-				Debug.Log( "Same cards, skipping" );
+				Debug.Log( "Same cards, combining" );
+
+				collection[dropSlotIndex].Amount++;
+				deckManager.DraggedCardAddedToCollection( );
+
+				DisplayCollection( );
+
 				return;
 			}
 
