@@ -5,6 +5,7 @@
  **/
 
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -49,7 +50,7 @@ public class CollectionManager : MonoBehaviour
 		return cardDragged;
 	}
 
-	public void DraggedCardAddedToDeck( )
+	/*public void DraggedCardAddedToDeck( )
 	{
 		collection[draggedSlotIndex].Amount--;
 
@@ -60,6 +61,57 @@ public class CollectionManager : MonoBehaviour
 		cardDraggedFromDeck = null;
 
 		DisplayCollection( );
+	}*/
+
+	public void DraggedCardAddedToDeck( PlayerCard cardToSwap = null, Vector2 position = default )
+	{
+		int newSlotIndex = 0;
+		collection[draggedSlotIndex].Amount--;
+
+		// We dragged card from the collection that we had only 1 of, so we now have an empty slot
+		if ( collection[draggedSlotIndex].Amount <= 0 )
+		{
+			newSlotIndex = draggedSlotIndex;
+
+			// Either we do not swap cards OR the card we put in is something we do not have in the collection
+			if ( cardToSwap == null || ( cardToSwap != null && collection.FirstOrDefault( card => card != null && card.Card.Name == cardToSwap.Card.Name ) == null ) )
+			{
+				collection[draggedSlotIndex] = cardToSwap;
+			}
+			// We already have a card of the same name in the collection
+			else
+			{
+				PlayerCard existingCard = collection.First( card => card.Card.Name == cardToSwap.Card.Name );
+				existingCard.Amount++;
+				newSlotIndex = collection.IndexOf( existingCard );
+				collection[draggedSlotIndex] = null;
+			}
+		}
+		// We dragged a card from the collection, swapped with the one in deck, but now we need to put the card from the deck
+		// (since the source collection slot is still taken we have to find an empty slot)
+		else if ( cardToSwap != null )
+		{
+			for ( int i = 0; i < collection.Count; i++ )
+			{
+				// Found an empty slot
+				if (collection[i] == null)
+				{
+					cardToSwap.Amount = 1; // We always add 1 card from the deck
+					collection[i] = cardToSwap;
+					newSlotIndex = i;
+
+					break; // Nothing more to do here!
+				}
+			}
+		}
+
+		cardDragged = null;
+		cardDraggedFromDeck = null;
+
+		DisplayCollection( );
+
+		if ( cardToSwap != null )
+			slots[newSlotIndex].DoMove( position );
 	}
 
 	private void GetCollectionCards( )
@@ -133,6 +185,7 @@ public class CollectionManager : MonoBehaviour
 				Debug.Log( "Putting in to an empty slot" );
 
 				collection[dropSlotIndex] = cardFromDeck;
+				cardFromDeck.Amount = 1;
 				deckManager.DraggedCardAddedToCollection( );
 
 				DisplayCollection( );
@@ -148,7 +201,18 @@ public class CollectionManager : MonoBehaviour
 			}
 
 			// To different type of cards
-			Debug.Log( "Different cards, NO FUNCTIONALITY YET" );
+			if ( collection[dropSlotIndex].Card.Name != cardFromDeck.Card.Name )
+			{
+				Debug.Log( "Swapping cards: deck -> collection (NOT YET IMPLEMENTED)" );
+
+				PlayerCard cardToSwap = collection[dropSlotIndex];
+				//collection[dropSlotIndex] = cardFromDeck;
+				//deckManager.DraggedCardAddedToCollection( cardToSwap, slots[dropSlotIndex].CardPosition );
+
+				DisplayCollection( );
+
+				return;
+			}
 		}
 	}
 
