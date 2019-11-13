@@ -247,7 +247,9 @@ public class CollectionManager : MonoBehaviour
 
 			tooltip.text = "Swapped card from deck -> collection";
 
+			cardFromDeck.Amount = 1;
 			draggedSlotIndex = dropSlotIndex;
+
 			deckManager.DraggedCardAddedToCollection( slots[dropSlotIndex].CardPosition, cardToSwap );
 			DraggedCardAddedToDeck( Vector2.zero, cardFromDeck );
 		}
