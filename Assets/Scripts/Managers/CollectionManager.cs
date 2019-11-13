@@ -150,6 +150,7 @@ public class CollectionManager : MonoBehaviour
 
 	private void DroppedOnSlotEvent( int dropSlotIndex )
 	{
+		tooltip.text = "Card dropped in collection";
 		PlayerCard cardInDestinationSlot = slots[dropSlotIndex].Card;
 
 		// Dragging within Collection

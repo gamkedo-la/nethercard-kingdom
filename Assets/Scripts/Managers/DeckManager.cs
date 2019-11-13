@@ -100,7 +100,7 @@ public class DeckManager : MonoBehaviour
 
 	private void CardDroppedEvent( int dropSlotIndex )
 	{
-		//Debug.Log( $"Deck dropped: {dropSlotIndex}" );
+		tooltip.text = "Card dropped in deck";
 		PlayerCard cardInDestinationSlot = slots[dropSlotIndex].Card;
 
 		// Dragging withing Deck
@@ -108,9 +108,15 @@ public class DeckManager : MonoBehaviour
 		{
 			// Same card
 			if ( cardDragged == cardInDestinationSlot )
+			{
+				tooltip.text = "Same cards in deck swapped";
+
 				return;
+			}
 
 			// Swap cards
+			tooltip.text = "Cards in deck swapped";
+
 			deck[dropSlotIndex] = cardDragged;
 			deck[draggedSlotIndex] = cardInDestinationSlot;
 
@@ -133,7 +139,7 @@ public class DeckManager : MonoBehaviour
 			// To empty slot
 			if ( slots[dropSlotIndex].Card == null )
 			{
-				Debug.Log( "Putting in to an empty slot" );
+				tooltip.text = "Card from collection put in to empty slot";
 
 				deck[dropSlotIndex] = cardFromCollection;
 				collectionManager.DraggedCardAddedToDeck( );
@@ -146,13 +152,14 @@ public class DeckManager : MonoBehaviour
 			// Same type (the same card)
 			if ( deck[dropSlotIndex].Card.Name == cardFromCollection.Card.Name )
 			{
-				Debug.Log( "Same cards, skipping" );
+				tooltip.text = "Same card from collection swapped in deck";
+
 				return;
 			}
 
 			// Different card types
 			// deck[dropSlotIndex].Card.Name != cardFromCollection.Card.Name
-			Debug.Log( "Swapping cards: collection -> deck" );
+			tooltip.text = "Swapped card from collection -> deck";
 
 			PlayerCard cardToSwap = deck[dropSlotIndex];
 			cardToSwap.Amount = 1;
