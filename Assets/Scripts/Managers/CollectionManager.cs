@@ -77,8 +77,9 @@ public class CollectionManager : MonoBehaviour
 			newSlotIndex = draggedSlotIndex;
 
 			// Either we do not swap cards OR the card we put in is something we do not have in the collection
-			if ( cardToSwap == null || ( cardToSwap != null && collection.FirstOrDefault( card => card != null && card.Card.Name == cardToSwap.Card.Name ) == null ) )
+			/*if ( cardToSwap == null || ( cardToSwap != null && collection.FirstOrDefault( card => card != null && card.Card.Name == cardToSwap.Card.Name ) == null ) )
 			{
+				cardToSwap.Amount = 1; // Just to make sure
 				collection[draggedSlotIndex] = cardToSwap;
 			}
 			// We already have a card of the same name in the collection
@@ -88,9 +89,14 @@ public class CollectionManager : MonoBehaviour
 				existingCard.Amount++;
 				newSlotIndex = collection.IndexOf( existingCard );
 				collection[draggedSlotIndex] = null;
-			}
+			}*/
+
+			if ( cardToSwap != null )
+				cardToSwap.Amount = 1; // Just to make sure
+
+			collection[draggedSlotIndex] = cardToSwap;
 		}
-		// We dragged a card from the collection, swapped with the one in deck, but now we need to put the card from the deck
+		// We dragged a card from the collection, swapped with the one in deck, but now we need to put the card from the deck in collection
 		// (since the source collection slot is still taken we have to find an empty slot)
 		else if ( cardToSwap != null )
 		{
@@ -107,9 +113,6 @@ public class CollectionManager : MonoBehaviour
 				}
 			}
 		}
-
-		cardDragged = null;
-		cardDraggedFromDeck = null;
 
 		DisplayCollection( );
 
@@ -144,6 +147,9 @@ public class CollectionManager : MonoBehaviour
 
 	private void DisplayCollection( )
 	{
+		cardDragged = null;
+		cardDraggedFromDeck = null;
+
 		for ( int i = 0; i < collection.Count; i++ )
 			slots[i].Set( collection[i], i, CardDragedEvent, DroppedOnSlotEvent );
 	}
@@ -195,9 +201,6 @@ public class CollectionManager : MonoBehaviour
 
 			collection[dropSlotIndex] = cardDragged;
 			collection[draggedSlotIndex] = cardInDestinationSlot;
-
-			cardDragged = null;
-			cardDraggedFromDeck = null;
 
 			DisplayCollection( );
 

@@ -59,10 +59,14 @@ public class DeckManager : MonoBehaviour
 
 	public void DraggedCardAddedToCollection( Vector2 position = default, PlayerCard cardFromCollection = null )
 	{
-		deck[draggedSlotIndex] = cardFromCollection;
-
-		cardDragged = null;
-		cardDraggedFromCollection = null;
+		deck[draggedSlotIndex] = cardFromCollection != null
+			? new PlayerCard( )
+			// New one to avoid having shared references in both deck and collection
+			{
+				Card = cardFromCollection.Card,
+				Amount = 1
+			}
+			: null;
 
 		DisplayDeck( );
 
@@ -138,9 +142,13 @@ public class DeckManager : MonoBehaviour
 
 	private void DisplayDeck( )
 	{
+		cardDragged = null;
+		cardDraggedFromCollection = null;
+
 		for ( int i = 0; i < deck.Count; i++ )
 			slots[i].Set( deck[i], i, CardDragedEvent, CardDroppedEvent );
 
+		// We should be able to save the deck only if we have all the slots in it filled
 		int cardsInDeck = deck.Where( card => card != null ).Count( );
 		onCanSaveDeck?.Invoke( cardsInDeck == PlayerCards.MaxCardsInDeck );
 	}
@@ -167,9 +175,6 @@ public class DeckManager : MonoBehaviour
 			deck[dropSlotIndex] = cardDragged;
 			deck[draggedSlotIndex] = cardInDestinationSlot;
 
-			cardDragged = null;
-			cardDraggedFromCollection = null;
-
 			DisplayDeck( );
 
 			slots[draggedSlotIndex].DoMove( slots[dropSlotIndex].CardPosition );
@@ -190,7 +195,12 @@ public class DeckManager : MonoBehaviour
 
 				tooltip.text = "Card from collection put in to empty slot";
 
-				deck[dropSlotIndex] = cardFromCollection;
+				deck[dropSlotIndex] = new PlayerCard( )
+				// New one to avoid having shared references in both deck and collection
+				{
+					Card = cardFromCollection.Card,
+					Amount = 1
+				};
 				collectionManager.DraggedCardAddedToDeck( );
 
 				DisplayDeck( );
@@ -215,9 +225,12 @@ public class DeckManager : MonoBehaviour
 
 			tooltip.text = "Swapped card from collection -> deck";
 
-			cardToSwap.Amount = 1;
-
-			deck[dropSlotIndex] = cardFromCollection;
+			deck[dropSlotIndex] = new PlayerCard( )
+			// New one to avoid having shared references in both deck and collection
+			{
+				Card = cardFromCollection.Card,
+				Amount = 1
+			};
 			collectionManager.DraggedCardAddedToDeck( slots[dropSlotIndex].CardPosition, cardToSwap );
 
 			DisplayDeck( );
