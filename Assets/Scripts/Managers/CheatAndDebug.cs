@@ -13,6 +13,7 @@ public class CheatAndDebug : MonoBehaviour
 	public bool ShowDebugInfo { get { return showDebugInfo; } }
 	public bool AllowCheats { get { return allowCheats; } }
 	public bool UseAlternateImplementations { get { return useAlternate; } }
+	public bool CardPosOffsetOnDrag { get { return cardPosOffsetOnDrag; } }
 
 	[Header("Debug Flags")]
 	[Tooltip("Show debug informations")]
@@ -21,6 +22,7 @@ public class CheatAndDebug : MonoBehaviour
 	[SerializeField] private bool allowCheats = false;
 	[Tooltip("Use alternative, parallel feature implementation")]
 	[SerializeField] private bool useAlternate = false;
+	[SerializeField] private bool cardPosOffsetOnDrag = true;
 
 	[Header("Debug Parameters")]
 	[SerializeField] private int manaCheatAmount = 20;
@@ -42,7 +44,10 @@ public class CheatAndDebug : MonoBehaviour
 
 		if ( AllowCheats && Input.GetKeyDown( KeyCode.M ) )
 			AddMana( );
-    }
+
+		if ( Input.GetKeyDown( KeyCode.D ) )
+			cardPosOffsetOnDrag = !cardPosOffsetOnDrag;
+	}
 
 	public void AddMana( )
 	{

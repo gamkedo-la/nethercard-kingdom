@@ -27,6 +27,7 @@ public class CardSlot : MonoBehaviour
 	private System.Action<int,bool> onDrag;
 	private System.Action<int> onDrop;
 	private bool appearing = true;
+	private Vector3 dragOffset = Vector3.zero;
 
 	void Start ()
 	{
@@ -44,7 +45,8 @@ public class CardSlot : MonoBehaviour
 	{
 		if ( cardIsDraged && cardInSlot )
 		{
-			cardInSlot.transform.position = Vector2.Lerp( cardInSlot.transform.position, Input.mousePosition + new Vector3( 0.0f, -Screen.height * 0.25f, 0.0f ), 0.25f );
+			Vector3 offset = CheatAndDebug.Instance.CardPosOffsetOnDrag ? new Vector3( 0.0f, -Screen.height * 0.25f, 0.0f ) : -dragOffset;
+			cardInSlot.transform.position = Vector2.Lerp( cardInSlot.transform.position, Input.mousePosition + offset, 0.25f );
 		}
 		else if ( cardInSlot && !appearing )
 		{
@@ -156,6 +158,7 @@ public class CardSlot : MonoBehaviour
 	private void OnCardStartDragging( )
 	{
 		cardIsDraged = true;
+		dragOffset = Input.mousePosition - cardInSlot.transform.position;
 		cardInSlot.GetComponent<CardAudioVisuals>( ).DraggedCard( );
 		onDrag.Invoke( index, false );
 	}
