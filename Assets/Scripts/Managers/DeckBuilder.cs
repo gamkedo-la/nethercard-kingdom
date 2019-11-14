@@ -390,7 +390,7 @@ public class DeckBuilder : MonoBehaviour
 			// Add card selected from the collection to upgrade
 			//cardInCollectionToSwap.AmountInDeck++; // MISSING How can I add this card to Upgrade?
 			//if ( otherSlot.GetComponent<CardSlot>( ).IsEmpty( ) )
-				//otherSlot.GetComponent<CardSlot>( ).Set( selectedCollectionCard, 0, ( x, y ) => { }, x => { } );
+			//otherSlot.GetComponent<CardSlot>( ).Set( selectedCollectionCard, 0, ( x, y ) => { }, x => { } );
 
 			// Add card selected from the upgrade to master collection
 			//cardInUpgradeToSwap.AmountPlayerOwns++; // Only SHOW in upgrade
@@ -470,6 +470,15 @@ public class DeckBuilder : MonoBehaviour
 		UpdateCollection( );
 		UpdateDeck( );
 	}
+
+	public void OnTooltipWarning( )
+	{
+		animator.SetBool( "TooltipWarning", true );
+		float tooltipWarningDuration = 0.3f;
+		Invoke( nameof( OffTooltipWarning ), tooltipWarningDuration );
+	}
+
+	public void OffTooltipWarning( ) => animator.SetBool( "TooltipWarning", false );
 
 	private void UpdateCollection( )
 	{

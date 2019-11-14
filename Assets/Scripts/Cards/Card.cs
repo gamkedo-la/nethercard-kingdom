@@ -165,7 +165,7 @@ public class Card : MonoBehaviour
 			return;
 
 		Revealing = true;
-		animator.enabled = true;
+		//animator.enabled = true;
 	}
 
 	public void CardRevealDone( )
@@ -174,7 +174,7 @@ public class Card : MonoBehaviour
 			return;
 
 		Revealing = false;
-		animator.enabled = false;
+		//animator.enabled = false;
 	}
 
 	public void OnOverEnter( )

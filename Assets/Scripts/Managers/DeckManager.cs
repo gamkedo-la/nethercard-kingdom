@@ -9,6 +9,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.Events;
 
 public class DeckManager : MonoBehaviour
 {
@@ -21,8 +22,9 @@ public class DeckManager : MonoBehaviour
 	[SerializeField] private GameObject deckSlot = null;
 	[SerializeField] private Transform slotsParent = null;
 
-	[Header("Objects")]
+	[Header("Events")]
 	[SerializeField] private UnityEventBool onCanSaveDeck = null;
+	[SerializeField] private UnityEvent onWarning = null;
 
 
 	private List<CardSlot> slots = new List<CardSlot>();
@@ -75,22 +77,34 @@ public class DeckManager : MonoBehaviour
 	}
 
 	// Count the number of cards of the same type (even if they are of different levels)
-	public bool WillWeExceedSameCardLimit( PlayerCard newCard )
+	public bool WillWeExceedSameCardLimit( PlayerCard newCard, PlayerCard cardBeingChanged )
 	{
 		int sameCardsInDeck = 1; // Start with 1 to account for the card that we want to include in deck
-		foreach ( var card in deck )
+		List<CardSlot> sameCards = new List<CardSlot>( );
+
+		for ( int i = 0; i < deck.Count; i++ )
 		{
 			// Skipp empty slots
-			if ( card == null )
+			if ( deck[i] == null )
 				continue;
 
-			if ( playerCards.AreCardsOfTheSameType( newCard, card ) )
+			if ( playerCards.AreCardsOfTheSameType( newCard, deck[i] ) )
+			{
 				sameCardsInDeck++;
+				sameCards.Add( slots[i] );
+			}
 		}
 
-		if ( sameCardsInDeck > PlayerCards.MaxIdenticalCardsInDeck )
+		// We reached same card limit and we are putting in to empty slot
+		// or we reached same card limit and the cards being swapped are different (in other words: skip if we swap same type cards)
+		if ( ( sameCardsInDeck > PlayerCards.MaxIdenticalCardsInDeck && cardBeingChanged == null ) ||
+			( sameCardsInDeck > PlayerCards.MaxIdenticalCardsInDeck && !playerCards.AreCardsOfTheSameType( newCard, cardBeingChanged ) ) )
 		{
 			tooltip.text = $"Can't have more then {PlayerCards.MaxIdenticalCardsInDeck} of the same card (or upgraded versions) in the deck";
+
+			onWarning?.Invoke( );
+			foreach ( var slot in sameCards )
+				slot.OnWarning( );
 
 			return true;
 		}
@@ -173,7 +187,7 @@ public class DeckManager : MonoBehaviour
 			// To empty slot
 			if ( slots[dropSlotIndex].Card == null )
 			{
-				if ( WillWeExceedSameCardLimit( cardFromCollection ) )
+				if ( WillWeExceedSameCardLimit( cardFromCollection, null ) )
 					return;
 
 				tooltip.text = "Card from collection put in to empty slot";
@@ -203,7 +217,7 @@ public class DeckManager : MonoBehaviour
 			// deck[dropSlotIndex].Card.Name != cardFromCollection.Card.Name
 			PlayerCard cardToSwap = deck[dropSlotIndex];
 
-			if ( WillWeExceedSameCardLimit( cardFromCollection ) && !playerCards.AreCardsOfTheSameType( cardToSwap, cardFromCollection ) )
+			if ( WillWeExceedSameCardLimit( cardFromCollection, cardToSwap ) )
 				return;
 
 			tooltip.text = "Swapped card from collection -> deck";

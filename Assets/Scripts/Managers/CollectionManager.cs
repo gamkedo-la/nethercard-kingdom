@@ -245,7 +245,7 @@ public class CollectionManager : MonoBehaviour
 			// collection[dropSlotIndex].Card.Name != cardFromDeck.Card.Name
 			PlayerCard cardToSwap = collection[dropSlotIndex];
 
-			if ( deckManager.WillWeExceedSameCardLimit( cardToSwap ) && !playerCards.AreCardsOfTheSameType( cardToSwap, cardFromDeck ) )
+			if ( deckManager.WillWeExceedSameCardLimit( cardToSwap, cardFromDeck ) )
 				return;
 
 			tooltip.text = "Swapped card from deck -> collection";

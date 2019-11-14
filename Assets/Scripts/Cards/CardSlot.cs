@@ -143,6 +143,11 @@ public class CardSlot : MonoBehaviour
 		onDrop.Invoke( index );
 	}
 
+	public void OnWarning( )
+	{
+		cardInSlot.GetComponent<CardAudioVisuals>( ).OnWarning( );
+	}
+
 	private void OnCardOverEnter( )
 	{
 		if ( !cardIsDraged && !returning )

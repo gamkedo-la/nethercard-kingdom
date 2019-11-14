@@ -155,13 +155,29 @@ public class CardAudioVisuals : MonoBehaviour
 	public void DoCardReveal( )
 	{
 		Revealing = true;
-		animator.enabled = true;
+		//animator.enabled = true;
+		animator.SetTrigger( "Reveal" );
 	}
 
 	public void CardRevealDone( )
 	{
 		Revealing = false;
-		animator.enabled = false;
+		//animator.enabled = false;
+	}
+
+	public void OnWarning( )
+	{
+		//animator.enabled = true;
+		animator.SetFloat( "StartPosition", Random.Range( 0f, 1f ) );
+		animator.SetBool( "Shake", true );
+		float warningDuration = 0.3f;
+		Invoke( nameof( OffWarning ), warningDuration );
+	}
+
+	public void OffWarning( )
+	{
+		animator.SetBool( "Shake", false );
+		//animator.enabled = false;
 	}
 
 	public void OnOverEnter( )
