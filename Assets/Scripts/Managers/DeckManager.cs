@@ -84,30 +84,13 @@ public class DeckManager : MonoBehaviour
 			if ( card == null )
 				continue;
 
-			// Same level cards
-			if ( card.Card.Name == newCard.Card.Name )
-				sameCardsInDeck++;
-
-			// Level 2 or Level 3 card vs. lower level
-			if ( card.Card.LowerLevelVersion && card.Card.LowerLevelVersion.Name == newCard.Card.Name )
-				sameCardsInDeck++;
-
-			// Level 3 card vs. Level 1
-			if ( card.Card.LowerLevelVersion && card.Card.LowerLevelVersion.LowerLevelVersion && card.Card.LowerLevelVersion.LowerLevelVersion.Name == newCard.Card.Name )
-				sameCardsInDeck++;
-
-			// Level 1 and Level 2 card vs. higher level
-			if ( card.Card.HigherLevelVersion && card.Card.HigherLevelVersion.Name == newCard.Card.Name )
-				sameCardsInDeck++;
-
-			// Level 1 card vs. Level 3
-			if ( card.Card.HigherLevelVersion && card.Card.HigherLevelVersion.HigherLevelVersion && card.Card.HigherLevelVersion.HigherLevelVersion.Name == newCard.Card.Name )
+			if ( playerCards.AreCardsOfTheSameType( newCard, card ) )
 				sameCardsInDeck++;
 		}
 
 		if ( sameCardsInDeck > PlayerCards.MaxIdenticalCardsInDeck )
 		{
-			tooltip.text = $"Can't have more then {PlayerCards.MaxIdenticalCardsInDeck} cards of the same type in deck";
+			tooltip.text = $"Can't have more then {PlayerCards.MaxIdenticalCardsInDeck} of the same card (or upgraded versions) in the deck";
 
 			return true;
 		}
@@ -220,7 +203,7 @@ public class DeckManager : MonoBehaviour
 			// deck[dropSlotIndex].Card.Name != cardFromCollection.Card.Name
 			PlayerCard cardToSwap = deck[dropSlotIndex];
 
-			if ( WillWeExceedSameCardLimit( cardFromCollection ) )
+			if ( WillWeExceedSameCardLimit( cardFromCollection ) && !playerCards.AreCardsOfTheSameType( cardToSwap, cardFromCollection ) )
 				return;
 
 			tooltip.text = "Swapped card from collection -> deck";
@@ -253,6 +236,6 @@ public class DeckManager : MonoBehaviour
 
 		//string s = endOfDrag ? "stop" : "start";
 		//Debug.Log( $"Collection dragged: {s} {index}" );
-		draggedSlotIndex = endOfDrag ? int.MinValue : index; // Index od the dragged card or "null"
+		draggedSlotIndex = endOfDrag ? int.MinValue : index; // Index od the dragged card or "null" (int.MinValue)
 	}
 }

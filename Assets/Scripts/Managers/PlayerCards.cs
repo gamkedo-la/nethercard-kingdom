@@ -41,6 +41,31 @@ public class PlayerCards : MonoBehaviour
 		Assert.IsNotNull( gameCards, $"Please assign <b>{nameof( gameCards )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 	}
 
+	public bool AreCardsOfTheSameType( PlayerCard cardToCheck, PlayerCard otherCard )
+	{
+		// Same level cards
+		if ( otherCard.Card.Name == cardToCheck.Card.Name )
+			return true;
+
+		// Level 2 or Level 3 card vs. lower level
+		if ( otherCard.Card.LowerLevelVersion && otherCard.Card.LowerLevelVersion.Name == cardToCheck.Card.Name )
+			return true;
+
+		// Level 3 card vs. Level 1
+		if ( otherCard.Card.LowerLevelVersion && otherCard.Card.LowerLevelVersion.LowerLevelVersion && otherCard.Card.LowerLevelVersion.LowerLevelVersion.Name == cardToCheck.Card.Name )
+			return true;
+
+		// Level 1 and Level 2 card vs. higher level
+		if ( otherCard.Card.HigherLevelVersion && otherCard.Card.HigherLevelVersion.Name == cardToCheck.Card.Name )
+			return true;
+
+		// Level 1 card vs. Level 3
+		if ( otherCard.Card.HigherLevelVersion && otherCard.Card.HigherLevelVersion.HigherLevelVersion && otherCard.Card.HigherLevelVersion.HigherLevelVersion.Name == cardToCheck.Card.Name )
+			return true;
+
+		return false;
+	}
+
 	public void SavePlayerCardsData( )
 	{
 		XmlSerializer xmlSerializer = new XmlSerializer( typeof( CardsSaveData ) );

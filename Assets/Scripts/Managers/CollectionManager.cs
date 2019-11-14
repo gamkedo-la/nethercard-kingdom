@@ -228,7 +228,7 @@ public class CollectionManager : MonoBehaviour
 				return;
 			}
 
-			// To same type of cards
+			// To same type of card
 			if ( collection[dropSlotIndex].Card.Name == cardFromDeck.Card.Name )
 			{
 				tooltip.text = "Merged card from deck in to collection";
@@ -241,11 +241,11 @@ public class CollectionManager : MonoBehaviour
 				return;
 			}
 
-			// To different types of cards
+			// To different type of card
 			// collection[dropSlotIndex].Card.Name != cardFromDeck.Card.Name
 			PlayerCard cardToSwap = collection[dropSlotIndex];
 
-			if ( deckManager.WillWeExceedSameCardLimit( cardToSwap ) )
+			if ( deckManager.WillWeExceedSameCardLimit( cardToSwap ) && !playerCards.AreCardsOfTheSameType( cardToSwap, cardFromDeck ) )
 				return;
 
 			tooltip.text = "Swapped card from deck -> collection";
