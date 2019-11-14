@@ -262,6 +262,7 @@ public class CardAudioVisuals : MonoBehaviour
 		frontCanvas.overrideSorting = false;
 		frontCanvas.sortingOrder = 0;
 		canvasGroup.blocksRaycasts = true;
+		canvasGroup.interactable = true;
 	}
 
 	public void DraggedCard( )
@@ -269,6 +270,7 @@ public class CardAudioVisuals : MonoBehaviour
 		frontCanvas.overrideSorting = true;
 		frontCanvas.sortingOrder = 10200;
 		canvasGroup.blocksRaycasts = false;
+		canvasGroup.interactable = false;
 	}
 
 	public void OnOverExit( )

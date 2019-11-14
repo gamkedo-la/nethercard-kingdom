@@ -165,7 +165,7 @@ public class CollectionManager : MonoBehaviour
 			// Same card
 			if ( cardDragged == cardInDestinationSlot )
 			{
-				tooltip.text = "Same cards in collection swapped";
+				tooltip.text = "Card placed in the same slot";
 
 				return;
 			}
@@ -270,6 +270,7 @@ public class CollectionManager : MonoBehaviour
 		{
 			cardDragged = slots[index].Card;
 			deckManager.SetDraggedCard( cardDragged );
+			tooltip.text = "Place card in an empty slot or swap with another one";
 		}
 
 		//string s = endOfDrag ? "stop" : "start";
