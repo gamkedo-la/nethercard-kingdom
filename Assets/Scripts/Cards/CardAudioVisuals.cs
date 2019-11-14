@@ -48,6 +48,7 @@ public class CardAudioVisuals : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI flavorLabel = null;
 	[SerializeField] private Image cardImageFill = null;
 	[SerializeField] private Image cardImageBorder = null;
+	[SerializeField] private Image cardEffectBorder = null;
 	[SerializeField] private GameObject level2Marks = null;
 	[SerializeField] private GameObject level3Marks = null;
 
@@ -94,7 +95,9 @@ public class CardAudioVisuals : MonoBehaviour
 		Assert.IsNotNull( hpLabel, $"Please assign <b>{nameof( hpLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( speedLabel, $"Please assign <b>{nameof( speedLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( abilityLabel, $"Please assign <b>{nameof( abilityLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
-		Assert.IsNotNull( flavorLabel, $"Please assign <b>{nameof( flavorLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( cardImageFill, $"Please assign <b>{nameof( cardImageFill )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( cardImageBorder, $"Please assign <b>{nameof( cardImageBorder )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( cardEffectBorder, $"Please assign <b>{nameof( cardEffectBorder )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( level2Marks, $"Please assign <b>{nameof( level2Marks )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( level3Marks, $"Please assign <b>{nameof( level3Marks )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
@@ -170,8 +173,23 @@ public class CardAudioVisuals : MonoBehaviour
 		//animator.enabled = true;
 		animator.SetFloat( "StartPosition", Random.Range( 0f, 1f ) );
 		animator.SetBool( "Shake", true );
+
+		cardEffectBorder.transform.localScale = Vector3.one * 0.9f;
+		Color c = cardEffectBorder.color;
+		c.a = 1;
+		cardEffectBorder.color = c;
+		StartCoroutine( Utilities.ChangeOverTime( 0.3f, BorderEffect ) );
+
 		float warningDuration = 0.3f;
 		Invoke( nameof( OffWarning ), warningDuration );
+	}
+
+	private void BorderEffect( float progress )
+	{
+		cardEffectBorder.transform.localScale = Vector3.one * ( 0.9f + 0.4f * progress);
+		Color c = cardEffectBorder.color;
+		c.a = 1 - progress;
+		cardEffectBorder.color = c;
 	}
 
 	public void OffWarning( )
