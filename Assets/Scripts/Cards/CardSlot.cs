@@ -20,12 +20,13 @@ public class CardSlot : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI amountLabel = null;
 	[SerializeField] private CardSelectionMode mode = CardSelectionMode.InCollection;
 
-	private Card cardInSlot;
+	private Card cardInSlot = null;
 	private bool cardIsDraged = false;
 	private bool returning = false;
-	private int index;
+	private int index = int.MinValue;
 	private System.Action<int,bool> onDrag;
 	private System.Action<int> onDrop;
+	private bool appearing = true;
 
 	void Start ()
 	{
@@ -33,7 +34,11 @@ public class CardSlot : MonoBehaviour
 		Assert.IsNotNull( cardHolder, $"Please assign <b>{nameof( cardHolder )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( selection, $"Please assign <b>{nameof( selection )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( amountLabel, $"Please assign <b>{nameof( amountLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+
+		Invoke( nameof( Appeared ), 0.7f ); // To prevent cards "jumping" when deck builder first appears
 	}
+
+	private void Appeared( ) => appearing = false;
 
 	void Update( )
 	{
@@ -41,7 +46,7 @@ public class CardSlot : MonoBehaviour
 		{
 			cardInSlot.transform.position = Vector2.Lerp( cardInSlot.transform.position, Input.mousePosition + new Vector3( 0.0f, -Screen.height * 0.25f, 0.0f ), 0.25f );
 		}
-		else if ( cardInSlot )
+		else if ( cardInSlot && !appearing )
 		{
 			cardInSlot.transform.position = Vector2.Lerp( cardInSlot.transform.position, cardHolder.position, 0.15f );
 
@@ -67,6 +72,8 @@ public class CardSlot : MonoBehaviour
 			return;
 
 		GameObject go = Instantiate( playerCard.Card.gameObject, cardHolder.position, Quaternion.identity, cardHolder );
+		//cardInSlot.transform.localPosition = Vector3.zero;
+		go.transform.localPosition = Vector3.zero;
 		cardInSlot = go.GetComponent<Card>( );
 		go.GetComponent<CardNew>( ).SelectionMode = mode;
 		go.GetComponent<CardNew>( ).onStartedDrag.AddListener( card => OnCardStartDragging( ) );
@@ -136,13 +143,13 @@ public class CardSlot : MonoBehaviour
 
 	private void OnCardOverEnter( )
 	{
-		if ( !cardIsDraged )
+		if ( !cardIsDraged && !returning )
 			cardInSlot.GetComponent<CardAudioVisuals>( ).HighlightCard( );
 	}
 
 	private void OnCardOverExit( )
 	{
-		if ( !cardIsDraged )
+		if ( !cardIsDraged && !returning )
 			cardInSlot.GetComponent<CardAudioVisuals>( ).NormalCard( );
 	}
 
