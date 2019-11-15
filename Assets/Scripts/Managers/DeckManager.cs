@@ -175,6 +175,7 @@ public class DeckManager : MonoBehaviour
 			DisplayDeck( );
 
 			slots[draggedSlotIndex].DoMove( slots[dropSlotIndex].CardPosition );
+			slots[dropSlotIndex].OnInfromation( );
 
 			return;
 		}
@@ -201,6 +202,7 @@ public class DeckManager : MonoBehaviour
 				collectionManager.DraggedCardAddedToDeck( );
 
 				DisplayDeck( );
+				slots[dropSlotIndex].OnInfromation( );
 
 				return;
 			}
@@ -231,6 +233,7 @@ public class DeckManager : MonoBehaviour
 			collectionManager.DraggedCardAddedToDeck( slots[dropSlotIndex].CardPosition, cardToSwap );
 
 			DisplayDeck( );
+			slots[dropSlotIndex].OnInfromation( );
 		}
 	}
 

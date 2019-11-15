@@ -65,6 +65,7 @@ public class CardAudioVisuals : MonoBehaviour
 	private float alpha = 1.0f;
 
 	private float lerpBackTimer = 0f;
+	private float sizeIncrease = 0f;
 	private bool lerpBack = false;
 	private Vector2 mouseOffset = Vector3.one;
 	private Vector2 mousePosOld = Vector3.one;
@@ -170,23 +171,39 @@ public class CardAudioVisuals : MonoBehaviour
 
 	public void OnWarning( )
 	{
-		//animator.enabled = true;
 		animator.SetFloat( "StartPosition", Random.Range( 0f, 1f ) );
 		animator.SetBool( "Shake", true );
 
-		cardEffectBorder.transform.localScale = Vector3.one * 0.9f;
+		cardEffectBorder.transform.localScale = Vector3.one;
+
 		Color c = cardEffectBorder.color;
 		c.a = 1;
 		cardEffectBorder.color = c;
-		StartCoroutine( Utilities.ChangeOverTime( 0.3f, BorderEffect ) );
+
+		sizeIncrease = 0.2f;
+		float duration = 0.2f;
+		StartCoroutine( Utilities.ChangeOverTime( duration, BorderEffect ) );
 
 		float warningDuration = 0.3f;
 		Invoke( nameof( OffWarning ), warningDuration );
 	}
 
+	public void OnInformation( )
+	{
+		cardEffectBorder.transform.localScale = Vector3.one;
+
+		Color c = cardEffectBorder.color;
+		c.a = 1;
+		cardEffectBorder.color = c;
+
+		sizeIncrease = 0.2f;
+		float duration = 0.5f;
+		StartCoroutine( Utilities.ChangeOverTime( duration, BorderEffect ) );
+	}
+
 	private void BorderEffect( float progress )
 	{
-		cardEffectBorder.transform.localScale = Vector3.one * ( 0.9f + 0.4f * progress);
+		cardEffectBorder.transform.localScale = Vector3.one * ( 1.0f + sizeIncrease * progress);
 		Color c = cardEffectBorder.color;
 		c.a = 1 - progress;
 		cardEffectBorder.color = c;

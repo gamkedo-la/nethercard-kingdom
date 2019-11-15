@@ -179,6 +179,7 @@ public class CollectionManager : MonoBehaviour
 				collection[draggedSlotIndex] = null;
 
 				DisplayCollection( );
+				slots[dropSlotIndex].OnInfromation( );
 
 				return;
 			}
@@ -192,6 +193,7 @@ public class CollectionManager : MonoBehaviour
 				collection[draggedSlotIndex] = null;
 
 				DisplayCollection( );
+				slots[dropSlotIndex].OnInfromation( );
 
 				return;
 			}
@@ -205,6 +207,7 @@ public class CollectionManager : MonoBehaviour
 			DisplayCollection( );
 
 			slots[draggedSlotIndex].DoMove( slots[dropSlotIndex].CardPosition );
+			slots[dropSlotIndex].OnInfromation( );
 
 			return;
 		}
@@ -224,6 +227,7 @@ public class CollectionManager : MonoBehaviour
 				deckManager.DraggedCardAddedToCollection( );
 
 				DisplayCollection( );
+				slots[dropSlotIndex].OnInfromation( );
 
 				return;
 			}
@@ -237,6 +241,7 @@ public class CollectionManager : MonoBehaviour
 				deckManager.DraggedCardAddedToCollection( );
 
 				DisplayCollection( );
+				slots[dropSlotIndex].OnInfromation( );
 
 				return;
 			}
@@ -255,6 +260,8 @@ public class CollectionManager : MonoBehaviour
 
 			deckManager.DraggedCardAddedToCollection( slots[dropSlotIndex].CardPosition, cardToSwap );
 			DraggedCardAddedToDeck( Vector2.zero, cardFromDeck );
+
+			slots[dropSlotIndex].OnInfromation( );
 		}
 	}
 

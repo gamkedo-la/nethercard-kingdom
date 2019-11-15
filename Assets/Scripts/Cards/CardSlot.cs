@@ -56,6 +56,7 @@ public class CardSlot : MonoBehaviour
 			{
 				returning = false;
 				cardInSlot.GetComponent<CardAudioVisuals>( ).NormalCard( );
+				cardInSlot.GetComponent<CardAudioVisuals>( ).OnInformation( );
 			}
 		}
 	}
@@ -146,6 +147,11 @@ public class CardSlot : MonoBehaviour
 	public void OnWarning( )
 	{
 		cardInSlot.GetComponent<CardAudioVisuals>( ).OnWarning( );
+	}
+
+	public void OnInfromation( )
+	{
+		cardInSlot.GetComponent<CardAudioVisuals>( ).OnInformation( );
 	}
 
 	private void OnCardOverEnter( )
