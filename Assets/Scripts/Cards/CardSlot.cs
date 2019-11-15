@@ -87,11 +87,12 @@ public class CardSlot : MonoBehaviour
 		go.GetComponent<CardNew>( ).onRelease.AddListener( card => OnCardRelease( ) );
 		go.GetComponent<CardNew>( ).SelectionMode = mode;
 		go.GetComponent<CardAudioVisuals>( ).SelectionMode = mode;
+		go.GetComponent<CardAudioVisuals>( ).SetStack( playerCard.Amount );
 		cardInSlot.SelectionMode = mode;
 		cardInSlot.onStartedDrag.AddListener( ( ) => cardIsDraged = true );
 		cardInSlot.onEndedDrag.AddListener( ( ) => cardIsDraged = false );
 
-		amountLabel.text = playerCard.Amount.ToString( );
+		amountLabel.text = $"x{playerCard.Amount}";
 
 		if ( mode == CardSelectionMode.InCollection )
 			amount.SetActive( true );

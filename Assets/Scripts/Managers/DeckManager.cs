@@ -201,7 +201,7 @@ public class DeckManager : MonoBehaviour
 					Card = cardFromCollection.Card,
 					Amount = 1
 				};
-				collectionManager.DraggedCardAddedToDeck( );
+				collectionManager.DraggedCardAddedToDeck( slots[dropSlotIndex].CardPosition );
 
 				DisplayDeck( );
 				slots[dropSlotIndex].OnInfromation( );

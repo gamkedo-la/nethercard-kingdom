@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: 4645033337603713149}
   - component: {fileID: 2294193865762560879}
   m_Layer: 5
-  m_Name: Card Slot
+  m_Name: Card Slot Deck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -607,8 +607,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -1.7299805, y: -4.0700073}
-  m_SizeDelta: {x: 49.6, y: 39.1}
+  m_AnchoredPosition: {x: -1.7299805, y: -3.1}
+  m_SizeDelta: {x: 49.6, y: 21.37}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6147361579100597327
 CanvasRenderer:
@@ -682,7 +682,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0

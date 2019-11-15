@@ -51,6 +51,8 @@ public class CardAudioVisuals : MonoBehaviour
 	[SerializeField] private Image cardEffectBorder = null;
 	[SerializeField] private GameObject level2Marks = null;
 	[SerializeField] private GameObject level3Marks = null;
+	[SerializeField] private GameObject stack1 = null;
+	[SerializeField] private GameObject stack2 = null;
 
 	[Header("Parameters")]
 	[SerializeField] private Vector3 overInBuilderScale = Vector3.one * 1.07f;
@@ -101,6 +103,8 @@ public class CardAudioVisuals : MonoBehaviour
 		Assert.IsNotNull( cardEffectBorder, $"Please assign <b>{nameof( cardEffectBorder )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( level2Marks, $"Please assign <b>{nameof( level2Marks )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( level3Marks, $"Please assign <b>{nameof( level3Marks )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( stack1, $"Please assign <b>{nameof( stack1 )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( stack2, $"Please assign <b>{nameof( stack2 )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
 		overScale = overInBuilderScale; // TODO: Get info from CardNew and set the correct scale
 
@@ -388,6 +392,12 @@ public class CardAudioVisuals : MonoBehaviour
 		{ }
 		else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
 		{ }*/
+	}
+
+	public void SetStack( int amount )
+	{
+		stack1.SetActive( amount >= 2 );
+		stack2.SetActive( amount >= 3 );
 	}
 
 	public void UpdateCardStatsFromEditor( CardType cardType, CardLevel cardLevel, string name, int cost,

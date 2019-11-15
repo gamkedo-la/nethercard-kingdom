@@ -68,13 +68,13 @@ public class CollectionManager : MonoBehaviour
 
 	public void DraggedCardAddedToDeck( Vector2 position = default, PlayerCard cardToSwap = null ) // Order of parameters to force the supply of 'position' if someone supply 'cardToSwap'
 	{
-		int newSlotIndex = 0;
+		int newSlotIndex = draggedSlotIndex;
 		collection[draggedSlotIndex].Amount--;
 
 		// We dragged card from the collection that we had only 1 of, so we now have an empty slot
 		if ( collection[draggedSlotIndex].Amount <= 0 )
 		{
-			newSlotIndex = draggedSlotIndex;
+			//newSlotIndex = draggedSlotIndex;
 
 			// Either we do not swap cards OR the card we put in is something we do not have in the collection
 			/*if ( cardToSwap == null || ( cardToSwap != null && collection.FirstOrDefault( card => card != null && card.Card.Name == cardToSwap.Card.Name ) == null ) )
@@ -116,7 +116,7 @@ public class CollectionManager : MonoBehaviour
 
 		DisplayCollection( );
 
-		if ( cardToSwap != null && position != default )
+		if ( position != default )
 			slots[newSlotIndex].DoMove( position );
 	}
 
