@@ -21,9 +21,6 @@ public class PlayerCards : MonoBehaviour
 		public int[] Amount;
 	}
 
-	public List<PlayerCard> GetCollection { get { return new List<PlayerCard>( collection ); } }
-	public List<PlayerCard> GetDeck { get { return new List<PlayerCard>( deck ); } }
-
 	public const int MaxCardsInDeck = 10;
 	public const int MaxIdenticalCardsInDeck = 3;
 
@@ -66,6 +63,37 @@ public class PlayerCards : MonoBehaviour
 		return false;
 	}
 
+	public List<PlayerCard> GetCollection( ) => new List<PlayerCard>( collection );
+	public List<PlayerCard> GetDeck( ) => new List<PlayerCard>( deck );
+
+	public void SetCollection( List<PlayerCard> newCollection )
+	{
+		if ( CheatAndDebug.Instance.ShowDebugInfo )
+		{
+			string s = "";
+			foreach ( var item in newCollection )
+				s += item != null ? $"{item.Card.Name}: {item.Amount}\n" : "EMPTY\n";
+			Debug.Log( s );
+		}
+
+		collection = new List<PlayerCard>( newCollection );
+		SavePlayerCardsData( ); // We save twice so we do not have to worry whatever we first save deck or collection
+	}
+
+	public void SetDeck( List<PlayerCard> newDeck )
+	{
+		if ( CheatAndDebug.Instance.ShowDebugInfo )
+		{
+			string s = "";
+			foreach ( var item in newDeck )
+				s += $"{item.Card.Name}\n";
+			Debug.Log( s );
+		}
+
+		deck = new List<PlayerCard>( newDeck );
+		SavePlayerCardsData( ); // We save twice so we do not have to worry whatever we first save deck or collection
+	}
+
 	public void SavePlayerCardsData( )
 	{
 		XmlSerializer xmlSerializer = new XmlSerializer( typeof( CardsSaveData ) );
@@ -73,8 +101,8 @@ public class PlayerCards : MonoBehaviour
 		// Collection
 		CardsSaveData collectionData = new CardsSaveData( )
 		{
-			Name = collection.Select( card => card.Card.Name ).ToArray( ),
-			Amount = collection.Select( card => card.Amount ).ToArray( )
+			Name = collection.Select( card => card != null ? card.Card.Name : "EMPTY" ).ToArray( ),
+			Amount = collection.Select( card => card != null ? card.Amount : 0 ).ToArray( )
 		};
 
 		using ( StringWriter writer = new StringWriter( ) )
@@ -122,16 +150,27 @@ public class PlayerCards : MonoBehaviour
 
 			for ( int i = 0; i < cardsData.Name.Length; i++ )
 			{
-				Card loadedCard = gameCards.GetPlayerCardByName( cardsData.Name[i] );
-				if ( !loadedCard )
-				{
-					Debug.LogError( "Saved collection data out of sync with game's player cards. Save data reset recommended. Using default data." );
-					LoadDefaultPlayerCards( );
+				Card loadedCard = null;
 
-					return;
+				// If slot is not empty let's try to retrieve card data for the saved name
+				if ( cardsData.Name[i] != "EMPTY" )
+				{
+					loadedCard = gameCards.GetPlayerCardByName( cardsData.Name[i] );
+
+					// Seems that there is a mismatch, most likely card were changed in the game and we are loading old data
+					if ( !loadedCard )
+					{
+						Debug.LogError( "Saved collection data out of sync with game's player cards. Save data reset recommended. Using default data." );
+						LoadDefaultPlayerCards( );
+
+						return;
+					}
 				}
 
-				collection.Add( new PlayerCard( ) { Card = loadedCard, Amount = cardsData.Amount[i] } );
+				if ( loadedCard )
+					collection.Add( new PlayerCard( ) { Card = loadedCard, Amount = cardsData.Amount[i] } );
+				else
+					collection.Add( null ); // Empty slot
 			}
 		}
 

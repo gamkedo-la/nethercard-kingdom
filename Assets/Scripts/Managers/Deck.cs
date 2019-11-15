@@ -136,7 +136,16 @@ public class Deck : MonoBehaviour
 
 	private Queue<Card> NewRandomizedDrawQueue( )
 	{
-		IEnumerable<Card> cards = playerCards.GetDeck.Select( card => card.Card );
+		IEnumerable<Card> cards = playerCards.GetDeck( ).Select( card => card.Card );
+
+		if ( CheatAndDebug.Instance.ShowDebugInfo )
+		{
+			string s = "";
+			foreach ( var card in cards )
+				s += $"{card.Name}\n";
+			Debug.Log( s );
+		}
+
 		cards = cards.OrderBy( x => Random.Range( 0, 10000000 ) );
 
 		return new Queue<Card>( cards );

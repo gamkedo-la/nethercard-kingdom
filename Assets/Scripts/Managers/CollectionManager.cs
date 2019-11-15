@@ -120,10 +120,12 @@ public class CollectionManager : MonoBehaviour
 			slots[newSlotIndex].DoMove( position );
 	}
 
+	public void Save( ) => playerCards.SetCollection( collection );
+
 	private void GetCollectionCards( )
 	{
 		playerCards.LoadPlayerCardsData( );
-		List<PlayerCard> playerCollection = playerCards.GetCollection;
+		List<PlayerCard> playerCollection = playerCards.GetCollection( );
 
 		for ( int i = 0; i < minSlots; i++ )
 		{

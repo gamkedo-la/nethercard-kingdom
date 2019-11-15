@@ -145,9 +145,9 @@ public class DeckBuilder : MonoBehaviour
 		//CardClicked( selectedCollectionCard, CardSelectionMode.InCollection );
 
 		// Find selected card in master collection
-		PlayerCard lowerCardVersion = playerCards.GetCollection.First( card => card.Card.Name == cardToUpgrade.Name );
+		PlayerCard lowerCardVersion = playerCards.GetCollection().First( card => card.Card.Name == cardToUpgrade.Name );
 		// Find it's upgraded version
-		PlayerCard higherCardVersion = playerCards.GetCollection.First( card => card.Card.Name == cardToUpgrade.HigherLevelVersion.Name );
+		PlayerCard higherCardVersion = playerCards.GetCollection().First( card => card.Card.Name == cardToUpgrade.HigherLevelVersion.Name );
 		// Take 2 source cards...
 		lowerCardVersion.Amount -= 2;
 		// ...and turn them in to a better one
@@ -156,7 +156,7 @@ public class DeckBuilder : MonoBehaviour
 		UpdateCollection( );
 	}
 
-	public Card[] GetPlayerDeck( ) => playerCards.GetDeck.Select( card => card.Card ).ToArray( );
+	public Card[] GetPlayerDeck( ) => playerCards.GetDeck().Select( card => card.Card ).ToArray( );
 
 	public void CheckCollectionCardSelection( Card card )
 	{
@@ -301,7 +301,7 @@ public class DeckBuilder : MonoBehaviour
 		{
 			// Count the number of the same cards (even if they are of different levels)
 			int sameCardsInDeck = 0;
-			foreach ( var card in playerCards.GetDeck )
+			foreach ( var card in playerCards.GetDeck() )
 			{
 				// Same level cards
 				if ( card.Card.Name == selectedCollectionCard.Name )
@@ -339,11 +339,11 @@ public class DeckBuilder : MonoBehaviour
 			// -- Swap cards --
 
 			// Remove card selected in collection from the master collection (by reducing the amount we have)
-			PlayerCard cardInCollectionToSwap = playerCards.GetCollection.First( card => card.Card.Name == selectedCollectionCard.Name );
+			PlayerCard cardInCollectionToSwap = playerCards.GetCollection().First( card => card.Card.Name == selectedCollectionCard.Name );
 			cardInCollectionToSwap.Amount--;
 
 			// Remove card selected in the deck from the master deck
-			PlayerCard cardInDeckToSwap = playerCards.GetDeck.First( card => card.Card.Name == selectedDeckCard.Name );
+			PlayerCard cardInDeckToSwap = playerCards.GetDeck().First( card => card.Card.Name == selectedDeckCard.Name );
 			cardInDeckToSwap.Amount--;
 
 			// Add card selected from the collection to master deck
@@ -362,7 +362,7 @@ public class DeckBuilder : MonoBehaviour
 		else if ( selectedCollectionCard != null && selectedUpgradeCard != null )
 		{
 			// Tried to add more then max identical Cards to the Deck
-			int sameCardsInDeck = playerCards.GetDeck.Count( card => card.Card.Name == selectedCollectionCard.Name );
+			int sameCardsInDeck = playerCards.GetDeck().Count( card => card.Card.Name == selectedCollectionCard.Name );
 			if ( sameCardsInDeck >= maxIdenticalDeckCards && selectedCollectionCard.Name != selectedUpgradeCard.Name )
 			{
 				tooltip.text = "Can't have more then 3 identical cards in Deck";
@@ -377,12 +377,12 @@ public class DeckBuilder : MonoBehaviour
 			// -- Set Display for Upgrade Card Slot --
 
 			// Remove card selected in collection from the master collection (by reducing the amount we have)
-			PlayerCard cardInCollectionToSwap = playerCards.GetCollection.First( card => card.Card.Name == selectedCollectionCard.Name );
+			PlayerCard cardInCollectionToSwap = playerCards.GetCollection().First( card => card.Card.Name == selectedCollectionCard.Name );
 
 			//cardInCollectionToSwap.AmountPlayerOwns--; //Only SHOW in upgrade
 
 			// Remove card selected in the upgrade
-			PlayerCard cardInUpgradeToSwap = playerCards.GetCollection.First( card => card.Card.Name == selectedUpgradeCard.Name );
+			PlayerCard cardInUpgradeToSwap = playerCards.GetCollection().First( card => card.Card.Name == selectedUpgradeCard.Name );
 			//cardInUpgradeToSwap.AmountInDeck--; // MISSING How can I remove this card from Upgrade?
 
 			//selectedUpgradeCard.transform.parent.parent.GetComponent<CardSlot>().SetEmpty(); //Only SHOW in upgrade
@@ -417,7 +417,7 @@ public class DeckBuilder : MonoBehaviour
 				selectedCard = selectedUpgradeCard;
 
 			// Remove card selected in collection from the master collection (by reducing the amount we have)
-			PlayerCard addedCard = playerCards.GetCollection.First( card => card.Card.Name == selectedCard.Name );
+			PlayerCard addedCard = playerCards.GetCollection().First( card => card.Card.Name == selectedCard.Name );
 
 			if ( selectedCard == selectedCollectionCard )
 			{

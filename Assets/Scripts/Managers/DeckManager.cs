@@ -112,10 +112,12 @@ public class DeckManager : MonoBehaviour
 		return false; // We are good (can add this card)
 	}
 
+	public void Save( ) => playerCards.SetDeck( deck );
+
 	private void GetDeckCards( )
 	{
 		playerCards.LoadPlayerCardsData( );
-		List<PlayerCard> playerDeck = playerCards.GetDeck;
+		List<PlayerCard> playerDeck = playerCards.GetDeck( );
 
 		for ( int i = 0; i < slotNumber; i++ )
 		{
