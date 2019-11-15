@@ -36,6 +36,7 @@ public class CardNew : MonoBehaviour
 	public CardEvent onEndedDrag = null;
 	public CardEvent onOverEnter = null;
 	public CardEvent onOverExit = null;
+	public CardEvent onClicked = null;
 	public CardEvent onRelease = null;
 	public CardEvent onDrop = null;
 
@@ -150,8 +151,8 @@ public class CardNew : MonoBehaviour
 			return;
 
 		//Debug.Log( $"On Clicked: {name}" );
-
-		OnBeginDrag( );
+		onClicked?.Invoke( this );
+		//OnBeginDrag( );
 
 		/*if ( selected )
 		{

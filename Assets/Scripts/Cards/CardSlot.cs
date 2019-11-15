@@ -26,6 +26,7 @@ public class CardSlot : MonoBehaviour
 	private int index = int.MinValue;
 	private System.Action<int,bool> onDrag;
 	private System.Action<int> onDrop;
+	private System.Action<int> onClick;
 	private bool appearing = true;
 	private Vector3 dragOffset = Vector3.zero;
 
@@ -61,7 +62,7 @@ public class CardSlot : MonoBehaviour
 		}
 	}
 
-	public void Set( PlayerCard playerCard, int index, System.Action<int,bool> onDrag, System.Action<int> onDrop )
+	public void Set( PlayerCard playerCard, int index, System.Action<int,bool> onDrag, System.Action<int> onDrop, System.Action<int> onClick )
 	{
 		Clear( );
 
@@ -69,6 +70,7 @@ public class CardSlot : MonoBehaviour
 		this.index = index;
 		this.onDrag = onDrag;
 		this.onDrop = onDrop;
+		this.onClick = onClick;
 
 		// Empty slot
 		if ( playerCard == null )
@@ -84,6 +86,7 @@ public class CardSlot : MonoBehaviour
 		go.GetComponent<CardNew>( ).onOverEnter.AddListener( card => OnCardOverEnter( ) );
 		go.GetComponent<CardNew>( ).onOverExit.AddListener( card => OnCardOverExit( ) );
 		go.GetComponent<CardNew>( ).onDrop.AddListener( card => OnCardDrop( ) );
+		go.GetComponent<CardNew>( ).onClicked.AddListener( card => OnClicked( ) );
 		go.GetComponent<CardNew>( ).onRelease.AddListener( card => OnCardRelease( ) );
 		go.GetComponent<CardNew>( ).SelectionMode = mode;
 		go.GetComponent<CardAudioVisuals>( ).SelectionMode = mode;
@@ -124,8 +127,9 @@ public class CardSlot : MonoBehaviour
 			cardInSlot.GetComponent<CardNew>( ).onEndedDrag.RemoveAllListeners( );
 			cardInSlot.GetComponent<CardNew>( ).onOverEnter.RemoveAllListeners( );
 			cardInSlot.GetComponent<CardNew>( ).onOverExit.RemoveAllListeners( );
-			cardInSlot.GetComponent<CardNew>( ).onDrop.RemoveAllListeners( );
+			cardInSlot.GetComponent<CardNew>( ).onClicked.RemoveAllListeners( );
 			cardInSlot.GetComponent<CardNew>( ).onRelease.RemoveAllListeners( );
+			cardInSlot.GetComponent<CardNew>( ).onDrop.RemoveAllListeners( );
 
 			Destroy( cardInSlot.gameObject );
 		}
@@ -143,6 +147,12 @@ public class CardSlot : MonoBehaviour
 		//Debug.Log( $"Drop: {name} -> {cardInSlot.GetComponent<CardNew>( ).Name}" );
 		//Debug.Log( $"Drop: {name}" );
 		onDrop.Invoke( index );
+	}
+
+	public void OnClicked( )
+	{
+		//Debug.Log( $"{name} click event" );
+		onClick.Invoke( index );
 	}
 
 	public void OnWarning( )
@@ -167,7 +177,7 @@ public class CardSlot : MonoBehaviour
 			cardInSlot.GetComponent<CardAudioVisuals>( ).NormalCard( );
 	}
 
-	private void OnCardStartDragging( )
+	public void OnCardStartDragging( )
 	{
 		cardIsDraged = true;
 		dragOffset = Input.mousePosition - cardInSlot.transform.position;

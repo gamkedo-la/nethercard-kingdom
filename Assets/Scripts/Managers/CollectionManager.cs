@@ -153,12 +153,28 @@ public class CollectionManager : MonoBehaviour
 		cardDraggedFromDeck = null;
 
 		for ( int i = 0; i < collection.Count; i++ )
-			slots[i].Set( collection[i], i, CardDragedEvent, DroppedOnSlotEvent );
+			slots[i].Set( collection[i], i, CardDragedEvent, CardDroppedEvent, ClickedOnSlotEvent );
 	}
 
-	private void DroppedOnSlotEvent( int dropSlotIndex )
+	private void ClickedOnSlotEvent( int dropSlotIndex )
 	{
-		tooltip.text = "Card dropped in collection";
+		//Debug.Log( $"cardDragged == {cardDragged} && cardDraggedFromDeck == {cardDraggedFromDeck}" );
+		// Card was clicked-drag (but not just empty slot)
+		if ( cardDragged == null && cardDraggedFromDeck == null && slots[dropSlotIndex].Card != null )
+		{
+			slots[dropSlotIndex].OnCardStartDragging( );
+			CardDragedEvent( dropSlotIndex, false );
+		}
+		else // Card was clicked-drop
+		{
+			CardDroppedEvent( dropSlotIndex );
+			CardDragedEvent( dropSlotIndex, true );
+		}
+	}
+
+	private void CardDroppedEvent( int dropSlotIndex )
+	{
+		tooltip.text = "You did something in the collection ;)";
 		PlayerCard cardInDestinationSlot = slots[dropSlotIndex].Card;
 
 		// Dragging within Collection

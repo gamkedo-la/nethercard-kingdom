@@ -145,16 +145,32 @@ public class DeckManager : MonoBehaviour
 		cardDraggedFromCollection = null;
 
 		for ( int i = 0; i < deck.Count; i++ )
-			slots[i].Set( deck[i], i, CardDragedEvent, CardDroppedEvent );
+			slots[i].Set( deck[i], i, CardDragedEvent, CardDroppedEvent, ClickedOnSlotEvent );
 
 		// We should be able to save the deck only if we have all the slots in it filled
 		int cardsInDeck = deck.Where( card => card != null ).Count( );
 		onCanSaveDeck?.Invoke( cardsInDeck == PlayerCards.MaxCardsInDeck );
 	}
 
+	private void ClickedOnSlotEvent( int dropSlotIndex )
+	{
+		//Debug.Log( $"cardDragged == {cardDragged} && cardDraggedFromCollection == {cardDraggedFromCollection}" );
+		// Card was clicked-drag (but not just empty slot)
+		if ( cardDragged == null && cardDraggedFromCollection == null && slots[dropSlotIndex].Card != null )
+		{
+			slots[dropSlotIndex].OnCardStartDragging( );
+			CardDragedEvent( dropSlotIndex, false );
+		}
+		else // Card was clicked-drop
+		{
+			CardDroppedEvent( dropSlotIndex );
+			CardDragedEvent( dropSlotIndex, true );
+		}
+	}
+
 	private void CardDroppedEvent( int dropSlotIndex )
 	{
-		tooltip.text = "Card dropped in deck";
+		tooltip.text = "You did something in the deck ;)";
 		PlayerCard cardInDestinationSlot = slots[dropSlotIndex].Card;
 
 		// Dragging withing Deck
