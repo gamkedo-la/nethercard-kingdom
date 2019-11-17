@@ -57,18 +57,17 @@ public class CardAudioVisuals : MonoBehaviour
 	[Header("Parameters")]
 	[SerializeField] private Vector3 overInBuilderScale = Vector3.one * 1.07f;
 	[SerializeField] private Vector3 overInHandScale = Vector3.one * 1.07f;
-	[SerializeField] private float dragAlpha = 0.9f;
 
-	private Card hoverCard = null;
+	//private Card hoverCard = null;
 	private Card draggedCard = null;
 
 	private bool dragging = false;
 	private bool over = false;
 	private float alpha = 1.0f;
 
-	private float lerpBackTimer = 0f;
+	//private float lerpBackTimer = 0f;
 	private float sizeIncrease = 0f;
-	private bool lerpBack = false;
+	//private bool lerpBack = false;
 	private Vector2 mouseOffset = Vector3.one;
 	private Vector2 mousePosOld = Vector3.one;
 
@@ -76,8 +75,7 @@ public class CardAudioVisuals : MonoBehaviour
 	private Vector3 overScale = Vector3.one;
 	private Vector3 defaultScale = Vector3.one;
 	private Vector3 previousPosition = Vector3.zero;
-	private bool selected = false;
-	private bool canBeUnselected = false;
+	//private bool canBeUnselected = false;
 
 	void Start( )
 	{
@@ -157,7 +155,7 @@ public class CardAudioVisuals : MonoBehaviour
 				transform.localScale = Vector3.Lerp( transform.localScale, scaleToLerp, 0.25f );
 		}*/
 
-		lerpBackTimer -= Time.deltaTime;
+		//lerpBackTimer -= Time.deltaTime;
 	}
 
 	public void DoCardReveal( )

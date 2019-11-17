@@ -36,7 +36,7 @@ public class DeckBuilder : MonoBehaviour
 	public GameObject selectedSlot = null;
 	public GameObject otherSlot = null;
 
-	private bool upgrading = false;
+	//private bool upgrading = false;
 
 	private void Awake( )
 	{
@@ -101,7 +101,7 @@ public class DeckBuilder : MonoBehaviour
 
 	public void ShowUpgrade( )
 	{
-		upgrading = true;
+		//upgrading = true;
 		foreach ( var slot in upgradeSlots )
 			slot.Clear( );
 
@@ -115,7 +115,7 @@ public class DeckBuilder : MonoBehaviour
 	{
 		animator.SetTrigger( "HideUpgrade" );
 
-		upgrading = false;
+		//upgrading = false;
 		UpdateCollection( );
 	}
 
