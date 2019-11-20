@@ -37,6 +37,7 @@ public class PlayerHand : MonoBehaviour
 
 	private List<CardNew> cardsInHand = new List<CardNew>();
 	private CardNew cardBeingAdded = null;
+	private CardNew cardBeingDragged = null;
 
 	void Start( )
 	{
@@ -62,16 +63,27 @@ public class PlayerHand : MonoBehaviour
 		// Move cards
 		for ( int i = 0; i < cardsInHand.Count; i++ )
 		{
-			SetCardPosition( cardsInHand[i], i, cardsInHand.Count );
-			SetCardRotation( cardsInHand[i], i, cardsInHand.Count );
+			if ( cardBeingDragged && cardsInHand[i] == cardBeingDragged ) // We are dragging this card
+			{
+				DragCard( cardsInHand[i] );
+			}
+			else
+			{
+				SetCardPosition( cardsInHand[i], i, cardsInHand.Count );
+				SetCardRotation( cardsInHand[i], i, cardsInHand.Count );
+			}
 		}
 	}
 
 	public void AddCard( CardNew newCard )
 	{
 		cardBeingAdded = newCard;
+		newCard.onStartedDrag.AddListener( OnCardDragStart );
+		newCard.onEndedDrag.AddListener( OnCardDragEnd );
 		newCard.onOverEnter.AddListener( OnCardOverEnter );
 		newCard.onOverExit.AddListener( OnCardOverExit );
+		newCard.onClicked.AddListener( OnCardCliked );
+		newCard.onRelease.AddListener( OnCardReleased );
 	}
 
 	private void OnCardOverEnter( CardNew card )
@@ -84,13 +96,62 @@ public class PlayerHand : MonoBehaviour
 		card.Vizuals.NormalCard( );
 	}
 
+	private void OnCardDragStart( CardNew card )
+	{
+		if ( cardBeingDragged )
+			return;
+
+		cardBeingDragged = card;
+		Debug.Log( "Drag Start" );
+	}
+
+	private void OnCardDragEnd( CardNew card )
+	{
+		//if ( !cardBeingDragged )
+			//return;
+
+		cardBeingDragged = null;
+		Debug.Log( "Drag End" );
+	}
+
+	private void OnCardCliked( CardNew card )
+	{
+		if ( cardBeingDragged )
+			return;
+
+		cardBeingDragged = card;
+		Debug.Log( "Card Clicked" );
+	}
+
+	private void OnCardReleased( CardNew card )
+	{
+		//if ( !cardBeingDragged )
+			//return;
+
+		cardBeingDragged = null;
+		Debug.Log( "Card Released" );
+	}
+
 	private void DestroyCard( CardNew card )
 	{
+		card.onStartedDrag.RemoveAllListeners( );
+		card.onEndedDrag.RemoveAllListeners( );
 		card.onOverEnter.RemoveAllListeners( );
 		card.onOverExit.RemoveAllListeners( );
+		card.onClicked.RemoveAllListeners( );
+		card.onRelease.RemoveAllListeners( );
 
 		cardsInHand.Remove( card );
 		Destroy( card.gameObject );
+	}
+
+	private void DragCard( CardNew card )
+	{
+		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
+			return;
+
+		Vector2 cardsNewPosition = Input.mousePosition;
+		card.transform.position = cardsNewPosition;
 	}
 
 	private void SetCardPosition( CardNew card, int index, int totalCards )
@@ -104,12 +165,12 @@ public class PlayerHand : MonoBehaviour
 
 		float startXOffset = -xOffsetBetweenCards * totalCards / 2;
 
-		Vector3 cardPosition = transform.position + (Vector3)handOffset;
-		cardPosition.x += startXOffset + ( xOffsetBetweenCards * index );
+		Vector3 cardsNewPosition = transform.position + (Vector3)handOffset;
+		cardsNewPosition.x += startXOffset + ( xOffsetBetweenCards * index );
 
-		cardPosition = Vector2.Lerp( card.transform.position, cardPosition, lerpFactor );
+		cardsNewPosition = Vector2.Lerp( card.transform.position, cardsNewPosition, lerpFactor );
 
-		card.transform.position = cardPosition;
+		card.transform.position = cardsNewPosition;
 
 		/*Vector3 cardPosition = transform.GetChild( index ).position;
 
