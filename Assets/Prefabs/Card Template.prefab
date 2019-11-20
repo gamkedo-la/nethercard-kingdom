@@ -1119,12 +1119,12 @@ GameObject:
   - component: {fileID: 7093642061106177040}
   - component: {fileID: 5415234706346057147}
   m_Layer: 5
-  m_Name: Border Effect
+  m_Name: Shockwave Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5737181813260254751
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4767,6 +4767,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onClicked:
+    m_PersistentCalls:
+      m_Calls: []
   onRelease:
     m_PersistentCalls:
       m_Calls: []
@@ -4803,14 +4806,13 @@ MonoBehaviour:
   flavorLabel: {fileID: 7516414569761794859}
   cardImageFill: {fileID: 4082654261549637672}
   cardImageBorder: {fileID: 7709570893905777452}
-  cardEffectBorder: {fileID: 5415234706346057147}
+  shockwaveSprite: {fileID: 5415234706346057147}
   level2Marks: {fileID: 8316853887358613013}
   level3Marks: {fileID: 6922430876743819119}
   stack1: {fileID: 4700742916440669921}
   stack2: {fileID: 6660350461505713513}
   overInBuilderScale: {x: 1.07, y: 1.07, z: 1.07}
   overInHandScale: {x: 1.07, y: 1.07, z: 1.07}
-  dragAlpha: 0.9
 --- !u!114 &2212851026527666623
 MonoBehaviour:
   m_ObjectHideFlags: 0

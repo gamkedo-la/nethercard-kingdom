@@ -33,13 +33,19 @@ public class HandCardsLayout : MonoBehaviour
 
     void Start()
     {
-        if(addWidthToDiscardedX)
+		if ( CheatAndDebug.Instance.UseAlternateImplementations )
+			return;
+
+		if (addWidthToDiscardedX)
             discardedCardOffset += new Vector2(Screen.width, 0.0f);
     }
 
     private int GetHoverCardIndex( int totalCards )
     {
-        for(int hoverCardIndex = 0; hoverCardIndex < totalCards; hoverCardIndex++)
+		if ( CheatAndDebug.Instance.UseAlternateImplementations )
+			return -1;
+
+		for (int hoverCardIndex = 0; hoverCardIndex < totalCards; hoverCardIndex++)
             if(transform.GetChild(hoverCardIndex).GetComponent<Card>() == Card.hoverCard)
                 return hoverCardIndex;
 
@@ -48,7 +54,10 @@ public class HandCardsLayout : MonoBehaviour
 
     private void SetCardPosition( int totalCards, int index, int hoverCardIndex = -1 )
     {
-        Vector3 cardPosition = transform.GetChild(index).position;
+		if ( CheatAndDebug.Instance.UseAlternateImplementations )
+			return;
+
+		Vector3 cardPosition = transform.GetChild(index).position;
 
         Vector3 newCardPosition = Vector3.zero;
         newCardPosition.x = (Screen.width / 2) + xOffset + ((index - (totalCards / 2))
@@ -93,7 +102,10 @@ public class HandCardsLayout : MonoBehaviour
 
     private void SetCardRotation( int totalCards, int index, int hoverCardIndex = -1 )
     {
-        transform.GetChild(index).rotation = Quaternion.Lerp(transform.GetChild(index).rotation,
+		if ( CheatAndDebug.Instance.UseAlternateImplementations )
+			return;
+
+		transform.GetChild(index).rotation = Quaternion.Lerp(transform.GetChild(index).rotation,
             Quaternion.Euler(0f, 0f, (index == hoverCardIndex ? 0.0f : angleOffset + (((float)index - (totalCards / 2.0f))
             * ((float)angleOffsetBetweenCards / totalCards)))),
             lerpFactor);
@@ -101,7 +113,10 @@ public class HandCardsLayout : MonoBehaviour
 
     void Update()
     {
-        int totalCards = transform.childCount;
+		if ( CheatAndDebug.Instance.UseAlternateImplementations )
+			return;
+
+		int totalCards = transform.childCount;
         int hoverCardIndex = GetHoverCardIndex(totalCards);
         for(int i = 0; i < totalCards; i++)
         {

@@ -48,7 +48,7 @@ public class CardAudioVisuals : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI flavorLabel = null;
 	[SerializeField] private Image cardImageFill = null;
 	[SerializeField] private Image cardImageBorder = null;
-	[SerializeField] private Image cardEffectBorder = null;
+	[SerializeField] private Image shockwaveSprite = null;
 	[SerializeField] private GameObject level2Marks = null;
 	[SerializeField] private GameObject level3Marks = null;
 	[SerializeField] private GameObject stack1 = null;
@@ -98,7 +98,7 @@ public class CardAudioVisuals : MonoBehaviour
 		Assert.IsNotNull( abilityLabel, $"Please assign <b>{nameof( abilityLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( cardImageFill, $"Please assign <b>{nameof( cardImageFill )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( cardImageBorder, $"Please assign <b>{nameof( cardImageBorder )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
-		Assert.IsNotNull( cardEffectBorder, $"Please assign <b>{nameof( cardEffectBorder )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( shockwaveSprite, $"Please assign <b>{nameof( shockwaveSprite )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( level2Marks, $"Please assign <b>{nameof( level2Marks )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( level3Marks, $"Please assign <b>{nameof( level3Marks )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( stack1, $"Please assign <b>{nameof( stack1 )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
@@ -176,11 +176,12 @@ public class CardAudioVisuals : MonoBehaviour
 		animator.SetFloat( "StartPosition", Random.Range( 0f, 1f ) );
 		animator.SetBool( "Shake", true );
 
-		cardEffectBorder.transform.localScale = Vector3.one;
+		shockwaveSprite.gameObject.SetActive( true );
+		shockwaveSprite.transform.localScale = Vector3.one;
 
-		Color c = cardEffectBorder.color;
+		Color c = shockwaveSprite.color;
 		c.a = 1;
-		cardEffectBorder.color = c;
+		shockwaveSprite.color = c;
 
 		sizeIncrease = 0.2f;
 		float duration = 0.2f;
@@ -192,11 +193,12 @@ public class CardAudioVisuals : MonoBehaviour
 
 	public void OnInformation( )
 	{
-		cardEffectBorder.transform.localScale = Vector3.one;
+		shockwaveSprite.gameObject.SetActive( true );
+		shockwaveSprite.transform.localScale = Vector3.one;
 
-		Color c = cardEffectBorder.color;
+		Color c = shockwaveSprite.color;
 		c.a = 1;
-		cardEffectBorder.color = c;
+		shockwaveSprite.color = c;
 
 		sizeIncrease = 0.2f;
 		float duration = 0.5f;
@@ -205,10 +207,10 @@ public class CardAudioVisuals : MonoBehaviour
 
 	private void BorderEffect( float progress )
 	{
-		cardEffectBorder.transform.localScale = Vector3.one * ( 1.0f + sizeIncrease * progress);
-		Color c = cardEffectBorder.color;
+		shockwaveSprite.transform.localScale = Vector3.one * ( 1.0f + sizeIncrease * progress);
+		Color c = shockwaveSprite.color;
 		c.a = 1 - progress;
-		cardEffectBorder.color = c;
+		shockwaveSprite.color = c;
 	}
 
 	public void OffWarning( )
