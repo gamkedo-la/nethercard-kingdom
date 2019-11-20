@@ -4705,6 +4705,7 @@ MonoBehaviour:
   toSummon: {fileID: 0}
   lowerLevelVersion: {fileID: 0}
   higherLevelVersion: {fileID: 0}
+  vizuals: {fileID: 4395479231106108376}
   type: 0
   level: 0
   useCost: 2

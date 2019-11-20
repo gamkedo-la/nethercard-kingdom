@@ -168,7 +168,7 @@ public class CardSlot : MonoBehaviour
 	private void OnCardOverEnter( )
 	{
 		if ( !cardIsDraged && !returning )
-			cardInSlot.GetComponent<CardAudioVisuals>( ).HighlightCard( );
+			cardInSlot.GetComponent<CardAudioVisuals>( ).HighlightCardInDeck( );
 	}
 
 	private void OnCardOverExit( )

@@ -55,8 +55,8 @@ public class CardAudioVisuals : MonoBehaviour
 	[SerializeField] private GameObject stack2 = null;
 
 	[Header("Parameters")]
-	[SerializeField] private Vector3 overInBuilderScale = Vector3.one * 1.07f;
-	[SerializeField] private Vector3 overInHandScale = Vector3.one * 1.07f;
+	[SerializeField] private float overInBuilderScale = 1.2f;
+	[SerializeField] private float overInHandScale = 1.4f;
 
 	//private Card hoverCard = null;
 	private Card draggedCard = null;
@@ -72,7 +72,7 @@ public class CardAudioVisuals : MonoBehaviour
 	private Vector2 mousePosOld = Vector3.one;
 
 	private Vector3 scaleToLerp = Vector3.one;
-	private Vector3 overScale = Vector3.one;
+	//private Vector3 overScale = Vector3.one;
 	private Vector3 defaultScale = Vector3.one;
 	private Vector3 previousPosition = Vector3.zero;
 	//private bool canBeUnselected = false;
@@ -104,7 +104,7 @@ public class CardAudioVisuals : MonoBehaviour
 		Assert.IsNotNull( stack1, $"Please assign <b>{nameof( stack1 )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( stack2, $"Please assign <b>{nameof( stack2 )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
-		overScale = overInBuilderScale; // TODO: Get info from CardNew and set the correct scale
+		//overScale = Vector3.one * overInBuilderScale; // TODO: Get info from CardNew and set the correct scale
 
 		PopulateCardInfo( );
 	}
@@ -266,13 +266,25 @@ public class CardAudioVisuals : MonoBehaviour
 		}*/
 	}
 
-	public void HighlightCard( )
+	public void HighlightCardInDeck( )
 	{
-		defaultScale = overScale;
+		Enlarge( overInBuilderScale );
+	}
+
+	public void HighlightCardInHand( )
+	{
+		Enlarge( overInBuilderScale );
+	}
+
+	private void Enlarge( float scale )
+	{
+		defaultScale = Vector3.one * scale;
 		scaleToLerp = defaultScale;
 
 		frontCanvas.overrideSorting = true;
 		frontCanvas.sortingOrder = 10100;
+
+		overSound.Play( );
 	}
 
 	public void NormalCard( )
@@ -464,11 +476,13 @@ public class CardAudioVisuals : MonoBehaviour
 
 	private void ShowBigger( )
 	{
-		defaultScale = overScale;
+		defaultScale = Vector3.one * overInBuilderScale;
 		scaleToLerp = defaultScale;
 
 		frontCanvas.overrideSorting = true;
 		frontCanvas.sortingOrder = 10100;
+
+		overSound.Play( );
 	}
 
 	private void StartSummoning( )

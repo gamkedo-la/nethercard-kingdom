@@ -7,6 +7,7 @@ public class Deck : MonoBehaviour
 {
 	[Header("External")]
 	[SerializeField] private PlayerCards playerCards = null;
+	[SerializeField] private PlayerHand playerHand = null;
 
 	[Header("Sounds")]
 	[SerializeField] private PlaySound shuffleSound = null;
@@ -100,6 +101,10 @@ public class Deck : MonoBehaviour
 		);
 		newCard.transform.SetParent( hand.transform, true );
 		newCard.transform.SetSiblingIndex( 0 );
+
+		if ( CheatAndDebug.Instance.UseAlternateImplementations )
+			playerHand.AddCard( newCard.GetComponent<CardNew>( ) );
+
 		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
 			newCard.GetComponent<Card>( ).DoCardReveal( );
 		else

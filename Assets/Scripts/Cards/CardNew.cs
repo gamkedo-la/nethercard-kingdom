@@ -17,11 +17,13 @@ public class CardNew : MonoBehaviour
 	public string Name { get { return displayName; } }
 	public Card LowerLevelVersion { get { return lowerLevelVersion; } }
 	public Card HigherLevelVersion { get { return higherLevelVersion; } }
+	public CardAudioVisuals Vizuals { get { return vizuals; } }
 
-	[Header("External Objects")]
+	[Header("Objects")]
 	[SerializeField] private GameObject toSummon = null;
 	[SerializeField] private Card lowerLevelVersion = null;
 	[SerializeField] private Card higherLevelVersion = null;
+	[SerializeField] private CardAudioVisuals vizuals = null;
 
 	[Header("Card Parameters")]
 	[SerializeField] private CardType type = CardType.Unit;
@@ -45,6 +47,7 @@ public class CardNew : MonoBehaviour
 	void Start( )
 	{
 		Assert.IsNotNull( toSummon, $"Please assign <b>{nameof( toSummon )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( vizuals, $"Please assign <b>{nameof( vizuals )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
 		if ( level == CardLevel.Level1 || level == CardLevel.Level2 )
 			Assert.IsNotNull( higherLevelVersion, $"Please assign <b>{nameof( higherLevelVersion )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );

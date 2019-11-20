@@ -722,6 +722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17bf3918d1eaef4e8f56f2471bcaa28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handOffset: {x: 75, y: -50}
   lerpFactor: 0.25
   totalCardsAllowed: 3
   discardedCardOffset: {x: 100, y: 0}
@@ -729,7 +730,7 @@ MonoBehaviour:
   xOffset: 0
   yOffset: 70
   angleOffset: -12.5
-  xOffsetBetweenCards: 270
+  xOffsetBetweenCards: 125
   yOffsetBetweenCards: -50
   angleOffsetBetweenCards: -60
   hoverCardGap: 50
@@ -949,6 +950,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCards: {fileID: 0}
+  playerHand: {fileID: 1847333003685226086}
   shuffleSound: {fileID: 9008109989124004861}
   drawSound: {fileID: 7904294024459231864}
   drawSoundDelay: 0.6
