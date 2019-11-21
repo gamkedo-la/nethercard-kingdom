@@ -62,7 +62,7 @@ public class CardSlot : MonoBehaviour
 		}
 	}
 
-	public void Set( PlayerCard playerCard, int index, System.Action<int,bool> onDrag, System.Action<int> onDrop, System.Action<int> onClick )
+	public void Set( PlayerCard playerCard, int index, System.Action<int,bool> onDrag, System.Action<int> onDrop, System.Action<int> onClick, bool upgrading )
 	{
 		Clear( );
 
@@ -99,6 +99,13 @@ public class CardSlot : MonoBehaviour
 
 		if ( mode == CardSelectionMode.InCollection )
 			amount.SetActive( true );
+
+		// Hide cards that are fewer then the min amount for upgrading and that have max level
+		if ( upgrading && ( playerCard.Amount < PlayerCards.MinCardsForUpgrade || !go.GetComponent<CardNew>( ).HigherLevelVersion ) )
+		{
+			cardInSlot.gameObject.SetActive( false );
+			amount.SetActive( false );
+		}
 	}
 
 	public bool IsEmpty( )
@@ -146,13 +153,13 @@ public class CardSlot : MonoBehaviour
 		///DeckBuilder.Instance.MoveSlot( );
 		//Debug.Log( $"Drop: {name} -> {cardInSlot.GetComponent<CardNew>( ).Name}" );
 		//Debug.Log( $"Drop: {name}" );
-		onDrop.Invoke( index );
+		onDrop?.Invoke( index );
 	}
 
 	public void OnClicked( )
 	{
 		//Debug.Log( $"{name} click event" );
-		onClick.Invoke( index );
+		onClick?.Invoke( index );
 	}
 
 	public void OnWarning( )

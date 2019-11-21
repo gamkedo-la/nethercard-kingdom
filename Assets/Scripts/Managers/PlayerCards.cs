@@ -23,6 +23,7 @@ public class PlayerCards : MonoBehaviour
 
 	public const int MaxCardsInDeck = 10;
 	public const int MaxIdenticalCardsInDeck = 3;
+	public const int MinCardsForUpgrade = 2;
 
 	private const string PlayerCollection = "Player Collection";
 	private const string PlayerDeck = "Player Deck";

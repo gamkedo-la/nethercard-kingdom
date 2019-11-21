@@ -21,6 +21,10 @@ public class CollectionManager : MonoBehaviour
 	[SerializeField] private GameObject collectionSlot = null;
 	[SerializeField] private Transform slotsParent = null;
 
+	[Header("Upgrading")]
+	[SerializeField] private CardSlot upgradSlot1 = null;
+	[SerializeField] private CardSlot upgradSlot2 = null;
+
 	[Header("Parameters")]
 	[SerializeField] private int minSlots = 20;
 
@@ -29,6 +33,7 @@ public class CollectionManager : MonoBehaviour
 	private int draggedSlotIndex = int.MinValue;
 	private PlayerCard cardDragged;
 	private PlayerCard cardDraggedFromDeck;
+	private bool upgrading = false;
 
 	void Start ()
 	{
@@ -37,6 +42,8 @@ public class CollectionManager : MonoBehaviour
 		Assert.IsNotNull( collectionSlot, $"Please assign <b>{nameof( collectionSlot )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( slotsParent, $"Please assign <b>{nameof( slotsParent )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( tooltip, $"Please assign <b>{nameof( tooltip )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( upgradSlot1, $"Please assign <b>{nameof( upgradSlot1 )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( upgradSlot2, $"Please assign <b>{nameof( upgradSlot2 )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
 		GetCollectionCards( );
 		CreateLayout( );
@@ -51,6 +58,12 @@ public class CollectionManager : MonoBehaviour
 	public PlayerCard GetDraggedCard( )
 	{
 		return cardDragged;
+	}
+
+	public void Upgrading( bool upgrading )
+	{
+		this.upgrading = upgrading;
+		DisplayCollection( );
 	}
 
 	/*public void DraggedCardAddedToDeck( )
@@ -153,7 +166,7 @@ public class CollectionManager : MonoBehaviour
 		cardDraggedFromDeck = null;
 
 		for ( int i = 0; i < collection.Count; i++ )
-			slots[i].Set( collection[i], i, CardDragedEvent, CardDroppedEvent, ClickedOnSlotEvent );
+			slots[i].Set( collection[i], i, CardDragedEvent, CardDroppedEvent, ClickedOnSlotEvent, upgrading );
 	}
 
 	private void ClickedOnSlotEvent( int dropSlotIndex )

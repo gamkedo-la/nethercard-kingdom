@@ -4812,9 +4812,10 @@ MonoBehaviour:
   level3Marks: {fileID: 6922430876743819119}
   stack1: {fileID: 4700742916440669921}
   stack2: {fileID: 6660350461505713513}
-  overInBuilderScale: 1.2
+  overInBuilderScale: 1.5
   overInHandScale: 1.4
   alphaOnDraggedFromHand: 0.8
+  alphaOnCanNotBePlayed: 0.5
 --- !u!114 &2212851026527666623
 MonoBehaviour:
   m_ObjectHideFlags: 0

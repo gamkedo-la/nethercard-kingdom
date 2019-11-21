@@ -145,7 +145,7 @@ public class DeckManager : MonoBehaviour
 		cardDraggedFromCollection = null;
 
 		for ( int i = 0; i < deck.Count; i++ )
-			slots[i].Set( deck[i], i, CardDragedEvent, CardDroppedEvent, ClickedOnSlotEvent );
+			slots[i].Set( deck[i], i, CardDragedEvent, CardDroppedEvent, ClickedOnSlotEvent, false );
 
 		// We should be able to save the deck only if we have all the slots in it filled
 		int cardsInDeck = deck.Where( card => card != null ).Count( );

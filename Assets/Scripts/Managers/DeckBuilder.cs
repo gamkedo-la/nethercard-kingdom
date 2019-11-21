@@ -16,6 +16,7 @@ public class DeckBuilder : MonoBehaviour
 	public static DeckBuilder Instance { get; private set; }
 
 	[Header("Objects")]
+	[SerializeField] private CollectionManager collectionManager = null;
 	[SerializeField] private PlayerCards playerCards = null;
 	[SerializeField] private Animator animator = null;
 	[SerializeField] private Button combineButton = null;
@@ -50,6 +51,7 @@ public class DeckBuilder : MonoBehaviour
 
 	void Start( )
 	{
+		Assert.IsNotNull( collectionManager, $"Please assign <b>{nameof( collectionManager )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( playerCards, $"Please assign <b>{nameof( playerCards )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( combineButton, $"Please assign <b>{nameof( combineButton )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( tooltip, $"Please assign <b>{nameof( tooltip )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
@@ -102,6 +104,7 @@ public class DeckBuilder : MonoBehaviour
 	public void ShowUpgrade( )
 	{
 		//upgrading = true;
+		collectionManager.Upgrading( true );
 		foreach ( var slot in upgradeSlots )
 			slot.Clear( );
 
@@ -116,6 +119,7 @@ public class DeckBuilder : MonoBehaviour
 		animator.SetTrigger( "HideUpgrade" );
 
 		//upgrading = false;
+		collectionManager.Upgrading( false );
 		UpdateCollection( );
 	}
 
