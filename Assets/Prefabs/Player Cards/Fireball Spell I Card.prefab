@@ -131,6 +131,38 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: displayName
+      value: Fireball
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: abilityText
+      value: Does <b>2 damage</b> in a <b>radius of 2</b>
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: flavorText
+      value: Is it just me or it's getting hot in here?
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: toSummon
+      value: 
+      objectReference: {fileID: 6231682137157405236, guid: 81aac6fb233bf72468f5cd28b7c47091,
+        type: 3}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: higherLevelVersion
+      value: 
+      objectReference: {fileID: 6930457677133692945, guid: 0b9c379e397653d43ae7e48ca5d309b2,
+        type: 3}
     - target: {fileID: 599770410723825185, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -194,12 +226,12 @@ PrefabInstance:
     - target: {fileID: 1233436760897186984, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 0.4000051
       objectReference: {fileID: 0}
     - target: {fileID: 1233436760897186984, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -62.7
+      value: 2.4999719
       objectReference: {fileID: 0}
     - target: {fileID: 1233436760897186984, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
@@ -219,12 +251,12 @@ PrefabInstance:
     - target: {fileID: 324323832227509520, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 324323832227509520, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 65.2
       objectReference: {fileID: 0}
     - target: {fileID: 7891738255828009717, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
@@ -242,38 +274,6 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -4247683970634298323, guid: 17d5d6d0902be654bbbce749868c8774,
-        type: 3}
-    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: type
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: displayName
-      value: Fireball
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: abilityText
-      value: Does <b>2 damage</b> in a <b>radius of 2</b>
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: flavorText
-      value: Is it just me or it's getting hot in here?
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: toSummon
-      value: 
-      objectReference: {fileID: 6231682137157405236, guid: 81aac6fb233bf72468f5cd28b7c47091,
-        type: 3}
-    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: higherLevelVersion
-      value: 
-      objectReference: {fileID: 6930457677133692945, guid: 0b9c379e397653d43ae7e48ca5d309b2,
         type: 3}
     - target: {fileID: 4499324498473488953, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}

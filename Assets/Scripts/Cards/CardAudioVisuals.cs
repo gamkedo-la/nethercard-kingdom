@@ -58,6 +58,7 @@ public class CardAudioVisuals : MonoBehaviour
 	[SerializeField] private float overInBuilderScale = 1.2f;
 	[SerializeField] private float overInHandScale = 1.4f;
 	[SerializeField] private float alphaOnDraggedFromHand = 0.8f;
+	[SerializeField] private float alphaOnCanNotBePlayed = 0.5f;
 
 	//private Card hoverCard = null;
 	private Card draggedCard = null;
@@ -76,7 +77,7 @@ public class CardAudioVisuals : MonoBehaviour
 	//private Vector3 overScale = Vector3.one;
 	private Vector3 defaultScale = Vector3.one;
 	private Vector3 previousPosition = Vector3.zero;
-	//private bool canBeUnselected = false;
+	private bool showPreview = false;
 
 	void Start( )
 	{
@@ -137,6 +138,19 @@ public class CardAudioVisuals : MonoBehaviour
 			//transform.position = newPos;
 			//transform.position = mouseNewPos;
 			//Position = mouseNewPos;
+		}
+
+		// Show and drag preview
+		if ( showPreview )
+		{
+			liveImage.alpha = Mathf.Lerp( liveImage.alpha, 0.5f, 0.15f );
+			liveImage.transform.position = Input.mousePosition;
+		}
+		// Return preview to card position
+		else if (!showPreview && Vector2.Distance( liveImage.transform.localPosition, Vector2.zero) > 1 )
+		{
+			liveImage.transform.localPosition = Vector2.Lerp( liveImage.transform.localPosition, Vector2.zero, 0.1f );
+			liveImage.alpha = Mathf.Lerp( liveImage.alpha, 0f, 0.1f );
 		}
 
 		/*}
@@ -220,6 +234,24 @@ public class CardAudioVisuals : MonoBehaviour
 		//animator.enabled = false;
 	}
 
+	public void CanBePlayed( bool canBePlayed )
+	{
+		alpha = canBePlayed ? 1.0f : alphaOnCanNotBePlayed;
+	}
+
+	public void ShowPreview( Vector2 position )
+	{
+		liveImage.alpha = Mathf.Lerp( liveImage.alpha, 0.5f, 0.15f );
+		liveImage.transform.rotation = Quaternion.identity;
+		liveImage.transform.position = position;//Vector2.Lerp( transform.position, position, 0.25f );
+	}
+
+	public void ShowPreview( bool show )
+	{
+		showPreview = show;
+		liveImage.transform.rotation = Quaternion.identity;
+	}
+
 	public void OnOverEnter( )
 	{
 		//over = true;
@@ -282,6 +314,8 @@ public class CardAudioVisuals : MonoBehaviour
 		alpha = alphaOnDraggedFromHand;
 		canvasGroup.blocksRaycasts = false;
 		canvasGroup.interactable = false;
+
+		playSound.Play( );
 	}
 
 	public void NormalCard( )
@@ -495,26 +529,46 @@ public class CardAudioVisuals : MonoBehaviour
 		overSound.Play( );
 	}
 
-	private void StartSummoning( )
+	public void StartSummoning( )
 	{
-		//if ( !SummoningManager.Instance.EnoughMana( useCost ) )
-			//return;
-
-		//draggedCard = this;
-		OnOverEnter( );
-
-		//SummoningManager.Instance.Summoning( Camera.main.ScreenToWorldPoint( Input.mousePosition ), type, true );
 		playSound.Play( );
 	}
 
-	private void EndSummoning( )
+	public void EndSummoning( )
 	{
-		if ( draggedCard != this )
-			return;
+		//if ( draggedCard != this )
+			//return;
 
 		canvasGroup.alpha = 1f;
-		draggedCard = null;
-		OnOverExit( );
+		//draggedCard = null;
+		//OnOverExit( );
+
+		//bool canSummon = SummoningManager.Instance.Summoning( Vector2.zero, type, false );
+
+		/*if ( canSummon )
+		{
+			GameObject instance = Instantiate( toSummon, (Vector2)Camera.main.ScreenToWorldPoint( Input.mousePosition ), Quaternion.identity );
+			if ( type == CardType.DirectDefensiveSpell || type == CardType.DirectOffensiveSpell || type == CardType.AoeSpell )
+				instance.GetComponent<Spell>( ).SetTarget( SummoningManager.Instance.LastTarget );
+
+			SummoningManager.Instance.RemoveMana( useCost );
+			Destroy( gameObject );
+		}
+		else
+			backSound.Play( );*/
+	}
+
+	public void CancelSummoning( )
+	{
+		//if ( draggedCard != this )
+		//return;
+
+		canvasGroup.alpha = 1f;
+		backSound.Play( );
+
+		//liveImage.alpha = 0f;
+		//draggedCard = null;
+		//OnOverExit( );
 
 		//bool canSummon = SummoningManager.Instance.Summoning( Vector2.zero, type, false );
 

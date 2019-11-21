@@ -18,6 +18,10 @@ public class CardNew : MonoBehaviour
 	public Card LowerLevelVersion { get { return lowerLevelVersion; } }
 	public Card HigherLevelVersion { get { return higherLevelVersion; } }
 	public CardAudioVisuals Vizuals { get { return vizuals; } }
+	public int UseCost { get { return useCost; } }
+	public CardType Type { get { return type; } }
+	public GameObject ToSummon { get { return toSummon; } }
+	public bool CanBePlayed { get; private set; } = true;
 
 	[Header("Objects")]
 	[SerializeField] private GameObject toSummon = null;
@@ -65,6 +69,26 @@ public class CardNew : MonoBehaviour
 		// We were 'click dragging' and pressed our mouse button
 		if ( dragging && Input.GetMouseButtonDown( 0 ) )
 			OnEndDrag( );
+	}
+
+	void FixedUpdate( )
+	{
+		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
+			return;
+
+		if ( SelectionMode != CardSelectionMode.InHand)
+			return;
+
+		if ( SummoningManager.Instance.EnoughMana( useCost ) && !CanBePlayed )
+		{
+			CanBePlayed = true;
+			vizuals.CanBePlayed( true );
+		}
+		else if ( !SummoningManager.Instance.EnoughMana( useCost ) && CanBePlayed )
+		{
+			CanBePlayed = false;
+			vizuals.CanBePlayed( false );
+		}
 	}
 
 	public void OnOverEnter( )
@@ -215,7 +239,7 @@ public class CardNew : MonoBehaviour
 		else
 			dragging = true;
 
-		Debug.Log( $"On Begin Drag: {name}" );
+		//Debug.Log( $"On Begin Drag: {name}" );
 		onStartedDrag?.Invoke( this );
 
 		/*if ( selectionMode == CardSelectionMode.InHand )
@@ -235,7 +259,7 @@ public class CardNew : MonoBehaviour
 		else
 			dragging = false;
 
-		Debug.Log( $"On End Drag: {name}" );
+		//Debug.Log( $"On End Drag: {name}" );
 		onEndedDrag?.Invoke( this );
 
 		/*if ( selectionMode == CardSelectionMode.InHand )

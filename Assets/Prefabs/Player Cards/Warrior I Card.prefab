@@ -109,6 +109,33 @@ PrefabInstance:
       propertyPath: m_textInfo.wordCount
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: displayName
+      value: Warrior
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: abilityText
+      value: Fast melee fighter
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: flavorText
+      value: The backbone of any army
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: toSummon
+      value: 
+      objectReference: {fileID: 2668035767640978774, guid: a3aef32aff04f584ebe6f087e87f6621,
+        type: 3}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: higherLevelVersion
+      value: 
+      objectReference: {fileID: 302018811114448746, guid: 364b5ae33201a35488c849af8147a408,
+        type: 3}
     - target: {fileID: 599770410723825185, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -144,53 +171,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 0.81
       objectReference: {fileID: 0}
-    - target: {fileID: 1233436760897186984, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 9.300013
-      objectReference: {fileID: 0}
-    - target: {fileID: 1233436760897186984, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -1.7998931
-      objectReference: {fileID: 0}
-    - target: {fileID: 324323832227509520, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 9.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 324323832227509520, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -7.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: displayName
-      value: Warrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: abilityText
-      value: Fast melee fighter
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: flavorText
-      value: The backbone of any army
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: toSummon
-      value: 
-      objectReference: {fileID: 2668035767640978774, guid: a3aef32aff04f584ebe6f087e87f6621,
-        type: 3}
-    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: higherLevelVersion
-      value: 
-      objectReference: {fileID: 302018811114448746, guid: 364b5ae33201a35488c849af8147a408,
-        type: 3}
     - target: {fileID: 1908062142719847500, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: m_Sprite

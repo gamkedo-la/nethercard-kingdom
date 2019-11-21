@@ -75,6 +75,9 @@ public class PlayerHand : MonoBehaviour
 				SetCardRotation( cardsInHand[i], i, cardsInHand.Count, cardBeingOver == cardsInHand[i] ? false : cardBeingOver, cardBeingDragged == cardsInHand[i] ? false : cardBeingDragged );
 			}
 		}
+
+		// Drag spell preview if we have a card being dragged
+		//cardBeingDragged?.Vizuals.ShowPreview( Input.mousePosition );
 	}
 
 	public void AddCard( CardNew newCard )
@@ -113,9 +116,14 @@ public class PlayerHand : MonoBehaviour
 		if ( cardBeingDragged )
 			return;
 
+		if ( !SummoningManager.Instance.EnoughMana( card.UseCost ) )
+			return;
+
+		//Debug.Log( "Drag Start" );
 		cardBeingDragged = card;
 		card.Vizuals.DraggedFromHand( );
-		Debug.Log( "Drag Start" );
+		card.Vizuals.ShowPreview( true );
+		StartSummoning( card );
 	}
 
 	private void OnCardDragEnd( CardNew card )
@@ -123,9 +131,11 @@ public class PlayerHand : MonoBehaviour
 		if ( !cardBeingDragged )
 			return;
 
+		//Debug.Log( "Drag End" );
+		card.Vizuals.ShowPreview( false );
 		cardBeingDragged = null;
 		OnCardOverExit( card );
-		Debug.Log( "Drag End" );
+		EndSummoning( card );
 	}
 
 	private void OnCardCliked( CardNew card )
@@ -134,9 +144,9 @@ public class PlayerHand : MonoBehaviour
 			return;
 
 		//OnCardDragStart( card );
+		//Debug.Log( "Card Clicked" );
 		card.OnBeginDrag( );
 		//cardBeingDragged = card;
-		//Debug.Log( "Card Clicked" );
 	}
 
 	private void OnCardReleased( CardNew card )
@@ -144,9 +154,9 @@ public class PlayerHand : MonoBehaviour
 		if ( !cardBeingDragged )
 			return;
 
-		OnCardDragEnd( card );
-		//cardBeingDragged = null;
 		//Debug.Log( "Card Released" );
+		//OnCardDragEnd( card );
+		//cardBeingDragged = null;
 	}
 
 	private void DestroyCard( CardNew card )
@@ -169,6 +179,51 @@ public class PlayerHand : MonoBehaviour
 		// TODO: Show and drag live preview
 		//Vector2 cardsNewPosition = Input.mousePosition;
 		//card.transform.position = cardsNewPosition;
+	}
+
+	private void StartSummoning( CardNew card )
+	{
+		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
+			return;
+
+		//Debug.Log( $"On Start Summoning: {name}" );
+
+		//if ( !SummoningManager.Instance.EnoughMana( card.UseCost ) )
+			//return;
+
+		//draggedCard = this;
+		//OnOverEnter( );
+
+		SummoningManager.Instance.Summoning( Camera.main.ScreenToWorldPoint( Input.mousePosition ), card.Type, true );
+		//card.Vizuals.StartSummoning( );
+	}
+
+	private void EndSummoning( CardNew card )
+	{
+		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
+			return;
+
+		//Debug.Log( $"On End Summoning: {name}" );
+
+		/*if ( draggedCard != this )
+			return;*/
+
+		//OnOverExit( );
+
+		bool canSummon = SummoningManager.Instance.Summoning( Vector2.zero, card.Type, false );
+
+		if ( canSummon )
+		{
+			GameObject instance = Instantiate( card.ToSummon, (Vector2)Camera.main.ScreenToWorldPoint( Input.mousePosition ), Quaternion.identity );
+			if ( card.Type == CardType.DirectDefensiveSpell || card.Type == CardType.DirectOffensiveSpell || card.Type == CardType.AoeSpell )
+				instance.GetComponent<Spell>( ).SetTarget( SummoningManager.Instance.LastTarget );
+
+			SummoningManager.Instance.RemoveMana( card.UseCost );
+			card.Vizuals.EndSummoning( );
+			DestroyCard( card );
+		}
+		else
+			card.Vizuals.CancelSummoning( );
 	}
 
 	private void SetCardPosition( CardNew card, int index, int totalCards, bool haveOverCard, bool haveDragCard )

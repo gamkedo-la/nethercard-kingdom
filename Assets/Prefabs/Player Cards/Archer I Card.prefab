@@ -126,6 +126,38 @@ PrefabInstance:
       propertyPath: m_textInfo.wordCount
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: toSummon
+      value: 
+      objectReference: {fileID: 7590239647103969355, guid: 7abe3553994f2444ba9439d88e45061d,
+        type: 3}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: higherLevelVersion
+      value: 
+      objectReference: {fileID: 6727232176801188089, guid: 7dc7cebc02c5fa445960646a217fe88c,
+        type: 3}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: displayName
+      value: Archer
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: abilityText
+      value: A standard ranged unit
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: flavorText
+      value: Keep your distance!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: useCost
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 599770410723825185, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -179,12 +211,12 @@ PrefabInstance:
     - target: {fileID: 1233436760897186984, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.6999569
+      value: 53.800034
       objectReference: {fileID: 0}
     - target: {fileID: 1233436760897186984, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 12.400032
+      value: 6.100047
       objectReference: {fileID: 0}
     - target: {fileID: 1233436760897186984, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
@@ -204,7 +236,7 @@ PrefabInstance:
     - target: {fileID: 324323832227509520, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 14
+      value: 7.7
       objectReference: {fileID: 0}
     - target: {fileID: 324323832227509520, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
@@ -219,7 +251,7 @@ PrefabInstance:
     - target: {fileID: 324323832227509520, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.7
+      value: 53.8
       objectReference: {fileID: 0}
     - target: {fileID: 324323832227509520, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
@@ -262,38 +294,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 0.9764706
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: toSummon
-      value: 
-      objectReference: {fileID: 7590239647103969355, guid: 7abe3553994f2444ba9439d88e45061d,
-        type: 3}
-    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: higherLevelVersion
-      value: 
-      objectReference: {fileID: 6727232176801188089, guid: 7dc7cebc02c5fa445960646a217fe88c,
-        type: 3}
-    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: displayName
-      value: Archer
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: abilityText
-      value: A standard ranged unit
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: flavorText
-      value: Keep your distance!
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: useCost
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4499324498473488953, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}

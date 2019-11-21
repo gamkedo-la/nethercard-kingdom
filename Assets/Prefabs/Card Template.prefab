@@ -3720,7 +3720,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7.09993, y: 0.000034332275}
+  m_AnchoredPosition: {x: 0.00006508827, y: 71.10005}
   m_SizeDelta: {x: 76.73, y: 147.32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8878487956959249413
@@ -4812,8 +4812,9 @@ MonoBehaviour:
   level3Marks: {fileID: 6922430876743819119}
   stack1: {fileID: 4700742916440669921}
   stack2: {fileID: 6660350461505713513}
-  overInBuilderScale: {x: 1.07, y: 1.07, z: 1.07}
-  overInHandScale: {x: 1.07, y: 1.07, z: 1.07}
+  overInBuilderScale: 1.2
+  overInHandScale: 1.4
+  alphaOnDraggedFromHand: 0.8
 --- !u!114 &2212851026527666623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4940,7 +4941,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -13, y: 0.000034332275}
+  m_AnchoredPosition: {x: -5.9, y: 71.1}
   m_SizeDelta: {x: 76.73, y: 147.32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6479567897110382478

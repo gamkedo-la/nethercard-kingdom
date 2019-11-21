@@ -116,6 +116,43 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: toSummon
+      value: 
+      objectReference: {fileID: 2368629734656113217, guid: 35a94911febecc64c85c2cf654837ab4,
+        type: 3}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: higherLevelVersion
+      value: 
+      objectReference: {fileID: 6970642807188303820, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
+        type: 3}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: useCost
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: displayName
+      value: Healing
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: abilityText
+      value: Heal <b>3 HP</b> of one of your units
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: flavorText
+      value: Not on my watch!
+      objectReference: {fileID: 0}
     - target: {fileID: 599770410723825185, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -174,7 +211,7 @@ PrefabInstance:
     - target: {fileID: 1233436760897186984, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -55.9
+      value: -0.6
       objectReference: {fileID: 0}
     - target: {fileID: 1233436760897186984, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
@@ -209,7 +246,7 @@ PrefabInstance:
     - target: {fileID: 324323832227509520, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 48.099976
       objectReference: {fileID: 0}
     - target: {fileID: 7891738255828009717, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
@@ -227,43 +264,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 91f21acffd834c2479864d888c13f1be,
         type: 3}
-    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: toSummon
-      value: 
-      objectReference: {fileID: 2368629734656113217, guid: 35a94911febecc64c85c2cf654837ab4,
-        type: 3}
-    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: higherLevelVersion
-      value: 
-      objectReference: {fileID: 6970642807188303820, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
-        type: 3}
-    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: type
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: useCost
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: displayName
-      value: Healing
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: abilityText
-      value: Heal <b>3 HP</b> of one of your units
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: flavorText
-      value: Not on my watch!
-      objectReference: {fileID: 0}
     - target: {fileID: 4499324498473488953, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: m_SizeDelta.y

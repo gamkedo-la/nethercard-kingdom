@@ -97,7 +97,10 @@ public class SummoningManager : MonoBehaviour
 			good.SetActive( false );
 
 		if ( !started && overValidTarget )
+		{
+			overValidTarget = false;
 			return true;
+		}
 
 		return false;
 	}
