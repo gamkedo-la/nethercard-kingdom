@@ -215,7 +215,7 @@ public class CardNew : MonoBehaviour
 		else
 			dragging = true;
 
-		//Debug.Log( $"On Begin Drag: {name}" );
+		Debug.Log( $"On Begin Drag: {name}" );
 		onStartedDrag?.Invoke( this );
 
 		/*if ( selectionMode == CardSelectionMode.InHand )
@@ -235,7 +235,7 @@ public class CardNew : MonoBehaviour
 		else
 			dragging = false;
 
-		//Debug.Log( $"On End Drag: {name}" );
+		Debug.Log( $"On End Drag: {name}" );
 		onEndedDrag?.Invoke( this );
 
 		/*if ( selectionMode == CardSelectionMode.InHand )

@@ -113,19 +113,19 @@ public class PlayerHand : MonoBehaviour
 		if ( cardBeingDragged )
 			return;
 
-		card.Vizuals.DraggedFromHand( );
 		cardBeingDragged = card;
-		//Debug.Log( "Drag Start" );
+		card.Vizuals.DraggedFromHand( );
+		Debug.Log( "Drag Start" );
 	}
 
 	private void OnCardDragEnd( CardNew card )
 	{
-		//if ( !cardBeingDragged )
-			//return;
+		if ( !cardBeingDragged )
+			return;
 
-		OnCardOverExit( card );
 		cardBeingDragged = null;
-		//Debug.Log( "Drag End" );
+		OnCardOverExit( card );
+		Debug.Log( "Drag End" );
 	}
 
 	private void OnCardCliked( CardNew card )
@@ -133,16 +133,19 @@ public class PlayerHand : MonoBehaviour
 		if ( cardBeingDragged )
 			return;
 
-		cardBeingDragged = card;
+		//OnCardDragStart( card );
+		card.OnBeginDrag( );
+		//cardBeingDragged = card;
 		//Debug.Log( "Card Clicked" );
 	}
 
 	private void OnCardReleased( CardNew card )
 	{
-		//if ( !cardBeingDragged )
-			//return;
+		if ( !cardBeingDragged )
+			return;
 
-		cardBeingDragged = null;
+		OnCardDragEnd( card );
+		//cardBeingDragged = null;
 		//Debug.Log( "Card Released" );
 	}
 
