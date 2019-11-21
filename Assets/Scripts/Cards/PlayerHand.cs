@@ -21,10 +21,11 @@ public class PlayerHand : MonoBehaviour
 	[SerializeField] private float angleOffset = 0f;
 
 	[Header("Cards Layout Properties")]
-	[SerializeField] private float xOffsetBetweenCards = 125.0f;
-
-	[SerializeField] private float yOffsetBetweenCards = 5.0f;
-	[SerializeField] private float angleOffsetBetweenCards = 20.0f;
+	[SerializeField] private float xOffsetBetweenCards = 100.0f;
+	[SerializeField] private float yOffsetBetweenCards = 30.0f;
+	[SerializeField] private float yOffsetOnOver = -40.0f;
+	[SerializeField] private float yOffsetOnDrag = -60.0f;
+	[SerializeField] private float angleOffsetBetweenCards = -10.0f;
 
 	[Header("Hover Card Properties")]
 	[SerializeField] private float hoverCardGap = 50.0f;
@@ -38,6 +39,7 @@ public class PlayerHand : MonoBehaviour
 	private List<CardNew> cardsInHand = new List<CardNew>();
 	private CardNew cardBeingAdded = null;
 	private CardNew cardBeingDragged = null;
+	private CardNew cardBeingOver = null;
 
 	void Start( )
 	{
@@ -69,8 +71,8 @@ public class PlayerHand : MonoBehaviour
 			}
 			else
 			{
-				SetCardPosition( cardsInHand[i], i, cardsInHand.Count );
-				SetCardRotation( cardsInHand[i], i, cardsInHand.Count );
+				SetCardPosition( cardsInHand[i], i, cardsInHand.Count, cardBeingOver == cardsInHand[i] ? false : cardBeingOver, cardBeingDragged == cardsInHand[i] ? false : cardBeingDragged );
+				SetCardRotation( cardsInHand[i], i, cardsInHand.Count, cardBeingOver == cardsInHand[i] ? false : cardBeingOver, cardBeingDragged == cardsInHand[i] ? false : cardBeingDragged );
 			}
 		}
 	}
@@ -88,11 +90,21 @@ public class PlayerHand : MonoBehaviour
 
 	private void OnCardOverEnter( CardNew card )
 	{
+		cardBeingOver = card;
+
+		if ( cardBeingDragged )
+			return;
+
 		card.Vizuals.HighlightCardInHand( );
 	}
 
 	private void OnCardOverExit( CardNew card )
 	{
+		cardBeingOver = null;
+
+		if ( cardBeingDragged )
+			return;
+
 		card.Vizuals.NormalCard( );
 	}
 
@@ -101,8 +113,9 @@ public class PlayerHand : MonoBehaviour
 		if ( cardBeingDragged )
 			return;
 
+		card.Vizuals.DraggedFromHand( );
 		cardBeingDragged = card;
-		Debug.Log( "Drag Start" );
+		//Debug.Log( "Drag Start" );
 	}
 
 	private void OnCardDragEnd( CardNew card )
@@ -110,8 +123,9 @@ public class PlayerHand : MonoBehaviour
 		//if ( !cardBeingDragged )
 			//return;
 
+		OnCardOverExit( card );
 		cardBeingDragged = null;
-		Debug.Log( "Drag End" );
+		//Debug.Log( "Drag End" );
 	}
 
 	private void OnCardCliked( CardNew card )
@@ -120,7 +134,7 @@ public class PlayerHand : MonoBehaviour
 			return;
 
 		cardBeingDragged = card;
-		Debug.Log( "Card Clicked" );
+		//Debug.Log( "Card Clicked" );
 	}
 
 	private void OnCardReleased( CardNew card )
@@ -129,7 +143,7 @@ public class PlayerHand : MonoBehaviour
 			//return;
 
 		cardBeingDragged = null;
-		Debug.Log( "Card Released" );
+		//Debug.Log( "Card Released" );
 	}
 
 	private void DestroyCard( CardNew card )
@@ -149,12 +163,12 @@ public class PlayerHand : MonoBehaviour
 	{
 		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
 			return;
-
-		Vector2 cardsNewPosition = Input.mousePosition;
-		card.transform.position = cardsNewPosition;
+		// TODO: Show and drag live preview
+		//Vector2 cardsNewPosition = Input.mousePosition;
+		//card.transform.position = cardsNewPosition;
 	}
 
-	private void SetCardPosition( CardNew card, int index, int totalCards )
+	private void SetCardPosition( CardNew card, int index, int totalCards, bool haveOverCard, bool haveDragCard )
 	{
 		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
 			return;
@@ -167,6 +181,21 @@ public class PlayerHand : MonoBehaviour
 
 		Vector3 cardsNewPosition = transform.position + (Vector3)handOffset;
 		cardsNewPosition.x += startXOffset + ( xOffsetBetweenCards * index );
+
+		float yOffset = 0;
+		if ( index < totalCards / 2 )
+			yOffset += yOffsetBetweenCards * ( index - ( totalCards / 2 ) );
+		else if ( index > totalCards / 2 )
+			yOffset -= yOffsetBetweenCards * ( index - ( totalCards / 2 ) );
+		else if ( index == totalCards - 1 )
+			yOffset -= yOffsetBetweenCards;
+
+		cardsNewPosition.y += yOffset;
+
+		if ( haveOverCard && !haveDragCard )
+			cardsNewPosition.y += yOffsetOnOver;
+		if ( haveDragCard )
+			cardsNewPosition.y += yOffsetOnDrag;
 
 		cardsNewPosition = Vector2.Lerp( card.transform.position, cardsNewPosition, lerpFactor );
 
@@ -217,7 +246,7 @@ public class PlayerHand : MonoBehaviour
 		transform.GetChild( index ).position = Vector3.Lerp( cardPosition, newCardPosition, lerpFactor );*/
 	}
 
-	private void SetCardRotation( CardNew card, int index, int totalCards )
+	private void SetCardRotation( CardNew card, int index, int totalCards, bool haveOverCard, bool haveDragCard )
 	{
 		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
 			return;
@@ -225,6 +254,13 @@ public class PlayerHand : MonoBehaviour
 		// Let's wait till the card is shown
 		if ( card.Vizuals.Revealing )
 			return;
+
+		float newAngle = angleOffsetBetweenCards * ( index - ( totalCards / 2 ) );
+
+		Quaternion newRotation = Quaternion.Euler( 0, 0, newAngle );
+		newRotation = Quaternion.Lerp( card.transform.localRotation, newRotation, lerpFactor );
+
+		card.transform.localRotation = newRotation;
 
 		/*transform.GetChild( index ).rotation = Quaternion.Lerp( transform.GetChild( index ).rotation,
 			Quaternion.Euler( 0f, 0f, ( index == hoverCardIndex ? 0.0f : angleOffset + ( ( (float)index - ( totalCards / 2.0f ) )

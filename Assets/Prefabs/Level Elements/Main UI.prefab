@@ -722,17 +722,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17bf3918d1eaef4e8f56f2471bcaa28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handOffset: {x: 75, y: -50}
+  handOffset: {x: 75, y: -42}
   lerpFactor: 0.25
   totalCardsAllowed: 3
   discardedCardOffset: {x: 100, y: 0}
   addWidthToDiscardedX: 1
   xOffset: 0
   yOffset: 70
-  angleOffset: -12.5
-  xOffsetBetweenCards: 125
-  yOffsetBetweenCards: -50
-  angleOffsetBetweenCards: -60
+  angleOffset: -14
+  xOffsetBetweenCards: 85
+  yOffsetBetweenCards: 12
+  yOffsetOnOver: -20
+  yOffsetOnDrag: -50
+  angleOffsetBetweenCards: -15
   hoverCardGap: 50
   hoverCardYPosition: 80
   hoverCardToMousePositionRatio: 0

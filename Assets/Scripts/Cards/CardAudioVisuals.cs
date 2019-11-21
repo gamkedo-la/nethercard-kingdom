@@ -57,6 +57,7 @@ public class CardAudioVisuals : MonoBehaviour
 	[Header("Parameters")]
 	[SerializeField] private float overInBuilderScale = 1.2f;
 	[SerializeField] private float overInHandScale = 1.4f;
+	[SerializeField] private float alphaOnDraggedFromHand = 0.8f;
 
 	//private Card hoverCard = null;
 	private Card draggedCard = null;
@@ -276,6 +277,26 @@ public class CardAudioVisuals : MonoBehaviour
 		Enlarge( overInBuilderScale );
 	}
 
+	public void DraggedFromHand( )
+	{
+		alpha = alphaOnDraggedFromHand;
+		canvasGroup.blocksRaycasts = false;
+		canvasGroup.interactable = false;
+	}
+
+	public void NormalCard( )
+	{
+		defaultScale = Vector3.one;
+		scaleToLerp = defaultScale;
+
+		alpha = 1.0f;
+
+		frontCanvas.overrideSorting = false;
+		frontCanvas.sortingOrder = 0;
+		canvasGroup.blocksRaycasts = true;
+		canvasGroup.interactable = true;
+	}
+
 	private void Enlarge( float scale )
 	{
 		defaultScale = Vector3.one * scale;
@@ -285,17 +306,6 @@ public class CardAudioVisuals : MonoBehaviour
 		frontCanvas.sortingOrder = 10100;
 
 		overSound.Play( );
-	}
-
-	public void NormalCard( )
-	{
-		defaultScale = Vector3.one;
-		scaleToLerp = defaultScale;
-
-		frontCanvas.overrideSorting = false;
-		frontCanvas.sortingOrder = 0;
-		canvasGroup.blocksRaycasts = true;
-		canvasGroup.interactable = true;
 	}
 
 	public void DraggedCard( )
