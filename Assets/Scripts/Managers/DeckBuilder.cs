@@ -104,7 +104,7 @@ public class DeckBuilder : MonoBehaviour
 	public void ShowUpgrade( )
 	{
 		//upgrading = true;
-		collectionManager.Upgrading( true );
+		collectionManager.UpgradingWindow( true );
 		foreach ( var slot in upgradeSlots )
 			slot.Clear( );
 
@@ -119,7 +119,7 @@ public class DeckBuilder : MonoBehaviour
 		animator.SetTrigger( "HideUpgrade" );
 
 		//upgrading = false;
-		collectionManager.Upgrading( false );
+		collectionManager.UpgradingWindow( false );
 		UpdateCollection( );
 	}
 

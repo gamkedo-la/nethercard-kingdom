@@ -206,7 +206,7 @@ public class CardSlot : MonoBehaviour
 		cardIsDraged = true;
 		dragOffset = Input.mousePosition - cardInSlot.transform.position;
 		cardInSlot.GetComponent<CardAudioVisuals>( ).DraggedCard( );
-		onDrag.Invoke( index, false );
+		onDrag?.Invoke( index, false );
 	}
 
 	private void OnCardEndDragging( )
@@ -216,7 +216,7 @@ public class CardSlot : MonoBehaviour
 
 		cardIsDraged = false;
 		returning = true;
-		onDrag.Invoke( index, true );
+		onDrag?.Invoke( index, true );
 	}
 
 	private void OnCardRelease( )

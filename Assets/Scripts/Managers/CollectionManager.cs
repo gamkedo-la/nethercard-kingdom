@@ -5,10 +5,10 @@
  **/
 
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.UI;
 
 public class CollectionManager : MonoBehaviour
 {
@@ -16,6 +16,7 @@ public class CollectionManager : MonoBehaviour
 	[SerializeField] private PlayerCards playerCards = null;
 	[SerializeField] private DeckManager deckManager = null;
 	[SerializeField] private TextMeshProUGUI tooltip = null;
+	[SerializeField] private Button upgradeButton = null;
 
 	[Header("Objects")]
 	[SerializeField] private GameObject collectionSlot = null;
@@ -31,9 +32,10 @@ public class CollectionManager : MonoBehaviour
 	private List<CardSlot> slots = new List<CardSlot>();
 	private List<PlayerCard> collection = new List<PlayerCard>();
 	private int draggedSlotIndex = int.MinValue;
-	private PlayerCard cardDragged;
-	private PlayerCard cardDraggedFromDeck;
+	private PlayerCard cardDragged = null;
+	private PlayerCard cardDraggedFromDeck = null;
 	private bool upgrading = false;
+	private PlayerCard upgradingCard = null;
 
 	void Start ()
 	{
@@ -42,6 +44,7 @@ public class CollectionManager : MonoBehaviour
 		Assert.IsNotNull( collectionSlot, $"Please assign <b>{nameof( collectionSlot )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( slotsParent, $"Please assign <b>{nameof( slotsParent )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( tooltip, $"Please assign <b>{nameof( tooltip )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( upgradeButton, $"Please assign <b>{nameof( upgradeButton )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( upgradSlot1, $"Please assign <b>{nameof( upgradSlot1 )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( upgradSlot2, $"Please assign <b>{nameof( upgradSlot2 )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
@@ -60,10 +63,71 @@ public class CollectionManager : MonoBehaviour
 		return cardDragged;
 	}
 
-	public void Upgrading( bool upgrading )
+	public void UpgradingWindow( bool opening )
 	{
-		this.upgrading = upgrading;
+		upgrading = opening;
+
+		// Clean up and close
+		if ( !opening )
+		{
+			CleanUpUpgradeState( );
+			return;
+		}
+
+		upgradSlot1.Set( null, 0, null, UpgradeSlotDroppedEvent, UpgradeSlotClickedEvent, false );
+		upgradSlot2.Set( null, 1, null, UpgradeSlotDroppedEvent, UpgradeSlotClickedEvent, false );
+
 		DisplayCollection( );
+	}
+
+	public void UpgradeCard( )
+	{
+		Debug.Log( "UpgradeCard" );
+	}
+
+	private void UpgradeSlotDroppedEvent( int slotIndex )
+	{
+		if ( upgradingCard != null )
+			CleanUpUpgradeState( false );
+
+		cardDragged.Amount -= 2;
+		upgradingCard = cardDragged;
+
+		upgradeButton.interactable = true;
+
+		upgradSlot1.Set( upgradingCard, 0, UpgradeSlotDragEvent, UpgradeSlotDroppedEvent, UpgradeSlotClickedEvent, false );
+		upgradSlot2.Set( upgradingCard, 1, UpgradeSlotDragEvent, UpgradeSlotDroppedEvent, UpgradeSlotClickedEvent, false );
+
+		upgradSlot1.OnInfromation( );
+		upgradSlot2.OnInfromation( );
+
+		DisplayCollection( );
+	}
+
+	private void UpgradeSlotClickedEvent( int _ )
+	{
+		CleanUpUpgradeState( );
+	}
+
+	private void CleanUpUpgradeState( bool updateCollection = true )
+	{
+		upgradSlot1.Clear( );
+		upgradSlot2.Clear( );
+
+		if ( upgradingCard != null )
+			upgradingCard.Amount += 2;
+		upgradingCard = null;
+
+		upgradeButton.interactable = false;
+
+		if ( updateCollection )
+			DisplayCollection( );
+	}
+
+	private void UpgradeSlotDragEvent( int _, bool endOfDrag )
+	{
+		if ( endOfDrag )
+			CleanUpUpgradeState( );
 	}
 
 	/*public void DraggedCardAddedToDeck( )

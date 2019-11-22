@@ -2728,6 +2728,7 @@ MonoBehaviour:
   playerCards: {fileID: 5548607029597499622}
   deckManager: {fileID: 3988884854569613930}
   tooltip: {fileID: 4747218210491694307}
+  upgradeButton: {fileID: 9129103250892139881}
   collectionSlot: {fileID: 3727036373476896495, guid: 0bdcde3adabcbda4a9efa4783d66f277,
     type: 3}
   slotsParent: {fileID: 8784778902839050014}
@@ -3444,7 +3445,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 8784778901973177221}
+      objectReference: {fileID: 3632447726344125409}
     - target: {fileID: 3063514746186047062, guid: b7a6f7b1b2a9804478e19baa352528b8,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName

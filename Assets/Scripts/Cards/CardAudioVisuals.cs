@@ -322,6 +322,8 @@ public class CardAudioVisuals : MonoBehaviour
 	public void SetDisabled( )
 	{
 		alpha = alphaOnCanNotBePlayed;
+		canvasGroup.alpha = alphaOnCanNotBePlayed;
+
 		canvasGroup.blocksRaycasts = false;
 		canvasGroup.interactable = false;
 	}
