@@ -318,6 +318,14 @@ public class CardAudioVisuals : MonoBehaviour
 		playSound.Play( );
 	}
 
+
+	public void SetDisabled( )
+	{
+		alpha = alphaOnCanNotBePlayed;
+		canvasGroup.blocksRaycasts = false;
+		canvasGroup.interactable = false;
+	}
+
 	public void NormalCard( )
 	{
 		defaultScale = Vector3.one;

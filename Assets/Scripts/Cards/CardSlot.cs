@@ -28,6 +28,7 @@ public class CardSlot : MonoBehaviour
 	private System.Action<int> onDrop;
 	private System.Action<int> onClick;
 	private bool appearing = true;
+	private bool showAsDisabled = false;
 	private Vector3 dragOffset = Vector3.zero;
 
 	void Start ()
@@ -103,8 +104,8 @@ public class CardSlot : MonoBehaviour
 		// Hide cards that are fewer then the min amount for upgrading and that have max level
 		if ( upgrading && ( playerCard.Amount < PlayerCards.MinCardsForUpgrade || !go.GetComponent<CardNew>( ).HigherLevelVersion ) )
 		{
-			cardInSlot.gameObject.SetActive( false );
-			amount.SetActive( false );
+			showAsDisabled = true;
+			go.GetComponent<CardAudioVisuals>( ).SetDisabled( );
 		}
 	}
 
@@ -125,6 +126,7 @@ public class CardSlot : MonoBehaviour
 		amount.SetActive( false );
 		cardIsDraged = false;
 		Card = null;
+		showAsDisabled = false;
 
 		if ( cardInSlot )
 		{
@@ -149,6 +151,9 @@ public class CardSlot : MonoBehaviour
 
 	public void OnCardDrop( )
 	{
+		if ( showAsDisabled )
+			return;
+
 		///DeckBuilder.Instance.otherSlot = transform.parent.gameObject;
 		///DeckBuilder.Instance.MoveSlot( );
 		//Debug.Log( $"Drop: {name} -> {cardInSlot.GetComponent<CardNew>( ).Name}" );
@@ -158,6 +163,9 @@ public class CardSlot : MonoBehaviour
 
 	public void OnClicked( )
 	{
+		if ( showAsDisabled )
+			return;
+
 		//Debug.Log( $"{name} click event" );
 		onClick?.Invoke( index );
 	}
@@ -174,18 +182,27 @@ public class CardSlot : MonoBehaviour
 
 	private void OnCardOverEnter( )
 	{
+		if ( showAsDisabled )
+			return;
+
 		if ( !cardIsDraged && !returning )
 			cardInSlot.GetComponent<CardAudioVisuals>( ).HighlightCardInDeck( );
 	}
 
 	private void OnCardOverExit( )
 	{
+		if ( showAsDisabled )
+			return;
+
 		if ( !cardIsDraged && !returning )
 			cardInSlot.GetComponent<CardAudioVisuals>( ).NormalCard( );
 	}
 
 	public void OnCardStartDragging( )
 	{
+		if ( showAsDisabled )
+			return;
+
 		cardIsDraged = true;
 		dragOffset = Input.mousePosition - cardInSlot.transform.position;
 		cardInSlot.GetComponent<CardAudioVisuals>( ).DraggedCard( );
@@ -194,6 +211,9 @@ public class CardSlot : MonoBehaviour
 
 	private void OnCardEndDragging( )
 	{
+		if ( showAsDisabled )
+			return;
+
 		cardIsDraged = false;
 		returning = true;
 		onDrag.Invoke( index, true );
@@ -201,6 +221,9 @@ public class CardSlot : MonoBehaviour
 
 	private void OnCardRelease( )
 	{
+		if ( showAsDisabled )
+			return;
+
 		//Debug.Log( $"{name} drop event" );
 	}
 }
