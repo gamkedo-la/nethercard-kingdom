@@ -82,7 +82,42 @@ public class CollectionManager : MonoBehaviour
 
 	public void UpgradeCard( )
 	{
-		Debug.Log( "UpgradeCard" );
+		//Debug.Log( "UpgradeCard" );
+
+		string destinationCardName = upgradingCard.Card.HigherLevelVersion.Name;
+
+		// Try to find higher level version of card we are upgrading in collection
+		for ( int i = 0; i < collection.Count; i++ )
+		{
+			if ( collection[i] != null && collection[i].Card.Name == destinationCardName ) // Found a matching card: add to it and cleanup
+			{
+				upgradingCard.Amount -= 2; // Since this is reference to the source card let's remove cards from there before adding
+				collection[i].Amount += 1;
+				CleanUpUpgradeState( );
+
+				return;
+			}
+		}
+
+		// Couldn't find a matching card, find first empty slot and add new one
+		for ( int i = 0; i < collection.Count; i++ )
+		{
+			if ( collection[i] == null ) // Found an empty slot: add to it and cleanup
+			{
+				upgradingCard.Amount -= 2; // Since this is reference to the source card let's remove cards from there before adding
+				collection[i] = new PlayerCard( )
+				{
+					Card = playerCards.GetPlayerCardByName( destinationCardName ),
+					Amount = 1
+				};
+
+				CleanUpUpgradeState( );
+
+				return;
+			}
+		}
+
+		Debug.LogError( "Couldn't upgrade the card!" );
 	}
 
 	private void UpgradeSlotDroppedEvent( int slotIndex )
@@ -115,7 +150,17 @@ public class CollectionManager : MonoBehaviour
 		upgradSlot2.Clear( );
 
 		if ( upgradingCard != null )
+		{
 			upgradingCard.Amount += 2;
+
+			// This will happen when the upgrade is successful but the source stack had only 2 cards in it
+			// in this case we have to remove the stack
+			if ( upgradingCard.Amount == 0 )
+			{
+				int sourceSlotIndex = collection.IndexOf( upgradingCard );
+				collection[sourceSlotIndex] = null;
+			}
+		}
 		upgradingCard = null;
 
 		upgradeButton.interactable = false;

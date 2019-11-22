@@ -67,6 +67,8 @@ public class PlayerCards : MonoBehaviour
 	public List<PlayerCard> GetCollection( ) => new List<PlayerCard>( collection );
 	public List<PlayerCard> GetDeck( ) => new List<PlayerCard>( deck );
 
+	public Card GetPlayerCardByName( string cardName ) => gameCards.GetPlayerCardByName( cardName );
+
 	public void SetCollection( List<PlayerCard> newCollection )
 	{
 		if ( CheatAndDebug.Instance.ShowDebugInfo )
