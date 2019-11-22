@@ -93,7 +93,10 @@ public class CollectionManager : MonoBehaviour
 			{
 				upgradingCard.Amount -= 2; // Since this is reference to the source card let's remove cards from there before adding
 				collection[i].Amount += 1;
+
 				CleanUpUpgradeState( );
+
+				slots[i].DoMove( ( upgradSlot1.CardPosition + upgradSlot2.CardPosition ) / 2 );
 
 				return;
 			}
@@ -113,6 +116,8 @@ public class CollectionManager : MonoBehaviour
 
 				CleanUpUpgradeState( );
 
+				slots[i].DoMove( ( upgradSlot1.CardPosition + upgradSlot2.CardPosition ) / 2 );
+
 				return;
 			}
 		}
@@ -120,7 +125,7 @@ public class CollectionManager : MonoBehaviour
 		Debug.LogError( "Couldn't upgrade the card!" );
 	}
 
-	private void UpgradeSlotDroppedEvent( int slotIndex )
+	private void UpgradeSlotDroppedEvent( int _ )
 	{
 		if ( upgradingCard != null )
 			CleanUpUpgradeState( false );
@@ -141,7 +146,10 @@ public class CollectionManager : MonoBehaviour
 
 	private void UpgradeSlotClickedEvent( int _ )
 	{
+		int sourceSlotIndex = collection.IndexOf( upgradingCard );
 		CleanUpUpgradeState( );
+
+		slots[sourceSlotIndex].DoMove( ( upgradSlot1.CardPosition + upgradSlot2.CardPosition ) / 2 );
 	}
 
 	private void CleanUpUpgradeState( bool updateCollection = true )
@@ -172,7 +180,12 @@ public class CollectionManager : MonoBehaviour
 	private void UpgradeSlotDragEvent( int _, bool endOfDrag )
 	{
 		if ( endOfDrag )
+		{
+			int sourceSlotIndex = collection.IndexOf( upgradingCard );
 			CleanUpUpgradeState( );
+
+			slots[sourceSlotIndex].DoMove( Input.mousePosition );
+		}
 	}
 
 	/*public void DraggedCardAddedToDeck( )
