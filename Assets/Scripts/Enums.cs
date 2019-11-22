@@ -11,13 +11,15 @@ public enum ConflicSide
 	All
 }
 
+[System.Flags]
 public enum CardType
 {
-	Unit,
-	DirectOffensiveSpell,
-	DirectDefensiveSpell,
-	AoeSpell,
-	None
+	Undefined = 1,
+	Unit = 2,
+	DirectOffensiveSpell = 4,
+	DirectDefensiveSpell = 8,
+	AoeSpell = 16,
+	EnemyUnit = 32
 }
 
 public enum CardSelectionMode

@@ -5,20 +5,49 @@
  **/
 
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class Targetable : MonoBehaviour
 {
-	[SerializeField] private Unit unit = null;
-	[SerializeField] private CardType targetType = CardType.None;
-	[SerializeField] private ConflicSide side = ConflicSide.Player;
+	[SerializeField] private Collider2D col2D;
+	[SerializeField] private CardType targetableBy = CardType.Undefined;
+	//[SerializeField] private ConflicSide side = ConflicSide.Player;
 
-	void OnMouseOver( )
+	private bool active = false;
+
+	void Start( )
 	{
-		SummoningManager.Instance.MouseOverTarget( true, unit ? CardType.Unit : targetType, unit ? unit.Side : side, this );
+		Assert.IsNotNull( col2D, $"Please assign <b>{nameof( col2D )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+	}
+
+	void OnMouseEnter( )
+	{
+		if ( active )
+			SummoningManager.Instance.MouseOverTarget( this, targetableBy, true );
 	}
 
 	void OnMouseExit( )
 	{
-		SummoningManager.Instance.MouseOverTarget( false, unit ? CardType.Unit : targetType, unit ? unit.Side : side, this );
+		if ( active )
+			SummoningManager.Instance.MouseOverTarget( this, targetableBy, false );
+	}
+
+	void OnEnable( )
+	{
+		SummoningManager.Instance.AddTargetable( this );
+	}
+
+	void OnDisable( )
+	{
+		if ( SummoningManager.Instance )
+			SummoningManager.Instance.RemoveTargetable( this );
+	}
+
+	public void SetActiveState( CardType incommingType )
+	{
+		active = targetableBy.HasFlag( incommingType );
+		col2D.enabled = active;
+		//if (active)
+			//Debug.Log( name + " is active" );
 	}
 }

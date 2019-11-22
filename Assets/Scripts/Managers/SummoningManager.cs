@@ -4,6 +4,7 @@
  * Copyright: © 2019 Kornel. All rights reserved. For license see: 'LICENSE.txt'
  **/
 
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -12,7 +13,7 @@ using UnityEngine.UI;
 public class SummoningManager : MonoBehaviour
 {
 	public static SummoningManager Instance { get; private set; }
-	public CardType UsingMode { get; private set; } = CardType.None;
+	public CardType SummoningCardType { get; private set; } = CardType.Undefined;
 	public Targetable LastTarget { get; private set; } = null;
 	public bool CanSummon { get; set; } = true;
 
@@ -28,9 +29,11 @@ public class SummoningManager : MonoBehaviour
 	[SerializeField] private int manaTickAmount = 1;
 	[SerializeField] private int startMana = 3;
 
+	private List<Targetable> targetables = new List<Targetable>();
 	private bool overValidTarget = false;
 	private int currentMana = 0;
 	private float currentManaProgress = 0;
+	private CardType currentSummoningType = CardType.Undefined;
 
 	private void Awake( )
 	{
@@ -74,6 +77,13 @@ public class SummoningManager : MonoBehaviour
 		bad.transform.position = endPoint;
 	}
 
+	public void AddTargetable( Targetable targetable )
+	{
+		targetables.Add( targetable );
+		targetable.SetActiveState( currentSummoningType );
+	}
+	public void RemoveTargetable( Targetable targetable ) => targetables.Remove( targetable );
+
 	public bool Summoning( Vector2 startPos, CardType type, bool started )
 	{
 		if ( !CanSummon )
@@ -84,17 +94,29 @@ public class SummoningManager : MonoBehaviour
 			return false;
 		}
 
-		if ( type == CardType.Unit || type == CardType.None )
+		if ( started )
+		{
+			currentSummoningType = type;
+			foreach ( var t in targetables )
+				t.SetActiveState( type );
+		}
+		else
+			currentSummoningType = CardType.Undefined;
+
+		if ( type == CardType.Unit )
 			summoningAreaUnits.SetActive( started );
 
 		if ( type == CardType.AoeSpell )
 			summoningAreaAoe.SetActive( started );
 
-		UsingMode = started ? type : CardType.None;
+		SummoningCardType = started ? type : CardType.Undefined;
 		bad.SetActive( started );
 
 		if ( !started )
+		{
 			good.SetActive( false );
+			bad.SetActive( false );
+		}
 
 		if ( !started && overValidTarget )
 		{
@@ -123,46 +145,39 @@ public class SummoningManager : MonoBehaviour
 		manaCounter.text = currentMana.ToString( );
 	}
 
-	public void MouseOverTarget( bool isOver, CardType type, ConflicSide side, Targetable target )
+	public void MouseOverTarget( Targetable target, CardType targetableBy, bool isOver )
 	{
 		if ( !CanSummon )
 			return;
 
+		//Debug.Log( $"MouseOverTarget: SummoningCardType = {SummoningCardType},  targetableBy: {targetableBy}" );
 		LastTarget = target;
 
-		// We aren't summoning anything (canceled)
-		if ( UsingMode == CardType.None )
+		if ( targetableBy.HasFlag( SummoningCardType ) )
 		{
-			overValidTarget = false;
-			good.SetActive( false );
-			bad.SetActive( false );
-
-			return;
-		}
-
-		// Summoning a Unit and over Summoning Area
-		if ( UsingMode == CardType.Unit && type == CardType.None )
-		{
+			//Debug.Log( "SAME TYPES, isOver = " + isOver );
 			overValidTarget = isOver;
 			good.SetActive( isOver );
 			bad.SetActive( !isOver );
 
 			return;
 		}
-
-		// Summoning Unit and over a Unit
-		if ( UsingMode == CardType.Unit && type == CardType.Unit )
+		else if ( SummoningCardType != CardType.Undefined )
 		{
 			overValidTarget = false;
 			good.SetActive( false );
 			bad.SetActive( true );
-
-			return;
 		}
 
+		overValidTarget = false;
+		good.SetActive( false );
+		bad.SetActive( false );
+
+		/*
 		// Summoning Direct Offensive Spell and over an enemy Unit
-		if ( UsingMode == CardType.DirectOffensiveSpell && type == CardType.Unit && side == ConflicSide.Enemy )
+		if ( SummoningCardType == CardType.DirectOffensiveSpell && targetableBy == CardType.EnemyUnit )
 		{
+			Debug.Log( "Over Summoning Enemy, isOver = " + isOver );
 			overValidTarget = isOver;
 			good.SetActive( isOver );
 			bad.SetActive( !isOver );
@@ -171,24 +186,57 @@ public class SummoningManager : MonoBehaviour
 		}
 
 		// Summoning Direct Defensive Spell and over an player Unit
-		if ( UsingMode == CardType.DirectDefensiveSpell && type == CardType.Unit && side == ConflicSide.Player )
+		if ( SummoningCardType == CardType.DirectDefensiveSpell && targetableBy == CardType.Unit )
 		{
+			Debug.Log( "Over Summoning Player, isOver = " + isOver );
 			overValidTarget = isOver;
 			good.SetActive( isOver );
 			bad.SetActive( !isOver );
 
 			return;
 		}
+
+		// Over not compatible target
+		if ( SummoningCardType != targetableBy )
+		{
+			Debug.Log( "Non compatible types, isOver = " + isOver );
+			overValidTarget = false;
+			good.SetActive( false );
+			bad.SetActive( true );
+
+			return;
+		}
+		*/
+		// Summoning a Unit and over Summoning Area
+		/*if ( SummoningCardType == CardType.Unit && targetType == CardType.Unit )
+		{
+			Debug.Log( "Over Summoning " );
+			overValidTarget = isOver;
+			good.SetActive( isOver );
+			bad.SetActive( !isOver );
+
+			return;
+		}*/
+
+		// Summoning Unit and over a Unit
+		/*if ( UsingMode == CardType.Unit && type == CardType.Unit )
+		{
+			overValidTarget = false;
+			good.SetActive( false );
+			bad.SetActive( true );
+
+			return;
+		}*/
 
 		// Summoning AoE Spell and over a AoE summoning area
-		if ( UsingMode == CardType.AoeSpell && type == CardType.AoeSpell && side == ConflicSide.All )
+		/*if ( SummoningCardType == CardType.AoeSpell && targetType == CardType.AoeSpell && side == ConflicSide.All )
 		{
 			overValidTarget = isOver;
 			good.SetActive( isOver );
 			bad.SetActive( !isOver );
 
 			return;
-		}
+		}*/
 	}
 
 	private void ManaProgress( )

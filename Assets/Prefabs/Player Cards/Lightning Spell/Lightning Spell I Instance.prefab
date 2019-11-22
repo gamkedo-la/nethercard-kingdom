@@ -5026,10 +5026,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8a43e7e12cfac43aa266e0f52664b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
   optionalToSpawn: {fileID: 0}
-  destroyAfter: 3
+  type: 4
   effectAmount: 3
+  destroyAfter: 3
   targetFreezTime: 1
   targetShockTime: 0.2
   shakeStrength: 1

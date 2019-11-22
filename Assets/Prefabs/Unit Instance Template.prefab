@@ -795,8 +795,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33d4783efbd6828439e50ea5e569b011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  col2D: {fileID: 7826217793640218486}
   unit: {fileID: 2003592177715405980}
-  targetType: 0
+  targetableBy: 24
   side: 0
 --- !u!114 &6434054621640730110
 MonoBehaviour:
@@ -837,6 +838,8 @@ MonoBehaviour:
   shadow: {fileID: 3179189684220269125}
   shockLayer: Foreground
   shockColor: {r: 0.19215687, g: 0.19215687, b: 0.19215687, a: 1}
+  footprints: {fileID: 0}
+  footprintsScale: 1
 --- !u!1 &2003592177863630467
 GameObject:
   m_ObjectHideFlags: 0

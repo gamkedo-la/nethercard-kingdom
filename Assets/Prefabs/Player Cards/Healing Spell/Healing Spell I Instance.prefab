@@ -1,22 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-1090127739315392682
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2368629734656113217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 191e4fabf57411e4fade7b90dffaaffe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 2
-  optionalToSpawn: {fileID: 7726392380017400500, guid: d0096c3863c126f45ab9cd79fe52eee1,
-    type: 3}
-  destroyAfter: 0.4
-  effectAmount: 3
 --- !u!95 &1030340223961999521
 Animator:
   serializedVersion: 3
@@ -36,6 +19,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-1090127739315392682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2368629734656113217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191e4fabf57411e4fade7b90dffaaffe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  optionalToSpawn: {fileID: 7726392380017400500, guid: d0096c3863c126f45ab9cd79fe52eee1,
+    type: 3}
+  type: 8
+  effectAmount: 3
+  destroyAfter: 0.4
 --- !u!1001 &6446317819150554604
 PrefabInstance:
   m_ObjectHideFlags: 0

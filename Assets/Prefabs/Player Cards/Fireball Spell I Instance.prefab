@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd72650d0210242449ba255192b2e538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 3
-  destroyAfter: 0.25
+  optionalToSpawn: {fileID: 0}
+  type: 16
   effectAmount: 2
+  destroyAfter: 0.25
   range: 1
   side: 2
 --- !u!1001 &3445704745548621209
@@ -84,6 +85,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4948250338414745351, guid: 0df3e6601848bcf4d9998dd67658fa77,
+        type: 3}
+      propertyPath: durationTimeMin
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4948250338414745351, guid: 0df3e6601848bcf4d9998dd67658fa77,
+        type: 3}
+      propertyPath: durationTimeMax
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 7029198479336346959, guid: 0df3e6601848bcf4d9998dd67658fa77,
         type: 3}
       propertyPath: m_Sprite
@@ -144,16 +155,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4948250338414745351, guid: 0df3e6601848bcf4d9998dd67658fa77,
-        type: 3}
-      propertyPath: durationTimeMin
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4948250338414745351, guid: 0df3e6601848bcf4d9998dd67658fa77,
-        type: 3}
-      propertyPath: durationTimeMax
-      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0df3e6601848bcf4d9998dd67658fa77, type: 3}
