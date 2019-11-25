@@ -144,12 +144,14 @@ public class CardAudioVisuals : MonoBehaviour
 		if ( showPreview )
 		{
 			liveImage.alpha = Mathf.Lerp( liveImage.alpha, 0.5f, 0.15f );
+			liveImage.transform.rotation = Quaternion.identity;
 			liveImage.transform.position = Input.mousePosition;
 		}
 		// Return preview to card position
 		else if (!showPreview && Vector2.Distance( liveImage.transform.localPosition, Vector2.zero) > 1 )
 		{
 			liveImage.transform.localPosition = Vector2.Lerp( liveImage.transform.localPosition, Vector2.zero, 0.1f );
+			liveImage.transform.rotation = Quaternion.identity;
 			liveImage.alpha = Mathf.Lerp( liveImage.alpha, 0f, 0.1f );
 		}
 
