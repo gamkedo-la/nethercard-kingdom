@@ -11,7 +11,6 @@ public class Targetable : MonoBehaviour
 {
 	[SerializeField] private Collider2D col2D;
 	[SerializeField] private CardType targetableBy = CardType.Undefined;
-	//[SerializeField] private ConflicSide side = ConflicSide.Player;
 
 	private bool active = false;
 
@@ -43,11 +42,10 @@ public class Targetable : MonoBehaviour
 			SummoningManager.Instance.RemoveTargetable( this );
 	}
 
-	public void SetActiveState( CardType incommingType )
+	public void SetActiveState( CardType incomingType )
 	{
-		active = targetableBy.HasFlag( incommingType );
+		// True if this entity is marked to respond to the incoming (being played) type of card
+		active = targetableBy.HasFlag( incomingType );
 		col2D.enabled = active;
-		//if (active)
-			//Debug.Log( name + " is active" );
 	}
 }

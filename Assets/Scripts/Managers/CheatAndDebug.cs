@@ -19,7 +19,6 @@ public class CheatAndDebug : MonoBehaviour
 	[SerializeField] private bool showDebugInfo = false;
 	[Tooltip("Allow cheat codes")]
 	[SerializeField] private bool allowCheats = false;
-	[Tooltip("Use alternative, parallel feature implementation")]
 	[SerializeField] private bool cardPosOffsetOnDrag = true;
 
 	[Header("Debug Parameters")]

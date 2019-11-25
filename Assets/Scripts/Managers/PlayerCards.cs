@@ -218,7 +218,7 @@ public class PlayerCards : MonoBehaviour
 	[ContextMenu( "Remove Saved Player Cards Data" )]
 	private void RemovdSavedPlayerCardsData( )
 	{
-		PlayerPrefs.DeleteKey( "CardsData" );
+		PlayerPrefs.DeleteKey( "CardsData" ); // Old data, not used anymore
 		PlayerPrefs.DeleteKey( PlayerCollection );
 		PlayerPrefs.DeleteKey( PlayerDeck );
 	}

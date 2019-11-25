@@ -112,7 +112,6 @@ public class EnemyOponentAlt : MonoBehaviour
 	private void AddMana( int amount )
 	{
 		currentMana += amount;
-		//manaCounter.text = currentMana.ToString( );
 		currentManaProgress = 0;
 	}
 
