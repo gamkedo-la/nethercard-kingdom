@@ -31,6 +31,7 @@ public class CardCreationEditor : EditorWindow
 
     private GameObject cardObjectToOverwrite = null;
     private Card cardToOverwrite = null;
+    private CardAudioVisuals cardVizToOverwrite = null;
 
     private Rect cardDisplay = new Rect(20,20,120,200);
 
@@ -75,18 +76,20 @@ public class CardCreationEditor : EditorWindow
                 if(cardObjectToOverwrite != null)
                 {
                     cardToOverwrite = cardObjectToOverwrite.GetComponent<Card>();
+                    cardVizToOverwrite = cardObjectToOverwrite.GetComponent<CardAudioVisuals>();
+
                     cardFileName = cardToOverwrite.gameObject.name;
                     displayName = cardToOverwrite.Name;
-                    cardType = cardToOverwrite.CardType;
+                    cardType = cardToOverwrite.Type;
                     cardLevel = cardToOverwrite.Level;
                     higherLevelCard = cardToOverwrite.HigherLevelVersion;
                     lowerLevelCard = cardToOverwrite.LowerLevelVersion;
                     toSummon = cardToOverwrite.ToSummon;
-                    cardArtFill = cardToOverwrite.CardFill;
-                    cardArtBorder = cardToOverwrite.CardBorder;
-                    cardCost = cardToOverwrite.Cost;
-                    abilityText = cardToOverwrite.Ability;
-                    flavorText = cardToOverwrite.Flavor;
+                    cardArtFill = cardVizToOverwrite.CardFill;
+                    cardArtBorder = cardVizToOverwrite.CardBorder;
+                    cardCost = cardToOverwrite.UseCost;
+                    abilityText = cardVizToOverwrite.Ability;
+                    flavorText = cardVizToOverwrite.Flavor;
                 }
             }
 

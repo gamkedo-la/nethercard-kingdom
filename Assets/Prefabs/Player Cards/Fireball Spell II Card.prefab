@@ -240,13 +240,13 @@ PrefabInstance:
         type: 3}
       propertyPath: lowerLevelVersion
       value: 
-      objectReference: {fileID: 949820519525452328, guid: 35c73b0121dc76649931f579533a5375,
+      objectReference: {fileID: 1760369034310967338, guid: 35c73b0121dc76649931f579533a5375,
         type: 3}
     - target: {fileID: 1760369034310967338, guid: 35c73b0121dc76649931f579533a5375,
         type: 3}
       propertyPath: higherLevelVersion
       value: 
-      objectReference: {fileID: 6686057510297697668, guid: 2be68685b40b396409558bf0d09a8918,
+      objectReference: {fileID: 5298980927649781638, guid: 2be68685b40b396409558bf0d09a8918,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35c73b0121dc76649931f579533a5375, type: 3}

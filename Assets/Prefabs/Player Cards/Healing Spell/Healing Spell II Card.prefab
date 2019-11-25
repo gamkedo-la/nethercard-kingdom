@@ -254,13 +254,13 @@ PrefabInstance:
         type: 3}
       propertyPath: lowerLevelVersion
       value: 
-      objectReference: {fileID: 8311138147123623806, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+      objectReference: {fileID: 7356488059610897788, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
         type: 3}
     - target: {fileID: 7356488059610897788, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
         type: 3}
       propertyPath: higherLevelVersion
       value: 
-      objectReference: {fileID: 8890918461211719764, guid: dcfc3d036c9a2a046b80f73d504505f8,
+      objectReference: {fileID: 7936052614372676182, guid: dcfc3d036c9a2a046b80f73d504505f8,
         type: 3}
     - target: {fileID: 7356488059610897788, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
         type: 3}

@@ -304,7 +304,7 @@ PrefabInstance:
         type: 3}
       propertyPath: lowerLevelVersion
       value: 
-      objectReference: {fileID: 302018811114448746, guid: 364b5ae33201a35488c849af8147a408,
+      objectReference: {fileID: 1256674134460763496, guid: 364b5ae33201a35488c849af8147a408,
         type: 3}
     - target: {fileID: 1256674134460763496, guid: 364b5ae33201a35488c849af8147a408,
         type: 3}

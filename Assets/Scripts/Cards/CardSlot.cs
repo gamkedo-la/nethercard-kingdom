@@ -81,20 +81,20 @@ public class CardSlot : MonoBehaviour
 		//cardInSlot.transform.localPosition = Vector3.zero;
 		go.transform.localPosition = Vector3.zero;
 		cardInSlot = go.GetComponent<Card>( );
-		go.GetComponent<CardNew>( ).SelectionMode = mode;
-		go.GetComponent<CardNew>( ).onStartedDrag.AddListener( card => OnCardStartDragging( ) );
-		go.GetComponent<CardNew>( ).onEndedDrag.AddListener( card => OnCardEndDragging( ) );
-		go.GetComponent<CardNew>( ).onOverEnter.AddListener( card => OnCardOverEnter( ) );
-		go.GetComponent<CardNew>( ).onOverExit.AddListener( card => OnCardOverExit( ) );
-		go.GetComponent<CardNew>( ).onDrop.AddListener( card => OnCardDrop( ) );
-		go.GetComponent<CardNew>( ).onClicked.AddListener( card => OnClicked( ) );
-		go.GetComponent<CardNew>( ).onRelease.AddListener( card => OnCardRelease( ) );
-		go.GetComponent<CardNew>( ).SelectionMode = mode;
+		go.GetComponent<Card>( ).SelectionMode = mode;
+		go.GetComponent<Card>( ).onStartedDrag.AddListener( card => OnCardStartDragging( ) );
+		go.GetComponent<Card>( ).onEndedDrag.AddListener( card => OnCardEndDragging( ) );
+		go.GetComponent<Card>( ).onOverEnter.AddListener( card => OnCardOverEnter( ) );
+		go.GetComponent<Card>( ).onOverExit.AddListener( card => OnCardOverExit( ) );
+		go.GetComponent<Card>( ).onDrop.AddListener( card => OnCardDrop( ) );
+		go.GetComponent<Card>( ).onClicked.AddListener( card => OnClicked( ) );
+		go.GetComponent<Card>( ).onRelease.AddListener( card => OnCardRelease( ) );
+		go.GetComponent<Card>( ).SelectionMode = mode;
 		go.GetComponent<CardAudioVisuals>( ).SelectionMode = mode;
 		go.GetComponent<CardAudioVisuals>( ).SetStack( playerCard.Amount );
 		cardInSlot.SelectionMode = mode;
-		cardInSlot.onStartedDrag.AddListener( ( ) => cardIsDraged = true );
-		cardInSlot.onEndedDrag.AddListener( ( ) => cardIsDraged = false );
+		//cardInSlot.onStartedDrag.AddListener( ( ) => cardIsDraged = true );
+		//cardInSlot.onEndedDrag.AddListener( ( ) => cardIsDraged = false );
 
 		amountLabel.text = $"x{playerCard.Amount}";
 
@@ -102,7 +102,7 @@ public class CardSlot : MonoBehaviour
 			amount.SetActive( true );
 
 		// Hide cards that are fewer then the min amount for upgrading and that have max level
-		if ( upgrading && ( playerCard.Amount < PlayerCards.MinCardsForUpgrade || !go.GetComponent<CardNew>( ).HigherLevelVersion ) )
+		if ( upgrading && ( playerCard.Amount < PlayerCards.MinCardsForUpgrade || !go.GetComponent<Card>( ).HigherLevelVersion ) )
 		{
 			showAsDisabled = true;
 			go.GetComponent<CardAudioVisuals>( ).SetDisabled( );
@@ -132,13 +132,13 @@ public class CardSlot : MonoBehaviour
 		{
 			cardInSlot.onStartedDrag.RemoveAllListeners( );
 			cardInSlot.onEndedDrag.RemoveAllListeners( );
-			cardInSlot.GetComponent<CardNew>( ).onStartedDrag.RemoveAllListeners( );
-			cardInSlot.GetComponent<CardNew>( ).onEndedDrag.RemoveAllListeners( );
-			cardInSlot.GetComponent<CardNew>( ).onOverEnter.RemoveAllListeners( );
-			cardInSlot.GetComponent<CardNew>( ).onOverExit.RemoveAllListeners( );
-			cardInSlot.GetComponent<CardNew>( ).onClicked.RemoveAllListeners( );
-			cardInSlot.GetComponent<CardNew>( ).onRelease.RemoveAllListeners( );
-			cardInSlot.GetComponent<CardNew>( ).onDrop.RemoveAllListeners( );
+			cardInSlot.GetComponent<Card>( ).onStartedDrag.RemoveAllListeners( );
+			cardInSlot.GetComponent<Card>( ).onEndedDrag.RemoveAllListeners( );
+			cardInSlot.GetComponent<Card>( ).onOverEnter.RemoveAllListeners( );
+			cardInSlot.GetComponent<Card>( ).onOverExit.RemoveAllListeners( );
+			cardInSlot.GetComponent<Card>( ).onClicked.RemoveAllListeners( );
+			cardInSlot.GetComponent<Card>( ).onRelease.RemoveAllListeners( );
+			cardInSlot.GetComponent<Card>( ).onDrop.RemoveAllListeners( );
 
 			Destroy( cardInSlot.gameObject );
 		}

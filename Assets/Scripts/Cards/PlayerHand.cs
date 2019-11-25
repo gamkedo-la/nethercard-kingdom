@@ -36,10 +36,10 @@ public class PlayerHand : MonoBehaviour
 	[SerializeField] private float draggedCardYPosition = 10.0f;
 	[SerializeField] private float hideCardsYPositionOnDrag = -20.0f;
 
-	private List<CardNew> cardsInHand = new List<CardNew>();
-	private CardNew cardBeingAdded = null;
-	private CardNew cardBeingDragged = null;
-	private CardNew cardBeingOver = null;
+	private List<Card> cardsInHand = new List<Card>();
+	private Card cardBeingAdded = null;
+	private Card cardBeingDragged = null;
+	private Card cardBeingOver = null;
 
 	void Start( )
 	{
@@ -80,7 +80,7 @@ public class PlayerHand : MonoBehaviour
 		//cardBeingDragged?.Vizuals.ShowPreview( Input.mousePosition );
 	}
 
-	public void AddCard( CardNew newCard )
+	public void AddCard( Card newCard )
 	{
 		cardBeingAdded = newCard;
 		newCard.onStartedDrag.AddListener( OnCardDragStart );
@@ -91,7 +91,7 @@ public class PlayerHand : MonoBehaviour
 		newCard.onRelease.AddListener( OnCardReleased );
 	}
 
-	private void OnCardOverEnter( CardNew card )
+	private void OnCardOverEnter( Card card )
 	{
 		cardBeingOver = card;
 
@@ -101,7 +101,7 @@ public class PlayerHand : MonoBehaviour
 		card.Vizuals.HighlightCardInHand( );
 	}
 
-	private void OnCardOverExit( CardNew card )
+	private void OnCardOverExit( Card card )
 	{
 		cardBeingOver = null;
 
@@ -111,7 +111,7 @@ public class PlayerHand : MonoBehaviour
 		card.Vizuals.NormalCard( );
 	}
 
-	private void OnCardDragStart( CardNew card )
+	private void OnCardDragStart( Card card )
 	{
 		if ( cardBeingDragged )
 			return;
@@ -126,7 +126,7 @@ public class PlayerHand : MonoBehaviour
 		StartSummoning( card );
 	}
 
-	private void OnCardDragEnd( CardNew card )
+	private void OnCardDragEnd( Card card )
 	{
 		if ( !cardBeingDragged )
 			return;
@@ -138,7 +138,7 @@ public class PlayerHand : MonoBehaviour
 		EndSummoning( card );
 	}
 
-	private void OnCardCliked( CardNew card )
+	private void OnCardCliked( Card card )
 	{
 		if ( cardBeingDragged )
 			return;
@@ -149,7 +149,7 @@ public class PlayerHand : MonoBehaviour
 		//cardBeingDragged = card;
 	}
 
-	private void OnCardReleased( CardNew card )
+	private void OnCardReleased( Card card )
 	{
 		if ( !cardBeingDragged )
 			return;
@@ -159,7 +159,7 @@ public class PlayerHand : MonoBehaviour
 		//cardBeingDragged = null;
 	}
 
-	private void DestroyCard( CardNew card )
+	private void DestroyCard( Card card )
 	{
 		card.onStartedDrag.RemoveAllListeners( );
 		card.onEndedDrag.RemoveAllListeners( );
@@ -172,7 +172,7 @@ public class PlayerHand : MonoBehaviour
 		Destroy( card.gameObject );
 	}
 
-	private void DragCard( CardNew card )
+	private void DragCard( Card card )
 	{
 		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
 			return;
@@ -181,7 +181,7 @@ public class PlayerHand : MonoBehaviour
 		//card.transform.position = cardsNewPosition;
 	}
 
-	private void StartSummoning( CardNew card )
+	private void StartSummoning( Card card )
 	{
 		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
 			return;
@@ -198,7 +198,7 @@ public class PlayerHand : MonoBehaviour
 		//card.Vizuals.StartSummoning( );
 	}
 
-	private void EndSummoning( CardNew card )
+	private void EndSummoning( Card card )
 	{
 		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
 			return;
@@ -226,7 +226,7 @@ public class PlayerHand : MonoBehaviour
 			card.Vizuals.CancelSummoning( );
 	}
 
-	private void SetCardPosition( CardNew card, int index, int totalCards, bool haveOverCard, bool haveDragCard )
+	private void SetCardPosition( Card card, int index, int totalCards, bool haveOverCard, bool haveDragCard )
 	{
 		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
 			return;
@@ -304,7 +304,7 @@ public class PlayerHand : MonoBehaviour
 		transform.GetChild( index ).position = Vector3.Lerp( cardPosition, newCardPosition, lerpFactor );*/
 	}
 
-	private void SetCardRotation( CardNew card, int index, int totalCards, bool haveOverCard, bool haveDragCard )
+	private void SetCardRotation( Card card, int index, int totalCards, bool haveOverCard, bool haveDragCard )
 	{
 		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
 			return;

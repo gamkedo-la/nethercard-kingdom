@@ -103,11 +103,11 @@ public class Deck : MonoBehaviour
 		newCard.transform.SetSiblingIndex( 0 );
 
 		if ( CheatAndDebug.Instance.UseAlternateImplementations )
-			playerHand.AddCard( newCard.GetComponent<CardNew>( ) );
+			playerHand.AddCard( newCard.GetComponent<Card>( ) );
 
-		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
+		/*if ( !CheatAndDebug.Instance.UseAlternateImplementations )
 			newCard.GetComponent<Card>( ).DoCardReveal( );
-		else
+		else*/
 			newCard.GetComponent<CardAudioVisuals>( ).DoCardReveal( );
 
 		autoDrawTimer = autoDrawDelay;
@@ -136,7 +136,7 @@ public class Deck : MonoBehaviour
 
 		Card card = drawQueue.Dequeue( );
 
-		return card.Prefab ? card.Prefab : card.gameObject;
+		return card.gameObject;
 	}
 
 	private Queue<Card> NewRandomizedDrawQueue( )

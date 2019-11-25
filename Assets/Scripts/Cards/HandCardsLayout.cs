@@ -45,10 +45,10 @@ public class HandCardsLayout : MonoBehaviour
 		if ( CheatAndDebug.Instance.UseAlternateImplementations )
 			return -1;
 
-		for (int hoverCardIndex = 0; hoverCardIndex < totalCards; hoverCardIndex++)
+		/*for (int hoverCardIndex = 0; hoverCardIndex < totalCards; hoverCardIndex++)
             if(transform.GetChild(hoverCardIndex).GetComponent<Card>() == Card.hoverCard)
                 return hoverCardIndex;
-
+		*/
         return -1;
     }
 
@@ -76,7 +76,7 @@ public class HandCardsLayout : MonoBehaviour
 			}
         }
 
-        if(Card.draggedCard != null && index < totalCardsAllowed)
+        /*if(Card.draggedCard != null && index < totalCardsAllowed)
         {
             if(Card.draggedCard == transform.GetChild(index).GetComponent<Card>())
             {
@@ -90,7 +90,7 @@ public class HandCardsLayout : MonoBehaviour
             {
                 newCardPosition.y = hideCardsYPositionOnDrag;
             }
-        }
+        }*/
 
         if(index >= totalCardsAllowed)
         {
@@ -122,11 +122,11 @@ public class HandCardsLayout : MonoBehaviour
         {
             Card card = transform.GetChild(i).GetComponent<Card>();
 			CardAudioVisuals cardVis = transform.GetChild(i).GetComponent<CardAudioVisuals>();
-            if((card.lerpBackTimer <= 0f || !card.lerpBack ) && !card.Revealing && !cardVis.Revealing )
+            /*if((card.lerpBackTimer <= 0f || !card.lerpBack ) && !card.Revealing && !cardVis.Revealing )
             {
                 SetCardPosition(totalCards, i, hoverCardIndex);
                 SetCardRotation(totalCards, i, hoverCardIndex);
-            }
+            }*/
 
             if(i >= totalCardsAllowed)
             {

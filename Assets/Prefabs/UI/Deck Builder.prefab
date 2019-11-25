@@ -2173,49 +2173,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allPlayerGameCards:
-  - Card: {fileID: 8311138147123623806, guid: 0b0297453a5bfa94a85638fff8e5f6ff, type: 3}
+  - Card: {fileID: 7356488059610897788, guid: 0b0297453a5bfa94a85638fff8e5f6ff, type: 3}
     DefaultPlayerOwned: 3
     DefaultInDeck: 1
-  - Card: {fileID: 6970642807188303820, guid: 5f3d14ac1d4a0424da11a2f22523b78e, type: 3}
+  - Card: {fileID: 8501903596962825678, guid: 5f3d14ac1d4a0424da11a2f22523b78e, type: 3}
     DefaultPlayerOwned: 0
     DefaultInDeck: 1
-  - Card: {fileID: 8890918461211719764, guid: dcfc3d036c9a2a046b80f73d504505f8, type: 3}
+  - Card: {fileID: 7936052614372676182, guid: dcfc3d036c9a2a046b80f73d504505f8, type: 3}
     DefaultPlayerOwned: 1
     DefaultInDeck: 0
-  - Card: {fileID: 6412157164616586719, guid: d53af6725d85789418919b90f9ab9991, type: 3}
+  - Card: {fileID: 5601607133472784349, guid: d53af6725d85789418919b90f9ab9991, type: 3}
     DefaultPlayerOwned: 1
     DefaultInDeck: 1
-  - Card: {fileID: 222037773591144965, guid: 50f644e35feb661458821404f47f5a33, type: 3}
+  - Card: {fileID: 1609105408714899463, guid: 50f644e35feb661458821404f47f5a33, type: 3}
     DefaultPlayerOwned: 0
     DefaultInDeck: 0
-  - Card: {fileID: 4521816126221080126, guid: da8d7d35f8ce99a4d9e211374288a08b, type: 3}
+  - Card: {fileID: 3134735390339546172, guid: da8d7d35f8ce99a4d9e211374288a08b, type: 3}
     DefaultPlayerOwned: 0
     DefaultInDeck: 0
-  - Card: {fileID: 5878165872008782306, guid: f4b608c5cc99c6644a3879e8b33224bb, type: 3}
+  - Card: {fileID: 4959332090658851808, guid: f4b608c5cc99c6644a3879e8b33224bb, type: 3}
     DefaultPlayerOwned: 2
     DefaultInDeck: 3
-  - Card: {fileID: 6727232176801188089, guid: 7dc7cebc02c5fa445960646a217fe88c, type: 3}
+  - Card: {fileID: 5195897159522902779, guid: 7dc7cebc02c5fa445960646a217fe88c, type: 3}
     DefaultPlayerOwned: 1
     DefaultInDeck: 0
-  - Card: {fileID: 6551081026169414626, guid: a0daeda8c38214247b364ff5bb4539d3, type: 3}
+  - Card: {fileID: 5740536526104938976, guid: a0daeda8c38214247b364ff5bb4539d3, type: 3}
     DefaultPlayerOwned: 1
     DefaultInDeck: 0
-  - Card: {fileID: 949820519525452328, guid: 35c73b0121dc76649931f579533a5375, type: 3}
+  - Card: {fileID: 1760369034310967338, guid: 35c73b0121dc76649931f579533a5375, type: 3}
     DefaultPlayerOwned: 0
     DefaultInDeck: 1
-  - Card: {fileID: 6930457677133692945, guid: 0b9c379e397653d43ae7e48ca5d309b2, type: 3}
+  - Card: {fileID: 8461569342959266323, guid: 0b9c379e397653d43ae7e48ca5d309b2, type: 3}
     DefaultPlayerOwned: 0
     DefaultInDeck: 0
-  - Card: {fileID: 6686057510297697668, guid: 2be68685b40b396409558bf0d09a8918, type: 3}
+  - Card: {fileID: 5298980927649781638, guid: 2be68685b40b396409558bf0d09a8918, type: 3}
     DefaultPlayerOwned: 0
     DefaultInDeck: 0
-  - Card: {fileID: 8013548960502163808, guid: 39305d494c8b56a44b497d389241a5fd, type: 3}
+  - Card: {fileID: 8824168672960201570, guid: 39305d494c8b56a44b497d389241a5fd, type: 3}
     DefaultPlayerOwned: 2
     DefaultInDeck: 3
-  - Card: {fileID: 302018811114448746, guid: 364b5ae33201a35488c849af8147a408, type: 3}
+  - Card: {fileID: 1256674134460763496, guid: 364b5ae33201a35488c849af8147a408, type: 3}
     DefaultPlayerOwned: 1
     DefaultInDeck: 0
-  - Card: {fileID: 8872424807804934014, guid: 76076803edf9a2444907fada0113ed95, type: 3}
+  - Card: {fileID: 7953719434971020668, guid: 76076803edf9a2444907fada0113ed95, type: 3}
     DefaultPlayerOwned: 0
     DefaultInDeck: 0
   allOpponentGameCards:
