@@ -34,8 +34,8 @@ public class CollectionManager : MonoBehaviour
 	private int draggedSlotIndex = int.MinValue;
 	private PlayerCard cardDragged = null;
 	private PlayerCard cardDraggedFromDeck = null;
-	private bool upgrading = false;
 	private PlayerCard upgradingCard = null;
+	private bool upgrading = false;
 
 	void Start ()
 	{
@@ -53,15 +53,9 @@ public class CollectionManager : MonoBehaviour
 		DisplayCollection( );
 	}
 
-	public void SetDraggedCard( PlayerCard card )
-	{
-		cardDraggedFromDeck = card;
-	}
+	public void SetDraggedCard( PlayerCard card ) => cardDraggedFromDeck = card;
 
-	public PlayerCard GetDraggedCard( )
-	{
-		return cardDragged;
-	}
+	public PlayerCard GetDraggedCard( ) => cardDragged;
 
 	public void UpgradingWindow( bool opening )
 	{
@@ -82,8 +76,6 @@ public class CollectionManager : MonoBehaviour
 
 	public void UpgradeCard( )
 	{
-		//Debug.Log( "UpgradeCard" );
-
 		string destinationCardName = upgradingCard.Card.HigherLevelVersion.Name;
 
 		// Try to find higher level version of card we are upgrading in collection
@@ -188,19 +180,6 @@ public class CollectionManager : MonoBehaviour
 		}
 	}
 
-	/*public void DraggedCardAddedToDeck( )
-	{
-		collection[draggedSlotIndex].Amount--;
-
-		if ( collection[draggedSlotIndex].Amount == 0 )
-			collection[draggedSlotIndex] = null;
-
-		cardDragged = null;
-		cardDraggedFromDeck = null;
-
-		DisplayCollection( );
-	}*/
-
 	public void DraggedCardAddedToDeck( Vector2 position = default, PlayerCard cardToSwap = null ) // Order of parameters to force the supply of 'position' if someone supply 'cardToSwap'
 	{
 		int newSlotIndex = draggedSlotIndex;
@@ -209,23 +188,6 @@ public class CollectionManager : MonoBehaviour
 		// We dragged card from the collection that we had only 1 of, so we now have an empty slot
 		if ( collection[draggedSlotIndex].Amount <= 0 )
 		{
-			//newSlotIndex = draggedSlotIndex;
-
-			// Either we do not swap cards OR the card we put in is something we do not have in the collection
-			/*if ( cardToSwap == null || ( cardToSwap != null && collection.FirstOrDefault( card => card != null && card.Card.Name == cardToSwap.Card.Name ) == null ) )
-			{
-				cardToSwap.Amount = 1; // Just to make sure
-				collection[draggedSlotIndex] = cardToSwap;
-			}
-			// We already have a card of the same name in the collection
-			else
-			{
-				PlayerCard existingCard = collection.First( card => card.Card.Name == cardToSwap.Card.Name );
-				existingCard.Amount++;
-				newSlotIndex = collection.IndexOf( existingCard );
-				collection[draggedSlotIndex] = null;
-			}*/
-
 			if ( cardToSwap != null )
 				cardToSwap.Amount = 1; // Just to make sure
 
@@ -293,7 +255,6 @@ public class CollectionManager : MonoBehaviour
 
 	private void ClickedOnSlotEvent( int dropSlotIndex )
 	{
-		//Debug.Log( $"cardDragged == {cardDragged} && cardDraggedFromDeck == {cardDraggedFromDeck}" );
 		// Card was clicked-drag (but not just empty slot)
 		if ( cardDragged == null && cardDraggedFromDeck == null && slots[dropSlotIndex].Card != null )
 		{
@@ -309,7 +270,7 @@ public class CollectionManager : MonoBehaviour
 
 	private void CardDroppedEvent( int dropSlotIndex )
 	{
-		tooltip.text = "You did something in the collection ;)";
+		tooltip.text = "";
 		PlayerCard cardInDestinationSlot = slots[dropSlotIndex].Card;
 
 		// Dragging within Collection
@@ -422,7 +383,6 @@ public class CollectionManager : MonoBehaviour
 	{
 		if ( endOfDrag )
 		{
-			//Debug.Log( $"End of drag: {index}" );
 			cardDragged = null;
 			deckManager.SetDraggedCard( cardDragged );
 		}
@@ -433,8 +393,6 @@ public class CollectionManager : MonoBehaviour
 			tooltip.text = "Place card in an empty slot or swap with another one";
 		}
 
-		//string s = endOfDrag ? "stop" : "start";
-		//Debug.Log( $"Collection dragged: {s} {index}" );
 		draggedSlotIndex = endOfDrag ? int.MinValue : index; // Index od the dragged card or "null"
 	}
 }

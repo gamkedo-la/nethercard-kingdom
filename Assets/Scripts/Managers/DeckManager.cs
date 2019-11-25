@@ -154,7 +154,6 @@ public class DeckManager : MonoBehaviour
 
 	private void ClickedOnSlotEvent( int dropSlotIndex )
 	{
-		//Debug.Log( $"cardDragged == {cardDragged} && cardDraggedFromCollection == {cardDraggedFromCollection}" );
 		// Card was clicked-drag (but not just empty slot)
 		if ( cardDragged == null && cardDraggedFromCollection == null && slots[dropSlotIndex].Card != null )
 		{
@@ -259,7 +258,6 @@ public class DeckManager : MonoBehaviour
 	{
 		if ( endOfDrag )
 		{
-			//Debug.Log( $"End of drag: {index}" );
 			cardDragged = null;
 			collectionManager.SetDraggedCard( cardDragged );
 		}
@@ -270,8 +268,6 @@ public class DeckManager : MonoBehaviour
 			tooltip.text = "Place card in an empty slot or swap with another one";
 		}
 
-		//string s = endOfDrag ? "stop" : "start";
-		//Debug.Log( $"Collection dragged: {s} {index}" );
 		draggedSlotIndex = endOfDrag ? int.MinValue : index; // Index od the dragged card or "null" (int.MinValue)
 	}
 }
