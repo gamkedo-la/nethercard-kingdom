@@ -12,7 +12,6 @@ public class CheatAndDebug : MonoBehaviour
 	public static CheatAndDebug Instance { get; private set; }
 	public bool ShowDebugInfo { get { return showDebugInfo; } }
 	public bool AllowCheats { get { return allowCheats; } }
-	public bool UseAlternateImplementations { get { return useAlternate; } }
 	public bool CardPosOffsetOnDrag { get { return cardPosOffsetOnDrag; } }
 
 	[Header("Debug Flags")]
@@ -21,7 +20,6 @@ public class CheatAndDebug : MonoBehaviour
 	[Tooltip("Allow cheat codes")]
 	[SerializeField] private bool allowCheats = false;
 	[Tooltip("Use alternative, parallel feature implementation")]
-	[SerializeField] private bool useAlternate = false;
 	[SerializeField] private bool cardPosOffsetOnDrag = true;
 
 	[Header("Debug Parameters")]

@@ -64,9 +64,6 @@ public class Card : MonoBehaviour
 
 	void Update( )
 	{
-		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
-			return;
-
 		// We were 'click dragging' and pressed our mouse button
 		if ( dragging && Input.GetMouseButtonDown( 0 ) )
 			OnEndDrag( );
@@ -74,9 +71,6 @@ public class Card : MonoBehaviour
 
 	void FixedUpdate( )
 	{
-		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
-			return;
-
 		if ( SelectionMode != CardSelectionMode.InHand)
 			return;
 
@@ -94,9 +88,6 @@ public class Card : MonoBehaviour
 
 	public void OnOverEnter( )
 	{
-		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
-			return;
-
 		//Debug.Log( $"On Enter: {name}" );
 		onOverEnter?.Invoke( this );
 
@@ -144,9 +135,6 @@ public class Card : MonoBehaviour
 
 	public void OnOverExit( )
 	{
-		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
-			return;
-
 		//Debug.Log( $"On Exit: {name}" );
 		onOverExit?.Invoke( this );
 
@@ -175,9 +163,6 @@ public class Card : MonoBehaviour
 
 	public void OnCliked( )
 	{
-		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
-			return;
-
 		//Debug.Log( $"On Clicked: {name}" );
 		onClicked?.Invoke( this );
 		//OnBeginDrag( );
@@ -231,9 +216,6 @@ public class Card : MonoBehaviour
 
 	public void OnBeginDrag( )
 	{
-		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
-			return;
-
 		// Only execute if the card is NOT being dragged
 		if ( dragging )
 			return;
@@ -251,9 +233,6 @@ public class Card : MonoBehaviour
 
 	public void OnEndDrag( )
 	{
-		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
-			return;
-
 		// Only execute if the card was being dragged
 		if ( !dragging )
 			return;
@@ -271,9 +250,6 @@ public class Card : MonoBehaviour
 
 	public void CardSelected( bool isSelected )
 	{
-		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
-			return;
-
 		//Debug.Log( $"On Selected: {name}" );
 
 		/*if ( isSelected )
@@ -287,9 +263,6 @@ public class Card : MonoBehaviour
 	public void UpdateCardStatsFromEditor( CardType cardType, CardLevel cardLevel, string name, int cost,
 		string ability, string flavor, Sprite borderSprite, Sprite fillSprite, GameObject instanceToSummon )
 	{
-		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
-			return;
-
 		/*type = cardType;
 		level = cardLevel;
 		displayName = name;
@@ -304,9 +277,6 @@ public class Card : MonoBehaviour
 	[ContextMenu( "Update Card Info" )]
 	public void PopulateCardInfo( )
 	{
-		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
-			return;
-
 		/*var specificCulture = System.Globalization.CultureInfo.GetCultureInfo( "en-US" );
 
 		if ( type == CardType.Unit )
@@ -339,9 +309,6 @@ public class Card : MonoBehaviour
 
 	private void StartSummoning( )
 	{
-		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
-			return;
-
 		//Debug.Log( $"On Start Summoning: {name}" );
 
 		/*if ( !SummoningManager.Instance.EnoughMana( useCost ) )
@@ -356,9 +323,6 @@ public class Card : MonoBehaviour
 
 	private void EndSummoning( )
 	{
-		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
-			return;
-
 		//Debug.Log( $"On End Summoning: {name}" );
 
 		/*if ( draggedCard != this )
@@ -383,9 +347,6 @@ public class Card : MonoBehaviour
 
 	private void StartDraggingInDeckBuilding( )
 	{
-		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
-			return;
-
 		//Debug.Log( $"On Start Summoning: {name}" );
 
 		/*draggedCard = this;
@@ -403,9 +364,6 @@ public class Card : MonoBehaviour
 
 	private void EndDraggingInDeckBuilding( )
 	{
-		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
-			return;
-
 		/*transform.position = previousPosition;
 		canvasGroup.alpha = 1.0f;
 

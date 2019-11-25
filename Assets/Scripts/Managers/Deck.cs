@@ -102,13 +102,8 @@ public class Deck : MonoBehaviour
 		newCard.transform.SetParent( hand.transform, true );
 		newCard.transform.SetSiblingIndex( 0 );
 
-		if ( CheatAndDebug.Instance.UseAlternateImplementations )
-			playerHand.AddCard( newCard.GetComponent<Card>( ) );
-
-		/*if ( !CheatAndDebug.Instance.UseAlternateImplementations )
-			newCard.GetComponent<Card>( ).DoCardReveal( );
-		else*/
-			newCard.GetComponent<CardAudioVisuals>( ).DoCardReveal( );
+		playerHand.AddCard( newCard.GetComponent<Card>( ) );
+		newCard.GetComponent<CardAudioVisuals>( ).DoCardReveal( );
 
 		autoDrawTimer = autoDrawDelay;
 

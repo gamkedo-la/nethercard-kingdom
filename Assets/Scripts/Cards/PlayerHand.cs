@@ -43,18 +43,12 @@ public class PlayerHand : MonoBehaviour
 
 	void Start( )
 	{
-		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
-			return;
-
 		/*if ( addWidthToDiscardedX )
 			discardedCardOffset += new Vector2( Screen.width, 0.0f );*/
 	}
 
 	void Update( )
 	{
-		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
-			return;
-
 		// Delay adding card until it's reveled
 		if ( cardBeingAdded && !cardBeingAdded.Vizuals.Revealing )
 		{
@@ -174,8 +168,6 @@ public class PlayerHand : MonoBehaviour
 
 	private void DragCard( Card card )
 	{
-		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
-			return;
 		// TODO: Show and drag live preview
 		//Vector2 cardsNewPosition = Input.mousePosition;
 		//card.transform.position = cardsNewPosition;
@@ -183,9 +175,6 @@ public class PlayerHand : MonoBehaviour
 
 	private void StartSummoning( Card card )
 	{
-		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
-			return;
-
 		//Debug.Log( $"On Start Summoning: {name}" );
 
 		//if ( !SummoningManager.Instance.EnoughMana( card.UseCost ) )
@@ -200,9 +189,6 @@ public class PlayerHand : MonoBehaviour
 
 	private void EndSummoning( Card card )
 	{
-		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
-			return;
-
 		//Debug.Log( $"On End Summoning: {name}" );
 
 		/*if ( draggedCard != this )
@@ -228,9 +214,6 @@ public class PlayerHand : MonoBehaviour
 
 	private void SetCardPosition( Card card, int index, int totalCards, bool haveOverCard, bool haveDragCard )
 	{
-		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
-			return;
-
 		// Let's wait till the card is shown
 		if ( card.Vizuals.Revealing )
 			return;
@@ -306,9 +289,6 @@ public class PlayerHand : MonoBehaviour
 
 	private void SetCardRotation( Card card, int index, int totalCards, bool haveOverCard, bool haveDragCard )
 	{
-		if ( !CheatAndDebug.Instance.UseAlternateImplementations )
-			return;
-
 		// Let's wait till the card is shown
 		if ( card.Vizuals.Revealing )
 			return;
