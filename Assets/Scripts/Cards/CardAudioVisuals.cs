@@ -7,23 +7,13 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class CardAudioVisuals : MonoBehaviour
 {
 	public CardSelectionMode SelectionMode { get; set; }
-	//public string Name { get { return displayName; } }
-	//public int Cost { get { return useCost; } }
-	//public Card LowerLevelVersion { get { return lowerLevelVersion; } }
-	//public Card HigherLevelVersion { get { return higherLevelVersion; } }
-	//public CardLevel Level { get { return level; } }
-	//public CardType CardType { get { return type; } }
-	//public GameObject ToSummon { get { return toSummon; } }
 	public Sprite CardFill { get { return cardImageFill.sprite; } }
 	public Sprite CardBorder { get { return cardImageBorder.sprite; } }
-	public string Ability { get { return abilityLabel.text; } }
-	public string Flavor { get { return flavorLabel.text; } }
 	public bool Revealing { get; private set; } = false;
 	public Vector2 Position { get; set; }
 
@@ -60,24 +50,11 @@ public class CardAudioVisuals : MonoBehaviour
 	[SerializeField] private float alphaOnDraggedFromHand = 0.8f;
 	[SerializeField] private float alphaOnCanNotBePlayed = 0.5f;
 
-	//private Card hoverCard = null;
-	private Card draggedCard = null;
-
-	private bool dragging = false;
-	private bool over = false;
-	private float alpha = 1.0f;
-
-	//private float lerpBackTimer = 0f;
-	private float sizeIncrease = 0f;
-	//private bool lerpBack = false;
-	private Vector2 mouseOffset = Vector3.one;
-	private Vector2 mousePosOld = Vector3.one;
-
-	private Vector3 scaleToLerp = Vector3.one;
-	//private Vector3 overScale = Vector3.one;
-	private Vector3 defaultScale = Vector3.one;
-	private Vector3 previousPosition = Vector3.zero;
 	private bool showPreview = false;
+	private float alpha = 1.0f;
+	private float sizeIncrease = 0f;
+	private Vector3 scaleToLerp = Vector3.one;
+	private Vector3 defaultScale = Vector3.one;
 
 	void Start( )
 	{
@@ -105,40 +82,12 @@ public class CardAudioVisuals : MonoBehaviour
 		Assert.IsNotNull( level3Marks, $"Please assign <b>{nameof( level3Marks )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( stack1, $"Please assign <b>{nameof( stack1 )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( stack2, $"Please assign <b>{nameof( stack2 )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
-
-		//overScale = Vector3.one * overInBuilderScale; // TODO: Get info from CardNew and set the correct scale
-
-		PopulateCardInfo( );
 	}
 
 	void Update( )
 	{
 		transform.localScale = Vector3.Lerp( transform.localScale, scaleToLerp, 0.25f );
 		canvasGroup.alpha = Mathf.Lerp( canvasGroup.alpha, alpha, 0.15f );
-		//transform.position = Vector2.Lerp( transform.position, Position, 0.15f );
-
-		if ( dragging && SelectionMode == CardSelectionMode.InHand )
-		{
-			/*transform.position = Vector2.Lerp( transform.position, Input.mousePosition, 0.25f );
-			canvasGroup.alpha = Mathf.Lerp( canvasGroup.alpha, 0.0f, 0.15f );
-			liveImage.alpha = Mathf.Lerp( liveImage.alpha, 0.5f, 0.15f );
-			transform.localScale = Vector3.one;*/
-		}
-		else if ( dragging && ( SelectionMode == CardSelectionMode.InCollection || SelectionMode == CardSelectionMode.InDeck ) )
-		{
-			Vector2 mouseNewPos = (Vector2)Input.mousePosition + mouseOffset;
-			//Vector2 moveOffset = mousePosOld - mouseNewPos;
-			//mousePosOld = mouseNewPos;
-
-			//Vector2 newPos = transform.position - (Vector3)moveOffset;
-			//Debug.Log( newPos );
-			mouseNewPos += new Vector2( 0.0f, -Screen.height * 0.1f );
-
-			//transform.position = Vector2.Lerp( transform.position, mouseNewPos, 0.25f );
-			//transform.position = newPos;
-			//transform.position = mouseNewPos;
-			//Position = mouseNewPos;
-		}
 
 		// Show and drag preview
 		if ( showPreview )
@@ -154,38 +103,17 @@ public class CardAudioVisuals : MonoBehaviour
 			liveImage.transform.rotation = Quaternion.identity;
 			liveImage.alpha = Mathf.Lerp( liveImage.alpha, 0f, 0.1f );
 		}
-
-		/*}
-		else
-		{
-			if ( selectionMode == CardSelectionMode.InHand )
-			{
-				if ( SummoningManager.Instance.EnoughMana( useCost ) )
-					canvasGroup.alpha = 1f;
-				else
-					canvasGroup.alpha = 0.9f;
-
-				liveImage.alpha = Mathf.Lerp( liveImage.alpha, 0f, 0.25f );
-			}
-
-			if ( lerpBackTimer <= 0f || !lerpBack )
-				transform.localScale = Vector3.Lerp( transform.localScale, scaleToLerp, 0.25f );
-		}*/
-
-		//lerpBackTimer -= Time.deltaTime;
 	}
 
 	public void DoCardReveal( )
 	{
 		Revealing = true;
-		//animator.enabled = true;
 		animator.SetTrigger( "Reveal" );
 	}
 
 	public void CardRevealDone( )
 	{
 		Revealing = false;
-		//animator.enabled = false;
 	}
 
 	public void OnWarning( )
@@ -222,83 +150,14 @@ public class CardAudioVisuals : MonoBehaviour
 		StartCoroutine( Utilities.ChangeOverTime( duration, BorderEffect ) );
 	}
 
-	private void BorderEffect( float progress )
-	{
-		shockwaveSprite.transform.localScale = Vector3.one * ( 1.0f + sizeIncrease * progress);
-		Color c = shockwaveSprite.color;
-		c.a = 1 - progress;
-		shockwaveSprite.color = c;
-	}
+	public void OffWarning( ) => animator.SetBool( "Shake", false );
 
-	public void OffWarning( )
-	{
-		animator.SetBool( "Shake", false );
-		//animator.enabled = false;
-	}
-
-	public void CanBePlayed( bool canBePlayed )
-	{
-		alpha = canBePlayed ? 1.0f : alphaOnCanNotBePlayed;
-	}
-
-	public void ShowPreview( Vector2 position )
-	{
-		liveImage.alpha = Mathf.Lerp( liveImage.alpha, 0.5f, 0.15f );
-		liveImage.transform.rotation = Quaternion.identity;
-		liveImage.transform.position = position;//Vector2.Lerp( transform.position, position, 0.25f );
-	}
+	public void CanBePlayed( bool canBePlayed ) => alpha = canBePlayed ? 1.0f : alphaOnCanNotBePlayed;
 
 	public void ShowPreview( bool show )
 	{
 		showPreview = show;
 		liveImage.transform.rotation = Quaternion.identity;
-	}
-
-	public void OnOverEnter( )
-	{
-		//over = true;
-		//ShowBigger( );
-
-		/*if ( selectionMode == CardSelectionMode.InHand )
-		{
-			scaleToLerp = Vector3.one * 1.3f;
-			lerpBack = false;
-			lerpBackTimer = 0.1f;
-			frontCanvas.overrideSorting = true;
-			frontCanvas.sortingOrder = 1100;
-
-			if ( hoverCard == null )
-			{
-				overSound.Play( );
-				hoverCard = this;
-			}
-		}
-		else if ( selectionMode == CardSelectionMode.InCollection )
-		{
-			lerpBack = false;
-			lerpBackTimer = 0.1f;
-			scaleToLerp = defaultScale * 1.1f;
-
-			if ( DeckBuilder.Instance.IsDeckCardSelected( ) )
-			{
-				DeckBuilder.Instance.CheckCollectionCardSelection( this );
-
-				scaleToLerp = defaultScale * 1.5f;
-			}
-		}
-		else if ( selectionMode == CardSelectionMode.InDeck )
-		{
-			lerpBack = false;
-			lerpBackTimer = 0.1f;
-			scaleToLerp = defaultScale * 1.1f;
-
-			if ( DeckBuilder.Instance.IsCollectionCardSelected( ) )
-			{
-				DeckBuilder.Instance.CheckDeckCardSelection( this );
-
-				scaleToLerp = defaultScale * 1.5f;
-			}
-		}*/
 	}
 
 	public void HighlightCardInDeck( )
@@ -308,7 +167,7 @@ public class CardAudioVisuals : MonoBehaviour
 
 	public void HighlightCardInHand( )
 	{
-		Enlarge( overInBuilderScale );
+		Enlarge( overInHandScale );
 	}
 
 	public void DraggedFromHand( )
@@ -319,7 +178,6 @@ public class CardAudioVisuals : MonoBehaviour
 
 		playSound.Play( );
 	}
-
 
 	public void SetDisabled( )
 	{
@@ -343,17 +201,6 @@ public class CardAudioVisuals : MonoBehaviour
 		canvasGroup.interactable = true;
 	}
 
-	private void Enlarge( float scale )
-	{
-		defaultScale = Vector3.one * scale;
-		scaleToLerp = defaultScale;
-
-		frontCanvas.overrideSorting = true;
-		frontCanvas.sortingOrder = 10100;
-
-		overSound.Play( );
-	}
-
 	public void DraggedCard( )
 	{
 		frontCanvas.overrideSorting = true;
@@ -362,130 +209,21 @@ public class CardAudioVisuals : MonoBehaviour
 		canvasGroup.interactable = false;
 	}
 
-	public void OnOverExit( )
-	{
-		//over = false;
-		//ShowNormal( );
-
-		/*if ( draggedCard == this )
-			return;
-
-		if ( selectionMode == CardSelectionMode.InHand )
-		{
-			scaleToLerp = Vector3.one;
-			lerpBack = true;
-
-			frontCanvas.overrideSorting = false;
-			frontCanvas.sortingOrder = 0;
-
-			if ( hoverCard == this )
-				hoverCard = null;
-		}
-		else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
-		{
-			scaleToLerp = defaultScale;
-			lerpBack = true;
-
-			DeckBuilder.Instance.CompareAndRemoveSelection( this );
-		}*/
-	}
-
-	public void OnBeginDrag( )
-	{
-		/*dragging = true;
-		alpha = dragAlpha;
-		//canvasGroup.blocksRaycasts = false;
-
-		frontCanvas.overrideSorting = true;
-		frontCanvas.sortingOrder = 10200;
-
-		mouseOffset = transform.position - Input.mousePosition;
-		mousePosOld = Input.mousePosition;*/
-		/*onStartedDrag?.Invoke( );
-
-		if ( selectionMode == CardSelectionMode.InHand )
-			StartSummoning( );
-		else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
-			StartDraggingInDeckBuilding( );*/
-	}
-
-	public void OnEndDrag( )
-	{
-		/*dragging = false;
-		alpha = 1.0f;
-
-		ShowNormal( );*/
-		//canvasGroup.blocksRaycasts = true;
-
-		/*onEndedDrag?.Invoke( );
-
-		scaleToLerp = defaultScale;
-		lerpBack = true;
-
-		if ( selectionMode == CardSelectionMode.InHand )
-			EndSummoning( );
-		else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
-			EndDraggingInDeckBuilding( );*/
-	}
-
-	public void OnCliked( )
-	{
-		/*if ( selectionMode == CardSelectionMode.InHand )
-		{
-			if ( selected )
-			{
-				selected = false;
-				EndSummoning( );
-			}
-			else
-			{
-				selected = true;
-				StartSummoning( );
-			}
-		}
-		else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
-		{
-			if ( !selected && !draggedCard )
-			{
-				selected = true;
-				Invoke( nameof( CanBeUnselected ), 0.01f );
-				StartDraggingInDeckBuilding( );
-			}
-		}*/
-	}
-
-	public void OnReleased( )
-	{
-		/*if ( selectionMode == CardSelectionMode.InHand )
-		{ }
-		else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
-		{ }*/
-	}
-
 	public void SetStack( int amount )
 	{
 		stack1.SetActive( amount >= 2 );
 		stack2.SetActive( amount >= 3 );
 	}
 
-	public void UpdateCardStatsFromEditor( CardType cardType, CardLevel cardLevel, string name, int cost,
-		string ability, string flavor, Sprite borderSprite, Sprite fillSprite, GameObject instanceToSummon )
+	public void UpdateCardStatsFromEditor( Sprite borderSprite, Sprite fillSprite )
 	{
-		/*type = cardType;
-		level = cardLevel;
-		displayName = name;
-		useCost = cost;
-		abilityText = ability;
-		flavorText = flavor;
 		cardImageBorder.sprite = borderSprite;
 		cardImageFill.sprite = fillSprite;
-		toSummon = instanceToSummon;*/
 	}
 
-	[ContextMenu( "Update Card Info" )]
-	public void PopulateCardInfo( )
+	public void PopulateCardInfo( CardType type, GameObject toSummon, int useCost, string displayName, string abilityText, string flavorText, CardLevel level )
 	{
-		/*var specificCulture = System.Globalization.CultureInfo.GetCultureInfo( "en-US" );
+		var specificCulture = System.Globalization.CultureInfo.GetCultureInfo( "en-US" );
 
 		if ( type == CardType.Unit )
 		{
@@ -512,27 +250,20 @@ public class CardAudioVisuals : MonoBehaviour
 		if ( level == CardLevel.Level2 )
 			level2Marks.SetActive( true );
 		else if ( level == CardLevel.Level3 )
-			level3Marks.SetActive( true );*/
+			level3Marks.SetActive( true );
 	}
 
-	private void ShowNormal( )
+	public void EndSummoning( ) => canvasGroup.alpha = 1f;
+
+	public void CancelSummoning( )
 	{
-		if ( over )
-			return;
-
-		defaultScale = Vector3.one;
-		scaleToLerp = defaultScale;
-
-		if ( !dragging )
-		{
-			frontCanvas.overrideSorting = false;
-			frontCanvas.sortingOrder = 0;
-		}
+		canvasGroup.alpha = 1f;
+		backSound.Play( );
 	}
 
-	private void ShowBigger( )
+	private void Enlarge( float scale )
 	{
-		defaultScale = Vector3.one * overInBuilderScale;
+		defaultScale = Vector3.one * scale;
 		scaleToLerp = defaultScale;
 
 		frontCanvas.overrideSorting = true;
@@ -541,86 +272,11 @@ public class CardAudioVisuals : MonoBehaviour
 		overSound.Play( );
 	}
 
-	public void StartSummoning( )
+	private void BorderEffect( float progress )
 	{
-		playSound.Play( );
-	}
-
-	public void EndSummoning( )
-	{
-		//if ( draggedCard != this )
-			//return;
-
-		canvasGroup.alpha = 1f;
-		//draggedCard = null;
-		//OnOverExit( );
-
-		//bool canSummon = SummoningManager.Instance.Summoning( Vector2.zero, type, false );
-
-		/*if ( canSummon )
-		{
-			GameObject instance = Instantiate( toSummon, (Vector2)Camera.main.ScreenToWorldPoint( Input.mousePosition ), Quaternion.identity );
-			if ( type == CardType.DirectDefensiveSpell || type == CardType.DirectOffensiveSpell || type == CardType.AoeSpell )
-				instance.GetComponent<Spell>( ).SetTarget( SummoningManager.Instance.LastTarget );
-
-			SummoningManager.Instance.RemoveMana( useCost );
-			Destroy( gameObject );
-		}
-		else
-			backSound.Play( );*/
-	}
-
-	public void CancelSummoning( )
-	{
-		//if ( draggedCard != this )
-		//return;
-
-		canvasGroup.alpha = 1f;
-		backSound.Play( );
-
-		//liveImage.alpha = 0f;
-		//draggedCard = null;
-		//OnOverExit( );
-
-		//bool canSummon = SummoningManager.Instance.Summoning( Vector2.zero, type, false );
-
-		/*if ( canSummon )
-		{
-			GameObject instance = Instantiate( toSummon, (Vector2)Camera.main.ScreenToWorldPoint( Input.mousePosition ), Quaternion.identity );
-			if ( type == CardType.DirectDefensiveSpell || type == CardType.DirectOffensiveSpell || type == CardType.AoeSpell )
-				instance.GetComponent<Spell>( ).SetTarget( SummoningManager.Instance.LastTarget );
-
-			SummoningManager.Instance.RemoveMana( useCost );
-			Destroy( gameObject );
-		}
-		else
-			backSound.Play( );*/
-	}
-
-	private void StartDraggingInDeckBuilding( )
-	{
-		/*draggedCard = this;
-
-		DeckBuilder.Instance.CheckCollectionCardSelection( this );
-		DeckBuilder.Instance.CheckDeckCardSelection( this );
-
-		previousPosition = transform.position;
-
-		scaleToLerp = defaultScale * 1.25f;
-
-		frontCanvas.overrideSorting = true;
-		frontCanvas.sortingOrder = 999999;*/
-	}
-
-	private void EndDraggingInDeckBuilding( )
-	{
-		transform.position = previousPosition;
-		canvasGroup.alpha = 1.0f;
-
-		frontCanvas.overrideSorting = false;
-		frontCanvas.sortingOrder = 100000;
-
-		draggedCard = null;
-		//DeckBuilder.Instance.MoveSlot( );
+		shockwaveSprite.transform.localScale = Vector3.one * ( 1.0f + sizeIncrease * progress );
+		Color c = shockwaveSprite.color;
+		c.a = 1 - progress;
+		shockwaveSprite.color = c;
 	}
 }

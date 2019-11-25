@@ -88,8 +88,8 @@ public class CardCreationEditor : EditorWindow
                     cardArtFill = cardVizToOverwrite.CardFill;
                     cardArtBorder = cardVizToOverwrite.CardBorder;
                     cardCost = cardToOverwrite.UseCost;
-                    abilityText = cardVizToOverwrite.Ability;
-                    flavorText = cardVizToOverwrite.Flavor;
+                    abilityText = cardToOverwrite.Ability;
+                    flavorText = cardToOverwrite.Flavor;
                 }
             }
 
@@ -241,7 +241,8 @@ public class CardCreationEditor : EditorWindow
         GameObject newCard = PrefabUtility.SaveAsPrefabAsset(card, localPath);
 
         cardData = newCard.GetComponent<Card>();
-        cardData.UpdateCardStatsFromEditor(cardType, cardLevel, displayName, cardCost, abilityText, flavorText, cardArtFill, cardArtBorder, toSummon);
+        cardData.UpdateCardStatsFromEditor(cardType, cardLevel, displayName, cardCost, abilityText, flavorText, toSummon);
+        cardData.Vizuals.UpdateCardStatsFromEditor( cardArtFill, cardArtBorder );
         cardData.PopulateCardInfo();
         Texture2D texture = AssetPreview.GetAssetPreview(newCard);
         GUILayout.Box(texture, GUILayout.Height(100), GUILayout.Width(100));

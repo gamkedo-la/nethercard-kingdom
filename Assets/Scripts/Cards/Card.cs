@@ -21,6 +21,8 @@ public class Card : MonoBehaviour
 	public int UseCost { get { return useCost; } }
 	public CardType Type { get { return type; } }
 	public GameObject ToSummon { get { return toSummon; } }
+	public string Ability { get { return abilityText; } }
+	public string Flavor { get { return flavorText; } }
 	public  CardLevel Level { get { return level; } }
 	public bool CanBePlayed { get; private set; } = true;
 
@@ -64,14 +66,71 @@ public class Card : MonoBehaviour
 
 	void Update( )
 	{
+		CheckIfWeEndedClickDrag( );
+	}
+
+	void FixedUpdate( )
+	{
+		CheckIfCardCanBePlayed( );
+	}
+
+	public void OnOverEnter( ) => onOverEnter?.Invoke( this );
+
+	public void OnOverExit( ) => onOverExit?.Invoke( this );
+
+	public void OnCliked( ) => onClicked?.Invoke( this );
+
+	public void OnRelease( ) => onRelease?.Invoke( this );
+
+	public void OnDrop( ) => onDrop?.Invoke( this );
+
+	public void OnBeginDrag( )
+	{
+		// Only execute if the card is NOT being dragged
+		if ( dragging )
+			return;
+		else
+			dragging = true;
+
+		onStartedDrag?.Invoke( this );
+	}
+
+	public void OnEndDrag( )
+	{
+		// Only execute if the card was being dragged
+		if ( !dragging )
+			return;
+		else
+			dragging = false;
+
+		onEndedDrag?.Invoke( this );
+	}
+
+	public void UpdateCardStatsFromEditor( CardType cardType, CardLevel cardLevel, string name, int cost,
+		string ability, string flavor, GameObject instanceToSummon )
+	{
+		type = cardType;
+		level = cardLevel;
+		displayName = name;
+		useCost = cost;
+		abilityText = ability;
+		flavorText = flavor;
+		toSummon = instanceToSummon;
+	}
+
+	[ContextMenu( "Update Card Info" )]
+	public void PopulateCardInfo( ) => Vizuals.PopulateCardInfo( type, toSummon, useCost, displayName, abilityText, flavorText, level );
+
+	private void CheckIfWeEndedClickDrag( )
+	{
 		// We were 'click dragging' and pressed our mouse button
 		if ( dragging && Input.GetMouseButtonDown( 0 ) )
 			OnEndDrag( );
 	}
 
-	void FixedUpdate( )
+	private void CheckIfCardCanBePlayed( )
 	{
-		if ( SelectionMode != CardSelectionMode.InHand)
+		if ( SelectionMode != CardSelectionMode.InHand )
 			return;
 
 		if ( SummoningManager.Instance.EnoughMana( useCost ) && !CanBePlayed )
@@ -84,293 +143,5 @@ public class Card : MonoBehaviour
 			CanBePlayed = false;
 			vizuals.CanBePlayed( false );
 		}
-	}
-
-	public void OnOverEnter( )
-	{
-		//Debug.Log( $"On Enter: {name}" );
-		onOverEnter?.Invoke( this );
-
-		/*if ( selectionMode == CardSelectionMode.InHand )
-		{
-			scaleToLerp = Vector3.one * 1.3f;
-			lerpBack = false;
-			lerpBackTimer = 0.1f;
-			frontCanvas.overrideSorting = true;
-			frontCanvas.sortingOrder = 1100;
-
-			if ( hoverCard == null )
-			{
-				overSound.Play( );
-				hoverCard = this;
-			}
-		}
-		else if ( selectionMode == CardSelectionMode.InCollection )
-		{
-			lerpBack = false;
-			lerpBackTimer = 0.1f;
-			scaleToLerp = defaultScale * 1.1f;
-
-			if ( DeckBuilder.Instance.IsDeckCardSelected( ) )
-			{
-				DeckBuilder.Instance.CheckCollectionCardSelection( this );
-
-				scaleToLerp = defaultScale * 1.5f;
-			}
-		}
-		else if ( selectionMode == CardSelectionMode.InDeck )
-		{
-			lerpBack = false;
-			lerpBackTimer = 0.1f;
-			scaleToLerp = defaultScale * 1.1f;
-
-			if ( DeckBuilder.Instance.IsCollectionCardSelected( ) )
-			{
-				DeckBuilder.Instance.CheckDeckCardSelection( this );
-
-				scaleToLerp = defaultScale * 1.5f;
-			}
-		}*/
-	}
-
-	public void OnOverExit( )
-	{
-		//Debug.Log( $"On Exit: {name}" );
-		onOverExit?.Invoke( this );
-
-		/*if ( draggedCard == this )
-			return;
-
-		if ( selectionMode == CardSelectionMode.InHand )
-		{
-			scaleToLerp = Vector3.one;
-			lerpBack = true;
-
-			frontCanvas.overrideSorting = false;
-			frontCanvas.sortingOrder = 0;
-
-			if ( hoverCard == this )
-				hoverCard = null;
-		}
-		else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
-		{
-			scaleToLerp = defaultScale;
-			lerpBack = true;
-
-			DeckBuilder.Instance.CompareAndRemoveSelection( this );
-		}*/
-	}
-
-	public void OnCliked( )
-	{
-		//Debug.Log( $"On Clicked: {name}" );
-		onClicked?.Invoke( this );
-		//OnBeginDrag( );
-
-		/*if ( selected )
-		{
-			selected = false;
-			OnEndDrag( );
-		}
-		else
-		{
-			selected = true;
-			OnBeginDrag( );
-		}*/
-
-		/*if ( selectionMode == CardSelectionMode.InHand )
-		{
-			if ( selected )
-			{
-				selected = false;
-				EndSummoning( );
-			}
-			else
-			{
-				selected = true;
-				StartSummoning( );
-			}
-		}
-		else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
-		{
-			if ( !selected /*&& !draggedCard*//* )
-			{
-				selected = true;
-				Invoke( nameof( CanBeUnselected ), 0.01f );
-				StartDraggingInDeckBuilding( );
-			}
-		}*/
-	}
-
-	public void OnRelease( )
-	{
-		//Debug.Log( $"On Release: {name}" );
-		onRelease?.Invoke( this );
-	}
-
-	public void OnDrop( )
-	{
-		//Debug.Log( $"On Release: {name}" );
-		onDrop?.Invoke( this );
-	}
-
-	public void OnBeginDrag( )
-	{
-		// Only execute if the card is NOT being dragged
-		if ( dragging )
-			return;
-		else
-			dragging = true;
-
-		//Debug.Log( $"On Begin Drag: {name}" );
-		onStartedDrag?.Invoke( this );
-
-		/*if ( selectionMode == CardSelectionMode.InHand )
-			StartSummoning( );
-		else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
-			StartDraggingInDeckBuilding( );*/
-	}
-
-	public void OnEndDrag( )
-	{
-		// Only execute if the card was being dragged
-		if ( !dragging )
-			return;
-		else
-			dragging = false;
-
-		//Debug.Log( $"On End Drag: {name}" );
-		onEndedDrag?.Invoke( this );
-
-		/*if ( selectionMode == CardSelectionMode.InHand )
-			EndSummoning( );
-		else if ( selectionMode == CardSelectionMode.InCollection || selectionMode == CardSelectionMode.InDeck )
-			EndDraggingInDeckBuilding( );*/
-	}
-
-	public void CardSelected( bool isSelected )
-	{
-		//Debug.Log( $"On Selected: {name}" );
-
-		/*if ( isSelected )
-			defaultScale = Vector3.one * 1.07f;
-		else
-			defaultScale = Vector3.one;
-
-		scaleToLerp = defaultScale;*/
-	}
-
-	public void UpdateCardStatsFromEditor( CardType cardType, CardLevel cardLevel, string name, int cost,
-		string ability, string flavor, Sprite borderSprite, Sprite fillSprite, GameObject instanceToSummon )
-	{
-		/*type = cardType;
-		level = cardLevel;
-		displayName = name;
-		useCost = cost;
-		abilityText = ability;
-		flavorText = flavor;
-		//cardImageBorder.sprite = borderSprite;
-		//cardImageFill.sprite = fillSprite;
-		toSummon = instanceToSummon;*/
-	}
-
-	[ContextMenu( "Update Card Info" )]
-	public void PopulateCardInfo( )
-	{
-		/*var specificCulture = System.Globalization.CultureInfo.GetCultureInfo( "en-US" );
-
-		if ( type == CardType.Unit )
-		{
-			statisticsPanel.SetActive( true );
-
-			Unit u = toSummon.GetComponent<Unit>( );
-			attackLabel.text = u.DPS.ToString( "0.0", specificCulture );
-			hpLabel.text = u.HP.MaxHP.ToString( );
-			speedLabel.text = u.MoveSpeed.ToString( "0.0", specificCulture );
-		}
-		else
-		{
-			statisticsPanel.SetActive( false );
-		}
-
-		manaCostLabel.text = useCost.ToString( );
-		nameLabel.text = displayName;
-		abilityLabel.text = abilityText;
-		flavorLabel.text = flavorText;
-
-		level2Marks.SetActive( false );
-		level3Marks.SetActive( false );
-
-		if ( level == CardLevel.Level2 )
-			level2Marks.SetActive( true );
-		else if ( level == CardLevel.Level3 )
-			level3Marks.SetActive( true );*/
-	}
-
-	private void StartSummoning( )
-	{
-		//Debug.Log( $"On Start Summoning: {name}" );
-
-		/*if ( !SummoningManager.Instance.EnoughMana( useCost ) )
-			return;
-
-		//draggedCard = this;
-		OnOverEnter( );
-
-		SummoningManager.Instance.Summoning( Camera.main.ScreenToWorldPoint( Input.mousePosition ), type, true );
-		//playSound.Play( );*/
-	}
-
-	private void EndSummoning( )
-	{
-		//Debug.Log( $"On End Summoning: {name}" );
-
-		/*if ( draggedCard != this )
-			return;*/
-
-		/*OnOverExit( );
-
-		bool canSummon = SummoningManager.Instance.Summoning( Vector2.zero, type, false );
-
-		if ( canSummon )
-		{
-			GameObject instance = Instantiate( toSummon, (Vector2)Camera.main.ScreenToWorldPoint( Input.mousePosition ), Quaternion.identity );
-			if ( type == CardType.DirectDefensiveSpell || type == CardType.DirectOffensiveSpell || type == CardType.AoeSpell )
-				instance.GetComponent<Spell>( ).SetTarget( SummoningManager.Instance.LastTarget );
-
-			SummoningManager.Instance.RemoveMana( useCost );
-			Destroy( gameObject );
-		}*/
-		//else
-		//backSound.Play( );
-	}
-
-	private void StartDraggingInDeckBuilding( )
-	{
-		//Debug.Log( $"On Start Summoning: {name}" );
-
-		/*draggedCard = this;
-
-		DeckBuilder.Instance.CheckCollectionCardSelection( this );
-		DeckBuilder.Instance.CheckDeckCardSelection( this );
-
-		previousPosition = transform.position;
-
-		scaleToLerp = defaultScale * 1.25f;
-
-		frontCanvas.overrideSorting = true;
-		frontCanvas.sortingOrder = 999999;*/
-	}
-
-	private void EndDraggingInDeckBuilding( )
-	{
-		/*transform.position = previousPosition;
-		canvasGroup.alpha = 1.0f;
-
-		frontCanvas.overrideSorting = false;
-		frontCanvas.sortingOrder = 100000;
-
-		draggedCard = null;*/
-		//DeckBuilder.Instance.MoveSlot( );
 	}
 }
