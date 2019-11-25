@@ -630,7 +630,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3893413231254131150}
   - component: {fileID: 3893413231254131151}
-  - component: {fileID: 2836250235306131600}
   - component: {fileID: 1847333003685226086}
   m_Layer: 5
   m_Name: Hand
@@ -683,33 +682,6 @@ MonoBehaviour:
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
---- !u!114 &2836250235306131600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3893413231254131149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5cb7e1cff9391a4daaab4abaaaedf88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lerpFactor: 0.25
-  totalCardsAllowed: 3
-  discardedCardOffset: {x: 100, y: 0}
-  addWidthToDiscardedX: 1
-  xOffset: 0
-  yOffset: 70
-  angleOffset: -12.5
-  xOffsetBetweenCards: 270
-  yOffsetBetweenCards: -50
-  angleOffsetBetweenCards: -60
-  hoverCardGap: 50
-  hoverCardYPosition: 80
-  hoverCardToMousePositionRatio: 0
-  draggedCardYPosition: 10
-  hideCardsYPositionOnDrag: -40
 --- !u!114 &1847333003685226086
 MonoBehaviour:
   m_ObjectHideFlags: 0
