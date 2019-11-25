@@ -13,6 +13,7 @@ using UnityEngine.UI;
 public class SummoningManager : MonoBehaviour
 {
 	public static SummoningManager Instance { get; private set; }
+
 	public CardType SummoningCardType { get; private set; } = CardType.Undefined;
 	public Targetable LastTarget { get; private set; } = null;
 	public bool CanSummon { get; set; } = true;
@@ -30,10 +31,10 @@ public class SummoningManager : MonoBehaviour
 	[SerializeField] private int startMana = 3;
 
 	private List<Targetable> targetables = new List<Targetable>();
+	private CardType currentSummoningType = CardType.Undefined;
 	private bool overValidTarget = false;
 	private int currentMana = 0;
 	private float currentManaProgress = 0;
-	private CardType currentSummoningType = CardType.Undefined;
 
 	private void Awake( )
 	{
@@ -84,7 +85,7 @@ public class SummoningManager : MonoBehaviour
 	}
 	public void RemoveTargetable( Targetable targetable ) => targetables.Remove( targetable );
 
-	public bool Summoning( Vector2 startPos, CardType type, bool started )
+	public bool Summoning( CardType type, bool started )
 	{
 		if ( !CanSummon )
 		{
@@ -150,12 +151,10 @@ public class SummoningManager : MonoBehaviour
 		if ( !CanSummon )
 			return;
 
-		//Debug.Log( $"MouseOverTarget: SummoningCardType = {SummoningCardType},  targetableBy: {targetableBy}" );
 		LastTarget = target;
 
 		if ( targetableBy.HasFlag( SummoningCardType ) )
 		{
-			//Debug.Log( "SAME TYPES, isOver = " + isOver );
 			overValidTarget = isOver;
 			good.SetActive( isOver );
 			bad.SetActive( !isOver );
@@ -172,71 +171,6 @@ public class SummoningManager : MonoBehaviour
 		overValidTarget = false;
 		good.SetActive( false );
 		bad.SetActive( false );
-
-		/*
-		// Summoning Direct Offensive Spell and over an enemy Unit
-		if ( SummoningCardType == CardType.DirectOffensiveSpell && targetableBy == CardType.EnemyUnit )
-		{
-			Debug.Log( "Over Summoning Enemy, isOver = " + isOver );
-			overValidTarget = isOver;
-			good.SetActive( isOver );
-			bad.SetActive( !isOver );
-
-			return;
-		}
-
-		// Summoning Direct Defensive Spell and over an player Unit
-		if ( SummoningCardType == CardType.DirectDefensiveSpell && targetableBy == CardType.Unit )
-		{
-			Debug.Log( "Over Summoning Player, isOver = " + isOver );
-			overValidTarget = isOver;
-			good.SetActive( isOver );
-			bad.SetActive( !isOver );
-
-			return;
-		}
-
-		// Over not compatible target
-		if ( SummoningCardType != targetableBy )
-		{
-			Debug.Log( "Non compatible types, isOver = " + isOver );
-			overValidTarget = false;
-			good.SetActive( false );
-			bad.SetActive( true );
-
-			return;
-		}
-		*/
-		// Summoning a Unit and over Summoning Area
-		/*if ( SummoningCardType == CardType.Unit && targetType == CardType.Unit )
-		{
-			Debug.Log( "Over Summoning " );
-			overValidTarget = isOver;
-			good.SetActive( isOver );
-			bad.SetActive( !isOver );
-
-			return;
-		}*/
-
-		// Summoning Unit and over a Unit
-		/*if ( UsingMode == CardType.Unit && type == CardType.Unit )
-		{
-			overValidTarget = false;
-			good.SetActive( false );
-			bad.SetActive( true );
-
-			return;
-		}*/
-
-		// Summoning AoE Spell and over a AoE summoning area
-		/*if ( SummoningCardType == CardType.AoeSpell && targetType == CardType.AoeSpell && side == ConflicSide.All )
-		{
-			overValidTarget = isOver;
-			good.SetActive( isOver );
-			bad.SetActive( !isOver );
-
-			return;
-		}*/
 	}
 
 	private void ManaProgress( )
