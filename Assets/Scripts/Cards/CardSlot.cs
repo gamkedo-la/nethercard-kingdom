@@ -54,8 +54,8 @@ public class CardSlot : MonoBehaviour
 			if ( returning && Vector2.Distance( cardInSlot.transform.position, cardHolder.position ) < 5 )
 			{
 				returning = false;
-				cardInSlot.GetComponent<CardAudioVisuals>( ).NormalCard( );
-				cardInSlot.GetComponent<CardAudioVisuals>( ).OnInformation( );
+				cardInSlot.Vizuals.NormalCard( );
+				cardInSlot.Vizuals.OnInformation( );
 			}
 		}
 	}
@@ -97,17 +97,17 @@ public class CardSlot : MonoBehaviour
 			amountDisplay.SetActive( true );
 
 		// Disable cards that are fewer then the min amount for upgrading and that have max level
-		if ( upgrading && ( playerCard.Amount < PlayerCards.MinCardsForUpgrade || !go.GetComponent<Card>( ).HigherLevelVersion ) )
+		if ( upgrading && ( playerCard.Amount < PlayerCards.MinCardsForUpgrade || !cardInSlot.HigherLevelVersion ) )
 		{
 			showAsDisabled = true;
-			go.GetComponent<CardAudioVisuals>( ).SetDisabled( );
+			cardInSlot.Vizuals.SetDisabled( );
 		}
 	}
 
 	public void DoMove( Vector2 position )
 	{
 		cardInSlot.transform.position = position;
-		cardInSlot.GetComponent<CardAudioVisuals>( ).DraggedCard( );
+		cardInSlot.Vizuals.DraggedCard( );
 		returning = true;
 	}
 
@@ -150,7 +150,7 @@ public class CardSlot : MonoBehaviour
 
 	public void OnWarning( ) => cardInSlot.Vizuals.OnWarning( );
 
-	public void OnInfromation( ) => cardInSlot.GetComponent<CardAudioVisuals>( ).OnInformation( );
+	public void OnInfromation( ) => cardInSlot.Vizuals.OnInformation( );
 
 	private void OnCardOverEnter( )
 	{
