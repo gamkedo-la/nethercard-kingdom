@@ -1,10 +1,9 @@
 ﻿/**
- * Description: Card slot for use in deck building and card collection.
+ * Description: Card slot for use in deck building (deck, collection and upgrade slots).
  * Authors: Kornel
  * Copyright: © 2019 Kornel. All rights reserved. For license see: 'LICENSE.txt'
  **/
 
-using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -14,29 +13,27 @@ public class CardSlot : MonoBehaviour
 	public PlayerCard Card { get; private set; }
 	public Vector2 CardPosition { get { return cardHolder.position; } }
 
-	[SerializeField] private GameObject amount = null;
-	[SerializeField] private Transform cardHolder = null;
-	[SerializeField] private GameObject selection = null;
+	[SerializeField] private GameObject amountDisplay = null;
 	[SerializeField] private TextMeshProUGUI amountLabel = null;
+	[SerializeField] private Transform cardHolder = null;
 	[SerializeField] private CardSelectionMode mode = CardSelectionMode.InCollection;
 
 	private Card cardInSlot = null;
 	private bool cardIsDraged = false;
 	private bool returning = false;
+	private bool appearing = true;
+	private bool showAsDisabled = false;
 	private int index = int.MinValue;
 	private System.Action<int,bool> onDrag;
 	private System.Action<int> onDrop;
 	private System.Action<int> onClick;
-	private bool appearing = true;
-	private bool showAsDisabled = false;
 	private Vector3 dragOffset = Vector3.zero;
 
 	void Start ()
 	{
-		Assert.IsNotNull( amount, $"Please assign <b>{nameof( amount )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
-		Assert.IsNotNull( cardHolder, $"Please assign <b>{nameof( cardHolder )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
-		Assert.IsNotNull( selection, $"Please assign <b>{nameof( selection )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( amountDisplay, $"Please assign <b>{nameof( amountDisplay )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( amountLabel, $"Please assign <b>{nameof( amountLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( cardHolder, $"Please assign <b>{nameof( cardHolder )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
 		Invoke( nameof( Appeared ), 0.7f ); // To prevent cards "jumping" when deck builder first appears
 	}
@@ -78,40 +75,33 @@ public class CardSlot : MonoBehaviour
 			return;
 
 		GameObject go = Instantiate( playerCard.Card.gameObject, cardHolder.position, Quaternion.identity, cardHolder );
-		//cardInSlot.transform.localPosition = Vector3.zero;
 		go.transform.localPosition = Vector3.zero;
+
 		cardInSlot = go.GetComponent<Card>( );
-		go.GetComponent<Card>( ).SelectionMode = mode;
-		go.GetComponent<Card>( ).onStartedDrag.AddListener( card => OnCardStartDragging( ) );
-		go.GetComponent<Card>( ).onEndedDrag.AddListener( card => OnCardEndDragging( ) );
-		go.GetComponent<Card>( ).onOverEnter.AddListener( card => OnCardOverEnter( ) );
-		go.GetComponent<Card>( ).onOverExit.AddListener( card => OnCardOverExit( ) );
-		go.GetComponent<Card>( ).onDrop.AddListener( card => OnCardDrop( ) );
-		go.GetComponent<Card>( ).onClicked.AddListener( card => OnClicked( ) );
-		go.GetComponent<Card>( ).onRelease.AddListener( card => OnCardRelease( ) );
-		go.GetComponent<Card>( ).SelectionMode = mode;
-		go.GetComponent<CardAudioVisuals>( ).SelectionMode = mode;
-		go.GetComponent<CardAudioVisuals>( ).SetStack( playerCard.Amount );
 		cardInSlot.SelectionMode = mode;
-		//cardInSlot.onStartedDrag.AddListener( ( ) => cardIsDraged = true );
-		//cardInSlot.onEndedDrag.AddListener( ( ) => cardIsDraged = false );
+		cardInSlot.onStartedDrag.AddListener( card => OnCardStartDragging( ) );
+		cardInSlot.onEndedDrag.AddListener( card => OnCardEndDragging( ) );
+		cardInSlot.onOverEnter.AddListener( card => OnCardOverEnter( ) );
+		cardInSlot.onOverExit.AddListener( card => OnCardOverExit( ) );
+		cardInSlot.onDrop.AddListener( card => OnCardDrop( ) );
+		cardInSlot.onClicked.AddListener( card => OnClicked( ) );
+		cardInSlot.onRelease.AddListener( card => OnCardRelease( ) );
+		cardInSlot.SelectionMode = mode;
+
+		cardInSlot.Vizuals.SelectionMode = mode;
+		cardInSlot.Vizuals.SetStack( playerCard.Amount );
 
 		amountLabel.text = $"x{playerCard.Amount}";
 
 		if ( mode == CardSelectionMode.InCollection )
-			amount.SetActive( true );
+			amountDisplay.SetActive( true );
 
-		// Hide cards that are fewer then the min amount for upgrading and that have max level
+		// Disable cards that are fewer then the min amount for upgrading and that have max level
 		if ( upgrading && ( playerCard.Amount < PlayerCards.MinCardsForUpgrade || !go.GetComponent<Card>( ).HigherLevelVersion ) )
 		{
 			showAsDisabled = true;
 			go.GetComponent<CardAudioVisuals>( ).SetDisabled( );
 		}
-	}
-
-	public bool IsEmpty( )
-	{
-		return !cardInSlot;
 	}
 
 	public void DoMove( Vector2 position )
@@ -123,30 +113,23 @@ public class CardSlot : MonoBehaviour
 
 	public void Clear( )
 	{
-		amount.SetActive( false );
+		amountDisplay.SetActive( false );
 		cardIsDraged = false;
-		Card = null;
 		showAsDisabled = false;
+		Card = null;
 
 		if ( cardInSlot )
 		{
 			cardInSlot.onStartedDrag.RemoveAllListeners( );
 			cardInSlot.onEndedDrag.RemoveAllListeners( );
-			cardInSlot.GetComponent<Card>( ).onStartedDrag.RemoveAllListeners( );
-			cardInSlot.GetComponent<Card>( ).onEndedDrag.RemoveAllListeners( );
-			cardInSlot.GetComponent<Card>( ).onOverEnter.RemoveAllListeners( );
-			cardInSlot.GetComponent<Card>( ).onOverExit.RemoveAllListeners( );
-			cardInSlot.GetComponent<Card>( ).onClicked.RemoveAllListeners( );
-			cardInSlot.GetComponent<Card>( ).onRelease.RemoveAllListeners( );
-			cardInSlot.GetComponent<Card>( ).onDrop.RemoveAllListeners( );
+			cardInSlot.onOverEnter.RemoveAllListeners( );
+			cardInSlot.onOverExit.RemoveAllListeners( );
+			cardInSlot.onClicked.RemoveAllListeners( );
+			cardInSlot.onRelease.RemoveAllListeners( );
+			cardInSlot.onDrop.RemoveAllListeners( );
 
 			Destroy( cardInSlot.gameObject );
 		}
-	}
-
-	public void Select( bool selected )
-	{
-		selection.SetActive( selected );
 	}
 
 	public void OnCardDrop( )
@@ -154,10 +137,6 @@ public class CardSlot : MonoBehaviour
 		if ( showAsDisabled )
 			return;
 
-		///DeckBuilder.Instance.otherSlot = transform.parent.gameObject;
-		///DeckBuilder.Instance.MoveSlot( );
-		//Debug.Log( $"Drop: {name} -> {cardInSlot.GetComponent<CardNew>( ).Name}" );
-		//Debug.Log( $"Drop: {name}" );
 		onDrop?.Invoke( index );
 	}
 
@@ -166,19 +145,12 @@ public class CardSlot : MonoBehaviour
 		if ( showAsDisabled )
 			return;
 
-		//Debug.Log( $"{name} click event" );
 		onClick?.Invoke( index );
 	}
 
-	public void OnWarning( )
-	{
-		cardInSlot.GetComponent<CardAudioVisuals>( ).OnWarning( );
-	}
+	public void OnWarning( ) => cardInSlot.Vizuals.OnWarning( );
 
-	public void OnInfromation( )
-	{
-		cardInSlot.GetComponent<CardAudioVisuals>( ).OnInformation( );
-	}
+	public void OnInfromation( ) => cardInSlot.GetComponent<CardAudioVisuals>( ).OnInformation( );
 
 	private void OnCardOverEnter( )
 	{
@@ -186,7 +158,7 @@ public class CardSlot : MonoBehaviour
 			return;
 
 		if ( !cardIsDraged && !returning )
-			cardInSlot.GetComponent<CardAudioVisuals>( ).HighlightCardInDeck( );
+			cardInSlot.Vizuals.HighlightCardInDeck( );
 	}
 
 	private void OnCardOverExit( )
@@ -195,7 +167,7 @@ public class CardSlot : MonoBehaviour
 			return;
 
 		if ( !cardIsDraged && !returning )
-			cardInSlot.GetComponent<CardAudioVisuals>( ).NormalCard( );
+			cardInSlot.Vizuals.NormalCard( );
 	}
 
 	public void OnCardStartDragging( )
@@ -205,7 +177,8 @@ public class CardSlot : MonoBehaviour
 
 		cardIsDraged = true;
 		dragOffset = Input.mousePosition - cardInSlot.transform.position;
-		cardInSlot.GetComponent<CardAudioVisuals>( ).DraggedCard( );
+
+		cardInSlot.Vizuals.DraggedCard( );
 		onDrag?.Invoke( index, false );
 	}
 
@@ -216,6 +189,7 @@ public class CardSlot : MonoBehaviour
 
 		cardIsDraged = false;
 		returning = true;
+
 		onDrag?.Invoke( index, true );
 	}
 
@@ -223,7 +197,5 @@ public class CardSlot : MonoBehaviour
 	{
 		if ( showAsDisabled )
 			return;
-
-		//Debug.Log( $"{name} drop event" );
 	}
 }
