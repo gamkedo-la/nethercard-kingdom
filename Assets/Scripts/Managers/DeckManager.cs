@@ -179,6 +179,8 @@ public class DeckManager : MonoBehaviour
 			if ( cardDragged == cardInDestinationSlot )
 			{
 				tooltip.text = "Card placed in the same slot";
+				DisplayDeck( );
+				slots[dropSlotIndex].DoMove( slots[dropSlotIndex].CardPosition );
 
 				return;
 			}

@@ -287,6 +287,8 @@ public class CollectionManager : MonoBehaviour
 			if ( cardDragged == cardInDestinationSlot )
 			{
 				tooltip.text = "Card placed in the same slot";
+				DisplayCollection( );
+				slots[dropSlotIndex].DoMove( slots[dropSlotIndex].CardPosition );
 
 				return;
 			}
