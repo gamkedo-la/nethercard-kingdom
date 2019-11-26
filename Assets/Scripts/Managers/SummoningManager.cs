@@ -18,17 +18,24 @@ public class SummoningManager : MonoBehaviour
 	public Targetable LastTarget { get; private set; } = null;
 	public bool CanSummon { get; set; } = true;
 
+	[Header("Objects")]
 	[SerializeField] private PlaySound manaSound = null;
 	[SerializeField] private TextMeshProUGUI manaCounter = null;
 	[SerializeField] private Image progressImage = null;
+
+	[Header("Areas")]
 	[SerializeField] private GameObject summoningAreaUnits = null;
 	[SerializeField] private GameObject summoningAreaAoe = null;
+
+	[Header("Cursor")]
 	[SerializeField] private GameObject good = null;
 	[SerializeField] private GameObject bad = null;
-	[SerializeField] private LineRenderer line = null;
+
+	[Header("Mana")]
 	[SerializeField] private float manaTickTime = 2f;
 	[SerializeField] private int manaTickAmount = 1;
 	[SerializeField] private int startMana = 3;
+	[SerializeField] private int maxMana = 99;
 
 	private List<Targetable> targetables = new List<Targetable>();
 	private CardType currentSummoningType = CardType.Undefined;
@@ -55,7 +62,6 @@ public class SummoningManager : MonoBehaviour
 		Assert.IsNotNull( summoningAreaAoe, $"Please assign <b>{nameof( summoningAreaAoe )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( good, $"Please assign <b>{nameof( good )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( bad, $"Please assign <b>{nameof( bad )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
-		Assert.IsNotNull( line, $"Please assign <b>{nameof( line )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
 		AddMana( startMana, false );
 	}
@@ -136,6 +142,8 @@ public class SummoningManager : MonoBehaviour
 			manaSound.Play( );
 
 		currentMana += amount;
+		currentMana = currentMana < maxMana ? currentMana : maxMana;
+
 		manaCounter.text = currentMana.ToString( );
 		currentManaProgress = 0;
 	}
@@ -175,6 +183,14 @@ public class SummoningManager : MonoBehaviour
 
 	private void ManaProgress( )
 	{
+		if ( currentMana >= maxMana )
+		{
+			currentManaProgress = 0;
+			progressImage.fillAmount = 1;
+
+			return;
+		}
+
 		currentManaProgress += Time.deltaTime / manaTickTime;
 		progressImage.fillAmount = currentManaProgress;
 
