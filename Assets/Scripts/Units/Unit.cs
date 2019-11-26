@@ -102,6 +102,12 @@ public class Unit : MonoBehaviour
 		Gizmos.color = Color.white;
 	}
 
+	public void Stop( )
+	{
+		frozen = true;
+		attack.Flozen = true;
+	}
+
 	public void Freez( float duration, bool shocked = false )
 	{
 		StartCoroutine( DoFreez( duration, shocked ) );

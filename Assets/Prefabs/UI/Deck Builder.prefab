@@ -1147,13 +1147,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 6661416680460317484}
-    characterCount: 18
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 2
-    wordCount: 3
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -2497,6 +2497,7 @@ MonoBehaviour:
   - {fileID: 8784778901841699078}
   - {fileID: 8784778902300243751}
   - {fileID: 5194943639164526079}
+  - {fileID: 32309461378662257}
   toShowOnClose:
   - {fileID: 0}
   - {fileID: 0}

@@ -74,4 +74,13 @@ public class UnitsManager : MonoBehaviour
 
 		return unitsInRange;
 	}
+
+	public void StopUnits( )
+	{
+		foreach ( var unit in EnemyUnits )
+			unit.Stop( );
+
+		foreach ( var unit in PlayerUnits )
+			unit.Stop( );
+	}
 }
