@@ -51,6 +51,7 @@ public class CardAudioVisuals : MonoBehaviour
 	[SerializeField] private float alphaOnCanNotBePlayed = 0.5f;
 
 	private bool showPreview = false;
+	private bool canBePlayed = true;
 	private float alpha = 1.0f;
 	private float sizeIncrease = 0f;
 	private Vector3 scaleToLerp = Vector3.one;
@@ -152,7 +153,11 @@ public class CardAudioVisuals : MonoBehaviour
 
 	public void OffWarning( ) => animator.SetBool( "Shake", false );
 
-	public void CanBePlayed( bool canBePlayed ) => alpha = canBePlayed ? 1.0f : alphaOnCanNotBePlayed;
+	public void CanBePlayed( bool canBePlayed )
+	{
+		this.canBePlayed = canBePlayed;
+		alpha = canBePlayed ? 1.0f : alphaOnCanNotBePlayed;
+	}
 
 	public void ShowPreview( bool show )
 	{
@@ -193,7 +198,7 @@ public class CardAudioVisuals : MonoBehaviour
 		defaultScale = Vector3.one;
 		scaleToLerp = defaultScale;
 
-		alpha = 1.0f;
+		alpha = canBePlayed ? 1.0f : alphaOnCanNotBePlayed;
 
 		frontCanvas.overrideSorting = false;
 		frontCanvas.sortingOrder = 0;

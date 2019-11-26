@@ -138,10 +138,17 @@ public class CollectionManager : MonoBehaviour
 
 	private void UpgradeSlotClickedEvent( int _ )
 	{
-		int sourceSlotIndex = collection.IndexOf( upgradingCard );
-		CleanUpUpgradeState( );
+		if ( upgradSlot1.Card != null )
+		{
+			int sourceSlotIndex = collection.IndexOf( upgradingCard );
+			CleanUpUpgradeState( );
 
-		slots[sourceSlotIndex].DoMove( ( upgradSlot1.CardPosition + upgradSlot2.CardPosition ) / 2 );
+			slots[sourceSlotIndex].DoMove( ( upgradSlot1.CardPosition + upgradSlot2.CardPosition ) / 2 );
+		}
+		else if ( cardDragged != null )
+		{
+			UpgradeSlotDroppedEvent( default );
+		}
 	}
 
 	private void CleanUpUpgradeState( bool updateCollection = true )
