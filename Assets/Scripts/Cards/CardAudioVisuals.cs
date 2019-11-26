@@ -48,14 +48,14 @@ public class CardAudioVisuals : MonoBehaviour
 	[SerializeField] private float overInBuilderScale = 1.2f;
 	[SerializeField] private float overInHandScale = 1.4f;
 	[SerializeField] private float alphaOnDraggedFromHand = 0.8f;
+	[SerializeField] private float alphaOnDraggedInDeckBuilder = 0.8f;
 	[SerializeField] private float alphaOnCanNotBePlayed = 0.5f;
 
 	private bool showPreview = false;
 	private bool canBePlayed = true;
-	private float alpha = 1.0f;
+	private float cardAlpha = 1.0f;
 	private float sizeIncrease = 0f;
-	private Vector3 scaleToLerp = Vector3.one;
-	private Vector3 defaultScale = Vector3.one;
+	private Vector3 cardScale = Vector3.one;
 
 	void Start( )
 	{
@@ -87,8 +87,8 @@ public class CardAudioVisuals : MonoBehaviour
 
 	void Update( )
 	{
-		transform.localScale = Vector3.Lerp( transform.localScale, scaleToLerp, 0.25f );
-		canvasGroup.alpha = Mathf.Lerp( canvasGroup.alpha, alpha, 0.15f );
+		transform.localScale = Vector3.Lerp( transform.localScale, cardScale, 0.25f );
+		canvasGroup.alpha = Mathf.Lerp( canvasGroup.alpha, cardAlpha, 0.15f );
 
 		// Show and drag preview
 		if ( showPreview )
@@ -156,7 +156,7 @@ public class CardAudioVisuals : MonoBehaviour
 	public void CanBePlayed( bool canBePlayed )
 	{
 		this.canBePlayed = canBePlayed;
-		alpha = canBePlayed ? 1.0f : alphaOnCanNotBePlayed;
+		cardAlpha = canBePlayed ? 1.0f : alphaOnCanNotBePlayed;
 	}
 
 	public void ShowPreview( bool show )
@@ -177,7 +177,7 @@ public class CardAudioVisuals : MonoBehaviour
 
 	public void DraggedFromHand( )
 	{
-		alpha = alphaOnDraggedFromHand;
+		cardAlpha = alphaOnDraggedFromHand;
 		canvasGroup.blocksRaycasts = false;
 		canvasGroup.interactable = false;
 
@@ -186,7 +186,7 @@ public class CardAudioVisuals : MonoBehaviour
 
 	public void SetDisabled( )
 	{
-		alpha = alphaOnCanNotBePlayed;
+		cardAlpha = alphaOnCanNotBePlayed;
 		canvasGroup.alpha = alphaOnCanNotBePlayed;
 
 		canvasGroup.blocksRaycasts = false;
@@ -195,10 +195,9 @@ public class CardAudioVisuals : MonoBehaviour
 
 	public void NormalCard( )
 	{
-		defaultScale = Vector3.one;
-		scaleToLerp = defaultScale;
+		cardScale = Vector3.one;
 
-		alpha = canBePlayed ? 1.0f : alphaOnCanNotBePlayed;
+		cardAlpha = canBePlayed ? 1.0f : alphaOnCanNotBePlayed;
 
 		frontCanvas.overrideSorting = false;
 		frontCanvas.sortingOrder = 0;
@@ -208,6 +207,8 @@ public class CardAudioVisuals : MonoBehaviour
 
 	public void DraggedCard( )
 	{
+		cardAlpha = alphaOnDraggedInDeckBuilder;
+
 		frontCanvas.overrideSorting = true;
 		frontCanvas.sortingOrder = 10200;
 		canvasGroup.blocksRaycasts = false;
@@ -268,8 +269,7 @@ public class CardAudioVisuals : MonoBehaviour
 
 	private void Enlarge( float scale )
 	{
-		defaultScale = Vector3.one * scale;
-		scaleToLerp = defaultScale;
+		cardScale = Vector3.one * scale;
 
 		frontCanvas.overrideSorting = true;
 		frontCanvas.sortingOrder = 10100;
