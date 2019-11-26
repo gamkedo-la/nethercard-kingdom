@@ -205,7 +205,7 @@ public class CardAudioVisuals : MonoBehaviour
 		canvasGroup.interactable = true;
 	}
 
-	public void DraggedCard( )
+	public void DraggedCard( bool backMove )
 	{
 		cardAlpha = alphaOnDraggedInDeckBuilder;
 
@@ -213,6 +213,16 @@ public class CardAudioVisuals : MonoBehaviour
 		frontCanvas.sortingOrder = 10200;
 		canvasGroup.blocksRaycasts = false;
 		canvasGroup.interactable = false;
+
+		if ( backMove )
+			backSound.Play( );
+		else
+			playSound.Play( );
+	}
+
+	public void Back( )
+	{
+		backSound.Play( );
 	}
 
 	public void SetStack( int amount )

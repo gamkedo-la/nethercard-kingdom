@@ -107,7 +107,7 @@ public class CardSlot : MonoBehaviour
 	public void DoMove( Vector2 position )
 	{
 		cardInSlot.transform.position = position;
-		cardInSlot.Vizuals.DraggedCard( );
+		cardInSlot.Vizuals.DraggedCard( true );
 		returning = true;
 	}
 
@@ -178,7 +178,7 @@ public class CardSlot : MonoBehaviour
 		cardIsDraged = true;
 		dragOffset = Input.mousePosition - cardInSlot.transform.position;
 
-		cardInSlot.Vizuals.DraggedCard( );
+		cardInSlot.Vizuals.DraggedCard( false );
 		onDrag?.Invoke( index, false );
 	}
 
@@ -190,6 +190,7 @@ public class CardSlot : MonoBehaviour
 		cardIsDraged = false;
 		returning = true;
 
+		cardInSlot.Vizuals.Back( );
 		onDrag?.Invoke( index, true );
 	}
 

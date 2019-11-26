@@ -512,11 +512,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - {fileID: 8300000, guid: 5187893c60a4e334697d2a256a2fa252, type: 3}
+  - {fileID: 8300000, guid: f907ab3852decfc4fa5fe1c1bc630f18, type: 3}
   minPitch: 0.8
   maxPitch: 1.2
-  minVolume: 0.4
-  maxVolume: 0.5
+  minVolume: 0.1
+  maxVolume: 0.2
   playOnStart: 0
   limitFequencyOfPlays: 0
   timeBetweenPlays: 1
@@ -3012,7 +3012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - {fileID: 8300000, guid: 3287864b83f36eb45b243932b27172fd, type: 3}
+  - {fileID: 8300000, guid: f05e8360298a5a84bb178785bcc33471, type: 3}
   minPitch: 0.7
   maxPitch: 0.8
   minVolume: 0.3
