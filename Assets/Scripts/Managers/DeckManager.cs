@@ -10,6 +10,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class DeckManager : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class DeckManager : MonoBehaviour
 	[SerializeField] private PlayerCards playerCards = null;
 	[SerializeField] private CollectionManager collectionManager = null;
 	[SerializeField] private TextMeshProUGUI tooltip = null;
+	[SerializeField] private TextMeshProUGUI goButtonLabel = null;
 
 	[Header("Objects")]
 	[SerializeField] private GameObject deckSlot = null;
@@ -41,6 +43,7 @@ public class DeckManager : MonoBehaviour
 		Assert.IsNotNull( deckSlot, $"Please assign <b>{nameof( deckSlot )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( slotsParent, $"Please assign <b>{nameof( slotsParent )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( tooltip, $"Please assign <b>{nameof( tooltip )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( goButtonLabel, $"Please assign <b>{nameof( goButtonLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
 		slotNumber = PlayerCards.MaxCardsInDeck;
 
@@ -149,7 +152,22 @@ public class DeckManager : MonoBehaviour
 
 		// We should be able to save the deck only if we have all the slots in it filled
 		int cardsInDeck = deck.Where( card => card != null ).Count( );
-		onCanSaveDeck?.Invoke( cardsInDeck == PlayerCards.MaxCardsInDeck );
+
+		if ( cardsInDeck != PlayerCards.MaxCardsInDeck && ( PlayerCards.MaxCardsInDeck - cardsInDeck ) == 1 )
+		{
+			onCanSaveDeck?.Invoke( false );
+			goButtonLabel.text = $"{PlayerCards.MaxCardsInDeck - cardsInDeck} More Card Is Needed!";
+		}
+		else if ( cardsInDeck != PlayerCards.MaxCardsInDeck )
+		{
+			onCanSaveDeck?.Invoke( false );
+			goButtonLabel.text = $"{PlayerCards.MaxCardsInDeck - cardsInDeck} More Cards Are Needed!";
+		}
+		else
+		{
+			onCanSaveDeck?.Invoke( true );
+			goButtonLabel.text = "Save and Go to Battle";
+		}
 	}
 
 	private void ClickedOnSlotEvent( int dropSlotIndex )
