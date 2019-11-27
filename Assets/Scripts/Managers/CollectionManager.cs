@@ -344,7 +344,7 @@ public class CollectionManager : MonoBehaviour
 			// Combine piles cards (card of the same name dropped on one another)
 			if ( cardDragged.Card.Name == cardInDestinationSlot.Card.Name )
 			{
-				tooltip.text = "Cards in collection combined";
+				tooltip.text = "Cards in collection stacked";
 
 				cardInDestinationSlot.Amount += cardDragged.Amount;
 				collection[draggedSlotIndex] = null;
