@@ -163,6 +163,7 @@ public class CardAudioVisuals : MonoBehaviour
 	{
 		showPreview = show;
 		liveImage.transform.rotation = Quaternion.identity;
+		liveImage.transform.localScale = Vector3.one / overInHandScale;
 	}
 
 	public void HighlightCardInDeck( )

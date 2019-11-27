@@ -12,42 +12,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lightning Spell I Card
       objectReference: {fileID: 0}
-    - target: {fileID: 96448653850123964, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: cost
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 96448653850123964, guid: 53475d4f1e5edc741919c3a46dada549,
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: type
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: useCost
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 96448653850123964, guid: 53475d4f1e5edc741919c3a46dada549,
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: displayName
+      value: Lightning
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: abilityText
+      value: Does <b>3 damage</b> to enemy unit
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: flavorText
+      value: It's kinda rainy outside...
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: toSummon
       value: 
       objectReference: {fileID: 4813590216533916336, guid: 6b9a74655773aa64b931b270686f7f35,
         type: 3}
-    - target: {fileID: 96448653850123964, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: displayName
-      value: Lightning
-      objectReference: {fileID: 0}
-    - target: {fileID: 96448653850123964, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: abilityText
-      value: Does <b>3 damage</b> to enemy unit
-      objectReference: {fileID: 0}
-    - target: {fileID: 96448653850123964, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: flavorText
-      value: It's kinda rainy outside...
-      objectReference: {fileID: 0}
-    - target: {fileID: 96448653850123964, guid: 53475d4f1e5edc741919c3a46dada549,
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: higherLevelVersion
       value: 
-      objectReference: {fileID: 222037773591144965, guid: 50f644e35feb661458821404f47f5a33,
+      objectReference: {fileID: 1609105408714899463, guid: 50f644e35feb661458821404f47f5a33,
         type: 3}
     - target: {fileID: 7709570893905777452, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
@@ -100,11 +100,6 @@ PrefabInstance:
       propertyPath: m_textInfo.wordCount
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3563004026135363423, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_text
-      value: It's kinda rainy outside...
-      objectReference: {fileID: 0}
     - target: {fileID: 4082654261549637672, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: m_Sprite
@@ -116,43 +111,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: type
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: useCost
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: displayName
-      value: Lightning
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: abilityText
-      value: Does <b>3 damage</b> to enemy unit
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: flavorText
-      value: It's kinda rainy outside...
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: toSummon
-      value: 
-      objectReference: {fileID: 4813590216533916336, guid: 6b9a74655773aa64b931b270686f7f35,
-        type: 3}
-    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: higherLevelVersion
-      value: 
-      objectReference: {fileID: 1609105408714899463, guid: 50f644e35feb661458821404f47f5a33,
-        type: 3}
     - target: {fileID: 599770410723825185, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -198,55 +156,35 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 98.6
       objectReference: {fileID: 0}
-    - target: {fileID: 492591698362172997, guid: 53475d4f1e5edc741919c3a46dada549,
+    - target: {fileID: 1233436760897186984, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.79
+      propertyPath: m_AnchoredPosition.y
+      value: 39.6
       objectReference: {fileID: 0}
-    - target: {fileID: 492591698362172997, guid: 53475d4f1e5edc741919c3a46dada549,
+    - target: {fileID: 1233436760897186984, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 3.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1233436760897186984, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.60929
+      value: 0.5456189
       objectReference: {fileID: 0}
-    - target: {fileID: 492591698362172997, guid: 53475d4f1e5edc741919c3a46dada549,
+    - target: {fileID: 1233436760897186984, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7198435
+      objectReference: {fileID: 0}
+    - target: {fileID: 1233436760897186984, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.60929
-      objectReference: {fileID: 0}
-    - target: {fileID: 492591698362172997, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 66.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 492591698362172997, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -6.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1085065837123311834, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -1.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1085065837123311834, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 15.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1233436760897186984, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 73.400024
-      objectReference: {fileID: 0}
-    - target: {fileID: 1233436760897186984, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 5.5001545
+      value: 0.75773
       objectReference: {fileID: 0}
     - target: {fileID: 324323832227509520, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 6.2
+      value: 4.0998845
       objectReference: {fileID: 0}
     - target: {fileID: 324323832227509520, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
@@ -261,7 +199,32 @@ PrefabInstance:
     - target: {fileID: 324323832227509520, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 75.8
+      value: 42.000023
+      objectReference: {fileID: 0}
+    - target: {fileID: 324323832227509520, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5456189
+      objectReference: {fileID: 0}
+    - target: {fileID: 324323832227509520, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7198435
+      objectReference: {fileID: 0}
+    - target: {fileID: 324323832227509520, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.75773
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085065837123311834, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085065837123311834, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 15.1
       objectReference: {fileID: 0}
     - target: {fileID: 5817860787531570460, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
@@ -274,6 +237,48 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 8774831106164560166, guid: 17d5d6d0902be654bbbce749868c8774,
+        type: 3}
+    - target: {fileID: 3563004026135363423, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_text
+      value: It's kinda rainy outside...
+      objectReference: {fileID: 0}
+    - target: {fileID: 96448653850123964, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: cost
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 96448653850123964, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 96448653850123964, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: toSummon
+      value: 
+      objectReference: {fileID: 4813590216533916336, guid: 6b9a74655773aa64b931b270686f7f35,
+        type: 3}
+    - target: {fileID: 96448653850123964, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: displayName
+      value: Lightning
+      objectReference: {fileID: 0}
+    - target: {fileID: 96448653850123964, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: abilityText
+      value: Does <b>3 damage</b> to enemy unit
+      objectReference: {fileID: 0}
+    - target: {fileID: 96448653850123964, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: flavorText
+      value: It's kinda rainy outside...
+      objectReference: {fileID: 0}
+    - target: {fileID: 96448653850123964, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: higherLevelVersion
+      value: 
+      objectReference: {fileID: 222037773591144965, guid: 50f644e35feb661458821404f47f5a33,
         type: 3}
     - target: {fileID: 4499324498473488953, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}

@@ -12,6 +12,168 @@ PrefabInstance:
       propertyPath: m_Name
       value: Warrior I Card
       objectReference: {fileID: 0}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: displayName
+      value: Warrior
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: abilityText
+      value: Fast melee fighter
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: flavorText
+      value: The backbone of any army
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: toSummon
+      value: 
+      objectReference: {fileID: 2668035767640978774, guid: a3aef32aff04f584ebe6f087e87f6621,
+        type: 3}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: higherLevelVersion
+      value: 
+      objectReference: {fileID: 1256674134460763496, guid: 364b5ae33201a35488c849af8147a408,
+        type: 3}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7516414569761794859, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_text
+      value: Fast melee fighter
+      objectReference: {fileID: 0}
+    - target: {fileID: 7516414569761794859, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 7839664560142848922, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_text
+      value: Warrior
+      objectReference: {fileID: 0}
+    - target: {fileID: 7839664560142848922, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7839664560142848922, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7839664560142848922, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3663340821475619956, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_text
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4306323210595224590, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_text
+      value: 1.0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681871985583500325, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_text
+      value: 1.0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681871985583500325, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681871985583500325, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 599770410723825185, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 599770410723825185, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 599770410723825185, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 599770410723825185, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 599770410723825185, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 599770410723825185, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1233436760897186984, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.60102504
+      objectReference: {fileID: 0}
+    - target: {fileID: 1233436760897186984, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 43.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1233436760897186984, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.82228446
+      objectReference: {fileID: 0}
+    - target: {fileID: 1233436760897186984, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8655626
+      objectReference: {fileID: 0}
+    - target: {fileID: 324323832227509520, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.60102504
+      objectReference: {fileID: 0}
+    - target: {fileID: 324323832227509520, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 43.399994
+      objectReference: {fileID: 0}
+    - target: {fileID: 324323832227509520, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.82228446
+      objectReference: {fileID: 0}
+    - target: {fileID: 324323832227509520, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8655626
+      objectReference: {fileID: 0}
+    - target: {fileID: 3563004026135363423, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_text
+      value: The backbone of any army
+      objectReference: {fileID: 0}
     - target: {fileID: 96448653850123964, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: toSummon
@@ -49,133 +211,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 302018811114448746, guid: 364b5ae33201a35488c849af8147a408,
         type: 3}
-    - target: {fileID: 7516414569761794859, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_text
-      value: Fast melee fighter
-      objectReference: {fileID: 0}
-    - target: {fileID: 7516414569761794859, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 7839664560142848922, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_text
-      value: Warrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 7839664560142848922, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7839664560142848922, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7839664560142848922, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3663340821475619956, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_text
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3563004026135363423, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_text
-      value: The backbone of any army
-      objectReference: {fileID: 0}
-    - target: {fileID: 4306323210595224590, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_text
-      value: 1.0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1681871985583500325, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_text
-      value: 1.0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1681871985583500325, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1681871985583500325, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: displayName
-      value: Warrior
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: abilityText
-      value: Fast melee fighter
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: flavorText
-      value: The backbone of any army
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: toSummon
-      value: 
-      objectReference: {fileID: 2668035767640978774, guid: a3aef32aff04f584ebe6f087e87f6621,
-        type: 3}
-    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: higherLevelVersion
-      value: 
-      objectReference: {fileID: 1256674134460763496, guid: 364b5ae33201a35488c849af8147a408,
-        type: 3}
-    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: type
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 599770410723825185, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 599770410723825185, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 599770410723825185, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 599770410723825185, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 599770410723825185, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 599770410723825185, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 492591698362172997, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.81
-      objectReference: {fileID: 0}
     - target: {fileID: 1908062142719847500, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: m_Sprite
