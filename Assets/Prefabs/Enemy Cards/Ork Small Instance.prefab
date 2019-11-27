@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3984009445576658407, guid: 538f57f7ad5d06c4688ac391c19c1c64,
+        type: 3}
+      propertyPath: m_Name
+      value: Ork Small Instance
+      objectReference: {fileID: 0}
     - target: {fileID: 3984009445576658401, guid: 538f57f7ad5d06c4688ac391c19c1c64,
         type: 3}
       propertyPath: onEnemyDetected.m_PersistentCalls.m_Calls.Array.size
@@ -22,15 +27,15 @@ PrefabInstance:
       propertyPath: onEnemyDetected.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 3984009445576658407, guid: 538f57f7ad5d06c4688ac391c19c1c64,
-        type: 3}
-      propertyPath: m_Name
-      value: Ork Small Instance
-      objectReference: {fileID: 0}
     - target: {fileID: 3984009445576658402, guid: 538f57f7ad5d06c4688ac391c19c1c64,
         type: 3}
       propertyPath: maxHP
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9016611313369109057, guid: 538f57f7ad5d06c4688ac391c19c1c64,
+        type: 3}
+      propertyPath: footprintsScale
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3984009446330185720, guid: 538f57f7ad5d06c4688ac391c19c1c64,
         type: 3}
@@ -241,6 +246,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.010432344
+      objectReference: {fileID: 0}
+    - target: {fileID: 3919669511944346118, guid: 538f57f7ad5d06c4688ac391c19c1c64,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.259
+      objectReference: {fileID: 0}
+    - target: {fileID: 3919669511944346118, guid: 538f57f7ad5d06c4688ac391c19c1c64,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3919669511944346118, guid: 538f57f7ad5d06c4688ac391c19c1c64,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3919669511944346118, guid: 538f57f7ad5d06c4688ac391c19c1c64,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3919669511944346118, guid: 538f57f7ad5d06c4688ac391c19c1c64,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 8743364184888330870, guid: 538f57f7ad5d06c4688ac391c19c1c64,
         type: 3}
@@ -726,11 +756,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0.991
-      objectReference: {fileID: 0}
-    - target: {fileID: 9016611313369109057, guid: 538f57f7ad5d06c4688ac391c19c1c64,
-        type: 3}
-      propertyPath: footprintsScale
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 538f57f7ad5d06c4688ac391c19c1c64, type: 3}
