@@ -5,6 +5,7 @@
  **/
 
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -28,6 +29,9 @@ public class CollectionManager : MonoBehaviour
 
 	[Header("Parameters")]
 	[SerializeField] private int minSlots = 20;
+
+	[Header("Events")]
+	[SerializeField] private UnityEventBool onDisableOnDragging = null;
 
 	private List<CardSlot> slots = new List<CardSlot>();
 	private List<PlayerCard> collection = new List<PlayerCard>();
@@ -226,6 +230,36 @@ public class CollectionManager : MonoBehaviour
 
 	public void Save( ) => playerCards.SetCollection( collection );
 
+	public void SortCollection( )
+	{
+		// "Condense" cards
+		for ( int i = 0; i < collection.Count; i++ )
+		{
+			PlayerCard cardToCondense = collection[i];
+
+			// Skip empty slots
+			if ( cardToCondense == null )
+				continue;
+
+			// Look at all next cards for the same type
+			for ( int j = i+1; j < collection.Count; j++ )
+			{
+				if ( collection[j] != null && collection[j].Card.Name == cardToCondense.Card.Name )
+				{
+					// Found a match, condense cards
+					cardToCondense.Amount += collection[j].Amount;
+					collection[j] = null;
+				}
+			}
+		}
+
+		// Sort cards
+		collection = collection.OrderBy( card => { return card != null ? card.Card.Name : "zzzzz"; } ).ToList( );
+
+		// Refresh display
+		DisplayCollection( );
+	}
+
 	private void GetCollectionCards( )
 	{
 		playerCards.LoadPlayerCardsData( );
@@ -402,6 +436,7 @@ public class CollectionManager : MonoBehaviour
 			tooltip.text = "Place card in an empty slot or swap with another one";
 		}
 
+		onDisableOnDragging?.Invoke( endOfDrag );
 		draggedSlotIndex = endOfDrag ? int.MinValue : index; // Index od the dragged card or "null"
 	}
 }

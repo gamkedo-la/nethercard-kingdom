@@ -10,7 +10,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Events;
-using UnityEngine.UI;
 
 public class DeckManager : MonoBehaviour
 {
