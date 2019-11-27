@@ -40,6 +40,8 @@ public class PlayerHand : MonoBehaviour
 			SetCardPosition( cardsInHand[i], i, cardsInHand.Count, cardBeingOver == cardsInHand[i] ? false : cardBeingOver, cardBeingDragged == cardsInHand[i] ? false : cardBeingDragged );
 			SetCardRotation( cardsInHand[i], i, cardsInHand.Count );
 		}
+
+		CheckIfWeForceCanceled( );
 	}
 
 	public void AddCard( Card newCard )
@@ -51,6 +53,18 @@ public class PlayerHand : MonoBehaviour
 		newCard.onOverExit.AddListener( OnCardOverExit );
 		newCard.onClicked.AddListener( OnCardCliked );
 		newCard.onRelease.AddListener( OnCardReleased );
+	}
+
+	private void CheckIfWeForceCanceled( )
+	{
+		if ( cardBeingDragged == null || !Input.GetMouseButtonDown( 1 ) )
+			return;
+
+		SummoningManager.Instance.Summoning( cardBeingDragged.Type, false );
+		cardBeingDragged.Vizuals.ShowPreview( false );
+		cardBeingDragged.Vizuals.CancelSummoning( );
+		cardBeingDragged.Vizuals.NormalCard( );
+		cardBeingDragged = null;
 	}
 
 	private void OnCardOverEnter( Card card )

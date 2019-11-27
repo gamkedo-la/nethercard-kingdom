@@ -104,6 +104,14 @@ public class CardSlot : MonoBehaviour
 		}
 	}
 
+	public void Canceled( )
+	{
+		cardIsDraged = false;
+		returning = true;
+
+		cardInSlot.Vizuals.Back( );
+	}
+
 	public void DoMove( Vector2 position )
 	{
 		cardInSlot.transform.position = position;
@@ -187,6 +195,9 @@ public class CardSlot : MonoBehaviour
 		if ( showAsDisabled )
 			return;
 
+		if ( !cardIsDraged )
+			return;
+
 		cardIsDraged = false;
 		returning = true;
 
@@ -197,6 +208,9 @@ public class CardSlot : MonoBehaviour
 	private void OnCardRelease( )
 	{
 		if ( showAsDisabled )
+			return;
+
+		if ( !cardIsDraged )
 			return;
 	}
 }

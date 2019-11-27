@@ -123,7 +123,7 @@ public class Card : MonoBehaviour
 
 	private void CheckIfWeEndedClickDrag( )
 	{
-		// We were 'click dragging' and pressed our mouse button
+		// We were 'click dragging' and pressed our mouse left button
 		if ( dragging && Input.GetMouseButtonDown( 0 ) )
 			OnEndDrag( );
 	}

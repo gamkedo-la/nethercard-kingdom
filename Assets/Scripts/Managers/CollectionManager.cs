@@ -57,6 +57,11 @@ public class CollectionManager : MonoBehaviour
 		DisplayCollection( );
 	}
 
+	void Update( )
+	{
+		CheckIfWeForceCanceled( );
+	}
+
 	public void SetDraggedCard( PlayerCard card ) => cardDraggedFromDeck = card;
 
 	public PlayerCard GetDraggedCard( ) => cardDragged;
@@ -258,6 +263,15 @@ public class CollectionManager : MonoBehaviour
 
 		// Refresh display
 		DisplayCollection( );
+	}
+
+	private void CheckIfWeForceCanceled( )
+	{
+		if ( cardDragged == null || !Input.GetMouseButtonDown( 1 ) )
+			return;
+
+		slots[draggedSlotIndex].Canceled( );
+		CardDragedEvent( draggedSlotIndex, true );
 	}
 
 	private void GetCollectionCards( )

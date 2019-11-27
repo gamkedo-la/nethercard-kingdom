@@ -51,6 +51,11 @@ public class DeckManager : MonoBehaviour
 		DisplayDeck( );
 	}
 
+	void Update( )
+	{
+		CheckIfWeForceCanceled( );
+	}
+
 	public void SetDraggedCard( PlayerCard card )
 	{
 		cardDraggedFromCollection = card;
@@ -115,6 +120,15 @@ public class DeckManager : MonoBehaviour
 	}
 
 	public void Save( ) => playerCards.SetDeck( deck );
+
+	private void CheckIfWeForceCanceled( )
+	{
+		if ( cardDragged == null || !Input.GetMouseButtonDown( 1 ) )
+			return;
+
+		slots[draggedSlotIndex].Canceled( );
+		CardDragedEvent( draggedSlotIndex, true );
+	}
 
 	private void GetDeckCards( )
 	{
