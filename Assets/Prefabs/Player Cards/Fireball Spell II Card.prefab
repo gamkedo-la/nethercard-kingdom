@@ -12,33 +12,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fireball Spell II Card
       objectReference: {fileID: 0}
-    - target: {fileID: 949820519525452328, guid: 35c73b0121dc76649931f579533a5375,
+    - target: {fileID: 1760369034310967338, guid: 35c73b0121dc76649931f579533a5375,
+        type: 3}
+      propertyPath: displayName
+      value: Fireball II
+      objectReference: {fileID: 0}
+    - target: {fileID: 1760369034310967338, guid: 35c73b0121dc76649931f579533a5375,
         type: 3}
       propertyPath: toSummon
       value: 
       objectReference: {fileID: 3636380218574456984, guid: 3732c59ee00412a448a1d610cfed3cda,
         type: 3}
-    - target: {fileID: 949820519525452328, guid: 35c73b0121dc76649931f579533a5375,
+    - target: {fileID: 1760369034310967338, guid: 35c73b0121dc76649931f579533a5375,
         type: 3}
       propertyPath: lowerLevelVersion
       value: 
-      objectReference: {fileID: 949820519525452328, guid: 35c73b0121dc76649931f579533a5375,
+      objectReference: {fileID: 1760369034310967338, guid: 35c73b0121dc76649931f579533a5375,
         type: 3}
-    - target: {fileID: 949820519525452328, guid: 35c73b0121dc76649931f579533a5375,
+    - target: {fileID: 1760369034310967338, guid: 35c73b0121dc76649931f579533a5375,
         type: 3}
       propertyPath: higherLevelVersion
       value: 
-      objectReference: {fileID: 6686057510297697668, guid: 2be68685b40b396409558bf0d09a8918,
+      objectReference: {fileID: 5298980927649781638, guid: 2be68685b40b396409558bf0d09a8918,
         type: 3}
-    - target: {fileID: 949820519525452328, guid: 35c73b0121dc76649931f579533a5375,
+    - target: {fileID: 1760369034310967338, guid: 35c73b0121dc76649931f579533a5375,
         type: 3}
       propertyPath: level
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 949820519525452328, guid: 35c73b0121dc76649931f579533a5375,
-        type: 3}
-      propertyPath: displayName
-      value: Fireball II
       objectReference: {fileID: 0}
     - target: {fileID: 4516576208258982112, guid: 35c73b0121dc76649931f579533a5375,
         type: 3}
@@ -225,28 +225,33 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1760369034310967338, guid: 35c73b0121dc76649931f579533a5375,
-        type: 3}
-      propertyPath: displayName
-      value: Fireball II
-      objectReference: {fileID: 0}
-    - target: {fileID: 1760369034310967338, guid: 35c73b0121dc76649931f579533a5375,
+    - target: {fileID: 949820519525452328, guid: 35c73b0121dc76649931f579533a5375,
         type: 3}
       propertyPath: toSummon
       value: 
       objectReference: {fileID: 3636380218574456984, guid: 3732c59ee00412a448a1d610cfed3cda,
         type: 3}
-    - target: {fileID: 1760369034310967338, guid: 35c73b0121dc76649931f579533a5375,
+    - target: {fileID: 949820519525452328, guid: 35c73b0121dc76649931f579533a5375,
         type: 3}
       propertyPath: lowerLevelVersion
       value: 
-      objectReference: {fileID: 1760369034310967338, guid: 35c73b0121dc76649931f579533a5375,
+      objectReference: {fileID: 949820519525452328, guid: 35c73b0121dc76649931f579533a5375,
         type: 3}
-    - target: {fileID: 1760369034310967338, guid: 35c73b0121dc76649931f579533a5375,
+    - target: {fileID: 949820519525452328, guid: 35c73b0121dc76649931f579533a5375,
         type: 3}
       propertyPath: higherLevelVersion
       value: 
-      objectReference: {fileID: 5298980927649781638, guid: 2be68685b40b396409558bf0d09a8918,
+      objectReference: {fileID: 6686057510297697668, guid: 2be68685b40b396409558bf0d09a8918,
         type: 3}
+    - target: {fileID: 949820519525452328, guid: 35c73b0121dc76649931f579533a5375,
+        type: 3}
+      propertyPath: level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 949820519525452328, guid: 35c73b0121dc76649931f579533a5375,
+        type: 3}
+      propertyPath: displayName
+      value: Fireball II
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35c73b0121dc76649931f579533a5375, type: 3}

@@ -1767,12 +1767,12 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 10.7
+  m_fontSize: 10.85
   m_fontSizeBase: 10.7
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 15.2
-  m_fontSizeMax: 76.9
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 5
+  m_fontSizeMax: 11
   m_fontStyle: 1
   m_textAlignment: 514
   m_characterSpacing: 0
@@ -4642,7 +4642,7 @@ MonoBehaviour:
   hpLabel: {fileID: 6924299368319605650}
   speedLabel: {fileID: 4306323210595224590}
   abilityLabel: {fileID: 7516414569761794859}
-  flavorLabel: {fileID: 7516414569761794859}
+  flavorLabel: {fileID: 3563004026135363423}
   cardImageFill: {fileID: 4082654261549637672}
   cardImageBorder: {fileID: 7709570893905777452}
   shockwaveSprite: {fileID: 5415234706346057147}

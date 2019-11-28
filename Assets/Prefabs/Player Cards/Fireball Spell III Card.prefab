@@ -12,106 +12,32 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fireball Spell III Card
       objectReference: {fileID: 0}
-    - target: {fileID: 6930457677133692945, guid: 0b9c379e397653d43ae7e48ca5d309b2,
-        type: 3}
-      propertyPath: lowerLevelVersion
-      value: 
-      objectReference: {fileID: 6930457677133692945, guid: 0b9c379e397653d43ae7e48ca5d309b2,
-        type: 3}
-    - target: {fileID: 6930457677133692945, guid: 0b9c379e397653d43ae7e48ca5d309b2,
-        type: 3}
-      propertyPath: higherLevelVersion
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6930457677133692945, guid: 0b9c379e397653d43ae7e48ca5d309b2,
-        type: 3}
-      propertyPath: level
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6930457677133692945, guid: 0b9c379e397653d43ae7e48ca5d309b2,
+    - target: {fileID: 8461569342959266323, guid: 0b9c379e397653d43ae7e48ca5d309b2,
         type: 3}
       propertyPath: displayName
       value: Fireball III
       objectReference: {fileID: 0}
-    - target: {fileID: 6029620691322415833, guid: 0b9c379e397653d43ae7e48ca5d309b2,
+    - target: {fileID: 8461569342959266323, guid: 0b9c379e397653d43ae7e48ca5d309b2,
         type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 1
+      propertyPath: toSummon
+      value: 
+      objectReference: {fileID: 7835982030874351803, guid: ef9f7914971cd9f44bb0141ecf19ec72,
+        type: 3}
+    - target: {fileID: 8461569342959266323, guid: 0b9c379e397653d43ae7e48ca5d309b2,
+        type: 3}
+      propertyPath: lowerLevelVersion
+      value: 
+      objectReference: {fileID: 8461569342959266323, guid: 0b9c379e397653d43ae7e48ca5d309b2,
+        type: 3}
+    - target: {fileID: 8461569342959266323, guid: 0b9c379e397653d43ae7e48ca5d309b2,
+        type: 3}
+      propertyPath: higherLevelVersion
+      value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 6029620691322415833, guid: 0b9c379e397653d43ae7e48ca5d309b2,
+    - target: {fileID: 8461569342959266323, guid: 0b9c379e397653d43ae7e48ca5d309b2,
         type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6029620691322415833, guid: 0b9c379e397653d43ae7e48ca5d309b2,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6029620691322415833, guid: 0b9c379e397653d43ae7e48ca5d309b2,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 988360221324430647, guid: 0b9c379e397653d43ae7e48ca5d309b2,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 988360221324430647, guid: 0b9c379e397653d43ae7e48ca5d309b2,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
+      propertyPath: level
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 988360221324430647, guid: 0b9c379e397653d43ae7e48ca5d309b2,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 988360221324430647, guid: 0b9c379e397653d43ae7e48ca5d309b2,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 988360221324430647, guid: 0b9c379e397653d43ae7e48ca5d309b2,
-        type: 3}
-      propertyPath: m_text
-      value: Fireball III
-      objectReference: {fileID: 0}
-    - target: {fileID: 663403783071151494, guid: 0b9c379e397653d43ae7e48ca5d309b2,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 663403783071151494, guid: 0b9c379e397653d43ae7e48ca5d309b2,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 663403783071151494, guid: 0b9c379e397653d43ae7e48ca5d309b2,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 663403783071151494, guid: 0b9c379e397653d43ae7e48ca5d309b2,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 663403783071151494, guid: 0b9c379e397653d43ae7e48ca5d309b2,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1301592554201278648, guid: 0b9c379e397653d43ae7e48ca5d309b2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 101932661792113090, guid: 0b9c379e397653d43ae7e48ca5d309b2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7577756078311999628, guid: 0b9c379e397653d43ae7e48ca5d309b2,
         type: 3}
@@ -218,27 +144,106 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 8461569342959266323, guid: 0b9c379e397653d43ae7e48ca5d309b2,
+    - target: {fileID: 6029620691322415833, guid: 0b9c379e397653d43ae7e48ca5d309b2,
         type: 3}
-      propertyPath: displayName
+      propertyPath: m_textInfo.characterCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6029620691322415833, guid: 0b9c379e397653d43ae7e48ca5d309b2,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6029620691322415833, guid: 0b9c379e397653d43ae7e48ca5d309b2,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6029620691322415833, guid: 0b9c379e397653d43ae7e48ca5d309b2,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 988360221324430647, guid: 0b9c379e397653d43ae7e48ca5d309b2,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 988360221324430647, guid: 0b9c379e397653d43ae7e48ca5d309b2,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 988360221324430647, guid: 0b9c379e397653d43ae7e48ca5d309b2,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 988360221324430647, guid: 0b9c379e397653d43ae7e48ca5d309b2,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 988360221324430647, guid: 0b9c379e397653d43ae7e48ca5d309b2,
+        type: 3}
+      propertyPath: m_text
       value: Fireball III
       objectReference: {fileID: 0}
-    - target: {fileID: 8461569342959266323, guid: 0b9c379e397653d43ae7e48ca5d309b2,
+    - target: {fileID: 663403783071151494, guid: 0b9c379e397653d43ae7e48ca5d309b2,
         type: 3}
-      propertyPath: toSummon
-      value: 
-      objectReference: {fileID: 7835982030874351803, guid: ef9f7914971cd9f44bb0141ecf19ec72,
+      propertyPath: m_textInfo.characterCount
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 663403783071151494, guid: 0b9c379e397653d43ae7e48ca5d309b2,
         type: 3}
-    - target: {fileID: 8461569342959266323, guid: 0b9c379e397653d43ae7e48ca5d309b2,
+      propertyPath: m_textInfo.spaceCount
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 663403783071151494, guid: 0b9c379e397653d43ae7e48ca5d309b2,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 663403783071151494, guid: 0b9c379e397653d43ae7e48ca5d309b2,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 663403783071151494, guid: 0b9c379e397653d43ae7e48ca5d309b2,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1301592554201278648, guid: 0b9c379e397653d43ae7e48ca5d309b2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 101932661792113090, guid: 0b9c379e397653d43ae7e48ca5d309b2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930457677133692945, guid: 0b9c379e397653d43ae7e48ca5d309b2,
         type: 3}
       propertyPath: lowerLevelVersion
       value: 
-      objectReference: {fileID: 8461569342959266323, guid: 0b9c379e397653d43ae7e48ca5d309b2,
+      objectReference: {fileID: 6930457677133692945, guid: 0b9c379e397653d43ae7e48ca5d309b2,
         type: 3}
-    - target: {fileID: 8461569342959266323, guid: 0b9c379e397653d43ae7e48ca5d309b2,
+    - target: {fileID: 6930457677133692945, guid: 0b9c379e397653d43ae7e48ca5d309b2,
         type: 3}
       propertyPath: higherLevelVersion
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930457677133692945, guid: 0b9c379e397653d43ae7e48ca5d309b2,
+        type: 3}
+      propertyPath: level
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930457677133692945, guid: 0b9c379e397653d43ae7e48ca5d309b2,
+        type: 3}
+      propertyPath: displayName
+      value: Fireball III
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b9c379e397653d43ae7e48ca5d309b2, type: 3}
