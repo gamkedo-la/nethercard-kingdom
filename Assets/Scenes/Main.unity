@@ -5432,6 +5432,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ninja
       objectReference: {fileID: 0}
+    - target: {fileID: 7824717082494219985, guid: 46050037432c67746822210544a94ff1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 892435419954916624, guid: 46050037432c67746822210544a94ff1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8752,7 +8757,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1926101794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9548,6 +9553,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Managers
       objectReference: {fileID: 0}
+    - target: {fileID: 7486367063326005756, guid: f5ea14b1964d108438ae60eb76c40517,
+        type: 3}
+      propertyPath: onGameEnd.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486367063326005756, guid: f5ea14b1964d108438ae60eb76c40517,
+        type: 3}
+      propertyPath: wonScreen
+      value: 
+      objectReference: {fileID: 1037757994}
+    - target: {fileID: 7486367063326005756, guid: f5ea14b1964d108438ae60eb76c40517,
+        type: 3}
+      propertyPath: gameoverScreen
+      value: 
+      objectReference: {fileID: 346206791}
+    - target: {fileID: 7486367063326005756, guid: f5ea14b1964d108438ae60eb76c40517,
+        type: 3}
+      propertyPath: onGameEnd.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486367063326005756, guid: f5ea14b1964d108438ae60eb76c40517,
+        type: 3}
+      propertyPath: onGameEnd.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486367063326005756, guid: f5ea14b1964d108438ae60eb76c40517,
+        type: 3}
+      propertyPath: onGameEnd.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1253014236}
+    - target: {fileID: 7486367063326005756, guid: f5ea14b1964d108438ae60eb76c40517,
+        type: 3}
+      propertyPath: onGameEnd.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: set_IsPlaying
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486367063326005756, guid: f5ea14b1964d108438ae60eb76c40517,
+        type: 3}
+      propertyPath: onGameEnd.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1289313127792475356, guid: f5ea14b1964d108438ae60eb76c40517,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9602,46 +9647,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7486367063326005756, guid: f5ea14b1964d108438ae60eb76c40517,
-        type: 3}
-      propertyPath: onGameEnd.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7486367063326005756, guid: f5ea14b1964d108438ae60eb76c40517,
-        type: 3}
-      propertyPath: wonScreen
-      value: 
-      objectReference: {fileID: 1037757994}
-    - target: {fileID: 7486367063326005756, guid: f5ea14b1964d108438ae60eb76c40517,
-        type: 3}
-      propertyPath: gameoverScreen
-      value: 
-      objectReference: {fileID: 346206791}
-    - target: {fileID: 7486367063326005756, guid: f5ea14b1964d108438ae60eb76c40517,
-        type: 3}
-      propertyPath: onGameEnd.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7486367063326005756, guid: f5ea14b1964d108438ae60eb76c40517,
-        type: 3}
-      propertyPath: onGameEnd.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7486367063326005756, guid: f5ea14b1964d108438ae60eb76c40517,
-        type: 3}
-      propertyPath: onGameEnd.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1253014236}
-    - target: {fileID: 7486367063326005756, guid: f5ea14b1964d108438ae60eb76c40517,
-        type: 3}
-      propertyPath: onGameEnd.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: set_IsPlaying
-      objectReference: {fileID: 0}
-    - target: {fileID: 7486367063326005756, guid: f5ea14b1964d108438ae60eb76c40517,
-        type: 3}
-      propertyPath: onGameEnd.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1289313127792475359, guid: f5ea14b1964d108438ae60eb76c40517,
         type: 3}

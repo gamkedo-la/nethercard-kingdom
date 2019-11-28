@@ -212,6 +212,7 @@ public class DeckManager : MonoBehaviour
 				tooltip.text = "Card placed in the same slot";
 				DisplayDeck( );
 				slots[dropSlotIndex].DoMove( slots[dropSlotIndex].CardPosition );
+				CardDragedEvent( dropSlotIndex, true );
 
 				return;
 			}
@@ -226,6 +227,7 @@ public class DeckManager : MonoBehaviour
 
 			slots[draggedSlotIndex].DoMove( slots[dropSlotIndex].CardPosition );
 			slots[dropSlotIndex].OnInfromation( );
+			CardDragedEvent( dropSlotIndex, true );
 
 			return;
 		}
@@ -253,6 +255,7 @@ public class DeckManager : MonoBehaviour
 
 				DisplayDeck( );
 				slots[dropSlotIndex].OnInfromation( );
+				CardDragedEvent( dropSlotIndex, true );
 
 				return;
 			}
@@ -261,6 +264,7 @@ public class DeckManager : MonoBehaviour
 			if ( deck[dropSlotIndex].Card.Name == cardFromCollection.Card.Name )
 			{
 				tooltip.text = "Same card from collection swapped in deck";
+				CardDragedEvent( dropSlotIndex, true );
 
 				return;
 			}
@@ -284,6 +288,7 @@ public class DeckManager : MonoBehaviour
 
 			DisplayDeck( );
 			slots[dropSlotIndex].OnInfromation( );
+			CardDragedEvent( dropSlotIndex, true );
 		}
 	}
 

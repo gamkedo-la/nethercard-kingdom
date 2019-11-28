@@ -327,6 +327,7 @@ public class CollectionManager : MonoBehaviour
 	{
 		tooltip.text = "";
 		PlayerCard cardInDestinationSlot = slots[dropSlotIndex].Card;
+		onDisableOnDragging?.Invoke( true );
 
 		// Dragging within Collection
 		if ( cardDragged != null )
@@ -337,6 +338,7 @@ public class CollectionManager : MonoBehaviour
 				tooltip.text = "Card placed in the same slot";
 				DisplayCollection( );
 				slots[dropSlotIndex].DoMove( slots[dropSlotIndex].CardPosition );
+				CardDragedEvent( dropSlotIndex, true );
 
 				return;
 			}
@@ -351,6 +353,7 @@ public class CollectionManager : MonoBehaviour
 
 				DisplayCollection( );
 				slots[dropSlotIndex].OnInfromation( );
+				CardDragedEvent( dropSlotIndex, true );
 
 				return;
 			}
@@ -365,6 +368,7 @@ public class CollectionManager : MonoBehaviour
 
 				DisplayCollection( );
 				slots[dropSlotIndex].OnInfromation( );
+				CardDragedEvent( dropSlotIndex, true );
 
 				return;
 			}
@@ -379,6 +383,7 @@ public class CollectionManager : MonoBehaviour
 
 			slots[draggedSlotIndex].DoMove( slots[dropSlotIndex].CardPosition );
 			slots[dropSlotIndex].OnInfromation( );
+			CardDragedEvent( dropSlotIndex, true );
 
 			return;
 		}
@@ -399,6 +404,7 @@ public class CollectionManager : MonoBehaviour
 
 				DisplayCollection( );
 				slots[dropSlotIndex].OnInfromation( );
+				CardDragedEvent( dropSlotIndex, true );
 
 				return;
 			}
@@ -413,6 +419,7 @@ public class CollectionManager : MonoBehaviour
 
 				DisplayCollection( );
 				slots[dropSlotIndex].OnInfromation( );
+				CardDragedEvent( dropSlotIndex, true );
 
 				return;
 			}
@@ -433,6 +440,7 @@ public class CollectionManager : MonoBehaviour
 			DraggedCardAddedToDeck( Vector2.zero, cardFromDeck );
 
 			slots[dropSlotIndex].OnInfromation( );
+			CardDragedEvent( dropSlotIndex, true );
 		}
 	}
 
