@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class SpawnProjectile : MonoBehaviour
 {
-    [SerializeField]
-    private float projectileSpeed = 1.5f;
+    
     [SerializeField]
     private float attackRate = 1.0f;
     [SerializeField]
@@ -23,6 +22,5 @@ public class Projectile : MonoBehaviour
     private void Attack()
     {
         GameObject attackProjectile = Instantiate(projectilePrefab, attackOrigin);
-		projectileSpeed *= 1; // Just TEMP code so warnings do not appear
     }
 }
