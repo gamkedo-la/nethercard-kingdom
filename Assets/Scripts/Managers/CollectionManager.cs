@@ -143,6 +143,7 @@ public class CollectionManager : MonoBehaviour
 		upgradSlot2.OnInfromation( );
 
 		DisplayCollection( );
+		onDisableOnDragging?.Invoke( true );
 	}
 
 	private void UpgradeSlotClickedEvent( int _ )
