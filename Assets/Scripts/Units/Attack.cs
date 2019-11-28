@@ -10,7 +10,7 @@ using UnityEngine.Assertions;
 public class Attack : MonoBehaviour
 {
 	public float DPS { get { return atackDamage / atackDelay; } }
-	public bool Flozen { get; set; } = false;
+	public bool Frozen { get; set; } = false;
 
 	[SerializeField] protected Animator animator = null;
 	[SerializeField] protected float atackDamage = 2f;

@@ -5030,8 +5030,8 @@ MonoBehaviour:
   type: 4
   effectAmount: 3
   destroyAfter: 3
-  targetFreezTime: 1
-  targetShockTime: 0.2
+  targetFreezTime: 3
+  targetShockTime: 0.3
   shakeStrength: 1
 --- !u!1 &8468621115787541369
 GameObject:

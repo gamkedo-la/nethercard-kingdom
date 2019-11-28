@@ -105,27 +105,28 @@ public class Unit : MonoBehaviour
 	public void Stop( )
 	{
 		frozen = true;
-		attack.Flozen = true;
+		attack.Frozen = true;
+		animator.SetTrigger( "Idle" );
 	}
 
-	public void Freez( float duration, bool shocked = false )
+	public void Freez( float shockDuration, float afterFreezDuration )
 	{
-		StartCoroutine( DoFreez( duration, shocked ) );
+		StartCoroutine( DoFreez( shockDuration, afterFreezDuration ) );
 	}
 
-	private IEnumerator DoFreez( float duration, bool shocked )
+	private IEnumerator DoFreez( float shockDuration, float afterFreezDuration )
 	{
 		frozen = true;
-		attack.Flozen = true;
-		if ( shocked )
-			animator.SetTrigger( "Shocked" );
+		attack.Frozen = true;
+		animator.SetTrigger( "Shocked" );
+		yield return new WaitForSeconds( shockDuration );
 
-		yield return new WaitForSeconds( duration );
+		animator.SetTrigger( "Shocked" ); // For some reason it goes in to Idle the Shock animation is not triggered a 2nd time
+		yield return new WaitForSeconds( afterFreezDuration );
 
 		frozen = false;
-		attack.Flozen = false;
-		if ( shocked )
-			animator.SetTrigger( "Moving" );
+		attack.Frozen = false;
+		animator.SetTrigger( "Moving" );
 	}
 
 	private void SearchForOpenentToTarget( )

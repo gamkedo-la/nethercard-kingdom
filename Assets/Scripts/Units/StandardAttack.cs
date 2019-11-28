@@ -39,7 +39,7 @@ public class StandardAttack : Attack
 
 	private void TryToAttack( )
 	{
-		if ( Flozen )
+		if ( Frozen )
 			return;
 
 		timeToNextAttack -= Time.deltaTime;

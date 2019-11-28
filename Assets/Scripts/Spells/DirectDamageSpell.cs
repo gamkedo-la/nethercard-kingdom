@@ -26,10 +26,10 @@ public class DirectDamageSpell : Spell
 		HP hp = target.GetComponent<HP>( );
 		hp.DoDamage( effectAmount, transform.position, targetFreezTime > 0 );
 
-		if ( targetFreezTime > 0 )
+		if ( targetShockTime > 0 || targetFreezTime > 0 )
 		{
 			Unit unit = target.GetComponent<Unit>( );
-			unit.Freez( targetFreezTime, true );
+			unit.Freez( targetShockTime, targetFreezTime);
 
 			UnitVisuals unitVis = target.GetComponent<UnitVisuals>( );
 			unitVis.Shocked( targetShockTime );
