@@ -187,6 +187,7 @@ public class CardAudioVisuals : MonoBehaviour
 
 	public void SetDisabled( )
 	{
+		canBePlayed = false;
 		cardAlpha = alphaOnCanNotBePlayed;
 		canvasGroup.alpha = alphaOnCanNotBePlayed;
 
@@ -197,7 +198,6 @@ public class CardAudioVisuals : MonoBehaviour
 	public void NormalCard( )
 	{
 		cardScale = Vector3.one;
-
 		cardAlpha = canBePlayed ? 1.0f : alphaOnCanNotBePlayed;
 
 		frontCanvas.overrideSorting = false;

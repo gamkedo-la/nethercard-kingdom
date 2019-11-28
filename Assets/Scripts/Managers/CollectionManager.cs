@@ -95,7 +95,7 @@ public class CollectionManager : MonoBehaviour
 				upgradingCard.Amount -= 2; // Since this is reference to the source card let's remove cards from there before adding
 				collection[i].Amount += 1;
 
-				CleanUpUpgradeState( );
+				CleanUpUpgradeState( true );
 
 				slots[i].DoMove( ( upgradSlot1.CardPosition + upgradSlot2.CardPosition ) / 2 );
 
@@ -115,7 +115,7 @@ public class CollectionManager : MonoBehaviour
 					Amount = 1
 				};
 
-				CleanUpUpgradeState( );
+				CleanUpUpgradeState( true );
 
 				slots[i].DoMove( ( upgradSlot1.CardPosition + upgradSlot2.CardPosition ) / 2 );
 
