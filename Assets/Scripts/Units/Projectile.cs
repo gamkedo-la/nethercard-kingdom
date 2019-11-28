@@ -13,21 +13,16 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     private GameObject projectilePrefab = null;
     [SerializeField]
-    private Transform attackOrigin;
-
+    private Transform attackOrigin = null;
 
     void Awake()
     {
         InvokeRepeating("Attack", initialAttackDelay, attackRate);
     }
 
-
     private void Attack()
     {
-        GameObject attackProjectile = Instantiate(projectilePrefab, attackOrigin);            
-
+        GameObject attackProjectile = Instantiate(projectilePrefab, attackOrigin);
+		projectileSpeed *= 1; // Just TEMP code so warnings do not appear
     }
-
-   
-
 }
