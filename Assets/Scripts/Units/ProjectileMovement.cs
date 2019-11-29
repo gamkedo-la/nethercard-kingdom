@@ -20,6 +20,7 @@ public class ProjectileMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("projectile collided with " + other.gameObject.name);
         if(other.gameObject.tag == "Enemy" || other.gameObject.tag == "ProjectileShredder")
         {
             Destroy(this.gameObject);

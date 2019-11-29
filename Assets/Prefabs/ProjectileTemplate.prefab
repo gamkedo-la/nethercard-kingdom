@@ -44,7 +44,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dee200e4f7fecdc47bb4ce249fcb4eba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  direction: {x: 1.0933342, y: 0.28965497, z: 0}
 --- !u!50 &1336335391140273035
 Rigidbody2D:
   serializedVersion: 4
