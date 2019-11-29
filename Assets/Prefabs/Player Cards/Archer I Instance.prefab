@@ -7,10 +7,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2003592177715405978, guid: fc6c2faa8ae045542a0960290aa158db,
+    - target: {fileID: 2003592177715405981, guid: fc6c2faa8ae045542a0960290aa158db,
         type: 3}
-      propertyPath: m_Name
-      value: Archer I Instance
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003592177715405981, guid: fc6c2faa8ae045542a0960290aa158db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003592177715405981, guid: fc6c2faa8ae045542a0960290aa158db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003592177715405981, guid: fc6c2faa8ae045542a0960290aa158db,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2003592177715405980, guid: fc6c2faa8ae045542a0960290aa158db,
         type: 3}
@@ -36,31 +51,16 @@ PrefabInstance:
         type: 3}
       propertyPath: attack
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 7702071731869883798}
     - target: {fileID: 2003592177715405980, guid: fc6c2faa8ae045542a0960290aa158db,
         type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2003592177715405981, guid: fc6c2faa8ae045542a0960290aa158db,
+    - target: {fileID: 2003592177715405978, guid: fc6c2faa8ae045542a0960290aa158db,
         type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2003592177715405981, guid: fc6c2faa8ae045542a0960290aa158db,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2003592177715405981, guid: fc6c2faa8ae045542a0960290aa158db,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2003592177715405981, guid: fc6c2faa8ae045542a0960290aa158db,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      propertyPath: m_Name
+      value: Archer I Instance
       objectReference: {fileID: 0}
     - target: {fileID: 2003592177715405983, guid: fc6c2faa8ae045542a0960290aa158db,
         type: 3}
@@ -438,3 +438,15 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 8258408501111262417}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7702071731869883798 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1763304012001775943, guid: fc6c2faa8ae045542a0960290aa158db,
+    type: 3}
+  m_PrefabInstance: {fileID: 8258408501111262417}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3c3832f21c1adc4b8ac5104f029fc0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
