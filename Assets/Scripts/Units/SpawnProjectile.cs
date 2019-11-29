@@ -33,6 +33,7 @@ public class SpawnProjectile : Attack
 
     private void TryToAttack()
     {
+       
         if (Frozen)
             return;
 
@@ -41,7 +42,9 @@ public class SpawnProjectile : Attack
 
         // Needs to be in attack range of an oponent and have no attack cool-down
         if (!currentOpponent || timeToNextAttack > 0)
+        {
             return;
+        }
 
         AimProjectile();
         Instantiate(projectilePrefab, attackOrigin);
@@ -50,12 +53,11 @@ public class SpawnProjectile : Attack
 
     private void AimProjectile()
     {
-        Debug.Log("AimProjectile called");
+        
         ProjectileMovement projectileMovement = projectilePrefab.GetComponent<ProjectileMovement>();
-        projectileMovement.unitFiredFrom = GetComponent<Unit>();
-        projectileMovement.direction = currentOpponent.Center - projectileMovement.unitFiredFrom.Center;
+        projectileMovement.direction = currentOpponent.Center - unit.Center;
 
         if (CheatAndDebug.Instance.ShowDebugInfo)
-            Debug.DrawLine(projectileMovement.unitFiredFrom.Center, currentOpponent.Center, Color.red, 0.2f);
+            Debug.DrawLine(unit.Center, currentOpponent.Center, Color.red, 0.2f);
     }
 }

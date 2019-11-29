@@ -5,9 +5,6 @@ using UnityEngine;
 public class ProjectileMovement : MonoBehaviour
 {
     private float projectileSpeed = 1.0f;
-    private GameObject projectile = null;
-    public Unit unitFiredFrom = null;
-
     public Vector3 direction;
 
     void Awake()
