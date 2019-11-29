@@ -1,26 +1,61 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
+using UnityEngine.Assertions;
 
-public class SpawnProjectile : MonoBehaviour
+public class SpawnProjectile : Attack
 {
-    
+
     [SerializeField]
     private float attackRate = 1.0f;
-    [SerializeField]
-    private float initialAttackDelay = 0.5f;
     [SerializeField]
     private GameObject projectilePrefab = null;
     [SerializeField]
     private Transform attackOrigin = null;
 
-    void Awake()
+    private float timeToNextAttack = 0;
+    [SerializeField]
+    private Unit unit = null;
+    private Unit currentOpponent = null;
+
+    override protected void Start()
     {
-        InvokeRepeating("Attack", initialAttackDelay, attackRate);
+        base.Start();
+
+        Assert.IsNotNull(unit, $"Please assign <b>{nameof(unit)}</b> field on <b>{GetType().Name}</b> script on <b>{name}</b> object");
+    }    
+
+    void Update()
+    {
+        TryToAttack();
     }
 
-    private void Attack()
+    public void OnNewOponent(Unit newOponent) => currentOpponent = newOponent;
+
+    private void TryToAttack()
     {
-        GameObject attackProjectile = Instantiate(projectilePrefab, attackOrigin);
+        if (Frozen)
+            return;
+
+        timeToNextAttack -= Time.deltaTime;
+        
+
+        // Needs to be in attack range of an oponent and have no attack cool-down
+        if (!currentOpponent || timeToNextAttack > 0)
+            return;
+
+        AimProjectile();
+        Instantiate(projectilePrefab, attackOrigin);
+        timeToNextAttack = atackDelay;
+    }
+
+    private void AimProjectile()
+    {
+        Debug.Log("AimProjectile called");
+        ProjectileMovement projectileMovement = projectilePrefab.GetComponent<ProjectileMovement>();
+        projectileMovement.unitFiredFrom = GetComponent<Unit>();
+        projectileMovement.direction = currentOpponent.Center - projectileMovement.unitFiredFrom.Center;
+
+        if (CheatAndDebug.Instance.ShowDebugInfo)
+            Debug.DrawLine(projectileMovement.unitFiredFrom.Center, currentOpponent.Center, Color.red, 0.2f);
     }
 }

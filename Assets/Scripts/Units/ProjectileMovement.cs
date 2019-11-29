@@ -6,6 +6,9 @@ public class ProjectileMovement : MonoBehaviour
 {
     private float projectileSpeed = 1.0f;
     private GameObject projectile = null;
+    public Unit unitFiredFrom = null;
+
+    public Vector3 direction;
 
     void Awake()
     {
@@ -15,7 +18,7 @@ public class ProjectileMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.Translate(Vector3.right * projectileSpeed * Time.deltaTime);
+        transform.Translate(direction * projectileSpeed * Time.deltaTime);
     }
 
     void OnTriggerEnter2D(Collider2D other)

@@ -1,5 +1,25 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &945374885376244577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699446140314744838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f17889fdc11dff244891bc7abb7c4050, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 4879627324773778387}
+  atackDamage: 2
+  atackDelay: 1
+  attackRate: 1
+  projectilePrefab: {fileID: 4552927042956422936, guid: d0e5d3634cd8bc44588a644d33a30aee,
+    type: 3}
+  attackOrigin: {fileID: 7590239647103969356}
+  unit: {fileID: 7590239647103969357}
 --- !u!1001 &8258408501111262417
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10,7 +30,7 @@ PrefabInstance:
     - target: {fileID: 2003592177715405978, guid: fc6c2faa8ae045542a0960290aa158db,
         type: 3}
       propertyPath: m_Name
-      value: Archer I Instance
+      value: Archer I Instance (Projectile Attack)
       objectReference: {fileID: 0}
     - target: {fileID: 2003592177715405980, guid: fc6c2faa8ae045542a0960290aa158db,
         type: 3}
@@ -36,11 +56,16 @@ PrefabInstance:
         type: 3}
       propertyPath: attack
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 945374885376244577}
     - target: {fileID: 2003592177715405980, guid: fc6c2faa8ae045542a0960290aa158db,
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003592177715405980, guid: fc6c2faa8ae045542a0960290aa158db,
+        type: 3}
+      propertyPath: onEnemyInRange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2003592177715405981, guid: fc6c2faa8ae045542a0960290aa158db,
         type: 3}
@@ -430,11 +455,36 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3303809366427509900, guid: 17d5d6d0902be654bbbce749868c8774,
         type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1763304012001775943, guid: fc6c2faa8ae045542a0960290aa158db, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fc6c2faa8ae045542a0960290aa158db, type: 3}
+--- !u!4 &7590239647103969356 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2003592177715405981, guid: fc6c2faa8ae045542a0960290aa158db,
+    type: 3}
+  m_PrefabInstance: {fileID: 8258408501111262417}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &4879627324773778387 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 3543253135044890370, guid: fc6c2faa8ae045542a0960290aa158db,
+    type: 3}
+  m_PrefabInstance: {fileID: 8258408501111262417}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7590239647103969357 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2003592177715405980, guid: fc6c2faa8ae045542a0960290aa158db,
+    type: 3}
+  m_PrefabInstance: {fileID: 8258408501111262417}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71bf3b137b3158a449074c3fc0bca083, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &699446140314744838 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8876362086141654231, guid: fc6c2faa8ae045542a0960290aa158db,
     type: 3}
   m_PrefabInstance: {fileID: 8258408501111262417}
   m_PrefabAsset: {fileID: 0}
