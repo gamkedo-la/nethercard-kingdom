@@ -338,6 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 503ee541ae06059499b52a6dfc75dcc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameSpeedLabel: {fileID: 0}
   unitsManager: {fileID: 1289313127792475357}
   wonScreen: {fileID: 0}
   gameoverScreen: {fileID: 0}
@@ -765,8 +766,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - {fileID: 8300000, guid: 7b211bc9813534342ac23fb997f9a7d2, type: 3}
-  minPitch: 0.9
-  maxPitch: 1.1
+  minPitch: 0.95
+  maxPitch: 1.05
   minVolume: 0.9
   maxVolume: 1
   playOnStart: 0
@@ -914,10 +915,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - {fileID: 8300000, guid: b60c30d8d6851ce4da0e21a34fa9ed0c, type: 3}
-  minPitch: 0.8
-  maxPitch: 1.2
-  minVolume: 0.9
+  - {fileID: 8300000, guid: 05e59f3d3c88b9c4a92dc8f52ec5302b, type: 3}
+  minPitch: 0.95
+  maxPitch: 1.05
+  minVolume: 1
   maxVolume: 1
   playOnStart: 0
   limitFequencyOfPlays: 0
