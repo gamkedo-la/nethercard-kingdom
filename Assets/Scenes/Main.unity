@@ -1050,7 +1050,7 @@ PrefabInstance:
     - target: {fileID: 8784778901973177219, guid: 05bb1a60abb84524391347d824cb86f4,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8784778901973177222, guid: 05bb1a60abb84524391347d824cb86f4,
         type: 3}
@@ -2184,7 +2184,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 331093826}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.25, y: 0.353, z: 0}
+  m_LocalPosition: {x: -0.25, y: 1.16, z: 0}
   m_LocalScale: {x: 1, y: 1.25, z: 1}
   m_Children: []
   m_Father: {fileID: 147647480}
@@ -4500,6 +4500,51 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Managers
       objectReference: {fileID: 0}
+    - target: {fileID: 7486367063326005756, guid: f5ea14b1964d108438ae60eb76c40517,
+        type: 3}
+      propertyPath: onGameEnd.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486367063326005756, guid: f5ea14b1964d108438ae60eb76c40517,
+        type: 3}
+      propertyPath: wonScreen
+      value: 
+      objectReference: {fileID: 1037757994}
+    - target: {fileID: 7486367063326005756, guid: f5ea14b1964d108438ae60eb76c40517,
+        type: 3}
+      propertyPath: gameoverScreen
+      value: 
+      objectReference: {fileID: 346206791}
+    - target: {fileID: 7486367063326005756, guid: f5ea14b1964d108438ae60eb76c40517,
+        type: 3}
+      propertyPath: onGameEnd.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486367063326005756, guid: f5ea14b1964d108438ae60eb76c40517,
+        type: 3}
+      propertyPath: onGameEnd.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486367063326005756, guid: f5ea14b1964d108438ae60eb76c40517,
+        type: 3}
+      propertyPath: onGameEnd.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1253014236}
+    - target: {fileID: 7486367063326005756, guid: f5ea14b1964d108438ae60eb76c40517,
+        type: 3}
+      propertyPath: onGameEnd.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: set_IsPlaying
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486367063326005756, guid: f5ea14b1964d108438ae60eb76c40517,
+        type: 3}
+      propertyPath: onGameEnd.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7486367063326005756, guid: f5ea14b1964d108438ae60eb76c40517,
+        type: 3}
+      propertyPath: gameSpeedLabel
+      value: 
+      objectReference: {fileID: 239830045}
     - target: {fileID: 1289313127792475356, guid: f5ea14b1964d108438ae60eb76c40517,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4555,51 +4600,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7486367063326005756, guid: f5ea14b1964d108438ae60eb76c40517,
-        type: 3}
-      propertyPath: onGameEnd.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7486367063326005756, guid: f5ea14b1964d108438ae60eb76c40517,
-        type: 3}
-      propertyPath: wonScreen
-      value: 
-      objectReference: {fileID: 1037757994}
-    - target: {fileID: 7486367063326005756, guid: f5ea14b1964d108438ae60eb76c40517,
-        type: 3}
-      propertyPath: gameoverScreen
-      value: 
-      objectReference: {fileID: 346206791}
-    - target: {fileID: 7486367063326005756, guid: f5ea14b1964d108438ae60eb76c40517,
-        type: 3}
-      propertyPath: onGameEnd.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7486367063326005756, guid: f5ea14b1964d108438ae60eb76c40517,
-        type: 3}
-      propertyPath: onGameEnd.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7486367063326005756, guid: f5ea14b1964d108438ae60eb76c40517,
-        type: 3}
-      propertyPath: onGameEnd.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1253014236}
-    - target: {fileID: 7486367063326005756, guid: f5ea14b1964d108438ae60eb76c40517,
-        type: 3}
-      propertyPath: onGameEnd.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: set_IsPlaying
-      objectReference: {fileID: 0}
-    - target: {fileID: 7486367063326005756, guid: f5ea14b1964d108438ae60eb76c40517,
-        type: 3}
-      propertyPath: onGameEnd.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 7486367063326005756, guid: f5ea14b1964d108438ae60eb76c40517,
-        type: 3}
-      propertyPath: gameSpeedLabel
-      value: 
-      objectReference: {fileID: 239830045}
     - target: {fileID: 1289313127792475359, guid: f5ea14b1964d108438ae60eb76c40517,
         type: 3}
       propertyPath: manaCounter
