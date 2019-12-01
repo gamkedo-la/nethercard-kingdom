@@ -505,12 +505,12 @@ PrefabInstance:
     - target: {fileID: 7832217365449908389, guid: 550b7738aa68d2d41b344408cdbff804,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 4.15
+      value: 3.58
       objectReference: {fileID: 0}
     - target: {fileID: 7832217365449908389, guid: 550b7738aa68d2d41b344408cdbff804,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -0.35
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 550b7738aa68d2d41b344408cdbff804, type: 3}
@@ -980,8 +980,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 309807393}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.25, y: 1.55, z: 0}
-  m_LocalScale: {x: 1, y: 1.5, z: 0.75}
+  m_LocalPosition: {x: -0.25, y: 1.16, z: 0}
+  m_LocalScale: {x: 0.937992, y: 1.248, z: 0.75}
   m_Children: []
   m_Father: {fileID: 7832217364430185927}
   m_RootOrder: 2
@@ -1050,7 +1050,7 @@ PrefabInstance:
     - target: {fileID: 8784778901973177219, guid: 05bb1a60abb84524391347d824cb86f4,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8784778901973177222, guid: 05bb1a60abb84524391347d824cb86f4,
         type: 3}
@@ -2184,8 +2184,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 331093826}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.2, y: 1.55, z: 0}
-  m_LocalScale: {x: 1, y: 1.5, z: 0.75}
+  m_LocalPosition: {x: -0.25, y: 1.16, z: 0}
+  m_LocalScale: {x: 0.937992, y: 1.248, z: 0.75}
   m_Children: []
   m_Father: {fileID: 147647480}
   m_RootOrder: 2
@@ -5557,12 +5557,12 @@ PrefabInstance:
     - target: {fileID: 7832217365449908389, guid: 550b7738aa68d2d41b344408cdbff804,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 4.15
+      value: 3.5799997
       objectReference: {fileID: 0}
     - target: {fileID: 7832217365449908389, guid: 550b7738aa68d2d41b344408cdbff804,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 0.41
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 550b7738aa68d2d41b344408cdbff804, type: 3}
