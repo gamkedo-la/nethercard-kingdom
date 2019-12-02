@@ -56,6 +56,22 @@ public class DeckManager : MonoBehaviour
 		CheckIfWeForceCanceled( );
 	}
 
+	public void ClearDeck( )
+	{
+		for ( int i = 0; i < deck.Count; i++ )
+		{
+			if ( deck[i] != null )
+			{
+				collectionManager.AddCard( deck[i] );
+				deck[i] = null;
+			}
+		}
+
+		collectionManager.DisplayCollection( );
+		DisplayDeck( );
+		tooltip.text = "Deck cleared!";
+	}
+
 	public void SetDraggedCard( PlayerCard card )
 	{
 		cardDraggedFromCollection = card;

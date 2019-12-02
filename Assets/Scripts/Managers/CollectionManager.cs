@@ -236,6 +236,34 @@ public class CollectionManager : MonoBehaviour
 
 	public void Save( ) => playerCards.SetCollection( collection );
 
+	public void AddCard( PlayerCard cardToAdd, Vector2 position = default )
+	{
+		// Try to find a match
+		for ( int i = 0; i < collection.Count; i++ )
+		{
+			if ( collection[i] != null && collection[i].Card.Name == cardToAdd.Card.Name ) // Found a match, add card
+			{
+				collection[i].Amount += 1;
+				return;
+			}
+		}
+
+		// Add to empty slot
+		for ( int i = 0; i < collection.Count; i++ )
+		{
+			if ( collection[i] == null ) // Found a match, add card
+			{
+				collection[i] = new PlayerCard( )
+				{
+					Amount = 1,
+					Card = cardToAdd.Card
+				};
+
+				return;
+			}
+		}
+	}
+
 	public void SortCollection( )
 	{
 		// "Condense" cards
@@ -300,7 +328,7 @@ public class CollectionManager : MonoBehaviour
 		}
 	}
 
-	private void DisplayCollection( )
+	public void DisplayCollection( )
 	{
 		cardDragged = null;
 		cardDraggedFromDeck = null;
