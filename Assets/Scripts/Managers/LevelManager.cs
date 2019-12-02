@@ -40,8 +40,8 @@ public class LevelManager : MonoBehaviour
 		switch ( (int)value )
 		{
 			case 0:
-			speed = 0.0f;
-			label = "PAUSED";
+			speed = 0.1f;
+			label = "0.1x Speed";
 			break;
 
 			case 1:
@@ -50,7 +50,7 @@ public class LevelManager : MonoBehaviour
 			break;
 
 			case 2:
-			speed = 0.05f;
+			speed = 0.5f;
 			label = "0.5x Speed";
 			break;
 
@@ -60,11 +60,21 @@ public class LevelManager : MonoBehaviour
 			break;
 
 			case 4:
+			speed = 1.25f;
+			label = "1.25x Speed";
+			break;
+
+			case 5:
+			speed = 1.5f;
+			label = "1.5x Speed";
+			break;
+
+			case 6:
 			speed = 2.0f;
 			label = "2x Speed";
 			break;
 
-			case 5:
+			case 7:
 			speed = 4.0f;
 			label = "4x Speed";
 			break;
