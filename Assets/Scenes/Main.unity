@@ -5246,7 +5246,7 @@ PrefabInstance:
     - target: {fileID: 5290041437021551936, guid: 2758165ee9ff9cb4f9c1cc4e746463a6,
         type: 3}
       propertyPath: m_Name
-      value: Enemy Oponent
+      value: Player's Opponent
       objectReference: {fileID: 0}
     - target: {fileID: 5290041437021551942, guid: 2758165ee9ff9cb4f9c1cc4e746463a6,
         type: 3}
