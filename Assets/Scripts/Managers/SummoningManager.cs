@@ -21,7 +21,7 @@ public class SummoningManager : MonoBehaviour
 	[Header("Objects")]
 	[SerializeField] private PlaySound manaSound = null;
 	[SerializeField] private TextMeshProUGUI manaCounter = null;
-	[SerializeField] private Image progressImage = null;
+	[SerializeField] private Image manaImage = null;
 
 	[Header("Areas")]
 	[SerializeField] private GameObject summoningAreaUnits = null;
@@ -32,16 +32,14 @@ public class SummoningManager : MonoBehaviour
 	[SerializeField] private GameObject bad = null;
 
 	[Header("Mana")]
-	[SerializeField] private float manaTickTime = 2f;
-	[SerializeField] private int manaTickAmount = 1;
-	[SerializeField] private int startMana = 3;
-	[SerializeField] private int maxMana = 99;
+	[SerializeField] private float manaIncrease = 1f;
+	[SerializeField] private int startMana = 0;
+	[SerializeField] private int maxMana = 100;
 
 	private List<Targetable> targetables = new List<Targetable>();
 	private CardType currentSummoningType = CardType.Undefined;
 	private bool overValidTarget = false;
-	private int currentMana = 0;
-	private float currentManaProgress = 0;
+	private float currentMana = 0;
 
 	private void Awake( )
 	{
@@ -57,7 +55,7 @@ public class SummoningManager : MonoBehaviour
 	{
 		Assert.IsNotNull( manaSound, $"Please assign <b>{nameof( manaSound )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( manaCounter, $"Please assign <b>{nameof( manaCounter )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
-		Assert.IsNotNull( progressImage, $"Please assign <b>{nameof( progressImage )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( manaImage, $"Please assign <b>{nameof( manaImage )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( summoningAreaUnits, $"Please assign <b>{nameof( summoningAreaUnits )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( summoningAreaAoe, $"Please assign <b>{nameof( summoningAreaAoe )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( good, $"Please assign <b>{nameof( good )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
@@ -136,7 +134,7 @@ public class SummoningManager : MonoBehaviour
 
 	public bool EnoughMana( int amount ) => currentMana >= amount;
 
-	public void AddMana( int amount, bool playSound = true )
+	public void AddMana( float amount, bool playSound = true )
 	{
 		if ( playSound )
 			manaSound.Play( );
@@ -144,14 +142,14 @@ public class SummoningManager : MonoBehaviour
 		currentMana += amount;
 		currentMana = currentMana < maxMana ? currentMana : maxMana;
 
-		manaCounter.text = currentMana.ToString( );
-		currentManaProgress = 0;
+		manaCounter.text = currentMana.ToString( "0" );
+		manaImage.fillAmount = currentMana / maxMana;
 	}
 
 	public void RemoveMana( int amount )
 	{
 		currentMana -= amount;
-		manaCounter.text = currentMana.ToString( );
+		manaCounter.text = currentMana.ToString( "0" );
 	}
 
 	public void MouseOverTarget( Targetable target, CardType targetableBy, bool isOver )
@@ -183,20 +181,6 @@ public class SummoningManager : MonoBehaviour
 
 	private void ManaProgress( )
 	{
-		if ( currentMana >= maxMana )
-		{
-			currentManaProgress = 0;
-			progressImage.fillAmount = 1;
-
-			return;
-		}
-
-		currentManaProgress += Time.deltaTime / manaTickTime;
-		progressImage.fillAmount = currentManaProgress;
-
-		if ( currentManaProgress < 1 )
-			return;
-
-		AddMana( manaTickAmount );
+		AddMana( manaIncrease * Time.deltaTime );
 	}
 }
