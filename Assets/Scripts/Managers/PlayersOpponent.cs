@@ -78,7 +78,7 @@ public class PlayersOpponent : MonoBehaviour
 		if ( nextSummonEventToPlay.SummonCost > mana )
 			return;
 
-		//if ( CheatAndDebug.Instance.ShowDebugInfo )
+		if ( CheatAndDebug.Instance.ShowDebugInfo )
 		{
 			string s = "";
 			foreach ( var u in nextSummonEventToPlay.Instances )
@@ -124,7 +124,7 @@ public class PlayersOpponent : MonoBehaviour
 
 		// Summon events that meet the requirements
 		var validChoices = summonEvents.Where( e => enrageMeter >= e.EnrageMin && enrageMeter <= e.EnrageMax ).ToList( );
-		//if ( CheatAndDebug.Instance.ShowDebugInfo )
+		if ( CheatAndDebug.Instance.ShowDebugInfo )
 		{
 			string s = "Valid Choices: ";
 			foreach ( var item in validChoices )
@@ -145,7 +145,8 @@ public class PlayersOpponent : MonoBehaviour
 			weightSum += item.Weight;
 
 		float weigthPoint = Random.Range( 0, weightSum );
-		//Debug.Log( $"weightSum: {weightSum}, weigthPoint: {weigthPoint}" );
+		if ( CheatAndDebug.Instance.ShowDebugInfo )
+		Debug.Log( $"weightSum: {weightSum}, weigthPoint: {weigthPoint}" );
 
 		// Pick a random event from all the valid ones
 		// using weights - that way some have more probability to appear then others
