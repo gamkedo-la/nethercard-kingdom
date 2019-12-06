@@ -104,9 +104,11 @@ public class Unit : MonoBehaviour
 
 	public void Stop( )
 	{
+		if ( animator.enabled )
+			animator.SetTrigger( "Idle" );
+
 		frozen = true;
 		attack.Frozen = true;
-		animator.SetTrigger( "Idle" );
 	}
 
 	public void Freez( float shockDuration, float afterFreezDuration )
