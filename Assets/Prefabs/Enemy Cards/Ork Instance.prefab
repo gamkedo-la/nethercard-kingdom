@@ -84,6 +84,11 @@ PrefabInstance:
       propertyPath: unitCenter.x
       value: 0.06
       objectReference: {fileID: 0}
+    - target: {fileID: 2003592177715405980, guid: fc6c2faa8ae045542a0960290aa158db,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1763304012001775943, guid: fc6c2faa8ae045542a0960290aa158db,
         type: 3}
       propertyPath: animator

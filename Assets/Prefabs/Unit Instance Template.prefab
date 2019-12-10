@@ -697,7 +697,7 @@ Transform:
   m_GameObject: {fileID: 2003592177715405978}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 927765270508682151}
   - {fileID: 6006760235945739861}
@@ -795,7 +795,7 @@ MonoBehaviour:
   HQ: 0
   detectionRange: 1.43
   attackRange: 0.86
-  moveSpeed: 1
+  moveSpeed: 0.6
   movementRange: {x: 14.34, y: 3.68}
   movementOffset: {x: -20, y: 0}
   onEnemyDetected:

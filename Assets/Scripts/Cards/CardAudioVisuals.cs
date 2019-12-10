@@ -50,6 +50,7 @@ public class CardAudioVisuals : MonoBehaviour
 	[SerializeField] private float alphaOnDraggedFromHand = 0.8f;
 	[SerializeField] private float alphaOnDraggedInDeckBuilder = 0.8f;
 	[SerializeField] private float alphaOnCanNotBePlayed = 0.5f;
+	[SerializeField] private float liveImageScaleMod = 1.0f;
 
 	private bool showPreview = false;
 	private bool canBePlayed = true;
@@ -163,7 +164,7 @@ public class CardAudioVisuals : MonoBehaviour
 	{
 		showPreview = show;
 		liveImage.transform.rotation = Quaternion.identity;
-		liveImage.transform.localScale = Vector3.one / overInHandScale;
+		liveImage.transform.localScale = ( Vector3.one / overInHandScale ) * liveImageScaleMod;
 	}
 
 	public void HighlightCardInDeck( )

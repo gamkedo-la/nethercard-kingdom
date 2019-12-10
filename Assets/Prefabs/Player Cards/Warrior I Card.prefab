@@ -44,6 +44,11 @@ PrefabInstance:
       propertyPath: type
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4395479231106108376, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: liveImageScaleMod
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 7516414569761794859, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: m_text
@@ -78,6 +83,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3563004026135363423, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_text
+      value: The backbone of any army
       objectReference: {fileID: 0}
     - target: {fileID: 4306323210595224590, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
@@ -168,11 +178,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.8655626
-      objectReference: {fileID: 0}
-    - target: {fileID: 3563004026135363423, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_text
-      value: The backbone of any army
       objectReference: {fileID: 0}
     - target: {fileID: 96448653850123964, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
