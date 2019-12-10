@@ -344,6 +344,7 @@ MonoBehaviour:
   gameoverScreen: {fileID: 0}
   wonSound: {fileID: 7263122719652072290}
   gameoverSound: {fileID: 5350629655699950112}
+  playingCardGameSpeed: 0.25
   toDisableOnEnd: []
   onGameEnd:
     m_PersistentCalls:
@@ -359,7 +360,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  playingCardGameSpeed: 0.25
 --- !u!114 &1289313127792475357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -391,9 +391,9 @@ MonoBehaviour:
   summoningAreaAoe: {fileID: 0}
   good: {fileID: 1289313127435805898}
   bad: {fileID: 1289313126059173016}
-  manaIncrease: 1
-  startMana: 3
-  maxMana: 99
+  manaIncrease: 5
+  startMana: 0
+  maxMana: 100
 --- !u!114 &4724508772829500602
 MonoBehaviour:
   m_ObjectHideFlags: 0

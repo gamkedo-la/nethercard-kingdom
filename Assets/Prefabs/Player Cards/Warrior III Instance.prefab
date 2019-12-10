@@ -97,6 +97,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5624437537020732789, guid: f68a5cb553071cc4abc6e10195d38b54,
+        type: 3}
+      propertyPath: atackDamage
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5072199272024210262, guid: f68a5cb553071cc4abc6e10195d38b54,
         type: 3}
       propertyPath: m_AnchorMax.x

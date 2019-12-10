@@ -37,8 +37,8 @@ public class PlayersOpponent : MonoBehaviour
 	[SerializeField] private float summonDelay = 0.5f;
 	[SerializeField] private float delayBetweenSummonsInOneEvent = 1f;
 	[SerializeField, Range(0,100)] private float enrageMeter = 0f;
-	[SerializeField, Range(0,100)] private float mana = 0f;
-	[SerializeField, Range(0,10)] private float manaGainSpeed = 1f;
+	[SerializeField, Range(0,200)] private float mana = 0f;
+	[SerializeField, Range(0,30)] private float manaGainSpeed = 1f;
 
 	private SummonEvent nextSummonEventToPlay = null;
 

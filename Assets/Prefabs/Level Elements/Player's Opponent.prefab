@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5290041437021551942}
   - component: {fileID: 5290041437021551943}
   m_Layer: 0
-  m_Name: Enemy Oponent
+  m_Name: Player's Opponent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,7 +82,7 @@ MonoBehaviour:
   delayBetweenSummonsInOneEvent: 1
   enrageMeter: 0
   mana: 0
-  manaGainSpeed: 1
+  manaGainSpeed: 2
 --- !u!1 &5290041437813572877
 GameObject:
   m_ObjectHideFlags: 0

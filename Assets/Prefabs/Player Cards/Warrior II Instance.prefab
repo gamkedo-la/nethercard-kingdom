@@ -72,6 +72,11 @@ PrefabInstance:
       propertyPath: maxHP
       value: 120
       objectReference: {fileID: 0}
+    - target: {fileID: 2787859790148108427, guid: a3aef32aff04f584ebe6f087e87f6621,
+        type: 3}
+      propertyPath: atackDamage
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2668035768096427849, guid: a3aef32aff04f584ebe6f087e87f6621,
         type: 3}
       propertyPath: m_textInfo.characterCount
