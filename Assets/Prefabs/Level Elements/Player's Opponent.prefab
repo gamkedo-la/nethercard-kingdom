@@ -82,7 +82,7 @@ MonoBehaviour:
   delayBetweenSummonsInOneEvent: 1
   enrageMeter: 0
   mana: 0
-  manaGainSpeed: 2
+  manaGainSpeed: 1.8
 --- !u!1 &5290041437813572877
 GameObject:
   m_ObjectHideFlags: 0

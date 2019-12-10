@@ -25,7 +25,7 @@ PrefabInstance:
     - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: abilityText
-      value: Does <b>10 damage</b> in a <b>radius of 2</b>
+      value: Does <b>15 damage</b> in a <b>radius of 2</b>
       objectReference: {fileID: 0}
     - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
