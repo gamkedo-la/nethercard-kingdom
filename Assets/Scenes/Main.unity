@@ -4500,6 +4500,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -2599091063468962360, guid: 5b76e252cb364414e91e4403109186f7,
         type: 2}
+    - target: {fileID: 434523983232425275, guid: dfaab4e781a47cb459a94abb9b9c0b86,
+        type: 3}
+      propertyPath: playerCards
+      value: 
+      objectReference: {fileID: 1210162176}
+    - target: {fileID: 2145342405, guid: dfaab4e781a47cb459a94abb9b9c0b86, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 15.099976
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfaab4e781a47cb459a94abb9b9c0b86, type: 3}
 --- !u!1001 &1289313126710793405

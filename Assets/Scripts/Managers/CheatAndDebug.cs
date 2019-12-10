@@ -12,14 +12,16 @@ public class CheatAndDebug : MonoBehaviour
 	public static CheatAndDebug Instance { get; private set; }
 	public bool ShowDebugInfo { get { return showDebugInfo; } }
 	public bool AllowCheats { get { return allowCheats; } }
-	public bool CardPosOffsetOnDrag { get { return cardPosOffsetOnDrag; } }
+
+	[Header("Debug Flags")]
+	[SerializeField] private PlayerCards playerCards = null;
+	[SerializeField] private GameObject tooltip = null;
 
 	[Header("Debug Flags")]
 	[Tooltip("Show debug informations")]
 	[SerializeField] private bool showDebugInfo = false;
 	[Tooltip("Allow cheat codes")]
 	[SerializeField] private bool allowCheats = false;
-	[SerializeField] private bool cardPosOffsetOnDrag = true;
 
 	[Header("Debug Parameters")]
 	[SerializeField] private int manaCheatAmount = 20;
@@ -36,14 +38,17 @@ public class CheatAndDebug : MonoBehaviour
 
 	void Update ()
 	{
-		if ( Input.GetKeyDown( KeyCode.R ) )
-			SceneManager.LoadScene( 0 );
-
 		if ( AllowCheats && Input.GetKeyDown( KeyCode.M ) )
 			AddMana( );
 
-		if ( Input.GetKeyDown( KeyCode.D ) )
-			cardPosOffsetOnDrag = !cardPosOffsetOnDrag;
+		if ( Input.GetKeyDown( KeyCode.LeftShift ) && Input.GetKeyDown( KeyCode.LeftControl ) && Input.GetKeyDown( KeyCode.R ) )
+			playerCards.RemovdSavedPlayerCardsData( );
+
+		if ( Input.GetKeyDown( KeyCode.R ) )
+			SceneManager.LoadScene( 0 );
+
+		if ( Input.GetKeyDown( KeyCode.T ) )
+			tooltip.SetActive( !tooltip.activeSelf );
 	}
 
 	public void AddMana( )

@@ -44,8 +44,7 @@ public class CardSlot : MonoBehaviour
 	{
 		if ( cardIsDraged && cardInSlot )
 		{
-			Vector3 offset = CheatAndDebug.Instance.CardPosOffsetOnDrag ? new Vector3( 0.0f, -Screen.height * 0.25f, 0.0f ) : -dragOffset;
-			cardInSlot.transform.position = Vector2.Lerp( cardInSlot.transform.position, Input.mousePosition + offset, 0.25f );
+			cardInSlot.transform.position = Vector2.Lerp( cardInSlot.transform.position, Input.mousePosition - dragOffset, 0.25f );
 		}
 		else if ( cardInSlot && !appearing )
 		{
