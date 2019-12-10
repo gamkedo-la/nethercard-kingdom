@@ -5184,7 +5184,7 @@ MonoBehaviour:
   floatingTextDamage: {fileID: 6528320470317456676, guid: f3814c57dc766f343ac851c1627304e5,
     type: 3}
   floatingTextHeal: {fileID: 0}
-  maxHP: 20
+  maxHP: 400
   destroyOnNoHP: 1
   delayNextDamage: 0
   nextDamageDelay: 1
