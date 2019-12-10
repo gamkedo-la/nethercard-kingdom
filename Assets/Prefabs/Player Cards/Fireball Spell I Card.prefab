@@ -25,7 +25,7 @@ PrefabInstance:
     - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: abilityText
-      value: Does <b>2 damage</b> in a <b>radius of 2</b>
+      value: Does <b>10 damage</b> in a <b>radius of 2</b>
       objectReference: {fileID: 0}
     - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
@@ -44,6 +44,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8461569342959266323, guid: 0b9c379e397653d43ae7e48ca5d309b2,
         type: 3}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: useCost
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 7709570893905777452, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: m_Sprite
@@ -99,6 +104,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3563004026135363423, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_text
+      value: Is it just me or it's getting hot in here?
       objectReference: {fileID: 0}
     - target: {fileID: 4082654261549637672, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
@@ -233,11 +243,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -4247683970634298323, guid: 17d5d6d0902be654bbbce749868c8774,
         type: 3}
-    - target: {fileID: 3563004026135363423, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_text
-      value: Is it just me or it's getting hot in here?
-      objectReference: {fileID: 0}
     - target: {fileID: 96448653850123964, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: toSummon

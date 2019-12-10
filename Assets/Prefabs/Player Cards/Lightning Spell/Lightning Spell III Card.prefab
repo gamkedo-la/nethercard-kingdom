@@ -12,43 +12,43 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lightning Spell III Card
       objectReference: {fileID: 0}
-    - target: {fileID: 222037773591144965, guid: 50f644e35feb661458821404f47f5a33,
+    - target: {fileID: 1609105408714899463, guid: 50f644e35feb661458821404f47f5a33,
         type: 3}
-      propertyPath: lowerLevelVersion
-      value: 
-      objectReference: {fileID: 222037773591144965, guid: 50f644e35feb661458821404f47f5a33,
-        type: 3}
-    - target: {fileID: 222037773591144965, guid: 50f644e35feb661458821404f47f5a33,
-        type: 3}
-      propertyPath: higherLevelVersion
-      value: 
+      propertyPath: useCost
+      value: 35
       objectReference: {fileID: 0}
-    - target: {fileID: 222037773591144965, guid: 50f644e35feb661458821404f47f5a33,
+    - target: {fileID: 1609105408714899463, guid: 50f644e35feb661458821404f47f5a33,
         type: 3}
       propertyPath: level
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 222037773591144965, guid: 50f644e35feb661458821404f47f5a33,
-        type: 3}
-      propertyPath: useCost
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 222037773591144965, guid: 50f644e35feb661458821404f47f5a33,
-        type: 3}
-      propertyPath: abilityText
-      value: Does <b>5 damage</b> to enemy unit
-      objectReference: {fileID: 0}
-    - target: {fileID: 222037773591144965, guid: 50f644e35feb661458821404f47f5a33,
+    - target: {fileID: 1609105408714899463, guid: 50f644e35feb661458821404f47f5a33,
         type: 3}
       propertyPath: displayName
       value: Power Lightning
       objectReference: {fileID: 0}
-    - target: {fileID: 222037773591144965, guid: 50f644e35feb661458821404f47f5a33,
+    - target: {fileID: 1609105408714899463, guid: 50f644e35feb661458821404f47f5a33,
+        type: 3}
+      propertyPath: abilityText
+      value: Does <b>25 damage</b> to enemy unit
+      objectReference: {fileID: 0}
+    - target: {fileID: 1609105408714899463, guid: 50f644e35feb661458821404f47f5a33,
         type: 3}
       propertyPath: toSummon
       value: 
       objectReference: {fileID: 2033718302299314049, guid: 252b00b9b8415f444b5209f1dbe786e6,
         type: 3}
+    - target: {fileID: 1609105408714899463, guid: 50f644e35feb661458821404f47f5a33,
+        type: 3}
+      propertyPath: lowerLevelVersion
+      value: 
+      objectReference: {fileID: 1609105408714899463, guid: 50f644e35feb661458821404f47f5a33,
+        type: 3}
+    - target: {fileID: 1609105408714899463, guid: 50f644e35feb661458821404f47f5a33,
+        type: 3}
+      propertyPath: higherLevelVersion
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3500630304428556493, guid: 50f644e35feb661458821404f47f5a33,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -244,42 +244,42 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1609105408714899463, guid: 50f644e35feb661458821404f47f5a33,
+    - target: {fileID: 222037773591144965, guid: 50f644e35feb661458821404f47f5a33,
         type: 3}
-      propertyPath: useCost
-      value: 2
+      propertyPath: lowerLevelVersion
+      value: 
+      objectReference: {fileID: 222037773591144965, guid: 50f644e35feb661458821404f47f5a33,
+        type: 3}
+    - target: {fileID: 222037773591144965, guid: 50f644e35feb661458821404f47f5a33,
+        type: 3}
+      propertyPath: higherLevelVersion
+      value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 1609105408714899463, guid: 50f644e35feb661458821404f47f5a33,
+    - target: {fileID: 222037773591144965, guid: 50f644e35feb661458821404f47f5a33,
         type: 3}
       propertyPath: level
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1609105408714899463, guid: 50f644e35feb661458821404f47f5a33,
+    - target: {fileID: 222037773591144965, guid: 50f644e35feb661458821404f47f5a33,
         type: 3}
-      propertyPath: displayName
-      value: Power Lightning
+      propertyPath: useCost
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1609105408714899463, guid: 50f644e35feb661458821404f47f5a33,
+    - target: {fileID: 222037773591144965, guid: 50f644e35feb661458821404f47f5a33,
         type: 3}
       propertyPath: abilityText
       value: Does <b>5 damage</b> to enemy unit
       objectReference: {fileID: 0}
-    - target: {fileID: 1609105408714899463, guid: 50f644e35feb661458821404f47f5a33,
+    - target: {fileID: 222037773591144965, guid: 50f644e35feb661458821404f47f5a33,
+        type: 3}
+      propertyPath: displayName
+      value: Power Lightning
+      objectReference: {fileID: 0}
+    - target: {fileID: 222037773591144965, guid: 50f644e35feb661458821404f47f5a33,
         type: 3}
       propertyPath: toSummon
       value: 
       objectReference: {fileID: 2033718302299314049, guid: 252b00b9b8415f444b5209f1dbe786e6,
         type: 3}
-    - target: {fileID: 1609105408714899463, guid: 50f644e35feb661458821404f47f5a33,
-        type: 3}
-      propertyPath: lowerLevelVersion
-      value: 
-      objectReference: {fileID: 1609105408714899463, guid: 50f644e35feb661458821404f47f5a33,
-        type: 3}
-    - target: {fileID: 1609105408714899463, guid: 50f644e35feb661458821404f47f5a33,
-        type: 3}
-      propertyPath: higherLevelVersion
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50f644e35feb661458821404f47f5a33, type: 3}

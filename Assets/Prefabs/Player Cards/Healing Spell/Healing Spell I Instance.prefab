@@ -34,7 +34,7 @@ MonoBehaviour:
   optionalToSpawn: {fileID: 7726392380017400500, guid: d0096c3863c126f45ab9cd79fe52eee1,
     type: 3}
   type: 8
-  effectAmount: 3
+  effectAmount: 80
   destroyAfter: 0.4
 --- !u!1001 &6446317819150554604
 PrefabInstance:

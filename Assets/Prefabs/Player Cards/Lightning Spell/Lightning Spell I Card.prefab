@@ -20,7 +20,7 @@ PrefabInstance:
     - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: useCost
-      value: 1
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
@@ -30,7 +30,7 @@ PrefabInstance:
     - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: abilityText
-      value: Does <b>3 damage</b> to enemy unit
+      value: Does <b>15 damage</b> to enemy unit
       objectReference: {fileID: 0}
     - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
@@ -99,6 +99,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.wordCount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3563004026135363423, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_text
+      value: It's kinda rainy outside...
       objectReference: {fileID: 0}
     - target: {fileID: 4082654261549637672, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
@@ -238,11 +243,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8774831106164560166, guid: 17d5d6d0902be654bbbce749868c8774,
         type: 3}
-    - target: {fileID: 3563004026135363423, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_text
-      value: It's kinda rainy outside...
-      objectReference: {fileID: 0}
     - target: {fileID: 96448653850123964, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: cost

@@ -32,7 +32,7 @@ PrefabInstance:
     - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: useCost
-      value: 1
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
@@ -42,7 +42,7 @@ PrefabInstance:
     - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: abilityText
-      value: Heal <b>3 HP</b> of one of your units
+      value: Heal <b>80 HP</b> of one of your units
       objectReference: {fileID: 0}
     - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
@@ -99,6 +99,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.wordCount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3563004026135363423, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_text
+      value: Not on my watch!
       objectReference: {fileID: 0}
     - target: {fileID: 4082654261549637672, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
@@ -227,11 +232,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 91f21acffd834c2479864d888c13f1be,
         type: 3}
-    - target: {fileID: 3563004026135363423, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_text
-      value: Not on my watch!
-      objectReference: {fileID: 0}
     - target: {fileID: 96448653850123964, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: type

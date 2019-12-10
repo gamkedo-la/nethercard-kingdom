@@ -70,7 +70,7 @@ PrefabInstance:
     - target: {fileID: -1090127739315392682, guid: 35a94911febecc64c85c2cf654837ab4,
         type: 3}
       propertyPath: effectAmount
-      value: 5
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35a94911febecc64c85c2cf654837ab4, type: 3}

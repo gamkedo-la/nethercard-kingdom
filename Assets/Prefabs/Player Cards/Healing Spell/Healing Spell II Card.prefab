@@ -12,123 +12,43 @@ PrefabInstance:
       propertyPath: m_Name
       value: Healing Spell II Card
       objectReference: {fileID: 0}
-    - target: {fileID: 8311138147123623806, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
-        type: 3}
-      propertyPath: lowerLevelVersion
-      value: 
-      objectReference: {fileID: 8311138147123623806, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
-        type: 3}
-    - target: {fileID: 8311138147123623806, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
-        type: 3}
-      propertyPath: higherLevelVersion
-      value: 
-      objectReference: {fileID: 8890918461211719764, guid: dcfc3d036c9a2a046b80f73d504505f8,
-        type: 3}
-    - target: {fileID: 8311138147123623806, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+    - target: {fileID: 7356488059610897788, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
         type: 3}
       propertyPath: level
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8311138147123623806, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+    - target: {fileID: 7356488059610897788, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
         type: 3}
       propertyPath: displayName
       value: More Healing
       objectReference: {fileID: 0}
-    - target: {fileID: 8311138147123623806, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+    - target: {fileID: 7356488059610897788, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
         type: 3}
       propertyPath: abilityText
-      value: Heal <b>5 HP</b> of one of your units
+      value: Heal <b>90 HP</b> of one of your units
       objectReference: {fileID: 0}
-    - target: {fileID: 8311138147123623806, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+    - target: {fileID: 7356488059610897788, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+        type: 3}
+      propertyPath: lowerLevelVersion
+      value: 
+      objectReference: {fileID: 7356488059610897788, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+        type: 3}
+    - target: {fileID: 7356488059610897788, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+        type: 3}
+      propertyPath: higherLevelVersion
+      value: 
+      objectReference: {fileID: 7936052614372676182, guid: dcfc3d036c9a2a046b80f73d504505f8,
+        type: 3}
+    - target: {fileID: 7356488059610897788, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
         type: 3}
       propertyPath: toSummon
       value: 
       objectReference: {fileID: 958856806397127059, guid: a78bcd53c5ef65541bb88435b8dda126,
         type: 3}
-    - target: {fileID: 4672329062808591798, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+    - target: {fileID: 7356488059610897788, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
         type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672329062808591798, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672329062808591798, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672329062808591798, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2219618173437999704, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 2219618173437999704, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2219618173437999704, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2219618173437999704, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2219618173437999704, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
-        type: 3}
-      propertyPath: m_text
-      value: More Healing
-      objectReference: {fileID: 0}
-    - target: {fileID: 2219618173437999704, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1895475223519920873, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 1895475223519920873, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1895475223519920873, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1895475223519920873, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1895475223519920873, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1895475223519920873, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
-        type: 3}
-      propertyPath: m_text
-      value: Heal <b>5 HP</b> of one of your units
-      objectReference: {fileID: 0}
-    - target: {fileID: 102132662992068567, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      propertyPath: useCost
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 8814511579970584547, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
         type: 3}
@@ -235,34 +155,119 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 7356488059610897788, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+    - target: {fileID: 4672329062808591798, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4672329062808591798, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4672329062808591798, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4672329062808591798, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2219618173437999704, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2219618173437999704, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2219618173437999704, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2219618173437999704, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2219618173437999704, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+        type: 3}
+      propertyPath: m_text
+      value: More Healing
+      objectReference: {fileID: 0}
+    - target: {fileID: 2219618173437999704, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895475223519920873, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895475223519920873, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895475223519920873, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895475223519920873, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895475223519920873, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895475223519920873, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+        type: 3}
+      propertyPath: m_text
+      value: Heal <b>5 HP</b> of one of your units
+      objectReference: {fileID: 0}
+    - target: {fileID: 102132662992068567, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8311138147123623806, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+        type: 3}
+      propertyPath: lowerLevelVersion
+      value: 
+      objectReference: {fileID: 8311138147123623806, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+        type: 3}
+    - target: {fileID: 8311138147123623806, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+        type: 3}
+      propertyPath: higherLevelVersion
+      value: 
+      objectReference: {fileID: 8890918461211719764, guid: dcfc3d036c9a2a046b80f73d504505f8,
+        type: 3}
+    - target: {fileID: 8311138147123623806, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
         type: 3}
       propertyPath: level
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7356488059610897788, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+    - target: {fileID: 8311138147123623806, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
         type: 3}
       propertyPath: displayName
       value: More Healing
       objectReference: {fileID: 0}
-    - target: {fileID: 7356488059610897788, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+    - target: {fileID: 8311138147123623806, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
         type: 3}
       propertyPath: abilityText
       value: Heal <b>5 HP</b> of one of your units
       objectReference: {fileID: 0}
-    - target: {fileID: 7356488059610897788, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
-        type: 3}
-      propertyPath: lowerLevelVersion
-      value: 
-      objectReference: {fileID: 7356488059610897788, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
-        type: 3}
-    - target: {fileID: 7356488059610897788, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
-        type: 3}
-      propertyPath: higherLevelVersion
-      value: 
-      objectReference: {fileID: 7936052614372676182, guid: dcfc3d036c9a2a046b80f73d504505f8,
-        type: 3}
-    - target: {fileID: 7356488059610897788, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+    - target: {fileID: 8311138147123623806, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
         type: 3}
       propertyPath: toSummon
       value: 

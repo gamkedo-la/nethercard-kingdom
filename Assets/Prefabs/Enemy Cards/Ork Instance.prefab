@@ -94,10 +94,15 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 2136978878973634175}
+    - target: {fileID: 1763304012001775943, guid: fc6c2faa8ae045542a0960290aa158db,
+        type: 3}
+      propertyPath: atackDamage
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2003592177715405983, guid: fc6c2faa8ae045542a0960290aa158db,
         type: 3}
       propertyPath: maxHP
-      value: 20
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2003592177715405983, guid: fc6c2faa8ae045542a0960290aa158db,
         type: 3}

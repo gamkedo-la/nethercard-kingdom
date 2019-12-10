@@ -834,7 +834,7 @@ MonoBehaviour:
     type: 3}
   floatingTextHeal: {fileID: 1803036402048619639, guid: a6ab49c6a116a484facf1898577418ad,
     type: 3}
-  maxHP: 10
+  maxHP: 100
   destroyOnNoHP: 1
   delayNextDamage: 0
   nextDamageDelay: 1

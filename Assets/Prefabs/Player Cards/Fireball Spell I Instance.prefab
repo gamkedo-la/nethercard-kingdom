@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionalToSpawn: {fileID: 0}
   type: 16
-  effectAmount: 2
+  effectAmount: 10
   destroyAfter: 0.25
   range: 1
   side: 2

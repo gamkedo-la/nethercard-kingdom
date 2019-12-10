@@ -47,10 +47,20 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 4879627324773778387}
+    - target: {fileID: 1763304012001775943, guid: fc6c2faa8ae045542a0960290aa158db,
+        type: 3}
+      propertyPath: atackDamage
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1763304012001775943, guid: fc6c2faa8ae045542a0960290aa158db,
+        type: 3}
+      propertyPath: atackDelay
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2003592177715405983, guid: fc6c2faa8ae045542a0960290aa158db,
         type: 3}
       propertyPath: maxHP
-      value: 5
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3851549339055101947, guid: fc6c2faa8ae045542a0960290aa158db,
         type: 3}

@@ -17,6 +17,11 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1145284199240916686}
+    - target: {fileID: 1763304012001775943, guid: fc6c2faa8ae045542a0960290aa158db,
+        type: 3}
+      propertyPath: atackDamage
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 760942606543455561, guid: fc6c2faa8ae045542a0960290aa158db,
         type: 3}
       propertyPath: targetType
