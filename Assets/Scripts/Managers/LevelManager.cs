@@ -11,14 +11,20 @@ using UnityEngine.Events;
 
 public class LevelManager : MonoBehaviour
 {
+	public static LevelManager Instance { get; private set; }
+
 	[SerializeField] private TextMeshProUGUI gameSpeedLabel = null;
 	[SerializeField] private UnitsManager unitsManager = null;
 	[SerializeField] private GameObject wonScreen = null;
 	[SerializeField] private GameObject gameoverScreen = null;
 	[SerializeField] private PlaySound wonSound = null;
 	[SerializeField] private PlaySound gameoverSound = null;
+	[SerializeField] private float playingCardGameSpeed = 0.3f;
 	[SerializeField] private GameObject[] toDisableOnEnd = null;
 	[SerializeField] private UnityEvent onGameEnd = null;
+
+	float gameSpeedMod = 1f;
+	float speedSetting = 3;
 
 	void Start ()
 	{
@@ -32,8 +38,25 @@ public class LevelManager : MonoBehaviour
 		SetGameSpeed( 3.0f ); // Normal speed
 	}
 
+	private void Awake( )
+	{
+		if ( Instance != null && Instance != this )
+			Destroy( this );
+		else
+			Instance = this;
+	}
+
+	private void OnDestroy( ) { if ( this == Instance ) { Instance = null; } }
+
+	public void PlayingCard( bool playing )
+	{
+		gameSpeedMod = playing ? playingCardGameSpeed : 1.0f;
+		SetGameSpeed( speedSetting );
+	}
+
 	public void SetGameSpeed( float value )
 	{
+		speedSetting = value;
 		float speed = 0;
 		string label = "";
 
@@ -83,7 +106,7 @@ public class LevelManager : MonoBehaviour
 			break;
 		}
 
-		Time.timeScale = speed;
+		Time.timeScale = speed * gameSpeedMod;
 		Time.fixedDeltaTime = Time.timeScale * 0.02f;
 		gameSpeedLabel.text = label;
 	}

@@ -99,6 +99,7 @@ public class PlayerHand : MonoBehaviour
 		card.Vizuals.DraggedFromHand( );
 		card.Vizuals.ShowPreview( true );
 		StartSummoning( card );
+		LevelManager.Instance.PlayingCard( true );
 	}
 
 	private void OnCardDragEnd( Card card )
@@ -110,6 +111,7 @@ public class PlayerHand : MonoBehaviour
 		cardBeingDragged = null;
 		OnCardOverExit( card );
 		EndSummoning( card );
+		LevelManager.Instance.PlayingCard( false );
 	}
 
 	private void OnCardCliked( Card card )

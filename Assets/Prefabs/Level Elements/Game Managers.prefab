@@ -359,6 +359,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  playingCardGameSpeed: 0.25
 --- !u!114 &1289313127792475357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,13 +386,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manaSound: {fileID: 4704015507478426779}
   manaCounter: {fileID: 0}
-  progressImage: {fileID: 0}
+  manaImage: {fileID: 0}
   summoningAreaUnits: {fileID: 0}
   summoningAreaAoe: {fileID: 0}
   good: {fileID: 1289313127435805898}
   bad: {fileID: 1289313126059173016}
-  manaTickTime: 5
-  manaTickAmount: 2
+  manaIncrease: 1
   startMana: 3
   maxMana: 99
 --- !u!114 &4724508772829500602
