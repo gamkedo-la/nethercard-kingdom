@@ -22,8 +22,9 @@ public class UnitVisuals : MonoBehaviour
 	[SerializeField] private int dirOfMovement = 1;
 	[SerializeField] private float anglePerSpeed = -10f;
 
-	[Header("Healing")]
+	[Header("Health")]
 	[SerializeField] private ParticleSystem healEffect = null;
+	[SerializeField] private GameObject hpLabel = null;
 
 	[Header("Shock")]
 	[SerializeField] private GameObject skeleton = null;
@@ -45,6 +46,7 @@ public class UnitVisuals : MonoBehaviour
 		Assert.IsNotNull( group, $"Please assign <b>{nameof( group )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( mainSprites, $"Please assign <b>{nameof( mainSprites )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( healEffect, $"Please assign <b>{nameof( healEffect )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( hpLabel, $"Please assign <b>{nameof( hpLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( skeleton, $"Please assign <b>{nameof( skeleton )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( shadow, $"Please assign <b>{nameof( shadow )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
@@ -59,6 +61,8 @@ public class UnitVisuals : MonoBehaviour
 
 	void Update( )
 	{
+		hpLabel.SetActive( CheatAndDebug.Instance.ShowHPLabels );
+
 		if ( footprints )
 			prints.position = transform.position;
 	}

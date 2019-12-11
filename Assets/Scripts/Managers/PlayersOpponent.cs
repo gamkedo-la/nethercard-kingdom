@@ -6,6 +6,7 @@
 
 using System.Collections;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -31,6 +32,8 @@ public class PlayersOpponent : MonoBehaviour
 	[Header("Objects")]
 	[SerializeField] private GameObject spawnIndicator = null;
 	[SerializeField] private GameObject summoningPoint = null;
+	[SerializeField] private GameObject manaCounter = null;
+	[SerializeField] private TextMeshProUGUI manaCounterLabel = null;
 
 	[Header("Summoning")]
 	[SerializeField] private Vector2 summonArea = new Vector2(2f, 4f);
@@ -57,14 +60,20 @@ public class PlayersOpponent : MonoBehaviour
 		Assert.AreNotEqual( summonEvents.Length, 0, $"Please assign <b>{nameof( summonEvents )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( summoningPoint, $"Please assign <b>{nameof( summoningPoint )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( spawnIndicator, $"Please assign <b>{nameof( spawnIndicator )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( manaCounter, $"Please assign <b>{nameof( manaCounter )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( manaCounterLabel, $"Please assign <b>{nameof( manaCounterLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 	}
 
 	void Update( )
 	{
+		manaCounter.SetActive( CheatAndDebug.Instance.ShowOpponentsMana );
+
 		if ( !IsPlaying )
 			return;
 
 		mana += manaGainSpeed * Time.deltaTime;
+		manaCounterLabel.text = mana.ToString( "0" );
+
 		TryToSummon( );
 	}
 
@@ -96,6 +105,7 @@ public class PlayersOpponent : MonoBehaviour
 	private IEnumerator SummonEvent( SummonEvent summonEvent )
 	{
 		mana -= nextSummonEventToPlay.SummonCost;
+		manaCounterLabel.text = mana.ToString( "0" );
 
 		// Summon every unit included in the event
 		foreach ( var instance in summonEvent.Instances )

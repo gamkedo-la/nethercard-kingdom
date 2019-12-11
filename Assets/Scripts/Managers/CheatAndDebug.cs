@@ -12,6 +12,8 @@ public class CheatAndDebug : MonoBehaviour
 	public static CheatAndDebug Instance { get; private set; }
 	public bool ShowDebugInfo { get { return showDebugInfo; } }
 	public bool AllowCheats { get { return allowCheats; } }
+	public bool ShowHPLabels { get { return showHPLabels; } set { showHPLabels = value; } }
+	public bool ShowOpponentsMana { get { return showOpponentsMana; } set { showOpponentsMana = value; } }
 
 	[Header("Debug Flags")]
 	[SerializeField] private PlayerCards playerCards = null;
@@ -22,6 +24,8 @@ public class CheatAndDebug : MonoBehaviour
 	[SerializeField] private bool showDebugInfo = false;
 	[Tooltip("Allow cheat codes")]
 	[SerializeField] private bool allowCheats = false;
+	[SerializeField] private bool showHPLabels = false;
+	[SerializeField] private bool showOpponentsMana = true;
 
 	[Header("Debug Parameters")]
 	[SerializeField] private int manaCheatAmount = 20;

@@ -928,6 +928,7 @@ MonoBehaviour:
   dirOfMovement: 1
   anglePerSpeed: 0
   healEffect: {fileID: 3067052637734896206}
+  hpLabel: {fileID: 2003592177863630467}
   skeleton: {fileID: 3851549339055101947}
   shadow: {fileID: 3179189684220269125}
   shockLayer: Foreground
