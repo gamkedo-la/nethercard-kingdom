@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class Deck : MonoBehaviour
@@ -18,9 +19,16 @@ public class Deck : MonoBehaviour
 	[Header("Objects and Parameters")]
     [SerializeField] private GameObject hand = null;
     [SerializeField] private Animator animator = null;
+    [SerializeField] private TextMeshProUGUI cardCountLabel = null;
 	[SerializeField] private float lerpFactor = 0.25f;
 
-    [Header("Card Draw Conditions")]
+	[Header("Cards")]
+	[SerializeField] private GameObject card1 = null;
+	[SerializeField] private GameObject card2 = null;
+	[SerializeField] private GameObject card3 = null;
+	[SerializeField] private GameObject card4 = null;
+
+	[Header("Card Draw Conditions")]
     [SerializeField, Tooltip("If card limit <= 0, it means infinite.")] private int cardLimit = 3;
     [SerializeField, Tooltip("Auto draw will be disabled if value <= 0")] private float autoDrawDelay = 0.25f;
     [SerializeField] private int drawCost = 1;
@@ -39,10 +47,16 @@ public class Deck : MonoBehaviour
 
 	void OnEnable( )
 	{
+		card4.SetActive( true );
+		card3.SetActive( true );
+		card2.SetActive( true );
+		card1.SetActive( true );
+
 		animator.enabled = true;
 		animator.SetTrigger( "Shuffle" );
 		shuffleSound.Play( );
 		timeTillNextDraw = startTime;
+		cardCountLabel.text = $"{PlayerCards.MaxCardsInDeck} / {PlayerCards.MaxCardsInDeck}";
 	}
 
 	void OnDisable( )
@@ -57,6 +71,7 @@ public class Deck : MonoBehaviour
         if (cardLimit <= 0 || hand.transform.childCount < cardLimit)
             if (autoDrawDelay > 0.0f && autoDrawTimer <= 0.0f)
                 DrawCard();
+
         autoDrawTimer -= Time.deltaTime;
 
         transform.localScale = Vector3.Lerp(transform.localScale, scaleToLerp, lerpFactor);
@@ -102,6 +117,8 @@ public class Deck : MonoBehaviour
 		newCard.transform.SetParent( hand.transform, true );
 		newCard.transform.SetSiblingIndex( 0 );
 
+		cardCountLabel.text = $"{drawQueue.Count} / {PlayerCards.MaxCardsInDeck}";
+
 		playerHand.AddCard( newCard.GetComponent<Card>( ) );
 		newCard.GetComponent<CardAudioVisuals>( ).DoCardReveal( );
 
@@ -130,6 +147,15 @@ public class Deck : MonoBehaviour
 			drawQueue = NewRandomizedDrawQueue( );
 
 		Card card = drawQueue.Dequeue( );
+
+		/*if ( drawQueue.Count <= 3 )
+			card4.SetActive( false );
+		if ( drawQueue.Count <= 2 )
+			card3.SetActive( false );
+		if ( drawQueue.Count <= 1 )
+			card2.SetActive( false );
+		if ( drawQueue.Count == 0 )
+			card1.SetActive( false );*/
 
 		return card.gameObject;
 	}
