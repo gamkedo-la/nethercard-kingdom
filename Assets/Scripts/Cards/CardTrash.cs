@@ -40,17 +40,6 @@ public class CardTrash : Targetable
 		SummoningManager.Instance.MouseOverTarget( this, targetableBy, false, false );
 	}
 
-	/*void OnEnable( )
-	{
-		SummoningManager.Instance.AddTargetable( this );
-	}
-
-	void OnDisable( )
-	{
-		if ( SummoningManager.Instance )
-			SummoningManager.Instance.RemoveTargetable( this );
-	}*/
-
 	override public void SetActiveState( CardType incomingType )
 	{
 		// True if this entity is marked to respond to the incoming (being played) type of card

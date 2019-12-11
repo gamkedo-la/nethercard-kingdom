@@ -9,10 +9,10 @@ using UnityEngine.Assertions;
 
 public class Targetable : MonoBehaviour
 {
-	[SerializeField] internal Collider2D col2D = null;
-	[SerializeField] internal CardType targetableBy = CardType.Undefined;
+	[SerializeField] protected Collider2D col2D = null;
+	[SerializeField] protected CardType targetableBy = CardType.Undefined;
 
-	internal bool active = false;
+	protected bool active = false;
 
 	virtual public void Start( )
 	{
