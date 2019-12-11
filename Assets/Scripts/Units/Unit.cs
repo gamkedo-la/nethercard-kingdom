@@ -30,9 +30,11 @@ public class Unit : MonoBehaviour
 	[SerializeField] private ConflicSide side = ConflicSide.Player;
 	[SerializeField] private Vector2 unitCenter = new Vector2(0f, 0.7f);
 	[SerializeField] private bool HQ = false;
+	[SerializeField] private bool nonMovable = false;
 
 	[Header("Combat")]
 	[SerializeField] private float detectionRange = 3f;
+	[SerializeField] private float minRange = 0.3f;
 	[SerializeField] private float attackRange = 1f;
 
 	[Header("Movement")]
@@ -140,7 +142,11 @@ public class Unit : MonoBehaviour
 			moveDirection = currentOpponent.Center - Center;
 			if ( CheatAndDebug.Instance.ShowDebugInfo )
 				Debug.DrawLine( Center, Center + (Vector3)moveDirection, Color.blue );
-			moveDirection.Normalize( );
+
+			if ( Vector2.Distance( currentOpponent.Center, Center ) < minRange )
+				moveDirection = Vector2.zero;
+			else
+				moveDirection.Normalize( );
 
 			return;
 		}
@@ -157,6 +163,7 @@ public class Unit : MonoBehaviour
 			currentOpponent = null;
 			onEnemyDetected.Invoke( null );
 			hadOponent = false;
+			inAttackRange = false;
 			moveDirection = side == ConflicSide.Player ? Vector2.right : Vector2.left;
 
 			return;
@@ -170,6 +177,7 @@ public class Unit : MonoBehaviour
 
 			currentOpponent = newOponent;
 			hadOponent = true;
+			inAttackRange = false;
 			onEnemyDetected.Invoke( newOponent );
 		}
 
@@ -197,7 +205,9 @@ public class Unit : MonoBehaviour
 				onEnemyInRange.Invoke( null );
 			}
 
-			animator.SetTrigger( "Moving" );
+			if ( !nonMovable )
+				animator.SetTrigger( "Moving" );
+
 			inAttackRange = false;
 
 			return;
@@ -216,15 +226,22 @@ public class Unit : MonoBehaviour
 				Debug.Log( $"{name} attacking: {currentOpponent.name}" );
 
 			onEnemyInRange.Invoke( currentOpponent );
-			animator.SetTrigger( "Idle" );
+
+			if ( !nonMovable )
+				animator.SetTrigger( "Idle" );
 		}
 
-		visuals.MoveDir( Vector2.zero, 0 ); // We are standing still
+		if ( !nonMovable )
+			visuals.MoveDir( Vector2.zero, 0 ); // We are standing still
 		inAttackRange = true;
 	}
 
 	private void Move( )
 	{
+		// For static units
+		if ( nonMovable )
+			return;
+
 		// We are in attack range, we should not move
 		if ( inAttackRange )
 			return;
