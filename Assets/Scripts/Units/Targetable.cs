@@ -9,12 +9,12 @@ using UnityEngine.Assertions;
 
 public class Targetable : MonoBehaviour
 {
-	[SerializeField] private Collider2D col2D = null;
-	[SerializeField] private CardType targetableBy = CardType.Undefined;
+	[SerializeField] internal Collider2D col2D = null;
+	[SerializeField] internal CardType targetableBy = CardType.Undefined;
 
-	private bool active = false;
+	internal bool active = false;
 
-	void Start( )
+	virtual public void Start( )
 	{
 		Assert.IsNotNull( col2D, $"Please assign <b>{nameof( col2D )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 	}
@@ -42,7 +42,7 @@ public class Targetable : MonoBehaviour
 			SummoningManager.Instance.RemoveTargetable( this );
 	}
 
-	public void SetActiveState( CardType incomingType )
+	virtual public void SetActiveState( CardType incomingType )
 	{
 		// True if this entity is marked to respond to the incoming (being played) type of card
 		active = targetableBy.HasFlag( incomingType );

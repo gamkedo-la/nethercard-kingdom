@@ -17,6 +17,7 @@ public class SummoningManager : MonoBehaviour
 	public CardType SummoningCardType { get; private set; } = CardType.Undefined;
 	public Targetable LastTarget { get; private set; } = null;
 	public bool CanSummon { get; set; } = true;
+	public bool TrashCard { get; set; } = false;
 
 	[Header("Objects")]
 	[SerializeField] private PlaySound manaSound = null;
@@ -152,11 +153,12 @@ public class SummoningManager : MonoBehaviour
 		manaCounter.text = currentMana.ToString( "0" );
 	}
 
-	public void MouseOverTarget( Targetable target, CardType targetableBy, bool isOver )
+	public void MouseOverTarget( Targetable target, CardType targetableBy, bool isOver, bool toTrash = false )
 	{
 		if ( !CanSummon )
 			return;
 
+		TrashCard = toTrash;
 		LastTarget = target;
 
 		if ( targetableBy.HasFlag( SummoningCardType ) )

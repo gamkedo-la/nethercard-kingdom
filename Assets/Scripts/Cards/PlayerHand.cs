@@ -137,9 +137,22 @@ public class PlayerHand : MonoBehaviour
 	{
 		bool canSummon = SummoningManager.Instance.Summoning( card.Type, false );
 
+		// Card can't be summoned
 		if (!canSummon)
 		{
 			card.Vizuals.CancelSummoning( );
+			return;
+		}
+
+		// Card was put to trash
+		if ( SummoningManager.Instance.TrashCard )
+		{
+			SummoningManager.Instance.TrashCard = false;
+
+			SummoningManager.Instance.RemoveMana( card.UseCost / 2 );
+			card.Vizuals.EndSummoning( );
+			DestroyCard( card );
+
 			return;
 		}
 
