@@ -71,6 +71,18 @@ TextureImporter:
   - first:
       213: -4621373716434747120
     second: Start Large F
+  - first:
+      213: 1232631453999404612
+    second: Trash Close B
+  - first:
+      213: -4914354987193163985
+    second: Trash Open B
+  - first:
+      213: 7701813451134764149
+    second: Trash Close F
+  - first:
+      213: -2997813936268898413
+    second: Trash Open F
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -645,6 +657,90 @@ TextureImporter:
       bones: []
       spriteID: b5f0dff528c653c4194449b492024fb3
       internalID: -4621373716434747120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trash Close B
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 3649
+        width: 340
+        height: 430
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 142f36ca7e2a21341bbe164aaf92e345
+      internalID: 1232631453999404612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trash Open B
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 3649
+        width: 340
+        height: 430
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 386e9595d2215514b9c5aa6f1093a691
+      internalID: -4914354987193163985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trash Close F
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 3196
+        width: 340
+        height: 430
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39a222ae178b05545803aa892a855df9
+      internalID: 7701813451134764149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trash Open F
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 3196
+        width: 340
+        height: 430
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a525029d2c948f4cbe31aea34cb0d08
+      internalID: -2997813936268898413
       vertices: []
       indices: 
       edges: []

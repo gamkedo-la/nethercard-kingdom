@@ -88,10 +88,15 @@ public class SummoningManager : MonoBehaviour
 		targetables.Add( targetable );
 		targetable.SetActiveState( currentSummoningType );
 	}
+
 	public void RemoveTargetable( Targetable targetable ) => targetables.Remove( targetable );
 
 	public bool Summoning( CardType type, bool started )
 	{
+		currentSummoningType = started ? type : CardType.Undefined;
+		foreach ( var t in targetables )
+			t.SetActiveState( currentSummoningType );
+
 		if ( !CanSummon )
 		{
 			bad.SetActive( started );
@@ -99,15 +104,6 @@ public class SummoningManager : MonoBehaviour
 
 			return false;
 		}
-
-		if ( started )
-		{
-			currentSummoningType = type;
-			foreach ( var t in targetables )
-				t.SetActiveState( type );
-		}
-		else
-			currentSummoningType = CardType.Undefined;
 
 		if ( type == CardType.Unit )
 			summoningAreaUnits.SetActive( started );
