@@ -36,3 +36,11 @@ public enum CardLevel
 	Level2,
 	Level3
 }
+
+public enum CardClass
+{
+	Other,
+	Melee,
+	Ranged,
+	Support
+}

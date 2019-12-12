@@ -43,6 +43,9 @@ public class CardAudioVisuals : MonoBehaviour
 	[SerializeField] private GameObject level3Marks = null;
 	[SerializeField] private GameObject stack1 = null;
 	[SerializeField] private GameObject stack2 = null;
+	[SerializeField] private GameObject classMelee = null;
+	[SerializeField] private GameObject classRanged = null;
+	[SerializeField] private GameObject classSupport = null;
 
 	[Header("Parameters")]
 	[SerializeField] private float overInBuilderScale = 1.2f;
@@ -84,6 +87,9 @@ public class CardAudioVisuals : MonoBehaviour
 		Assert.IsNotNull( level3Marks, $"Please assign <b>{nameof( level3Marks )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( stack1, $"Please assign <b>{nameof( stack1 )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( stack2, $"Please assign <b>{nameof( stack2 )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( classMelee, $"Please assign <b>{nameof( classMelee )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( classRanged, $"Please assign <b>{nameof( classRanged )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( classSupport, $"Please assign <b>{nameof( classSupport )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 	}
 
 	void Update( )
@@ -239,7 +245,7 @@ public class CardAudioVisuals : MonoBehaviour
 		cardImageFill.sprite = fillSprite;
 	}
 
-	public void PopulateCardInfo( CardType type, GameObject toSummon, int useCost, string displayName, string abilityText, string flavorText, CardLevel level )
+	public void PopulateCardInfo( CardType type, GameObject toSummon, int useCost, string displayName, string abilityText, string flavorText, CardLevel level, CardClass cardClass )
 	{
 		var specificCulture = System.Globalization.CultureInfo.GetCultureInfo( "en-US" );
 
@@ -269,6 +275,17 @@ public class CardAudioVisuals : MonoBehaviour
 			level2Marks.SetActive( true );
 		else if ( level == CardLevel.Level3 )
 			level3Marks.SetActive( true );
+
+		classMelee.SetActive( false );
+		classRanged.SetActive( false );
+		classSupport.SetActive( false );
+
+		if ( cardClass == CardClass.Melee )
+			classMelee.SetActive( true );
+		else if ( cardClass == CardClass.Ranged )
+			classRanged.SetActive( true );
+		else if ( cardClass == CardClass.Support )
+			classSupport.SetActive( true );
 	}
 
 	public void EndSummoning( ) => canvasGroup.alpha = 1f;

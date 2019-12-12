@@ -49,6 +49,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7590239647103969355, guid: 7abe3553994f2444ba9439d88e45061d,
         type: 3}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: cardClass
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4395479231106108376, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: liveImageScaleMod
@@ -109,6 +114,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.wordCount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7839664560142848922, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3563004026135363423, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
@@ -250,6 +260,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 56.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4513995885926993702, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -5.6
       objectReference: {fileID: 0}
     - target: {fileID: 5817860787531570460, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}

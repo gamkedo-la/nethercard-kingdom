@@ -83,6 +83,18 @@ TextureImporter:
   - first:
       213: -2997813936268898413
     second: Trash Open F
+  - first:
+      213: 7350250228847384499
+    second: Icon Shield
+  - first:
+      213: -5866776582666986260
+    second: Icon Bow
+  - first:
+      213: 2715016214746666306
+    second: Icon Staff
+  - first:
+      213: -5960261708692886552
+    second: Icon Sword Big
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -670,7 +682,7 @@ TextureImporter:
         width: 340
         height: 430
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -691,7 +703,7 @@ TextureImporter:
         width: 340
         height: 430
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -712,7 +724,7 @@ TextureImporter:
         width: 340
         height: 430
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -733,7 +745,7 @@ TextureImporter:
         width: 340
         height: 430
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -741,6 +753,90 @@ TextureImporter:
       bones: []
       spriteID: 3a525029d2c948f4cbe31aea34cb0d08
       internalID: -2997813936268898413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon Shield
+      rect:
+        serializedVersion: 2
+        x: 3479
+        y: 3008
+        width: 150
+        height: 196
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 115115daccdf2ec49bf70efdecaf9246
+      internalID: 7350250228847384499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon Bow
+      rect:
+        serializedVersion: 2
+        x: 3659
+        y: 3008
+        width: 167
+        height: 198
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec1c93d90a7c767419999982213b3581
+      internalID: -5866776582666986260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon Staff
+      rect:
+        serializedVersion: 2
+        x: 3838
+        y: 3008
+        width: 169
+        height: 231
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 211373ec1eb09424b8c6a76161379d24
+      internalID: 2715016214746666306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon Sword Big
+      rect:
+        serializedVersion: 2
+        x: 3566
+        y: 3270
+        width: 324
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f41d99e1fc9a94048875a421f55f5d97
+      internalID: -5960261708692886552
       vertices: []
       indices: 
       edges: []

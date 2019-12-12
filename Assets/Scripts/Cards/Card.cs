@@ -35,6 +35,7 @@ public class Card : MonoBehaviour
 	[Header("Card Parameters")]
 	[SerializeField] private CardType type = CardType.Unit;
 	[SerializeField] private CardLevel level = CardLevel.Level1;
+	[SerializeField] private CardClass cardClass = CardClass.Other;
 	[SerializeField] private int useCost = 2;
 	[SerializeField] private string displayName = "Unnamed Card";
 	[SerializeField] private string abilityText = "This is just a test description...";
@@ -119,7 +120,7 @@ public class Card : MonoBehaviour
 	}
 
 	[ContextMenu( "Update Card Info" )]
-	public void PopulateCardInfo( ) => Vizuals.PopulateCardInfo( type, toSummon, useCost, displayName, abilityText, flavorText, level );
+	public void PopulateCardInfo( ) => Vizuals.PopulateCardInfo( type, toSummon, useCost, displayName, abilityText, flavorText, level, cardClass );
 
 	private void CheckIfWeEndedClickDrag( )
 	{
