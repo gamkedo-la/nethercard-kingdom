@@ -37,6 +37,11 @@ PrefabInstance:
       propertyPath: unitCenter.x
       value: 0.04
       objectReference: {fileID: 0}
+    - target: {fileID: 3984009445576658401, guid: 538f57f7ad5d06c4688ac391c19c1c64,
+        type: 3}
+      propertyPath: attackRange
+      value: 1.25
+      objectReference: {fileID: 0}
     - target: {fileID: 3984009445576658402, guid: 538f57f7ad5d06c4688ac391c19c1c64,
         type: 3}
       propertyPath: maxHP
@@ -45,7 +50,7 @@ PrefabInstance:
     - target: {fileID: 3818129631911655482, guid: 538f57f7ad5d06c4688ac391c19c1c64,
         type: 3}
       propertyPath: atackDamage
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9016611313369109057, guid: 538f57f7ad5d06c4688ac391c19c1c64,
         type: 3}

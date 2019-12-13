@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Warrior I Instance
       objectReference: {fileID: 0}
+    - target: {fileID: 2003592177715405980, guid: fc6c2faa8ae045542a0960290aa158db,
+        type: 3}
+      propertyPath: attackRange
+      value: 1.35
+      objectReference: {fileID: 0}
     - target: {fileID: 1763304012001775943, guid: fc6c2faa8ae045542a0960290aa158db,
         type: 3}
       propertyPath: animator

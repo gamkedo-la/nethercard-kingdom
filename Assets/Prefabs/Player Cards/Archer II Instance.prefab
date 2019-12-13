@@ -75,12 +75,12 @@ PrefabInstance:
     - target: {fileID: 7590239647103969357, guid: 7abe3553994f2444ba9439d88e45061d,
         type: 3}
       propertyPath: attackRange
-      value: 1.8
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 7590239647103969358, guid: 7abe3553994f2444ba9439d88e45061d,
         type: 3}
       propertyPath: maxHP
-      value: 33
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7702071731869883798, guid: 7abe3553994f2444ba9439d88e45061d,
         type: 3}

@@ -794,9 +794,7 @@ MonoBehaviour:
   unitCenter: {x: 0, y: 0.76}
   hq: 0
   nonMovable: 0
-  detectionRange: 1.43
-  minRange: 0.3
-  attackRange: 0.86
+  attackRange: 1.3
   moveSpeed: 0.6
   movementRange: {x: 14.34, y: 3.68}
   movementOffset: {x: -20, y: 0}
@@ -866,9 +864,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  onEnemyDetected:
-    m_PersistentCalls:
-      m_Calls: []
+  debugMode: 0
   onEnemyInRange:
     m_PersistentCalls:
       m_Calls:

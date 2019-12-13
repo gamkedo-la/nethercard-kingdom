@@ -77,6 +77,12 @@ public class UnitsManager : MonoBehaviour
 
 	public void StopUnits( )
 	{
+		Stop( );
+		Invoke( nameof( Stop ), 1 ); // Called 2nd time to make sure units that are just spawning will get the message, too
+	}
+
+	private void Stop( )
+	{
 		foreach ( var unit in EnemyUnits )
 			unit.Stop( );
 

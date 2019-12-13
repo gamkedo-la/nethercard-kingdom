@@ -67,10 +67,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5583401580346243595, guid: db7e2862d6f6f85468bbcbf2b005610f,
+        type: 3}
+      propertyPath: attackRange
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5583401580346243592, guid: db7e2862d6f6f85468bbcbf2b005610f,
         type: 3}
       propertyPath: maxHP
-      value: 36
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 5583401579455578130, guid: db7e2862d6f6f85468bbcbf2b005610f,
         type: 3}

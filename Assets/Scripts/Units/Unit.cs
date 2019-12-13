@@ -35,8 +35,6 @@ public class Unit : MonoBehaviour
 	[SerializeField] private bool nonMovable = false;
 
 	[Header("Combat")]
-	[SerializeField] private float detectionRange = 3f;
-	[SerializeField] private float minRange = 0.3f;
 	[SerializeField] private float attackRange = 1f;
 
 	[Header("Movement")]
@@ -46,14 +44,15 @@ public class Unit : MonoBehaviour
 	[SerializeField] private AnimationCurve movementSpringSameSide = new AnimationCurve ( new Keyframe(0,0), new Keyframe(1,1));
 	[SerializeField] private AnimationCurve movementSpringOppositeSide = new AnimationCurve ( new Keyframe(0,0), new Keyframe(1,1));
 
+	[Header("Other")]
+	[SerializeField] private bool debugMode = false;
+
 	[Header("Events")]
-	[SerializeField] private UnitEvent onEnemyDetected = null;
 	[SerializeField] private UnitEvent onEnemyInRange = null;
 
 	private Vector2 moveDirection = Vector2.left;
 
 	private Unit currentOpponent = null;
-	private bool hadOponent = false;
 	private bool inAttackRange = false;
 	private bool frozen = false;
 
@@ -75,6 +74,11 @@ public class Unit : MonoBehaviour
 
 	void OnDisable( )
 	{
+		// Clean up debug lines
+		foreach ( var item in springs )
+			if ( item != null )
+				Destroy( item.gameObject );
+
 		if ( UnitsManager.Instance )
 			UnitsManager.Instance.RemoveUnit( this, side );
 	}
@@ -87,8 +91,7 @@ public class Unit : MonoBehaviour
 		if ( frozen )
 			return;
 
-		//SearchForOpenentToTarget( );
-		//SearchForOpenentToAttack( );
+		TryFindAttackTarget( );
 		CalculateMoveVector( );
 		Move( );
 	}
@@ -96,50 +99,16 @@ public class Unit : MonoBehaviour
 	void OnDrawGizmosSelected( )
 	{
 		Color col = Color.green;
-		col.a = 0.3f;
+		col.a = 0.1f;
 		Gizmos.color = col;
 		Gizmos.DrawCube( movementOffset, movementRange );
-
-		Gizmos.color = Color.blue;
-		Gizmos.DrawWireSphere( transform.position + (Vector3)unitCenter, detectionRange );
 
 		Gizmos.color = Color.red;
 		Gizmos.DrawWireSphere( transform.position + (Vector3)unitCenter, attackRange );
 
 		Gizmos.color = Color.white;
-	}
 
-	void OnDrawGizmos( )
-	{
-		Color color = Color.blue;
-		color.a = 1.0f;
-		Gizmos.color = color;
-
-		Gizmos.DrawRay( Center, moveDirection );
-
-		/*foreach ( var spring in springs )
-		{
-			float lineThickness = spring.Strenght;
-
-			color = spring.Positive ? Color.green : Color.red;
-			color.a = lineThickness;
-			Gizmos.color = color;
-
-			Gizmos.DrawLine( Center, spring.EndPosition );
-		}*/
-
-		/*foreach ( var spring in springs )
-		{
-			float lineThickness = spring.Strenght;
-
-			color = spring.Positive ? Color.green : Color.red;
-			//color.a = lineThickness;
-			//Gizmos.color = color;
-
-			spring.Line = Utilities.DrawDebugLine( Center, spring.EndPosition, color, lineThickness, lineThickness );
-		}*/
-
-		Gizmos.color = Color.white;
+		debugMode = true;
 	}
 
 	public void Stop( )
@@ -171,68 +140,12 @@ public class Unit : MonoBehaviour
 		animator.SetTrigger( "Moving" );
 	}
 
-	private void SearchForOpenentToTarget( )
+	private void TryFindAttackTarget( )
 	{
-		// Go to the current oponent if we still have one
-		if ( currentOpponent )
-		{
-			//  Calculate new move direction
-			moveDirection = currentOpponent.Center - Center;
-			if ( CheatAndDebug.Instance.ShowDebugInfo )
-				Debug.DrawLine( Center, Center + (Vector3)moveDirection, Color.blue );
+		Unit newOponent = UnitsManager.Instance.FindOponent( side, Center, attackRange );
 
-			if ( Vector2.Distance( currentOpponent.Center, Center ) < minRange )
-				moveDirection = Vector2.zero;
-			else
-				moveDirection.Normalize( );
-
-			return;
-		}
-
-		// We do not have an oponent or it became lost
-		Unit newOponent = UnitsManager.Instance.FindOponent( side, Center, detectionRange );
-
-		// Lost an oponent
-		if ( !newOponent && hadOponent )
-		{
-			if ( CheatAndDebug.Instance.ShowDebugInfo )
-				Debug.Log( $"{name} lost oponent" );
-
-			currentOpponent = null;
-			onEnemyDetected.Invoke( null );
-			hadOponent = false;
-			inAttackRange = false;
-			moveDirection = side == ConflicSide.Player ? Vector2.right : Vector2.left;
-
-			return;
-		}
-
-		// Detected new oponent
-		if ( newOponent && !hadOponent )
-		{
-			if ( CheatAndDebug.Instance.ShowDebugInfo )
-				Debug.Log( $"{name} detected oponent: {newOponent.name}" );
-
-			currentOpponent = newOponent;
-			hadOponent = true;
-			inAttackRange = false;
-			onEnemyDetected.Invoke( newOponent );
-		}
-
-		//  Calculate new move direction
-		if ( newOponent )
-		{
-			moveDirection = newOponent.Center - Center;
-			if ( CheatAndDebug.Instance.ShowDebugInfo )
-				Debug.DrawLine( Center, Center + (Vector3)moveDirection, Color.blue );
-			moveDirection.Normalize( );
-		}
-	}
-
-	private void SearchForOpenentToAttack( )
-	{
-		// We have no target
-		if ( currentOpponent == null )
+		// No current target
+		if ( !currentOpponent )
 		{
 			// We lost target
 			if ( inAttackRange )
@@ -241,63 +154,55 @@ public class Unit : MonoBehaviour
 					Debug.Log( $"{name} lost attack target" );
 
 				onEnemyInRange.Invoke( null );
+				inAttackRange = false;
+			}
+
+			// New target found
+			if ( newOponent )
+			{
+				onEnemyInRange.Invoke( newOponent );
+				inAttackRange = true;
+
+				if ( !nonMovable )
+					animator.SetTrigger( "Idle" );
+
+				return;
 			}
 
 			if ( !nonMovable )
 				animator.SetTrigger( "Moving" );
 
-			inAttackRange = false;
-
 			return;
 		}
-
-		// Oponent out of range
-		if ( Vector2.Distance( Center, currentOpponent.Center ) > attackRange )
-			return;
-
-		// We passed all checks, we are in attack range
-
-		// We got a new oponent
-		if ( !inAttackRange )
-		{
-			if ( CheatAndDebug.Instance.ShowDebugInfo )
-				Debug.Log( $"{name} attacking: {currentOpponent.name}" );
-
-			onEnemyInRange.Invoke( currentOpponent );
-
-			if ( !nonMovable )
-				animator.SetTrigger( "Idle" );
-		}
-
-		if ( !nonMovable )
-			visuals.MoveDir( Vector2.zero, 0 ); // We are standing still
-		inAttackRange = true;
 	}
 
 	private void CalculateMoveVector( )
 	{
+		// Static units (like a wall or castle)
+		if ( nonMovable )
+			return;
+
 		// Default move direction
 		moveDirection = side == ConflicSide.Player ? Vector2.right : Vector2.left;
 		moveDirection /= 10;
-
-		// For static units
-		if ( nonMovable )
-			return;
 
 		// We are in attack range, we should not move
 		if ( inAttackRange )
 			return;
 
+		// Clear debug line list
 		foreach ( var item in springs )
 			Destroy( item.gameObject );
 		springs.Clear( );
 
+		// Get all the spring vectors
 		foreach ( var unit in UnitsManager.Instance.PlayerUnits )
 			moveDirection += CalculateSpring( unit );
 
 		foreach ( var unit in UnitsManager.Instance.EnemyUnits )
 			moveDirection += CalculateSpring( unit );
 
+		// Get just the direction info
 		moveDirection.Normalize( );
 	}
 
@@ -311,16 +216,19 @@ public class Unit : MonoBehaviour
 		strenght = unit.Side == side && unit.HQ ? 0 : strenght; // Disregard friendly HQ
 		spring = spring.normalized * strenght;
 
-		// OPTION: Discard if length less then X?
+		// OPTIONAL: Discard if length less then X?
 
-		// Debug lines (temp. code)
-		float lineThickness = strenght / 30;
-		bool positive = strenght >= 0;
-		Color color = positive ? Color.green : Color.red;
-		color.a = 0.9f;
-		LineRenderer line = Utilities.DrawDebugLine( Center, unit.Center, color, lineThickness, lineThickness );
-		line.sortingLayerName = "Foreground";
-		springs.Add( line );
+		// Draw debug lines
+		if ( debugMode )
+		{
+			float lineThickness = strenght / 30;
+			bool positive = strenght >= 0;
+			Color color = positive ? Color.green : Color.red;
+			color.a = 0.9f;
+			LineRenderer line = Utilities.DrawDebugLine( Center, unit.Center, color, lineThickness, lineThickness );
+			line.sortingLayerName = "Foreground";
+			springs.Add( line );
+		}
 
 		return spring;
 	}
