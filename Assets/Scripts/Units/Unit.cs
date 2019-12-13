@@ -42,6 +42,8 @@ public class Unit : MonoBehaviour
 	[SerializeField] private float moveSpeed = 2f;
 	[SerializeField] private Vector2 movementRange = new Vector2(14f, 4f);
 	[SerializeField] private Vector2 movementOffset = new Vector2(0, -1);
+	[SerializeField] private AnimationCurve movementSpringSameSide = new AnimationCurve ( new Keyframe(0,0), new Keyframe(1,1));
+	[SerializeField] private AnimationCurve movementSpringOppositeSide = new AnimationCurve ( new Keyframe(0,0), new Keyframe(1,1));
 
 	[Header("Events")]
 	[SerializeField] private UnitEvent onEnemyDetected = null;
@@ -54,14 +56,7 @@ public class Unit : MonoBehaviour
 	private bool inAttackRange = false;
 	private bool frozen = false;
 
-	class Spring
-	{
-		public Vector2 EndPosition;
-		public float Strenght;
-		public bool Positive;
-		public LineRenderer Line;
-	}
-	private List<Spring> springs = new List<Spring>();
+	private List<LineRenderer> springs = new List<LineRenderer>();
 
 	void Start ()
 	{
@@ -292,7 +287,7 @@ public class Unit : MonoBehaviour
 			return;
 
 		foreach ( var item in springs )
-			Destroy( item.Line.gameObject );
+			Destroy( item.gameObject );
 		springs.Clear( );
 
 		foreach ( var unit in UnitsManager.Instance.PlayerUnits )
@@ -310,20 +305,16 @@ public class Unit : MonoBehaviour
 
 		// Calculate the spring's length
 
-		springs.Add( new Spring( )
-		{
-			EndPosition = unit.Center,
-			Strenght = 1 / Vector2.Distance( Center, unit.Center ),
-			Positive = unit.Side == side ? false : true
-		} );
 
 		// Debug lines
-		Spring sp = springs[springs.Count - 1];
-		float lineThickness = sp.Strenght / 10;
-		Color color = sp.Positive ? Color.green : Color.red;
+		float strenght = 1 / Vector2.Distance( Center, unit.Center );
+		float lineThickness = strenght / 10;
+		bool positive = unit.Side == side ? false : true;
+		Color color = positive ? Color.green : Color.red;
 		color.a = 0.9f;
-		sp.Line = Utilities.DrawDebugLine( Center, sp.EndPosition, color, lineThickness, lineThickness );
-		sp.Line.sortingLayerName = "Foreground";
+		LineRenderer line = Utilities.DrawDebugLine( Center, unit.Center, color, lineThickness, lineThickness );
+		line.sortingLayerName = "Foreground";
+		springs.Add( line );
 
 		return spring;
 	}
