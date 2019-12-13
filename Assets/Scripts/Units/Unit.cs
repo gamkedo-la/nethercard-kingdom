@@ -5,6 +5,7 @@
  **/
 
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Events;
@@ -53,14 +54,21 @@ public class Unit : MonoBehaviour
 	private bool inAttackRange = false;
 	private bool frozen = false;
 
+	class Spring
+	{
+		public Vector2 EndPosition;
+		public float Strenght;
+		public bool Positive;
+		public LineRenderer Line;
+	}
+	private List<Spring> springs = new List<Spring>();
+
 	void Start ()
 	{
 		Assert.IsNotNull( hp, $"Please assign <b>{nameof( hp )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( attack, $"Please assign <b>{nameof( attack )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( animator, $"Please assign <b>{nameof( animator )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( visuals, $"Please assign <b>{nameof( visuals )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
-
-		moveDirection = side == ConflicSide.Player ? Vector2.right : Vector2.left;
 	}
 
 	void OnEnable( )
@@ -83,8 +91,9 @@ public class Unit : MonoBehaviour
 		if ( frozen )
 			return;
 
-		SearchForOpenentToTarget( );
-		SearchForOpenentToAttack( );
+		//SearchForOpenentToTarget( );
+		//SearchForOpenentToAttack( );
+		CalculateMoveVector( );
 		Move( );
 	}
 
@@ -100,6 +109,39 @@ public class Unit : MonoBehaviour
 
 		Gizmos.color = Color.red;
 		Gizmos.DrawWireSphere( transform.position + (Vector3)unitCenter, attackRange );
+
+		Gizmos.color = Color.white;
+	}
+
+	void OnDrawGizmos( )
+	{
+		Color color = Color.blue;
+		color.a = 1.0f;
+		Gizmos.color = color;
+
+		Gizmos.DrawRay( Center, moveDirection );
+
+		/*foreach ( var spring in springs )
+		{
+			float lineThickness = spring.Strenght;
+
+			color = spring.Positive ? Color.green : Color.red;
+			color.a = lineThickness;
+			Gizmos.color = color;
+
+			Gizmos.DrawLine( Center, spring.EndPosition );
+		}*/
+
+		/*foreach ( var spring in springs )
+		{
+			float lineThickness = spring.Strenght;
+
+			color = spring.Positive ? Color.green : Color.red;
+			//color.a = lineThickness;
+			//Gizmos.color = color;
+
+			spring.Line = Utilities.DrawDebugLine( Center, spring.EndPosition, color, lineThickness, lineThickness );
+		}*/
 
 		Gizmos.color = Color.white;
 	}
@@ -234,6 +276,56 @@ public class Unit : MonoBehaviour
 		if ( !nonMovable )
 			visuals.MoveDir( Vector2.zero, 0 ); // We are standing still
 		inAttackRange = true;
+	}
+
+	private void CalculateMoveVector( )
+	{
+		// Default move direction
+		moveDirection = side == ConflicSide.Player ? Vector2.right : Vector2.left;
+
+		// For static units
+		if ( nonMovable )
+			return;
+
+		// We are in attack range, we should not move
+		if ( inAttackRange )
+			return;
+
+		foreach ( var item in springs )
+			Destroy( item.Line.gameObject );
+		springs.Clear( );
+
+		foreach ( var unit in UnitsManager.Instance.PlayerUnits )
+			moveDirection += CalculateSpring( unit );
+
+		foreach ( var unit in UnitsManager.Instance.EnemyUnits )
+			moveDirection += CalculateSpring( unit );
+
+		moveDirection.Normalize( );
+	}
+
+	private Vector2 CalculateSpring( Unit unit )
+	{
+		Vector2 spring = Vector2.zero;
+
+		// Calculate the spring's length
+
+		springs.Add( new Spring( )
+		{
+			EndPosition = unit.Center,
+			Strenght = 1 / Vector2.Distance( Center, unit.Center ),
+			Positive = unit.Side == side ? false : true
+		} );
+
+		// Debug lines
+		Spring sp = springs[springs.Count - 1];
+		float lineThickness = sp.Strenght / 10;
+		Color color = sp.Positive ? Color.green : Color.red;
+		color.a = 0.9f;
+		sp.Line = Utilities.DrawDebugLine( Center, sp.EndPosition, color, lineThickness, lineThickness );
+		sp.Line.sortingLayerName = "Foreground";
+
+		return spring;
 	}
 
 	private void Move( )
