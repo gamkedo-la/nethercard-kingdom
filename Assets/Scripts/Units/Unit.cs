@@ -20,6 +20,7 @@ public class Unit : MonoBehaviour
 	public ConflicSide Side { get { return side; } }
 	public float MoveSpeed { get { return moveSpeed; } }
 	public float DPS { get { return attack.DPS; } }
+	public bool HQ { get { return hq; } }
 
 	[Header("External objects")]
 	[SerializeField] private HP hp = null;
@@ -30,7 +31,7 @@ public class Unit : MonoBehaviour
     [Header("Physical parameters")]
 	[SerializeField] private ConflicSide side = ConflicSide.Player;
 	[SerializeField] private Vector2 unitCenter = new Vector2(0f, 0.7f);
-	[SerializeField] private bool HQ = false;
+	[SerializeField] private bool hq = false;
 	[SerializeField] private bool nonMovable = false;
 
 	[Header("Combat")]
@@ -80,7 +81,7 @@ public class Unit : MonoBehaviour
 
 	void Update ()
 	{
-		if ( HQ )
+		if ( hq )
 			return;
 
 		if ( frozen )
@@ -277,6 +278,7 @@ public class Unit : MonoBehaviour
 	{
 		// Default move direction
 		moveDirection = side == ConflicSide.Player ? Vector2.right : Vector2.left;
+		moveDirection /= 10;
 
 		// For static units
 		if ( nonMovable )
@@ -301,15 +303,19 @@ public class Unit : MonoBehaviour
 
 	private Vector2 CalculateSpring( Unit unit )
 	{
-		Vector2 spring = Vector2.zero;
+		// Spring with initial direction and distance
+		Vector2 spring = unit.Center - Center;
 
-		// Calculate the spring's length
+		// Spring's length (strength)
+		float strenght = unit.Side == side ? movementSpringSameSide.Evaluate( spring.magnitude ) : movementSpringOppositeSide.Evaluate( spring.magnitude );
+		strenght = unit.Side == side && unit.HQ ? 0 : strenght; // Disregard friendly HQ
+		spring = spring.normalized * strenght;
 
+		// OPTION: Discard if length less then X?
 
-		// Debug lines
-		float strenght = 1 / Vector2.Distance( Center, unit.Center );
-		float lineThickness = strenght / 10;
-		bool positive = unit.Side == side ? false : true;
+		// Debug lines (temp. code)
+		float lineThickness = strenght / 30;
+		bool positive = strenght >= 0;
 		Color color = positive ? Color.green : Color.red;
 		color.a = 0.9f;
 		LineRenderer line = Utilities.DrawDebugLine( Center, unit.Center, color, lineThickness, lineThickness );

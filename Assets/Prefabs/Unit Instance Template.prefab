@@ -792,12 +792,80 @@ MonoBehaviour:
   visuals: {fileID: 5883191176973908796}
   side: 0
   unitCenter: {x: 0, y: 0.76}
-  HQ: 0
+  hq: 0
+  nonMovable: 0
   detectionRange: 1.43
+  minRange: 0.3
   attackRange: 0.86
   moveSpeed: 0.6
   movementRange: {x: 14.34, y: 3.68}
   movementOffset: {x: -20, y: 0}
+  movementSpringSameSide:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: -10
+      inSlope: 0.75299424
+      outSlope: 0.75299424
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.32335505
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 29.489891
+      outSlope: 29.489891
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.07093042
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  movementSpringOppositeSide:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: -10
+      inSlope: 0.04860798
+      outSlope: 0.04860798
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.9932281
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 11.082427
+      outSlope: 11.082427
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.2
+      value: 10
+      inSlope: 0.00018506331
+      outSlope: 0.00018506331
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.58615506
+      outWeight: 0.15052864
+    - serializedVersion: 3
+      time: 5
+      value: 0
+      inSlope: -3.3909695
+      outSlope: -3.3909695
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.15147913
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   onEnemyDetected:
     m_PersistentCalls:
       m_Calls: []
