@@ -27,6 +27,16 @@ PrefabInstance:
       propertyPath: onEnemyDetected.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3984009445576658401, guid: 538f57f7ad5d06c4688ac391c19c1c64,
+        type: 3}
+      propertyPath: unitCenter.y
+      value: 0.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984009445576658401, guid: 538f57f7ad5d06c4688ac391c19c1c64,
+        type: 3}
+      propertyPath: unitCenter.x
+      value: 0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 3984009445576658402, guid: 538f57f7ad5d06c4688ac391c19c1c64,
         type: 3}
       propertyPath: maxHP
