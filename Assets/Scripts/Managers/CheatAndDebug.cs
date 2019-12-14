@@ -15,15 +15,16 @@ public class CheatAndDebug : MonoBehaviour
 	public bool ShowHPLabels { get { return showHPLabels; } set { showHPLabels = value; } }
 	public bool ShowOpponentsMana { get { return showOpponentsMana; } set { showOpponentsMana = value; } }
 
-	[Header("Debug Flags")]
+	[Header("Objects")]
 	[SerializeField] private PlayerCards playerCards = null;
 	[SerializeField] private GameObject tooltip = null;
+	[SerializeField] private GameObject gameboyModeLayer = null;
 
 	[Header("Debug Flags")]
-	[Tooltip("Show debug informations")]
-	[SerializeField] private bool showDebugInfo = false;
 	[Tooltip("Allow cheat codes")]
 	[SerializeField] private bool allowCheats = false;
+	[Tooltip("Show debug informations")]
+	[SerializeField] private bool showDebugInfo = false;
 	[SerializeField] private bool showHPLabels = false;
 	[SerializeField] private bool showOpponentsMana = true;
 
@@ -42,7 +43,14 @@ public class CheatAndDebug : MonoBehaviour
 
 	void Update ()
 	{
-		if ( AllowCheats && Input.GetKeyDown( KeyCode.M ) )
+		if ( Input.GetKeyDown( KeyCode.G ) )
+			gameboyModeLayer.SetActive( !gameboyModeLayer.activeSelf );
+
+		// Everything below only available if cheats are enabled
+		if ( !AllowCheats )
+			return;
+
+		if ( Input.GetKeyDown( KeyCode.M ) )
 			AddMana( );
 
 		if ( Input.GetKeyDown( KeyCode.LeftShift ) && Input.GetKeyDown( KeyCode.LeftControl ) && Input.GetKeyDown( KeyCode.R ) )
