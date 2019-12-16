@@ -5,7 +5,9 @@ using UnityEngine;
 public class ProjectileMovement : MonoBehaviour
 {
     private float projectileSpeed = 1.0f;
-    public Vector3 direction;
+    public Vector2 direction;
+    Unit currentOpponent;
+    HP enemyHP;
 
     void Awake()
     {
@@ -23,6 +25,12 @@ public class ProjectileMovement : MonoBehaviour
         Debug.Log("projectile collided with " + other.gameObject.name);
         if(other.gameObject.tag == "Enemy" || other.gameObject.tag == "ProjectileShredder")
         {
+            if(other.gameObject.tag == "Enemy")
+            {
+                currentOpponent = other.GetComponent<Unit>();
+                enemyHP = other.GetComponent<HP>();
+                enemyHP.DoDamage(20f, currentOpponent.Center);
+            }
             Destroy(this.gameObject);
             Debug.Log(other.gameObject.name);
         }
