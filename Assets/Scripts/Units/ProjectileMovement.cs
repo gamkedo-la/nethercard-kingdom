@@ -6,6 +6,7 @@ public class ProjectileMovement : MonoBehaviour
 {
     private float projectileSpeed = 1.0f;
     public Vector2 direction;
+    public float damage = 1;
     Unit currentOpponent;
     HP enemyHP;
 
@@ -29,7 +30,7 @@ public class ProjectileMovement : MonoBehaviour
             {
                 currentOpponent = other.GetComponent<Unit>();
                 enemyHP = other.GetComponent<HP>();
-                enemyHP.DoDamage(20f, currentOpponent.Center);
+                enemyHP.DoDamage(damage, currentOpponent.Center);
             }
             Destroy(this.gameObject);
             Debug.Log(other.gameObject.name);

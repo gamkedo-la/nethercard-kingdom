@@ -47,7 +47,9 @@ public class SpawnProjectile : Attack
         }
 
         AimProjectile();
+        projectilePrefab.GetComponent<ProjectileMovement>().damage = atackDamage;
         Instantiate(projectilePrefab, attackOrigin);
+        
         timeToNextAttack = atackDelay;
     }
 
