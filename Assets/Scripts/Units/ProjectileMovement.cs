@@ -4,39 +4,34 @@ using UnityEngine;
 
 public class ProjectileMovement : MonoBehaviour
 {
-    private float projectileSpeed = 1.0f;
+    public float projectileSpeed = 3.0f;
     public Vector2 direction;
     public float damage = 1;
-    Unit currentOpponent;
-    HP enemyHP;
 
-    void Awake()
+    void Update()
     {
+		Vector3 moveVector = direction * projectileSpeed * Time.deltaTime;
+		//transform.Translate( moveVector, Space.World );
+		transform.position += moveVector;
 
-    }
+		if ( CheatAndDebug.Instance.ShowDebugInfo )
+			Debug.DrawLine( transform.position, transform.position + (Vector3) direction, Color.blue );
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        transform.Translate(direction * projectileSpeed * Time.deltaTime);
-
-		float rot = Mathf.Atan2( direction.y, direction.x ) * Mathf.Rad2Deg;
-		transform.rotation = Quaternion.Euler( 0f, 0f, rot );
+		float angle = Mathf.Atan2( moveVector.y, moveVector.x ) * Mathf.Rad2Deg;
+		transform.rotation = Quaternion.Euler( 0f, 0f, angle );
 	}
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        //Debug.Log("projectile collided with " + other.gameObject.name);
         if(other.gameObject.tag == "Enemy" || other.gameObject.tag == "ProjectileShredder")
         {
             if(other.gameObject.tag == "Enemy")
             {
-                currentOpponent = other.GetComponent<Unit>();
-                enemyHP = other.GetComponent<HP>();
-                enemyHP.DoDamage(damage, currentOpponent.Center);
+				HP enemyHP = other.GetComponent<HP>();
+				Unit unit = other.GetComponent<Unit>();
+                enemyHP.DoDamage(damage, unit ? unit.Center : transform.position);
             }
             Destroy(gameObject);
-            //Debug.Log(other.gameObject.name);
         }
     }
 }

@@ -44,8 +44,8 @@ public class Unit : MonoBehaviour
 	[SerializeField] private AnimationCurve movementSpringSameSide = new AnimationCurve ( new Keyframe(0,0), new Keyframe(1,1));
 	[SerializeField] private AnimationCurve movementSpringOppositeSide = new AnimationCurve ( new Keyframe(0,0), new Keyframe(1,1));
 
-	[Header("Other")]
-	[SerializeField] private bool debugMode = false;
+	/*[Header("Other")]
+	[SerializeField]*/ private bool debuging = false;
 
 	[Header("Events")]
 	[SerializeField] private UnitEvent onEnemyInRange = null;
@@ -108,7 +108,7 @@ public class Unit : MonoBehaviour
 
 		Gizmos.color = Color.white;
 
-		debugMode = true;
+		debuging = true;
 	}
 
 	public void Stop( )
@@ -219,7 +219,7 @@ public class Unit : MonoBehaviour
 		// OPTIONAL: Discard if length less then X?
 
 		// Draw debug lines
-		if ( debugMode )
+		if ( debuging )
 		{
 			float lineThickness = strenght / 30;
 			bool positive = strenght >= 0;
