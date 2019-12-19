@@ -41,22 +41,27 @@ public class UnitsManager : MonoBehaviour
 			EnemyUnits.Remove( unit );
 	}
 
-	public Unit FindOponent( ConflicSide mySide, Vector2 myPosition, float distance )
+	public Unit FindOpponent( ConflicSide mySide, Vector2 myPosition, float distance )
 	{
-		Unit oponent = null;
+		Unit opponent = null;
+		float opponentDistance = int.MaxValue;
 
-		List<Unit> oponents = mySide == ConflicSide.Player ? EnemyUnits : PlayerUnits;
+		List<Unit> opponents = mySide == ConflicSide.Player ? EnemyUnits : PlayerUnits;
 
-		foreach ( var op in oponents )
+		foreach ( var op in opponents )
 		{
-			if ( Vector2.Distance( op.Center, myPosition ) <= distance )
+			float opDistance = Vector2.Distance( op.Center, myPosition );
+			if ( opDistance <= distance )
 			{
-				oponent = op;
-				return oponent;
+				if ( opDistance < opponentDistance )
+				{
+					opponentDistance = opDistance;
+					opponent = op;
+				}
 			}
 		}
 
-		return oponent;
+		return opponent;
 	}
 
 	public Unit[] FindUnitsInRange( Vector2 myPosition, float distance, ConflicSide mySide )

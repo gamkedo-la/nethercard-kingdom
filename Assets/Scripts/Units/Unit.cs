@@ -142,7 +142,7 @@ public class Unit : MonoBehaviour
 
 	private void TryFindAttackTarget( )
 	{
-		Unit newOponent = UnitsManager.Instance.FindOponent( side, Center, attackRange );
+		Unit newOponent = UnitsManager.Instance.FindOpponent( side, Center, attackRange );
 
 		// No current target
 		if ( !currentOpponent )
