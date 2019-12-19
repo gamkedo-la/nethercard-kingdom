@@ -1,27 +1,19 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Assertions;
 
 public class SpawnProjectile : Attack
 {
-
-    //[SerializeField]
-    //private float attackRate = 1.0f;
     [SerializeField]
     private GameObject projectilePrefab = null;
-    [SerializeField]
-    private Transform attackOrigin = null;
 
     private float timeToNextAttack = 0;
-    [SerializeField]
-    private Unit unit = null;
     private Unit currentOpponent = null;
 
     override protected void Start()
     {
         base.Start();
 
-        Assert.IsNotNull(unit, $"Please assign <b>{nameof(unit)}</b> field on <b>{GetType().Name}</b> script on <b>{name}</b> object");
+        //Assert.IsNotNull(unit, $"Please assign <b>{nameof(unit)}</b> field on <b>{GetType().Name}</b> script on <b>{name}</b> object");
     }
 
     void Update()
@@ -33,33 +25,28 @@ public class SpawnProjectile : Attack
 
     private void TryToAttack()
     {
-
         if (Frozen)
             return;
 
         timeToNextAttack -= Time.deltaTime;
 
-
         // Needs to be in attack range of an oponent and have no attack cool-down
         if (!currentOpponent || timeToNextAttack > 0)
-        {
             return;
-        }
 
-        AimProjectile();
-        projectilePrefab.GetComponent<ProjectileMovement>().damage = atackDamage;
-        Instantiate(projectilePrefab, attackOrigin);
-        
-        timeToNextAttack = atackDelay;
-    }
+        GameObject go = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+		ProjectileMovement projectileMovement = go.GetComponent<ProjectileMovement>( );
 
-    private void AimProjectile()
-    {
+		Vector3 direction = (currentOpponent.Center - transform.position).normalized;
+		projectileMovement.direction = direction;
+		projectileMovement.damage = atackDamage;
 
-        ProjectileMovement projectileMovement = projectilePrefab.GetComponent<ProjectileMovement>();
-        projectileMovement.direction = currentOpponent.Center - unit.Center;
+		timeToNextAttack = atackDelay;
 
-        if (CheatAndDebug.Instance.ShowDebugInfo)
-            Debug.DrawLine(unit.Center, currentOpponent.Center, Color.red, 0.2f);
+		if ( CheatAndDebug.Instance.ShowDebugInfo )
+		{
+			Debug.DrawLine( transform.position, currentOpponent.Center, Color.red, 0.2f );
+			Debug.DrawLine( transform.position, transform.position + direction, Color.green, 0.5f );
+		}
     }
 }

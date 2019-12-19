@@ -19,11 +19,14 @@ public class ProjectileMovement : MonoBehaviour
     void FixedUpdate()
     {
         transform.Translate(direction * projectileSpeed * Time.deltaTime);
-    }
+
+		float rot = Mathf.Atan2( direction.y, direction.x ) * Mathf.Rad2Deg;
+		transform.rotation = Quaternion.Euler( 0f, 0f, rot );
+	}
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("projectile collided with " + other.gameObject.name);
+        //Debug.Log("projectile collided with " + other.gameObject.name);
         if(other.gameObject.tag == "Enemy" || other.gameObject.tag == "ProjectileShredder")
         {
             if(other.gameObject.tag == "Enemy")
@@ -32,9 +35,8 @@ public class ProjectileMovement : MonoBehaviour
                 enemyHP = other.GetComponent<HP>();
                 enemyHP.DoDamage(damage, currentOpponent.Center);
             }
-            Destroy(this.gameObject);
-            Debug.Log(other.gameObject.name);
+            Destroy(gameObject);
+            //Debug.Log(other.gameObject.name);
         }
-        
     }
 }
