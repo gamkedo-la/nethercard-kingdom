@@ -25,6 +25,8 @@ public class Card : MonoBehaviour
 	public string Flavor { get { return flavorText; } }
 	public  CardLevel Level { get { return level; } }
 	public bool CanBePlayed { get; private set; } = true;
+	public int GroupID { get { return groupID; } }
+	public int CardID { get { return cardID; } }
 
 	[Header("Objects")]
 	[SerializeField] private GameObject toSummon = null;
@@ -40,6 +42,8 @@ public class Card : MonoBehaviour
 	[SerializeField] private string displayName = "Unnamed Card";
 	[SerializeField] private string abilityText = "This is just a test description...";
 	[SerializeField] private string flavorText = "What a lovely card!";
+	[SerializeField] private int groupID = 0;
+	[SerializeField] private int cardID = 0;
 
 	[Header("Events")]
 	public CardEvent onStartedDrag = null;

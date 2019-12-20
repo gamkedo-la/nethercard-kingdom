@@ -50,6 +50,11 @@ PrefabInstance:
       propertyPath: abilityText
       value: Does <b>18 damage</b> in a <b>radius of 2</b>
       objectReference: {fileID: 0}
+    - target: {fileID: 1760369034310967338, guid: 35c73b0121dc76649931f579533a5375,
+        type: 3}
+      propertyPath: cardID
+      value: 22
+      objectReference: {fileID: 0}
     - target: {fileID: 4516576208258982112, guid: 35c73b0121dc76649931f579533a5375,
         type: 3}
       propertyPath: m_textInfo.characterCount

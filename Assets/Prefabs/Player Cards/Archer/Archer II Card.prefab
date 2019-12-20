@@ -50,6 +50,11 @@ PrefabInstance:
       propertyPath: useCost
       value: 22
       objectReference: {fileID: 0}
+    - target: {fileID: 4959332090658851808, guid: f4b608c5cc99c6644a3879e8b33224bb,
+        type: 3}
+      propertyPath: cardID
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 6383578966566807935, guid: f4b608c5cc99c6644a3879e8b33224bb,
         type: 3}
       propertyPath: m_LocalPosition.x

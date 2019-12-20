@@ -49,6 +49,11 @@ PrefabInstance:
       propertyPath: level
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8501903596962825678, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
+        type: 3}
+      propertyPath: cardID
+      value: 33
+      objectReference: {fileID: 0}
     - target: {fileID: 7618055629451683665, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
         type: 3}
       propertyPath: m_LocalPosition.x

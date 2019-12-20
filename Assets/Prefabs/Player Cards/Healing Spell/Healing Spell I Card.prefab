@@ -49,6 +49,16 @@ PrefabInstance:
       propertyPath: flavorText
       value: Not on my watch!
       objectReference: {fileID: 0}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: groupID
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: cardID
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 7709570893905777452, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: m_Sprite
