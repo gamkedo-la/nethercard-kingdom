@@ -20,6 +20,7 @@ public class HP : MonoBehaviour
 	[SerializeField, Tooltip( "An optional label to display health." )] private TextMeshProUGUI label = null;
 	[SerializeField] private GameObject floatingTextDamage = null;
 	[SerializeField] private GameObject floatingTextHeal = null;
+	[SerializeField] private Animator animator;
 
 	[Header("Tweakable")]
 	[SerializeField] private float maxHP = 10;
@@ -45,7 +46,6 @@ public class HP : MonoBehaviour
 	private Vector3 hpBarOldScale;
 	private Vector3 hpBarUnderOldScale;
 
-	private Animator animator;
 
 	void Start( )
 	{
@@ -73,8 +73,6 @@ public class HP : MonoBehaviour
 
 		if ( label )
 			label.text = $"{CurrentHP}/{maxHP}";
-
-		animator = GetComponent<Animator>();
 	}
 
 	/// <summary>
