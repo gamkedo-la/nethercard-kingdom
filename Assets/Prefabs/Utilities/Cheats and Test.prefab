@@ -1808,8 +1808,8 @@ MonoBehaviour:
   gameboyModeLayer: {fileID: 0}
   allowCheats: 1
   showDebugInfo: 0
-  showHPLabels: 0
-  showOpponentsMana: 1
+  showHPLabels: 1
+  showOpponentsMana: 0
   manaCheatAmount: 20
 --- !u!1 &434523983284491880
 GameObject:
@@ -5165,7 +5165,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5432045709946392982
 RectTransform:
   m_ObjectHideFlags: 0
