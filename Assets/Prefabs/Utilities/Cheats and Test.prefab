@@ -179,7 +179,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'DEBUG KEYS: R - reset, M - add mana, Esc - pause menu
 
-    T - toggle this tooltip, Ctrl+Shift+R - reset collection, G - Retro Mode'
+    T - toggle this tooltip, Ctrl+L - reset saves, G - Retro Mode'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
@@ -248,10 +248,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 2145342406}
-    characterCount: 126
+    characterCount: 115
     spriteCount: 0
     spaceCount: 25
-    wordCount: 28
+    wordCount: 27
     linkCount: 0
     lineCount: 2
     pageCount: 1

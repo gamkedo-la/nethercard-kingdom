@@ -53,8 +53,13 @@ public class CheatAndDebug : MonoBehaviour
 		if ( Input.GetKeyDown( KeyCode.M ) )
 			AddMana( );
 
-		if ( Input.GetKeyDown( KeyCode.LeftShift ) && Input.GetKeyDown( KeyCode.LeftControl ) && Input.GetKeyDown( KeyCode.R ) )
+		if ( ( Input.GetKey( KeyCode.LeftControl ) || Input.GetKey( KeyCode.RightControl ) ) && Input.GetKeyDown( KeyCode.L ) )
+		{
 			playerCards.RemovdSavedPlayerCardsData( );
+			SceneManager.LoadScene( 0 );
+
+			return;
+		}
 
 		if ( Input.GetKeyDown( KeyCode.R ) )
 			SceneManager.LoadScene( 0 );
