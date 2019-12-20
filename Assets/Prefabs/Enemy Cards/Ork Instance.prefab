@@ -145,6 +145,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6498859618681737141, guid: 2b56b0c16cb5a604bbcd7cd85fcfe5f0,
         type: 3}
+    - target: {fileID: 5883191176973908796, guid: fc6c2faa8ae045542a0960290aa158db,
+        type: 3}
+      propertyPath: deathEffectScale
+      value: 1.3
+      objectReference: {fileID: 0}
     - target: {fileID: 3179189684220269125, guid: fc6c2faa8ae045542a0960290aa158db,
         type: 3}
       propertyPath: m_Layer

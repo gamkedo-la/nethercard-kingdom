@@ -899,6 +899,7 @@ MonoBehaviour:
     type: 3}
   floatingTextHeal: {fileID: 1803036402048619639, guid: a6ab49c6a116a484facf1898577418ad,
     type: 3}
+  animator: {fileID: 0}
   maxHP: 100
   destroyOnNoHP: 1
   delayNextDamage: 0
@@ -909,6 +910,7 @@ MonoBehaviour:
   scaleTime: 0.3
   underChangeTime: 1
   floatingTextLeftDir: 0
+  damageParticles: {fileID: 0}
   onHealthChange:
     m_PersistentCalls:
       m_Calls: []
@@ -942,7 +944,18 @@ MonoBehaviour:
         m_CallState: 2
   onDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5883191176973908796}
+        m_MethodName: Killed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &760942606543455561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -998,6 +1011,9 @@ MonoBehaviour:
   shadow: {fileID: 3179189684220269125}
   shockLayer: Foreground
   shockColor: {r: 0.19215687, g: 0.19215687, b: 0.19215687, a: 1}
+  deathEffect: {fileID: 3401584348505160233, guid: bca19e3930d58204c8e8dc20f7dd7316,
+    type: 3}
+  deathEffectScale: 1
   footprints: {fileID: 0}
   footprintsScale: 1
 --- !u!114 &6822864746918942391

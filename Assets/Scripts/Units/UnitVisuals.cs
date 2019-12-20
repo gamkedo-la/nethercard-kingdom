@@ -32,6 +32,10 @@ public class UnitVisuals : MonoBehaviour
 	[SerializeField] private string shockLayer = "Foreground";
 	[SerializeField] private Color shockColor = Color.black;
 
+	[Header("Death")]
+	[SerializeField] private GameObject deathEffect = null;
+	[SerializeField] private float deathEffectScale = 1.0f;
+
 	[Header("Other Effects")]
 	[SerializeField] private GameObject footprints = null;
 	[SerializeField] private float footprintsScale = 1.0f;
@@ -49,6 +53,7 @@ public class UnitVisuals : MonoBehaviour
 		Assert.IsNotNull( hpLabel, $"Please assign <b>{nameof( hpLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( skeleton, $"Please assign <b>{nameof( skeleton )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( shadow, $"Please assign <b>{nameof( shadow )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( deathEffect, $"Please assign <b>{nameof( deathEffect )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
 		originalXScale = mainSprites.transform.localScale.x;
 
@@ -70,6 +75,12 @@ public class UnitVisuals : MonoBehaviour
 	public void Shocked( float time ) => StartCoroutine( DoShock( time ) );
 
 	public void Healed( ) => healEffect.Play( );
+
+	public void Killed( )
+	{
+		GameObject go = Instantiate( deathEffect, transform.position, Quaternion.Euler( 0, 0, 66.5f ) );
+		go.transform.localScale = Vector3.one * deathEffectScale;
+	}
 
 	public void MoveDir( Vector2 dir, float speed )
 	{

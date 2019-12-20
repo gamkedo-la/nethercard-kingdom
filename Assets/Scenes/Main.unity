@@ -388,11 +388,11 @@ PrefabInstance:
         type: 3}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1949955432}
+      objectReference: {fileID: 2007559680}
     - target: {fileID: 7832217364804872023, guid: 550b7738aa68d2d41b344408cdbff804,
         type: 3}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: Spawn
+      value: Killed
       objectReference: {fileID: 0}
     - target: {fileID: 7832217364804872023, guid: 550b7738aa68d2d41b344408cdbff804,
         type: 3}
@@ -675,7 +675,14 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 2ac3a29630a965749993f11b3c8acc7a, type: 2}
-    m_RemovedComponents: []
+    - target: {fileID: 3681227737802798581, guid: 550b7738aa68d2d41b344408cdbff804,
+        type: 3}
+      propertyPath: deathEffect
+      value: 
+      objectReference: {fileID: 7330330748789855364, guid: 97f68b758284b244386d465f7adafdfb,
+        type: 3}
+    m_RemovedComponents:
+    - {fileID: 4971175076227853541, guid: 550b7738aa68d2d41b344408cdbff804, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 550b7738aa68d2d41b344408cdbff804, type: 3}
 --- !u!4 &147647479 stripped
 Transform:
@@ -3682,6 +3689,18 @@ RectTransform:
   m_AnchoredPosition: {x: -0.000030517578, y: -0.000030517578}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1666993430 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3681227737802798581, guid: 550b7738aa68d2d41b344408cdbff804,
+    type: 3}
+  m_PrefabInstance: {fileID: 7832217364430185926}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8df2828d404aa640bf37201e1b59da9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1685778047
 GameObject:
   m_ObjectHideFlags: 0
@@ -4081,18 +4100,6 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 7832217364430185926}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1762691592 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4971175076227853541, guid: 550b7738aa68d2d41b344408cdbff804,
-    type: 3}
-  m_PrefabInstance: {fileID: 7832217364430185926}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ddbea6b2a226434d8c9d92a64d41533, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1767367983
 GameObject:
   m_ObjectHideFlags: 0
@@ -4518,16 +4525,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1949357053}
   m_CullTransparentMesh: 0
---- !u!114 &1949955432 stripped
+--- !u!114 &2007559680 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4971175076227853541, guid: 550b7738aa68d2d41b344408cdbff804,
+  m_CorrespondingSourceObject: {fileID: 3681227737802798581, guid: 550b7738aa68d2d41b344408cdbff804,
     type: 3}
   m_PrefabInstance: {fileID: 147647478}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ddbea6b2a226434d8c9d92a64d41533, type: 3}
+  m_Script: {fileID: 11500000, guid: a8df2828d404aa640bf37201e1b59da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2041664556
@@ -5898,11 +5905,11 @@ PrefabInstance:
         type: 3}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1762691592}
+      objectReference: {fileID: 1666993430}
     - target: {fileID: 7832217364804872023, guid: 550b7738aa68d2d41b344408cdbff804,
         type: 3}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: Spawn
+      value: Killed
       objectReference: {fileID: 0}
     - target: {fileID: 7832217364804872023, guid: 550b7738aa68d2d41b344408cdbff804,
         type: 3}
@@ -6155,7 +6162,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3681227737802798581, guid: 550b7738aa68d2d41b344408cdbff804,
+        type: 3}
+      propertyPath: deathEffect
+      value: 
+      objectReference: {fileID: 7330330748789855364, guid: 97f68b758284b244386d465f7adafdfb,
+        type: 3}
+    m_RemovedComponents:
+    - {fileID: 4971175076227853541, guid: 550b7738aa68d2d41b344408cdbff804, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 550b7738aa68d2d41b344408cdbff804, type: 3}
 --- !u!4 &7832217364430185927 stripped
 Transform:
