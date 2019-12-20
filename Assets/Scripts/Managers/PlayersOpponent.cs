@@ -34,16 +34,20 @@ public class PlayersOpponent : MonoBehaviour
 	[SerializeField] private GameObject summoningPoint = null;
 	[SerializeField] private GameObject manaCounter = null;
 	[SerializeField] private TextMeshProUGUI manaCounterLabel = null;
+	[SerializeField] private HP hp = null;
 
 	[Header("Summoning")]
 	[SerializeField] private Vector2 summonArea = new Vector2(2f, 4f);
 	[SerializeField] private float summonDelay = 0.5f;
 	[SerializeField] private float delayBetweenSummonsInOneEvent = 1f;
+	[SerializeField, Range(0,10)] private float timeEngageIncrease = 0.5f;
+	[SerializeField] private float timeEngageMax = 120f;
 	[SerializeField, Range(0,100)] private float enrageMeter = 0f;
 	[SerializeField, Range(0,200)] private float mana = 0f;
 	[SerializeField, Range(0,30)] private float manaGainSpeed = 1f;
 
 	private SummonEvent nextSummonEventToPlay = null;
+	private float timeEngage = 0f;
 
 	private void Awake( )
 	{
@@ -62,6 +66,7 @@ public class PlayersOpponent : MonoBehaviour
 		Assert.IsNotNull( spawnIndicator, $"Please assign <b>{nameof( spawnIndicator )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( manaCounter, $"Please assign <b>{nameof( manaCounter )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( manaCounterLabel, $"Please assign <b>{nameof( manaCounterLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( hp, $"Please assign <b>{nameof( hp )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 	}
 
 	void Update( )
@@ -71,10 +76,30 @@ public class PlayersOpponent : MonoBehaviour
 		if ( !IsPlaying )
 			return;
 
+		timeEngage += timeEngageIncrease * Time.deltaTime;
+
 		mana += manaGainSpeed * Time.deltaTime;
 		manaCounterLabel.text = mana.ToString( "0" );
 
 		TryToSummon( );
+	}
+
+	void FixedUpdate( )
+	{
+		AdjustEnrage( );
+	}
+
+	private void AdjustEnrage( )
+	{
+		int maxEnrage = 100;
+
+		float hpPercentInv = 1 - ( hp.CurrentHP / hp.MaxHP );
+		float hpEnrage = maxEnrage * hpPercentInv;
+
+		float timePercentInv = 1 - ( timeEngage / timeEngageMax );
+		float timeEnrage = maxEnrage * timePercentInv;
+
+		enrageMeter = Mathf.Max( hpEnrage, timeEngage );
 	}
 
 	private void TryToSummon( )

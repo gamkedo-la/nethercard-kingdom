@@ -3430,6 +3430,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1396459836 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7832217364804872023, guid: 550b7738aa68d2d41b344408cdbff804,
+    type: 3}
+  m_PrefabInstance: {fileID: 147647478}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aca6f0601ebf5ee4fa138797b6179c8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1430864179
 GameObject:
   m_ObjectHideFlags: 0
@@ -5915,6 +5927,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player's Opponent
       objectReference: {fileID: 0}
+    - target: {fileID: 5290041437021551943, guid: 2758165ee9ff9cb4f9c1cc4e746463a6,
+        type: 3}
+      propertyPath: hp
+      value: 
+      objectReference: {fileID: 1396459836}
     - target: {fileID: 5290041437021551942, guid: 2758165ee9ff9cb4f9c1cc4e746463a6,
         type: 3}
       propertyPath: m_LocalPosition.x
