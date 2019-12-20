@@ -223,7 +223,7 @@ public class CardAudioVisuals : MonoBehaviour
 		canvasGroup.interactable = false;
 
 		if ( backMove )
-			backSound.Play( );
+			Back( );
 		else
 			playSound.Play( );
 	}

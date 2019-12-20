@@ -117,7 +117,7 @@ public class CardSlot : MonoBehaviour
 		cardInSlot.Vizuals.DraggedCard( true );
 		returning = true;
 	}
-
+	
 	public void Clear( )
 	{
 		amountDisplay.SetActive( false );

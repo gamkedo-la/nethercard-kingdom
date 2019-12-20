@@ -26,6 +26,7 @@ public class CollectionManager : MonoBehaviour
 	[Header("Upgrading")]
 	[SerializeField] private CardSlot upgradSlot1 = null;
 	[SerializeField] private CardSlot upgradSlot2 = null;
+	[SerializeField] private GameObject upgradeDisplay = null;
 
 	[Header("Parameters")]
 	[SerializeField] private int minSlots = 20;
@@ -100,6 +101,14 @@ public class CollectionManager : MonoBehaviour
 
 				slots[i].DoMove( ( upgradSlot1.CardPosition + upgradSlot2.CardPosition ) / 2 );
 
+				upgradeDisplay.SetActive(true);
+
+				if(upgradeDisplay.transform.GetChild(0).childCount > 0)
+					Destroy(upgradeDisplay.transform.GetChild(0).GetChild(0).gameObject);
+
+				GameObject upgradeDisplayCard = Instantiate(slots[i].gameObject, upgradeDisplay.transform.GetChild(0));
+				upgradeDisplayCard.transform.position = upgradeDisplayCard.transform.parent.position;
+
 				return;
 			}
 		}
@@ -119,6 +128,14 @@ public class CollectionManager : MonoBehaviour
 				CleanUpUpgradeState( true );
 
 				slots[i].DoMove( ( upgradSlot1.CardPosition + upgradSlot2.CardPosition ) / 2 );
+
+				upgradeDisplay.SetActive(true);
+
+				if(upgradeDisplay.transform.GetChild(0).childCount > 0)
+					Destroy(upgradeDisplay.transform.GetChild(0).GetChild(0).gameObject);
+
+				GameObject upgradeDisplayCard = Instantiate(slots[i].gameObject, upgradeDisplay.transform.GetChild(0));
+				upgradeDisplayCard.transform.position = upgradeDisplayCard.transform.parent.position;
 
 				return;
 			}
