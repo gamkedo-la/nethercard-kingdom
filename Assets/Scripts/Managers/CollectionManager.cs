@@ -320,7 +320,7 @@ public class CollectionManager : MonoBehaviour
 		}
 
 		// Sort cards
-		collection = collection.OrderBy( card => { return card != null ? card.Card.Name : "zzzzz"; } ).ToList( );
+		collection = collection.OrderBy( card => { return card != null ? card.Card.CardID : 100000; } ).ToList( );
 
 		// Refresh display
 		DisplayCollection( );
