@@ -113,7 +113,7 @@ public class Unit : MonoBehaviour
 
 	public void Stop( )
 	{
-		if ( animator.enabled )
+		if ( animator.enabled && !nonMovable )
 			animator.SetTrigger( "Idle" );
 
 		frozen = true;

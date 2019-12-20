@@ -360,7 +360,7 @@ PrefabInstance:
     - target: {fileID: 7832217364804872023, guid: 550b7738aa68d2d41b344408cdbff804,
         type: 3}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7832217364804872023, guid: 550b7738aa68d2d41b344408cdbff804,
         type: 3}
@@ -376,16 +376,16 @@ PrefabInstance:
         type: 3}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1253014236}
+      objectReference: {fileID: 1949955432}
     - target: {fileID: 7832217364804872023, guid: 550b7738aa68d2d41b344408cdbff804,
         type: 3}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: set_IsPlaying
+      value: Spawn
       objectReference: {fileID: 0}
     - target: {fileID: 7832217364804872023, guid: 550b7738aa68d2d41b344408cdbff804,
         type: 3}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7832217364804872023, guid: 550b7738aa68d2d41b344408cdbff804,
         type: 3}
@@ -4063,6 +4063,18 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 7832217364430185926}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1762691592 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4971175076227853541, guid: 550b7738aa68d2d41b344408cdbff804,
+    type: 3}
+  m_PrefabInstance: {fileID: 7832217364430185926}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ddbea6b2a226434d8c9d92a64d41533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1767367983
 GameObject:
   m_ObjectHideFlags: 0
@@ -4488,6 +4500,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1949357053}
   m_CullTransparentMesh: 0
+--- !u!114 &1949955432 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4971175076227853541, guid: 550b7738aa68d2d41b344408cdbff804,
+    type: 3}
+  m_PrefabInstance: {fileID: 147647478}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ddbea6b2a226434d8c9d92a64d41533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2041664556
 GameObject:
   m_ObjectHideFlags: 0
@@ -5825,7 +5849,7 @@ PrefabInstance:
     - target: {fileID: 7832217364804872023, guid: 550b7738aa68d2d41b344408cdbff804,
         type: 3}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7832217364804872023, guid: 550b7738aa68d2d41b344408cdbff804,
         type: 3}
@@ -5836,16 +5860,16 @@ PrefabInstance:
         type: 3}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1253014236}
+      objectReference: {fileID: 1762691592}
     - target: {fileID: 7832217364804872023, guid: 550b7738aa68d2d41b344408cdbff804,
         type: 3}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: set_IsPlaying
+      value: Spawn
       objectReference: {fileID: 0}
     - target: {fileID: 7832217364804872023, guid: 550b7738aa68d2d41b344408cdbff804,
         type: 3}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7832217364804872023, guid: 550b7738aa68d2d41b344408cdbff804,
         type: 3}

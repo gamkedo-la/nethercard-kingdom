@@ -5632,7 +5632,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  debugMode: 1
   onEnemyInRange:
     m_PersistentCalls:
       m_Calls: []
@@ -5739,7 +5738,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  debugMode: 1
   onEnemyInRange:
     m_PersistentCalls:
       m_Calls:
@@ -5775,6 +5773,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7832217364804872022}
   - component: {fileID: 7832217364804872023}
+  - component: {fileID: 4971175076227853541}
   - component: {fileID: 46009702003437391}
   - component: {fileID: 805658137276375092}
   - component: {fileID: 8518868799031875330}
@@ -5830,6 +5829,7 @@ MonoBehaviour:
   floatingTextDamage: {fileID: 6528320470317456676, guid: f3814c57dc766f343ac851c1627304e5,
     type: 3}
   floatingTextHeal: {fileID: 0}
+  animator: {fileID: 0}
   maxHP: 150
   destroyOnNoHP: 1
   delayNextDamage: 0
@@ -5840,6 +5840,7 @@ MonoBehaviour:
   scaleTime: 0.5
   underChangeTime: 1
   floatingTextLeftDir: 0
+  damageParticles: {fileID: 0}
   onHealthChange:
     m_PersistentCalls:
       m_Calls: []
@@ -5874,6 +5875,31 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 4971175076227853541}
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &4971175076227853541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7832217364804872008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ddbea6b2a226434d8c9d92a64d41533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thingToSpawn: {fileID: 7330330748789855364, guid: 97f68b758284b244386d465f7adafdfb,
+    type: 3}
 --- !u!114 &46009702003437391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6252,7 +6278,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  debugMode: 1
   onEnemyInRange:
     m_PersistentCalls:
       m_Calls: []
@@ -6359,7 +6384,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  debugMode: 1
   onEnemyInRange:
     m_PersistentCalls:
       m_Calls: []

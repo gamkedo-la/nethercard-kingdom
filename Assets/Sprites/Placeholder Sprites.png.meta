@@ -53,6 +53,9 @@ TextureImporter:
   - first:
       213: -5731183373063819138
     second: Road B
+  - first:
+      213: -6448832585698385253
+    second: Brick
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -403,7 +406,7 @@ TextureImporter:
         width: 425
         height: 1062
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -424,7 +427,7 @@ TextureImporter:
         width: 514
         height: 772
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -445,7 +448,7 @@ TextureImporter:
         width: 305
         height: 625
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -466,7 +469,7 @@ TextureImporter:
         width: 1065
         height: 1188
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -487,7 +490,7 @@ TextureImporter:
         width: 956
         height: 934
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -508,7 +511,7 @@ TextureImporter:
         width: 892
         height: 898
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -529,7 +532,7 @@ TextureImporter:
         width: 2607
         height: 714
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -537,6 +540,27 @@ TextureImporter:
       bones: []
       spriteID: daa41d07c964a4d4bbc7cc46495e6850
       internalID: -5731183373063819138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brick
+      rect:
+        serializedVersion: 2
+        x: 3358
+        y: 3228
+        width: 779
+        height: 1150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c21bcd236f432243be4f2cfd705c93b
+      internalID: -6448832585698385253
       vertices: []
       indices: 
       edges: []

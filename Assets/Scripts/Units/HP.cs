@@ -20,7 +20,7 @@ public class HP : MonoBehaviour
 	[SerializeField, Tooltip( "An optional label to display health." )] private TextMeshProUGUI label = null;
 	[SerializeField] private GameObject floatingTextDamage = null;
 	[SerializeField] private GameObject floatingTextHeal = null;
-	[SerializeField] private Animator animator;
+	[SerializeField] private Animator animator = null;
 
 	[Header("Tweakable")]
 	[SerializeField] private float maxHP = 10;
