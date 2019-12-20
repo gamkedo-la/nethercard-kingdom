@@ -56,6 +56,8 @@ public class DeckManager : MonoBehaviour
 		CheckIfWeForceCanceled( );
 	}
 
+	public List<PlayerCard> GetDeck( ) => deck;
+
 	public void ClearDeck( )
 	{
 		for ( int i = 0; i < deck.Count; i++ )

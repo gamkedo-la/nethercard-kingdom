@@ -80,7 +80,8 @@ public class CollectionManager : MonoBehaviour
 		upgradSlot1.Set( null, 0, null, UpgradeSlotDroppedEvent, UpgradeSlotClickedEvent, false );
 		upgradSlot2.Set( null, 1, null, UpgradeSlotDroppedEvent, UpgradeSlotClickedEvent, false );
 
-		DisplayCollection( );
+		bool forceDisable = !CanWeFillTheDeck( );
+		DisplayCollection( forceDisable );
 	}
 
 	public void UpgradeCard( )
@@ -130,6 +131,9 @@ public class CollectionManager : MonoBehaviour
 	{
 		if ( upgradingCard != null )
 			CleanUpUpgradeState( false );
+
+		if ( cardDragged == null )
+			return;
 
 		cardDragged.Amount -= 2;
 		upgradingCard = cardDragged;
@@ -183,7 +187,35 @@ public class CollectionManager : MonoBehaviour
 		upgradeButton.interactable = false;
 
 		if ( updateCollection )
-			DisplayCollection( );
+		{
+			bool forceDisable = !CanWeFillTheDeck( );
+			DisplayCollection( forceDisable );
+		}
+	}
+
+	private bool CanWeFillTheDeck( )
+	{
+		List<PlayerCard> allPlayerCards = collection.Concat( deckManager.GetDeck( ) ).ToList( );
+		allPlayerCards = allPlayerCards.Where( c => c != null).ToList( );
+
+		List<int> distinctCardGroups = allPlayerCards.Select( c => c.Card.GroupID ).Distinct( ).ToList( );
+
+		int cardsToFillDeck = 0;
+		foreach ( var group in distinctCardGroups )
+		{
+			int cardsInGroup = 0;
+			foreach ( var card in allPlayerCards )
+			{
+				if ( card.Card.GroupID == group )
+					cardsInGroup += card.Amount;
+			}
+
+			//Debug.Log( $"Group: {group}, count = {cardsInGroup}" );
+			cardsToFillDeck += Mathf.Clamp( cardsInGroup, 0, PlayerCards.MaxIdenticalCardsInDeck );
+		}
+
+		//Debug.Log( $"cardsToFillDeck: {cardsToFillDeck}" );
+		return cardsToFillDeck >= PlayerCards.MaxCardsInDeck;
 	}
 
 	private void UpgradeSlotDragEvent( int _, bool endOfDrag )
@@ -328,13 +360,13 @@ public class CollectionManager : MonoBehaviour
 		}
 	}
 
-	public void DisplayCollection( )
+	public void DisplayCollection( bool forceDisable = false )
 	{
 		cardDragged = null;
 		cardDraggedFromDeck = null;
 
 		for ( int i = 0; i < collection.Count; i++ )
-			slots[i].Set( collection[i], i, CardDragedEvent, CardDroppedEvent, ClickedOnSlotEvent, upgrading );
+			slots[i].Set( collection[i], i, CardDragedEvent, CardDroppedEvent, ClickedOnSlotEvent, upgrading, forceDisable );
 	}
 
 	private void ClickedOnSlotEvent( int dropSlotIndex )

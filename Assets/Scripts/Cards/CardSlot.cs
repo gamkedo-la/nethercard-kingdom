@@ -59,7 +59,7 @@ public class CardSlot : MonoBehaviour
 		}
 	}
 
-	public void Set( PlayerCard playerCard, int index, System.Action<int,bool> onDrag, System.Action<int> onDrop, System.Action<int> onClick, bool upgrading )
+	public void Set( PlayerCard playerCard, int index, System.Action<int,bool> onDrag, System.Action<int> onDrop, System.Action<int> onClick, bool upgrading, bool forceDisable = false )
 	{
 		Clear( );
 
@@ -96,7 +96,7 @@ public class CardSlot : MonoBehaviour
 			amountDisplay.SetActive( true );
 
 		// Disable cards that are fewer then the min amount for upgrading and that have max level
-		if ( upgrading && ( playerCard.Amount < PlayerCards.MinCardsForUpgrade || !cardInSlot.HigherLevelVersion ) )
+		if ( (upgrading && ( playerCard.Amount < PlayerCards.MinCardsForUpgrade || !cardInSlot.HigherLevelVersion ) ) || forceDisable )
 		{
 			showAsDisabled = true;
 			cardInSlot.Vizuals.SetDisabled( );

@@ -2421,7 +2421,7 @@ MonoBehaviour:
     DefaultPlayerOwned: 3
     DefaultInDeck: 1
   - Card: {fileID: 8501903596962825678, guid: 5f3d14ac1d4a0424da11a2f22523b78e, type: 3}
-    DefaultPlayerOwned: 0
+    DefaultPlayerOwned: 1
     DefaultInDeck: 1
   - Card: {fileID: 7936052614372676182, guid: dcfc3d036c9a2a046b80f73d504505f8, type: 3}
     DefaultPlayerOwned: 1
@@ -2436,7 +2436,7 @@ MonoBehaviour:
     DefaultPlayerOwned: 0
     DefaultInDeck: 0
   - Card: {fileID: 4959332090658851808, guid: f4b608c5cc99c6644a3879e8b33224bb, type: 3}
-    DefaultPlayerOwned: 2
+    DefaultPlayerOwned: 3
     DefaultInDeck: 3
   - Card: {fileID: 5195897159522902779, guid: 7dc7cebc02c5fa445960646a217fe88c, type: 3}
     DefaultPlayerOwned: 1
