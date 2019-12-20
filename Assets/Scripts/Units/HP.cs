@@ -32,6 +32,7 @@ public class HP : MonoBehaviour
 	[SerializeField] private float scaleTime = 0.3f;
 	[SerializeField] private float underChangeTime = 1f;
 	[SerializeField] private bool floatingTextLeftDir = false;
+	[SerializeField] private GameObject damageParticles = null;
 
 	[Header("Events")]
 	[SerializeField] private UnityEvent onHealthChange = null;
@@ -43,6 +44,8 @@ public class HP : MonoBehaviour
 	private float oldUnderHPValue = 0;
 	private Vector3 hpBarOldScale;
 	private Vector3 hpBarUnderOldScale;
+
+	private Animator animator;
 
 	void Start( )
 	{
@@ -70,6 +73,8 @@ public class HP : MonoBehaviour
 
 		if ( label )
 			label.text = $"{CurrentHP}/{maxHP}";
+
+		animator = GetComponent<Animator>();
 	}
 
 	/// <summary>
@@ -85,6 +90,8 @@ public class HP : MonoBehaviour
 			onDamage.Invoke( );
 
 		ChangeHP( -damage );
+		if(animator) animator.SetTrigger("damage");
+		if(damageParticles) GameObject.Instantiate(damageParticles, transform.position, Quaternion.Euler(0f, 0f, 0f));
 
 		if ( hpBar && !hpBar.gameObject.activeSelf && hideHpBar )
 		{
