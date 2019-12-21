@@ -5,8 +5,14 @@ using UnityEngine;
 public class AutoDisableAfterTime : MonoBehaviour
 {
     [SerializeField] private float delay = 1f;
+    [SerializeField] private GameObject[] objectsToActivateOnDisable = null;
 
     private float _delay = -999f;
+
+    public void SetToZero()
+    {
+        delay = 0f;
+    }
 
     void Start()
     {
@@ -15,7 +21,19 @@ public class AutoDisableAfterTime : MonoBehaviour
 
     void Update()
     {
-        if(delay <= 0f) { delay = _delay; gameObject.SetActive(false); }
-        else delay -= Time.deltaTime;
+        if(delay <= 0f)
+        {
+            delay = _delay;
+
+            if(objectsToActivateOnDisable != null)
+                foreach(var o in objectsToActivateOnDisable)
+                    o.SetActive(true);
+
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            delay -= Time.deltaTime;
+        }
     }
 }
