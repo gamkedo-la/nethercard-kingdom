@@ -5,44 +5,80 @@ using UnityEngine;
 public class WorldMapScript : MonoBehaviour
 {
     [SerializeField] private int moveToNode = 1;
-    [SerializeField] private float delay = 4f;
-    [SerializeField] private float resetDelay = 0.9f;
+    [SerializeField] private float lerpFactor = 0.25f;
     [SerializeField] private Vector3 defaultCamPosition;
+    [SerializeField] private GameObject fadeObject;
 
-    private float timer = 0f;
+    private bool displacedFollowCam = false;
+    private bool zoomToNode = true;
 
     private GameObject cam;
+    private Transform nodes;
+    private Animator animator;
+
+    public void DisableAnimator()
+    {
+        animator.enabled = false;
+        displacedFollowCam = true;
+        zoomToNode = false;
+    }
 
     void Start()
     {
         cam = GameObject.Find("FollowCam");
+        nodes = gameObject.transform.GetChild(2);
+        animator = GetComponent<Animator>();
 
-        cam.transform.position = gameObject.transform.GetChild(2).GetChild(moveToNode - 1).transform.position;
-
-        timer = delay;
+        cam.transform.position = nodes.GetChild(moveToNode - 1).transform.position;
     }
 
     void Update()
     {
-        timer -= Time.deltaTime;
-
-        if(timer <= 0f)
+        if (animator.enabled == false)
         {
-            if(timer < -resetDelay)
+            if (displacedFollowCam)
             {
-                cam.transform.position = defaultCamPosition;
-                GetComponent<AutoDisableAfterTime>().SetToZero();
+                if (Mathf.Abs(cam.transform.position.x - nodes.GetChild(moveToNode - 1).position.x) < 0.2f
+                && Mathf.Abs(cam.transform.position.y - nodes.GetChild(moveToNode - 1).position.y) < 0.2f
+                && Vector3.Distance(transform.localScale, Vector3.one) < 0.15f)
+                    displacedFollowCam = false;
+
+                cam.transform.position = Vector3.Lerp(cam.transform.position,
+                    nodes.GetChild(moveToNode - 1).transform.position, lerpFactor);
+            }
+            else if (zoomToNode)
+            {
+                if (fadeObject.GetComponent<SpriteRenderer>().color.a > 0.85f)
+                {
+                    zoomToNode = false;
+                    cam.transform.position = defaultCamPosition;
+
+                    animator.enabled = true;
+                    gameObject.SetActive(false);
+                }
+
+                transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one * 3f, lerpFactor);
+                fadeObject.SetActive(true);
+            }
+            else
+            {
+                if (Mathf.Abs(cam.transform.position.x - nodes.GetChild(moveToNode).position.x) < 0.1f
+                && Mathf.Abs(cam.transform.position.y - nodes.GetChild(moveToNode).position.y) < 0.1f)
+                {
+                    zoomToNode = true;
+                    return;
+                }
+
+                cam.transform.position = Vector3.Lerp(
+                    cam.transform.position, nodes.GetChild(moveToNode).transform.position, lerpFactor);
             }
 
-            return;
+            Vector3 pos = cam.transform.position;
+            pos.z = -10f;
+            cam.transform.position = pos;
+
+            if (!zoomToNode)
+                transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one, lerpFactor);
         }
-
-        cam.transform.position = Vector3.Lerp(
-            gameObject.transform.GetChild(2).GetChild(moveToNode - 1).transform.position,
-            gameObject.transform.GetChild(2).GetChild(moveToNode).transform.position, 1f - (timer / delay));
-
-        Vector3 pos = cam.transform.position;
-        pos.z = -10;
-        cam.transform.position = pos;
     }
 }

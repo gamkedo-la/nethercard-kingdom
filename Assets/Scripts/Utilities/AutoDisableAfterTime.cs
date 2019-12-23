@@ -6,8 +6,25 @@ public class AutoDisableAfterTime : MonoBehaviour
 {
     [SerializeField] private float delay = 1f;
     [SerializeField] private GameObject[] objectsToActivateOnDisable = null;
+    [SerializeField] private GameObject[] objectsToDectivateOnDisable = null;
 
     private float _delay = -999f;
+
+    public void Deactivate(GameObject deactivate)
+    {
+        deactivate.SetActive(false);
+    }
+
+    public void IterateThroughObjectsList()
+    {
+        if(objectsToActivateOnDisable != null)
+            foreach(var o in objectsToActivateOnDisable)
+                o.SetActive(true);
+
+        if(objectsToDectivateOnDisable != null)
+            foreach(var o in objectsToDectivateOnDisable)
+                o.SetActive(false);
+    }
 
     public void SetToZero()
     {
@@ -28,6 +45,10 @@ public class AutoDisableAfterTime : MonoBehaviour
             if(objectsToActivateOnDisable != null)
                 foreach(var o in objectsToActivateOnDisable)
                     o.SetActive(true);
+
+            if(objectsToDectivateOnDisable != null)
+                foreach(var o in objectsToDectivateOnDisable)
+                    o.SetActive(false);
 
             gameObject.SetActive(false);
         }
