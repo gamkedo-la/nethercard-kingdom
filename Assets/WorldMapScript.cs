@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class WorldMapScript : MonoBehaviour
 {
-    [SerializeField] private int moveToNode = 1;
+    [SerializeField] private int startNode = 1;
     [SerializeField] private float lerpFactor = 0.25f;
     [SerializeField] private Vector3 defaultCamPosition;
     [SerializeField] private GameObject fadeObject;
+    [SerializeField] private GameObject playerNode;
 
     private bool displacedFollowCam = false;
     private bool zoomToNode = true;
@@ -15,6 +16,8 @@ public class WorldMapScript : MonoBehaviour
     private GameObject cam;
     private Transform nodes;
     private Animator animator;
+
+    static private int moveToNode = -1;
 
     public void DisableAnimator()
     {
@@ -25,11 +28,29 @@ public class WorldMapScript : MonoBehaviour
 
     void Start()
     {
+        if(moveToNode < 0) moveToNode = startNode;
+
         cam = GameObject.Find("FollowCam");
         nodes = gameObject.transform.GetChild(2);
         animator = GetComponent<Animator>();
 
         cam.transform.position = nodes.GetChild(moveToNode - 1).transform.position;
+    }
+
+    void OnEnable()
+    {
+        if(moveToNode >= 0) moveToNode++;
+
+        for (int i = 1; i < moveToNode; i++)
+        {
+            if(nodes == null) nodes = gameObject.transform.GetChild(2);
+
+            if (nodes.GetChild(i).GetChild(0).name == "EnemyNode")
+            {
+                Destroy(nodes.GetChild(i).GetChild(0).gameObject);
+                Instantiate(playerNode, nodes.GetChild(i));
+            }
+        }
     }
 
     void Update()
