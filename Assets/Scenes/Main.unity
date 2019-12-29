@@ -6174,11 +6174,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8162016855704506014, guid: 64b0e6586ba5cbe43a6069d2548d9a47,
-        type: 3}
-      propertyPath: objectsToActivateOnDisable.Array.data[0]
-      value: 
-      objectReference: {fileID: 1835793258}
     - target: {fileID: 3893413232521065764, guid: 64b0e6586ba5cbe43a6069d2548d9a47,
         type: 3}
       propertyPath: m_Name
@@ -6189,6 +6184,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8162016855704506014, guid: 64b0e6586ba5cbe43a6069d2548d9a47,
+        type: 3}
+      propertyPath: objectsToActivateOnDisable.Array.data[0]
+      value: 
+      objectReference: {fileID: 1835793258}
     - target: {fileID: 2675963254139222198, guid: 64b0e6586ba5cbe43a6069d2548d9a47,
         type: 3}
       propertyPath: lengthInSec
@@ -6489,6 +6489,78 @@ PrefabInstance:
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: set_ShowOpponentsMana
+      objectReference: {fileID: 0}
+    - target: {fileID: 268789306195956763, guid: 64b0e6586ba5cbe43a6069d2548d9a47,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836611803420403423, guid: 64b0e6586ba5cbe43a6069d2548d9a47,
+        type: 3}
+      propertyPath: m_Colors.m_PressedColor.r
+      value: 0.8862746
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836611803420403423, guid: 64b0e6586ba5cbe43a6069d2548d9a47,
+        type: 3}
+      propertyPath: m_Colors.m_PressedColor.g
+      value: 0.8862746
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836611803420403423, guid: 64b0e6586ba5cbe43a6069d2548d9a47,
+        type: 3}
+      propertyPath: m_Colors.m_PressedColor.b
+      value: 0.8862746
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836611803420403423, guid: 64b0e6586ba5cbe43a6069d2548d9a47,
+        type: 3}
+      propertyPath: m_Colors.m_NormalColor.r
+      value: 0.94117653
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836611803420403423, guid: 64b0e6586ba5cbe43a6069d2548d9a47,
+        type: 3}
+      propertyPath: m_Colors.m_NormalColor.g
+      value: 0.94117653
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836611803420403423, guid: 64b0e6586ba5cbe43a6069d2548d9a47,
+        type: 3}
+      propertyPath: m_Colors.m_NormalColor.b
+      value: 0.94117653
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836611803420403423, guid: 64b0e6586ba5cbe43a6069d2548d9a47,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 0.97647065
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836611803420403423, guid: 64b0e6586ba5cbe43a6069d2548d9a47,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.97647065
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836611803420403423, guid: 64b0e6586ba5cbe43a6069d2548d9a47,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0.97647065
+      objectReference: {fileID: 0}
+    - target: {fileID: 6492377738471099921, guid: 64b0e6586ba5cbe43a6069d2548d9a47,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5595d87b07185094193f8760f889ff91,
+        type: 3}
+    - target: {fileID: 6492211659520259041, guid: 64b0e6586ba5cbe43a6069d2548d9a47,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7781722894150736118, guid: eec036a4e8912074ea1aa999f8f9cafd,
+        type: 3}
+    - target: {fileID: 6492211659520259041, guid: 64b0e6586ba5cbe43a6069d2548d9a47,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6492211659520259041, guid: 64b0e6586ba5cbe43a6069d2548d9a47,
+        type: 3}
+      propertyPath: m_UseSpriteMesh
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64b0e6586ba5cbe43a6069d2548d9a47, type: 3}
