@@ -7,6 +7,8 @@ public class ProjectileMovement : MonoBehaviour
     public float projectileSpeed = 3.0f;
     public Vector2 direction;
     public float damage = 1;
+    public ProjecttileType projectileType = ProjecttileType.Normal;
+    public float siegeDamageMultiplier = 3;
 
     void Update()
     {
@@ -29,6 +31,11 @@ public class ProjectileMovement : MonoBehaviour
             {
 				HP enemyHP = other.GetComponent<HP>();
 				Unit unit = other.GetComponent<Unit>();
+                float damageToInflict = damage;
+                if (other.gameObject.name == "Enemy Wall" && projectileType == ProjecttileType.Siege)
+                {
+                    damageToInflict *= siegeDamageMultiplier;
+                }
                 enemyHP.DoDamage(damage, unit ? unit.Center : transform.position);
             }
             Destroy(gameObject);

@@ -44,3 +44,9 @@ public enum CardClass
 	Ranged,
 	Support
 }
+
+public enum ProjecttileType
+{
+    Normal,
+    Siege
+}
