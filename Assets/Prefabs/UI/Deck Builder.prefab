@@ -5822,7 +5822,7 @@ MonoBehaviour:
     DefaultPlayerOwned: 0
     DefaultInDeck: 0
   - Card: {fileID: 197973518330441579, guid: 6b2fd377c34aa9e4dbb8111d52e6b8d1, type: 3}
-    DefaultPlayerOwned: 3
+    DefaultPlayerOwned: 0
     DefaultInDeck: 0
   - Card: {fileID: 7703579919947990461, guid: 1a28bb425cdad8e408cfd4778b6ee1c6, type: 3}
     DefaultPlayerOwned: 3

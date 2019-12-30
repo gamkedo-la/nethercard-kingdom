@@ -21,6 +21,7 @@ public class Unit : MonoBehaviour
 	public float MoveSpeed { get { return moveSpeed; } }
 	public float DPS { get { return attack.DPS; } }
 	public bool HQ { get { return hq; } }
+	public bool NonMovable { get { return nonMovable; } }
 
 	[Header("External objects")]
 	[SerializeField] private HP hp = null;
@@ -38,6 +39,7 @@ public class Unit : MonoBehaviour
 	[SerializeField] private float attackRange = 1f;
 
 	[Header("Movement")]
+	[SerializeField] private bool followClosesFriendly = false;
 	[SerializeField] private float moveSpeed = 2f;
 	[SerializeField] private Vector2 movementRange = new Vector2(14f, 4f);
 	[SerializeField] private Vector2 movementOffset = new Vector2(0, -1);
@@ -53,6 +55,7 @@ public class Unit : MonoBehaviour
 	private Vector2 moveDirection = Vector2.left;
 
 	private Unit currentOpponent = null;
+	private Unit friendly = null;
 	private bool inAttackRange = false;
 	private bool frozen = false;
 
@@ -91,7 +94,11 @@ public class Unit : MonoBehaviour
 		if ( frozen )
 			return;
 
-		TryFindAttackTarget( );
+		if ( followClosesFriendly )
+			TryFindClosesFriendly( );
+		else
+			TryFindAttackTarget( );
+
 		CalculateMoveVector( );
 		Move( );
 	}
@@ -140,6 +147,11 @@ public class Unit : MonoBehaviour
 		animator.SetTrigger( "Moving" );
 	}
 
+	private void TryFindClosesFriendly( )
+	{
+		friendly = UnitsManager.Instance.FindFriendly( side, Center, 1000, this );
+	}
+
 	private void TryFindAttackTarget( )
 	{
 		Unit newOponent = UnitsManager.Instance.FindOpponent( side, Center, attackRange );
@@ -151,7 +163,7 @@ public class Unit : MonoBehaviour
 			if ( inAttackRange )
 			{
 				if ( CheatAndDebug.Instance.ShowDebugInfo )
-					Debug.Log( $"{name} lost attack target" );
+					Debug.Log( $"{name} lost friendly target" );
 
 				onEnemyInRange.Invoke( null );
 				inAttackRange = false;
@@ -182,9 +194,22 @@ public class Unit : MonoBehaviour
 		if ( nonMovable )
 			return;
 
-		// Default move direction
-		moveDirection = side == ConflicSide.Player ? Vector2.right : Vector2.left;
-		moveDirection /= 10;
+		if ( followClosesFriendly && friendly != null )
+		{
+			moveDirection = friendly.Center - Center;
+			moveDirection.Normalize( );
+
+			if ( Vector2.Distance(friendly.transform.position, transform.position) <= attackRange / 2 )
+			{
+				moveDirection = Vector2.zero;
+			}
+		}
+		else
+		{
+			// Default move direction
+			moveDirection = side == ConflicSide.Player ? Vector2.right : Vector2.left;
+			moveDirection /= 10;
+		}
 
 		// We are in attack range, we should not move
 		if ( inAttackRange )
@@ -201,6 +226,11 @@ public class Unit : MonoBehaviour
 
 		foreach ( var unit in UnitsManager.Instance.EnemyUnits )
 			moveDirection += CalculateSpring( unit );
+
+		if ( followClosesFriendly && friendly != null && Vector2.Distance( friendly.transform.position, transform.position ) <= attackRange / 2 )
+		{
+			moveDirection = Vector2.zero;
+		}
 
 		// Get just the direction info
 		moveDirection.Normalize( );

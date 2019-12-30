@@ -89,6 +89,11 @@ PrefabInstance:
       propertyPath: useCost
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 3521042045987837686, guid: ce892e7f67b736742a63bb6816212e2d,
+        type: 3}
+      propertyPath: level
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1593515034299061820, guid: ce892e7f67b736742a63bb6816212e2d,
         type: 3}
       propertyPath: m_textInfo.characterCount

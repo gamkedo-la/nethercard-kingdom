@@ -20,6 +20,12 @@ TextureImporter:
   - first:
       213: -8027143870899560236
     second: Shadow Sharp
+  - first:
+      213: 6767031058244976328
+    second: Healer Fill
+  - first:
+      213: -5423618555727013596
+    second: Healer Outline
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -208,7 +214,7 @@ TextureImporter:
         width: 370
         height: 190
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -229,7 +235,7 @@ TextureImporter:
         width: 370
         height: 190
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -237,6 +243,48 @@ TextureImporter:
       bones: []
       spriteID: 313104a20121f7948be8d9bb6f4ab89c
       internalID: -8027143870899560236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Healer Fill
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 3436
+        width: 532
+        height: 634
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba89496d50f8ad4408af5f7d15bb6b16
+      internalID: 6767031058244976328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Healer Outline
+      rect:
+        serializedVersion: 2
+        x: 1506
+        y: 3432
+        width: 608
+        height: 634
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f40ffdc4338ed643a02a7d8abbedac5
+      internalID: -5423618555727013596
       vertices: []
       indices: 
       edges: []
