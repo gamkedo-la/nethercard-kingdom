@@ -48,7 +48,7 @@ PrefabInstance:
     - target: {fileID: 8824168672960201570, guid: 39305d494c8b56a44b497d389241a5fd,
         type: 3}
       propertyPath: cardID
-      value: 52
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 7363860218961748477, guid: 39305d494c8b56a44b497d389241a5fd,
         type: 3}

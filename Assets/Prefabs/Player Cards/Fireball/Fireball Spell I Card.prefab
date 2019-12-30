@@ -52,12 +52,12 @@ PrefabInstance:
     - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: groupID
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: cardID
-      value: 21
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 7709570893905777452, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
@@ -295,6 +295,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6930457677133692945, guid: 0b9c379e397653d43ae7e48ca5d309b2,
         type: 3}
+    - target: {fileID: 1908062142719847500, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4247683970634298323, guid: 17d5d6d0902be654bbbce749868c8774,
+        type: 3}
     - target: {fileID: 4499324498473488953, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -316,12 +322,6 @@ PrefabInstance:
       value: -11
       objectReference: {fileID: 0}
     - target: {fileID: 4894562913063567639, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -4247683970634298323, guid: 17d5d6d0902be654bbbce749868c8774,
-        type: 3}
-    - target: {fileID: 1908062142719847500, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: m_Sprite
       value: 

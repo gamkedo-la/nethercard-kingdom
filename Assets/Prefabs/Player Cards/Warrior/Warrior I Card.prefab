@@ -57,12 +57,12 @@ PrefabInstance:
     - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: groupID
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: cardID
-      value: 51
+      value: 71
       objectReference: {fileID: 0}
     - target: {fileID: 4395479231106108376, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}

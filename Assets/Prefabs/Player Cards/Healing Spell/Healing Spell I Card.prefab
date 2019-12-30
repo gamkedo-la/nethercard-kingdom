@@ -52,12 +52,12 @@ PrefabInstance:
     - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: groupID
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1447557084115629246, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: cardID
-      value: 31
+      value: 51
       objectReference: {fileID: 0}
     - target: {fileID: 7709570893905777452, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
@@ -274,6 +274,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6970642807188303820, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
         type: 3}
+    - target: {fileID: 1908062142719847500, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3421064769648057758, guid: 17d5d6d0902be654bbbce749868c8774,
+        type: 3}
     - target: {fileID: 4499324498473488953, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: m_SizeDelta.y
@@ -400,11 +406,5 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1908062142719847500, guid: 53475d4f1e5edc741919c3a46dada549,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -3421064769648057758, guid: 17d5d6d0902be654bbbce749868c8774,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53475d4f1e5edc741919c3a46dada549, type: 3}
