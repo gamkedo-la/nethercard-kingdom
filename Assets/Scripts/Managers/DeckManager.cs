@@ -18,6 +18,7 @@ public class DeckManager : MonoBehaviour
 	[SerializeField] private CollectionManager collectionManager = null;
 	[SerializeField] private TextMeshProUGUI tooltip = null;
 	[SerializeField] private TextMeshProUGUI goButtonLabel = null;
+	[SerializeField] private Animator goButtonAnim = null;
 
 	[Header("Objects")]
 	[SerializeField] private GameObject deckSlot = null;
@@ -43,12 +44,15 @@ public class DeckManager : MonoBehaviour
 		Assert.IsNotNull( slotsParent, $"Please assign <b>{nameof( slotsParent )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( tooltip, $"Please assign <b>{nameof( tooltip )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( goButtonLabel, $"Please assign <b>{nameof( goButtonLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( goButtonAnim, $"Please assign <b>{nameof( goButtonAnim )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
 		slotNumber = PlayerCards.MaxCardsInDeck;
 
 		GetDeckCards( );
 		CreateLayout( );
 		DisplayDeck( );
+
+		goButtonAnim.SetBool( "Ready", true );
 	}
 
 	void Update( )
@@ -188,16 +192,19 @@ public class DeckManager : MonoBehaviour
 		{
 			onCanSaveDeck?.Invoke( false );
 			goButtonLabel.text = $"{PlayerCards.MaxCardsInDeck - cardsInDeck} More Card Is Needed!";
+			goButtonAnim.SetBool( "Ready", false );
 		}
 		else if ( cardsInDeck != PlayerCards.MaxCardsInDeck )
 		{
 			onCanSaveDeck?.Invoke( false );
 			goButtonLabel.text = $"{PlayerCards.MaxCardsInDeck - cardsInDeck} More Cards Are Needed!";
+			goButtonAnim.SetBool( "Ready", false );
 		}
 		else
 		{
 			onCanSaveDeck?.Invoke( true );
 			goButtonLabel.text = "Save and Go to Battle";
+			goButtonAnim.SetBool( "Ready", true );
 		}
 	}
 
