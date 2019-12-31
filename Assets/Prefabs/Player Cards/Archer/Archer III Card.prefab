@@ -162,7 +162,7 @@ PrefabInstance:
     - target: {fileID: 7988124182491750961, guid: 7dc7cebc02c5fa445960646a217fe88c,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7988124182491750961, guid: 7dc7cebc02c5fa445960646a217fe88c,
         type: 3}
@@ -208,6 +208,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: Master Archer
+      objectReference: {fileID: 0}
+    - target: {fileID: 3513191361825572319, guid: 7dc7cebc02c5fa445960646a217fe88c,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 10.7
       objectReference: {fileID: 0}
     - target: {fileID: 5429788809547987552, guid: 7dc7cebc02c5fa445960646a217fe88c,
         type: 3}
@@ -335,6 +340,21 @@ PrefabInstance:
         type: 3}
       propertyPath: displayName
       value: Master Archer
+      objectReference: {fileID: 0}
+    - target: {fileID: 6090918543700216678, guid: 7dc7cebc02c5fa445960646a217fe88c,
+        type: 3}
+      propertyPath: m_Value
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1185248654191086738, guid: 7dc7cebc02c5fa445960646a217fe88c,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1185248654191086738, guid: 7dc7cebc02c5fa445960646a217fe88c,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dc7cebc02c5fa445960646a217fe88c, type: 3}

@@ -104,6 +104,12 @@ TextureImporter:
   - first:
       213: -6965752494751312658
     second: Button Border Bend
+  - first:
+      213: -8881315660537893657
+    second: Small Star Filled
+  - first:
+      213: -8079825799770076821
+    second: Circle with Space
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -859,7 +865,7 @@ TextureImporter:
         width: 560
         height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 72, y: 62, z: 72, w: 62}
       outline: []
       physicsShape: []
@@ -880,7 +886,7 @@ TextureImporter:
         width: 560
         height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 72, y: 62, z: 72, w: 62}
       outline: []
       physicsShape: []
@@ -901,7 +907,7 @@ TextureImporter:
         width: 560
         height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 72, y: 62, z: 72, w: 62}
       outline: []
       physicsShape: []
@@ -909,6 +915,48 @@ TextureImporter:
       bones: []
       spriteID: 03e0649fe1dd43c43b84fbb01ac62c88
       internalID: -6965752494751312658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small Star Filled
+      rect:
+        serializedVersion: 2
+        x: 3603
+        y: 2096
+        width: 59
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2aaf5ad66bb6cc469f8b9c4cdb7ed8a
+      internalID: -8881315660537893657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle with Space
+      rect:
+        serializedVersion: 2
+        x: 3880
+        y: 2621
+        width: 180
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7623934b237d63479ef861b06e74211
+      internalID: -8079825799770076821
       vertices: []
       indices: 
       edges: []
