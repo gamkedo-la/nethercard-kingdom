@@ -26,6 +26,12 @@ TextureImporter:
   - first:
       213: -5423618555727013596
     second: Healer Outline
+  - first:
+      213: 2867847495296240136
+    second: Skull Fill
+  - first:
+      213: 4627504817770578540
+    second: Skull Border
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -256,7 +262,7 @@ TextureImporter:
         width: 532
         height: 634
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -277,7 +283,7 @@ TextureImporter:
         width: 608
         height: 634
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -285,6 +291,48 @@ TextureImporter:
       bones: []
       spriteID: 4f40ffdc4338ed643a02a7d8abbedac5
       internalID: -5423618555727013596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skull Fill
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 2966
+        width: 320
+        height: 490
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56eb80a294bb1f84d934109506b8cc9b
+      internalID: 2867847495296240136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skull Border
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 2966
+        width: 320
+        height: 490
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0824062338ff715438f34a859ebeaa61
+      internalID: 4627504817770578540
       vertices: []
       indices: 
       edges: []
