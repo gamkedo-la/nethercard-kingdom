@@ -95,6 +95,15 @@ TextureImporter:
   - first:
       213: -5960261708692886552
     second: Icon Sword Big
+  - first:
+      213: 1382015731165636720
+    second: Button Fill
+  - first:
+      213: -7779339547008743505
+    second: Button Border Normal
+  - first:
+      213: -6965752494751312658
+    second: Button Border Bend
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -837,6 +846,69 @@ TextureImporter:
       bones: []
       spriteID: f41d99e1fc9a94048875a421f55f5d97
       internalID: -5960261708692886552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button Fill
+      rect:
+        serializedVersion: 2
+        x: 1820
+        y: 1857
+        width: 560
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 72, y: 62, z: 72, w: 62}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18cc8c0434ba2004fb700ab5cb726b23
+      internalID: 1382015731165636720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button Border Normal
+      rect:
+        serializedVersion: 2
+        x: 1820
+        y: 1615
+        width: 560
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 72, y: 62, z: 72, w: 62}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6178716456fc5e46bda06f5276893cb
+      internalID: -7779339547008743505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button Border Bend
+      rect:
+        serializedVersion: 2
+        x: 1820
+        y: 1405
+        width: 560
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 72, y: 62, z: 72, w: 62}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03e0649fe1dd43c43b84fbb01ac62c88
+      internalID: -6965752494751312658
       vertices: []
       indices: 
       edges: []
