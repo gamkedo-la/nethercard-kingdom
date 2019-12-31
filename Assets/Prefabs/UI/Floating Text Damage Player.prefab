@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 8033733463336510464}
   - component: {fileID: 5289782834565775509}
   m_Layer: 5
-  m_Name: Floating Text Damage
+  m_Name: Floating Text Damage Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -242,13 +242,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 5349083896971805775}
-  speedMove: 2
-  speedFade: 0.8
+  lifetime: 1.5
+  moveSpeed: 2
   speedShrink: 0.5
-  speedSideways: 1.4
-  speedDown: 8
+  speedSideways: -1.4
+  speedDown: -30
   varianceMin: 1
   varianceMax: 1.5
+  multiplierCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.0004043579
+      value: -1.0034926
+      inSlope: 0.13566446
+      outSlope: 0.13566446
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.09706546
+    - serializedVersion: 3
+      time: 0.5347042
+      value: -0.001055479
+      inSlope: 0.08710842
+      outSlope: 0.08710842
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.13937123
+    - serializedVersion: 3
+      time: 0.99765766
+      value: -1.0597181
+      inSlope: -2.689643
+      outSlope: -2.689643
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.114708126
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &5289782834565775509
 MonoBehaviour:
   m_ObjectHideFlags: 0

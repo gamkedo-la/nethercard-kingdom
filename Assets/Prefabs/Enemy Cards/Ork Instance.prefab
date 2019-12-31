@@ -134,6 +134,12 @@ PrefabInstance:
       propertyPath: floatingTextLeftDir
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2003592177715405983, guid: fc6c2faa8ae045542a0960290aa158db,
+        type: 3}
+      propertyPath: floatingTextDamage
+      value: 
+      objectReference: {fileID: 3226744748260564723, guid: bad5ab496be5c684abf047ee6eab57a9,
+        type: 3}
     - target: {fileID: 5883191176973908796, guid: fc6c2faa8ae045542a0960290aa158db,
         type: 3}
       propertyPath: dirOfMovement
@@ -150,6 +156,12 @@ PrefabInstance:
       propertyPath: deathEffectScale
       value: 1.3
       objectReference: {fileID: 0}
+    - target: {fileID: 5883191176973908796, guid: fc6c2faa8ae045542a0960290aa158db,
+        type: 3}
+      propertyPath: deathEffect
+      value: 
+      objectReference: {fileID: 4339266903613339993, guid: 84ca63502fc9a734d98f2413f22ed909,
+        type: 3}
     - target: {fileID: 3179189684220269125, guid: fc6c2faa8ae045542a0960290aa158db,
         type: 3}
       propertyPath: m_Layer

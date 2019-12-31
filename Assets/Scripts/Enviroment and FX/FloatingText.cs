@@ -22,17 +22,17 @@ public class FloatingText : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI text = null;
 
 	[Header("Parameters")]
-	[SerializeField] private float speedMove = 2.0f;
-	[SerializeField] private float speedFade = 0.5f;
+	[SerializeField] private float lifetime = 1.5f;
+	[SerializeField] private float moveSpeed = 2.0f;
 	[SerializeField] private float speedShrink = 0.5f;
 	[SerializeField] private float speedSideways = 2.0f;
 	[SerializeField] private float speedDown = 4.0f;
 	[SerializeField] private float varianceMin = 0.5f;
 	[SerializeField] private float varianceMax = 1.5f;
+	[SerializeField] private AnimationCurve multiplierCurve = new AnimationCurve(new Keyframe(0,1), new Keyframe(1,0));
 
+	private float currentLifetime = 1.0f;
 	private float multiplier = 1.0f;
-	private float gravity = 0.0f;
-	private float sideways = 0.0f;
 	private float variance = 1.0f;
 	private float scale = 1.0f;
 
@@ -42,6 +42,8 @@ public class FloatingText : MonoBehaviour
 			text = GetComponent<TextMeshProUGUI>( );
 
 		Assert.IsNotNull( text, $"Please assign <b>{nameof( text )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+
+		currentLifetime = lifetime;
 	}
 
 	private void Update( )
@@ -62,28 +64,29 @@ public class FloatingText : MonoBehaviour
 
 		transform.localScale = Vector3.one * scale;
 
-		sideways = speedSideways;// * Random.Range( 0, 2 ) > 0 ? 1 : -1;
 		variance = Random.Range( varianceMin, varianceMax );
 	}
 
 	private void Animate( )
 	{
-		gravity -= speedDown * multiplier * Time.deltaTime;
-		Vector3 moveUp = Vector3.up * 4;
-		Vector3 moveDown = Vector3.down * -gravity * variance;
-		Vector3 moveSideways = transform.right * sideways * variance;
-		float speed = speedMove * multiplier * Time.deltaTime;
+		currentLifetime -= Time.deltaTime;
+		float progress = currentLifetime / lifetime;
+		progress = Mathf.Clamp( progress, 0f, 1f );
 
-		transform.position += ( moveUp + moveSideways + moveDown ) * speed;
+		Color c = text.color;
+		c.a = progress;
+		text.color = c;
+
+		float gravity = speedDown * multiplier * multiplierCurve.Evaluate( progress ) * Time.deltaTime;
+		Vector3 moveDown = Vector3.down * -gravity * variance;
+		Vector3 moveSideways = transform.right * speedSideways * variance * multiplierCurve.Evaluate( progress );
+		float speed = moveSpeed * multiplier * Time.deltaTime;
+
+		transform.position += ( moveSideways + moveDown ) * speed;
 		scale -= speedShrink * Time.deltaTime;
 		transform.localScale = Vector3.one * scale;
 
-		Color c = text.color;
-		c.a -= speedFade * multiplier * Time.deltaTime;
-		c.a = Mathf.Clamp( c.a, 0f, 1f );
-		text.color = c;
-
-		if ( c.a <= 0 )
+		if ( currentLifetime <= 0 )
 			Destroy( gameObject );
 	}
 }
