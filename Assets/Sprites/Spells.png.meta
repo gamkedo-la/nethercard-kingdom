@@ -8,6 +8,12 @@ TextureImporter:
   - first:
       213: -7362082800165885573
     second: Lightning Border
+  - first:
+      213: 1445800840753518395
+    second: Healing Border
+  - first:
+      213: -753345479952500126
+    second: Healing Fill
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -112,7 +118,7 @@ TextureImporter:
         width: 258
         height: 1647
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -133,7 +139,7 @@ TextureImporter:
         width: 290
         height: 1649
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -141,6 +147,48 @@ TextureImporter:
       bones: []
       spriteID: 10c97f698d4380347994dceefc299e9f
       internalID: -7362082800165885573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Healing Border
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 3748
+        width: 310
+        height: 310
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a54b64342bd71c2409cf8fde14c1ea11
+      internalID: 1445800840753518395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Healing Fill
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 3747
+        width: 310
+        height: 310
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57ef34f5710b7e74888e6c58b6a9e98a
+      internalID: -753345479952500126
       vertices: []
       indices: 
       edges: []
