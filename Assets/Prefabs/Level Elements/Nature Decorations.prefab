@@ -1050,7 +1050,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 670725722}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.41, y: 0.09, z: 0}
+  m_LocalPosition: {x: -4, y: 1.77, z: 0}
   m_LocalScale: {x: 0.68, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 2057005696346342496}
@@ -1194,6 +1194,7 @@ MonoBehaviour:
   floatingTextDamage: {fileID: 9019960086119594430, guid: cda0f9ec0d436d24bbf7cc8ce7d0ba8f,
     type: 3}
   floatingTextHeal: {fileID: 0}
+  animator: {fileID: 0}
   maxHP: 10
   destroyOnNoHP: 1
   delayNextDamage: 0
@@ -1204,6 +1205,7 @@ MonoBehaviour:
   scaleTime: 0.3
   underChangeTime: 1
   floatingTextLeftDir: 0
+  damageParticles: {fileID: 0}
   onHealthChange:
     m_PersistentCalls:
       m_Calls: []
@@ -1306,8 +1308,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 697509527}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.1, y: -0.27, z: 0}
-  m_LocalScale: {x: 0.68, y: 0.8, z: 0.8}
+  m_LocalPosition: {x: 7.634, y: -2.065, z: 0}
+  m_LocalScale: {x: 0.4999428, y: 0.588168, z: 0.588168}
   m_Children:
   - {fileID: 2057005695530240872}
   m_Father: {fileID: 2342446890035472778}
@@ -1354,7 +1356,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 1469339892170630324, guid: 32e29bbfa36c85046aaf4e4ea2585982,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.5, y: 0.5}
@@ -1450,6 +1452,7 @@ MonoBehaviour:
   floatingTextDamage: {fileID: 9019960086119594430, guid: cda0f9ec0d436d24bbf7cc8ce7d0ba8f,
     type: 3}
   floatingTextHeal: {fileID: 0}
+  animator: {fileID: 0}
   maxHP: 10
   destroyOnNoHP: 1
   delayNextDamage: 0
@@ -1460,6 +1463,7 @@ MonoBehaviour:
   scaleTime: 0.3
   underChangeTime: 1
   floatingTextLeftDir: 0
+  damageParticles: {fileID: 0}
   onHealthChange:
     m_PersistentCalls:
       m_Calls: []
@@ -1920,14 +1924,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1059162002}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.04, y: -0.47, z: 0}
-  m_LocalScale: {x: 0.68, y: 0.8, z: 0.8}
+  m_LocalRotation: {x: -0, y: -0, z: 0.075999, w: 0.9971079}
+  m_LocalPosition: {x: -7.732, y: -2.249, z: 0}
+  m_LocalScale: {x: 0.5723696, y: 0.673376, z: 0.673376}
   m_Children:
   - {fileID: 6329589770691124605}
   m_Father: {fileID: 2342446890035472778}
   m_RootOrder: 54
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 8.717}
 --- !u!212 &1059162008
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2065,6 +2069,7 @@ MonoBehaviour:
   floatingTextDamage: {fileID: 9019960086119594430, guid: cda0f9ec0d436d24bbf7cc8ce7d0ba8f,
     type: 3}
   floatingTextHeal: {fileID: 0}
+  animator: {fileID: 0}
   maxHP: 10
   destroyOnNoHP: 1
   delayNextDamage: 0
@@ -2075,6 +2080,7 @@ MonoBehaviour:
   scaleTime: 0.3
   underChangeTime: 1
   floatingTextLeftDir: 0
+  damageParticles: {fileID: 0}
   onHealthChange:
     m_PersistentCalls:
       m_Calls: []
@@ -2548,7 +2554,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1376539901}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.81, y: -1.25, z: 0}
+  m_LocalPosition: {x: 1.4, y: -2.34, z: 0}
   m_LocalScale: {x: 0.68, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 2057005696252834337}
@@ -2692,6 +2698,7 @@ MonoBehaviour:
   floatingTextDamage: {fileID: 9019960086119594430, guid: cda0f9ec0d436d24bbf7cc8ce7d0ba8f,
     type: 3}
   floatingTextHeal: {fileID: 0}
+  animator: {fileID: 0}
   maxHP: 10
   destroyOnNoHP: 1
   delayNextDamage: 0
@@ -2702,6 +2709,7 @@ MonoBehaviour:
   scaleTime: 0.3
   underChangeTime: 1
   floatingTextLeftDir: 0
+  damageParticles: {fileID: 0}
   onHealthChange:
     m_PersistentCalls:
       m_Calls: []
@@ -8201,7 +8209,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3547145367980799535
 Transform:
   m_ObjectHideFlags: 0
