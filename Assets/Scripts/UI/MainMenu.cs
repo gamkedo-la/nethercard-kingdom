@@ -37,4 +37,13 @@ public class MainMenu : MonoBehaviour
 	{
 		animator.SetTrigger( "Hide Credits" );
 	}
+
+	public void QuiteGame( )
+	{
+		#if UNITY_EDITOR
+		UnityEditor.EditorApplication.isPlaying = false;
+		#else
+		Application.Quit( );
+		#endif
+	}
 }
