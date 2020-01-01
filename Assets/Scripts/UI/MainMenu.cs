@@ -27,4 +27,14 @@ public class MainMenu : MonoBehaviour
 	{
 		map.SetActive( true );
 	}
+
+	public void ShowCredits( )
+	{
+		animator.SetTrigger( "Show Credits" );
+	}
+
+	public void CloseCredits( )
+	{
+		animator.SetTrigger( "Hide Credits" );
+	}
 }
