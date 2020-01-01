@@ -32,6 +32,12 @@ TextureImporter:
   - first:
       213: 4627504817770578540
     second: Skull Border
+  - first:
+      213: 4345589329737053533
+    second: Menu BG 1
+  - first:
+      213: -2332557668421593350
+    second: Menu BG 2
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -304,7 +310,7 @@ TextureImporter:
         width: 320
         height: 490
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -325,7 +331,7 @@ TextureImporter:
         width: 320
         height: 490
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -333,6 +339,48 @@ TextureImporter:
       bones: []
       spriteID: 0824062338ff715438f34a859ebeaa61
       internalID: 4627504817770578540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Menu BG 1
+      rect:
+        serializedVersion: 2
+        x: 1517
+        y: 0
+        width: 1258
+        height: 2314
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3abc5fa306bf67b4b9f202e5f287271e
+      internalID: 4345589329737053533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Menu BG 2
+      rect:
+        serializedVersion: 2
+        x: 2809
+        y: 0
+        width: 1258
+        height: 2314
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c993359612ed93439ce8e82e3e5a365
+      internalID: -2332557668421593350
       vertices: []
       indices: 
       edges: []
