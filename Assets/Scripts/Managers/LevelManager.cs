@@ -12,6 +12,7 @@ using UnityEngine.Events;
 public class LevelManager : MonoBehaviour
 {
 	public static LevelManager Instance { get; private set; }
+	public static float CurrentLevel { get; set; }
 
 	[SerializeField] private TextMeshProUGUI gameSpeedLabel = null;
 	[SerializeField] private UnitsManager unitsManager = null;
@@ -21,6 +22,7 @@ public class LevelManager : MonoBehaviour
 	[SerializeField] private PlaySound gameoverSound = null;
 	[SerializeField] private float playingCardGameSpeed = 0.3f;
 	[SerializeField] private GameObject[] toDisableOnEnd = null;
+	[SerializeField] private GameObject[] toReset = null;
 	[SerializeField] private UnityEvent onGameEnd = null;
 
 	float gameSpeedMod = 1f;
@@ -119,6 +121,16 @@ public class LevelManager : MonoBehaviour
 	public void OpponentKilled( )
 	{
 		GameWon( );
+	}
+
+	public void ResetCurrentLevel( )
+	{
+		Debug.Log( "Reset" );
+		foreach ( var item in toReset )
+			item.SetActive( false );
+
+		foreach ( var item in toReset )
+			item.SetActive( true );
 	}
 
 	private void GameWon( )
