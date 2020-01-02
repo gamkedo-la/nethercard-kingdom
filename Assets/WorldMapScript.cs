@@ -15,8 +15,11 @@ public class WorldMapScript : MonoBehaviour
     private bool zoomToNode = true;
 
     private GameObject cam;
+    private Camera cameraForCoordsCalc;
     private Transform nodes;
     private Animator animator;
+
+    private Vector3 startMousePosition = Vector3.zero;
 
     static private int moveToNode = -1;
 
@@ -29,22 +32,23 @@ public class WorldMapScript : MonoBehaviour
 
     void Start()
     {
-        if(moveToNode < 0) moveToNode = startNode;
+        if (moveToNode < 0) moveToNode = startNode;
 
         cam = GameObject.Find("FollowCam");
         nodes = gameObject.transform.GetChild(2);
         animator = GetComponent<Animator>();
+        cameraForCoordsCalc = Camera.main;
 
         cam.transform.position = nodes.GetChild(moveToNode - 1).transform.position;
     }
 
     void OnEnable()
     {
-        if(moveToNode >= 0) moveToNode++;
+        if (moveToNode >= 0) moveToNode++;
 
         for (int i = 1; i < moveToNode; i++)
         {
-            if(nodes == null) nodes = gameObject.transform.GetChild(2);
+            if (nodes == null) nodes = gameObject.transform.GetChild(2);
 
             if (nodes.GetChild(i).GetChild(0).name == "EnemyNode")
             {
@@ -79,8 +83,30 @@ public class WorldMapScript : MonoBehaviour
                     gameObject.SetActive(false);
                 }
 
-                transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one * 3f, lerpFactor);
+                transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one * 1.5f, lerpFactor);
                 //fadeObject.SetActive(true);
+
+                Vector3 mousePos = cameraForCoordsCalc.ScreenToViewportPoint(Input.mousePosition);
+                mousePos.x -= 0.5f;
+                mousePos.y -= 0.5f;
+                mousePos *= 10.0f;
+
+                if (Input.GetMouseButton(0))
+                {
+                    if (startMousePosition == Vector3.zero)
+                    {
+                        startMousePosition = mousePos;
+                    }
+                    else
+                    {
+                        cam.transform.position -= mousePos - startMousePosition;
+                        startMousePosition = mousePos;
+                    }
+                }
+                else
+                {
+                    startMousePosition = Vector3.zero;
+                }
             }
             else
             {
@@ -104,7 +130,7 @@ public class WorldMapScript : MonoBehaviour
         }
     }
 
-    public void Play( int level )
+    public void Play(int level)
     {
         //Debug.Log( $"Clicked play: {level}" );
 
@@ -112,10 +138,10 @@ public class WorldMapScript : MonoBehaviour
         pos.z = -10f;
         cam.transform.position = pos;
 
-        fadeObject.SetActive( true );
+        fadeObject.SetActive(true);
     }
 
-    public void DeckBuilder( int level )
+    public void DeckBuilder(int level)
     {
         //Debug.Log( $"Clicked deck: {level}" );
 
@@ -123,7 +149,7 @@ public class WorldMapScript : MonoBehaviour
         pos.z = -10f;
         cam.transform.position = pos;
 
-        deckBuilder.Show( );
-        gameObject.SetActive( false );
+        deckBuilder.Show();
+        gameObject.SetActive(false);
     }
 }
