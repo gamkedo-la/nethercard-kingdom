@@ -23,7 +23,6 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-		Debug.Log( "R" );
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;
@@ -31,7 +30,6 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
-		Debug.Log( "P" );
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
@@ -49,13 +47,12 @@ public class PauseMenu : MonoBehaviour
 		SceneManager.LoadScene( SceneManager.GetActiveScene( ).name );
 	}
 
-	public void Options()
-    {
-
-    }
-
     public void QuiteGame()
     {
-        Application.Quit();
+		#if UNITY_EDITOR
+		UnityEditor.EditorApplication.isPlaying = false;
+		#else
+		Application.Quit( );
+		#endif
     }
 }

@@ -6,9 +6,10 @@ public class WorldMapScript : MonoBehaviour
 {
     [SerializeField] private int startNode = 1;
     [SerializeField] private float lerpFactor = 0.25f;
-    [SerializeField] private Vector3 defaultCamPosition;
-    [SerializeField] private GameObject fadeObject;
-    [SerializeField] private GameObject playerNode;
+    [SerializeField] private Vector3 defaultCamPosition = Vector3.zero;
+    [SerializeField] private GameObject fadeObject = null;
+    [SerializeField] private GameObject playerNode = null;
+    [SerializeField] private DeckBuilder deckBuilder = null;
 
     private bool displacedFollowCam = false;
     private bool zoomToNode = true;
@@ -79,7 +80,7 @@ public class WorldMapScript : MonoBehaviour
                 }
 
                 transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one * 3f, lerpFactor);
-                fadeObject.SetActive(true);
+                //fadeObject.SetActive(true);
             }
             else
             {
@@ -101,5 +102,28 @@ public class WorldMapScript : MonoBehaviour
             if (!zoomToNode)
                 transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one, lerpFactor);
         }
+    }
+
+    public void Play( int level )
+    {
+        //Debug.Log( $"Clicked play: {level}" );
+
+        Vector3 pos = defaultCamPosition;
+        pos.z = -10f;
+        cam.transform.position = pos;
+
+        fadeObject.SetActive( true );
+    }
+
+    public void DeckBuilder( int level )
+    {
+        //Debug.Log( $"Clicked deck: {level}" );
+
+        Vector3 pos = defaultCamPosition;
+        pos.z = -10f;
+        cam.transform.position = pos;
+
+        deckBuilder.Show( );
+        gameObject.SetActive( false );
     }
 }

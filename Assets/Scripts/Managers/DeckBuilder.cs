@@ -16,7 +16,7 @@ public class DeckBuilder : MonoBehaviour
 	[SerializeField] private CollectionManager collectionManager = null;
 	[SerializeField] private Animator animator = null;
 	[SerializeField] private TextMeshProUGUI tooltip = null;
-	[SerializeField] private GameObject[] toHideOnClose = null;
+	[SerializeField] private GameObject enableOnClose = null;
 	[SerializeField] private GameObject[] toShowOnClose = null;
 
 	private void Awake( )
@@ -35,33 +35,26 @@ public class DeckBuilder : MonoBehaviour
 		Assert.IsNotNull( tooltip, $"Please assign <b>{nameof( tooltip )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( animator, $"Please assign <b>{nameof( animator )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
-		Assert.AreNotEqual( toHideOnClose.Length, 0, $"Please assign <b>{nameof( toHideOnClose )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
-		Assert.AreNotEqual( toShowOnClose.Length, 0, $"Please assign <b>{nameof( toShowOnClose )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
-
-		OpenAndLoad( );
+		enableOnClose.SetActive( false );
 	}
 
-	public void OpenAndLoad( )
+	public void Show( )
 	{
-		foreach ( var go in toHideOnClose )
-			go.SetActive( true );
-
-		foreach ( var go in toShowOnClose )
-			go.SetActive( false );
+		enableOnClose.SetActive( false );
+		animator.enabled = true;
 	}
 
 	public void Close( )
 	{
 		animator.SetTrigger( "Close" );
-
-		foreach ( var go in toShowOnClose )
-			go.SetActive( true );
 	}
 
 	public void OnDoneClose( )
 	{
-		foreach ( var go in toHideOnClose )
-			go.SetActive( false );
+		animator.enabled = false;
+
+		foreach ( var go in toShowOnClose )
+			go.SetActive( true );
 	}
 
 	public void ShowUpgrade( )
