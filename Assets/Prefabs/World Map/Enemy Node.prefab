@@ -652,27 +652,17 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 73646633443583285}
-          m_MethodName: SetActive
-          m_Mode: 6
+        - m_Target: {fileID: 5099313071584617877, guid: 32e01672c440b3e4987b3a784ef83200,
+            type: 3}
+          m_MethodName: ToggleActivation
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_ObjectArgument: {fileID: 73646633443583285}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 73646633443583285}
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
           m_CallState: 2
   - eventID: 0
     callback:
@@ -938,16 +928,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5846223643427836543}
     m_Modifications:
-    - target: {fileID: 3212978261992043798, guid: 7ffc8479143054347946b5422218583e,
-        type: 3}
-      propertyPath: m_Name
-      value: Node UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 3212978261992043798, guid: 7ffc8479143054347946b5422218583e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3212978261992043794, guid: 7ffc8479143054347946b5422218583e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1052,6 +1032,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212978261992043798, guid: 7ffc8479143054347946b5422218583e,
+        type: 3}
+      propertyPath: m_Name
+      value: Node UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212978261992043798, guid: 7ffc8479143054347946b5422218583e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1918221179993669063, guid: 7ffc8479143054347946b5422218583e,
         type: 3}

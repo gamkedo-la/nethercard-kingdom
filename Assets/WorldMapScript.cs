@@ -23,6 +23,32 @@ public class WorldMapScript : MonoBehaviour
 
     static private int moveToNode = -1;
 
+    public void ToggleActivation(GameObject obj)
+    {
+        if (obj.transform.parent.parent == nodes.GetChild(moveToNode))
+        {
+            if (obj.activeSelf)
+            {
+                obj.GetComponent<Animator>().SetTrigger("hide");
+                StartCoroutine(DisableAfterSeconds(obj, 0.5f));
+            }
+            else
+            {
+                obj.SetActive(true);
+            }
+        }
+        else
+        {
+            zoomToNode = false;
+        }
+    }
+
+    IEnumerator DisableAfterSeconds(GameObject obj, float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        obj.SetActive(false);
+    }
+
     public void DisableAnimator()
     {
         animator.enabled = false;
