@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
-    [SerializeField] private string sceneName;
+    [SerializeField] private string sceneName = "Main";
 
     void Start()
     {
