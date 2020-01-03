@@ -110,6 +110,27 @@ TextureImporter:
   - first:
       213: -8079825799770076821
     second: Circle with Space
+  - first:
+      213: -3092836115352214344
+    second: Corner Slim 1
+  - first:
+      213: 7099338501681425892
+    second: Corner Slim 2
+  - first:
+      213: -5334839194597005483
+    second: Corner Bold 1
+  - first:
+      213: 5602915432825292320
+    second: Corner Bold 2
+  - first:
+      213: 7053645383765099638
+    second: Frame 1 Large
+  - first:
+      213: 6078598491957429269
+    second: Frame 2 Medium
+  - first:
+      213: -2319794108711582517
+    second: Frame 3 Small
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -949,7 +970,7 @@ TextureImporter:
         width: 180
         height: 180
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -957,6 +978,153 @@ TextureImporter:
       bones: []
       spriteID: c7623934b237d63479ef861b06e74211
       internalID: -8079825799770076821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Corner Slim 1
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 1881
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8a6f17d11ef28f4fb9060f34924febf
+      internalID: -3092836115352214344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Corner Slim 2
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 1692
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae36e9ed56bdec94e8ad6998bc493297
+      internalID: 7099338501681425892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Corner Bold 1
+      rect:
+        serializedVersion: 2
+        x: 837
+        y: 1873
+        width: 175
+        height: 175
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a8069f14705b1a479bfb05865b77a23
+      internalID: -5334839194597005483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Corner Bold 2
+      rect:
+        serializedVersion: 2
+        x: 837
+        y: 1683
+        width: 175
+        height: 175
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e65ed7848d1b50249beec8739458d7a7
+      internalID: 5602915432825292320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frame 1 Large
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1088
+        width: 816
+        height: 528
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 106, y: 100, z: 106, w: 100}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94ebe96af3a6c6b45a488e4d2f752b4d
+      internalID: 7053645383765099638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frame 2 Medium
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 738
+        width: 517
+        height: 335
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 74, y: 65, z: 74, w: 65}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75df4a71509cceb478be72fbc64bff95
+      internalID: 6078598491957429269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frame 3 Small
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 538
+        width: 268
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 46, y: 43, z: 46, w: 43}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 576ef65e0b335f746a22494a46bf9285
+      internalID: -2319794108711582517
       vertices: []
       indices: 
       edges: []

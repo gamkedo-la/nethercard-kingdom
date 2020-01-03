@@ -10,6 +10,7 @@ using UnityEngine.Assertions;
 public class Targetable : MonoBehaviour
 {
 	[SerializeField] protected Collider2D col2D = null;
+	[SerializeField] protected GameObject indicator = null;
 	[SerializeField] protected CardType targetableBy = CardType.Undefined;
 
 	protected bool active = false;
@@ -17,6 +18,9 @@ public class Targetable : MonoBehaviour
 	virtual public void Start( )
 	{
 		Assert.IsNotNull( col2D, $"Please assign <b>{nameof( col2D )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( indicator, $"Please assign <b>{nameof( indicator )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+
+		indicator.SetActive( false );
 	}
 
 	void OnMouseEnter( )
@@ -47,5 +51,6 @@ public class Targetable : MonoBehaviour
 		// True if this entity is marked to respond to the incoming (being played) type of card
 		active = targetableBy.HasFlag( incomingType );
 		col2D.enabled = active;
+		indicator.SetActive( active );
 	}
 }
