@@ -18,6 +18,7 @@ public class Unit : MonoBehaviour
 	public Vector3 Center { get { return transform.position + (Vector3)unitCenter; } }
 	public HP HP { get { return hp; } }
 	public ConflicSide Side { get { return side; } }
+	public CardClass ClassType { get { return classType; } }
 	public float MoveSpeed { get { return moveSpeed; } }
 	public float DPS { get { return attack.DPS; } }
 	public bool HQ { get { return hq; } }
@@ -34,6 +35,7 @@ public class Unit : MonoBehaviour
 	[SerializeField] private Vector2 unitCenter = new Vector2(0f, 0.7f);
 	[SerializeField] private bool hq = false;
 	[SerializeField] private bool nonMovable = false;
+	[SerializeField] private CardClass classType = CardClass.Other;
 
 	[Header("Combat")]
 	[SerializeField] private float attackRange = 1f;
@@ -149,7 +151,7 @@ public class Unit : MonoBehaviour
 
 	private void TryFindClosesFriendly( )
 	{
-		friendly = UnitsManager.Instance.FindFriendly( side, Center, 1000, this );
+		friendly = UnitsManager.Instance.FindFriendlyOtherClasses( side, Center, 1000, this );
 	}
 
 	private void TryFindAttackTarget( )

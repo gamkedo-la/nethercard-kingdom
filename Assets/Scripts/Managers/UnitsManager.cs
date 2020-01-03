@@ -87,6 +87,29 @@ public class UnitsManager : MonoBehaviour
 		return friendly;
 	}
 
+	public Unit FindFriendlyOtherClasses( ConflicSide mySide, Vector2 myPosition, float distance, Unit caller )
+	{
+		Unit friendly = null;
+		float opponentDistance = int.MaxValue;
+
+		List<Unit> friendlies = mySide == ConflicSide.Player ? PlayerUnits : EnemyUnits;
+
+		foreach ( var fr in friendlies )
+		{
+			float opDistance = Vector2.Distance( fr.Center, myPosition );
+			if ( opDistance <= distance && fr != caller && fr.ClassType != caller.ClassType && !fr.NonMovable )
+			{
+				if ( opDistance < opponentDistance )
+				{
+					opponentDistance = opDistance;
+					friendly = fr;
+				}
+			}
+		}
+
+		return friendly;
+	}
+
 	public Unit[] FindUnitsInRange( Vector2 myPosition, float distance, ConflicSide mySide )
 	{
 		List<Unit> units = mySide == ConflicSide.Player ? EnemyUnits : PlayerUnits;
