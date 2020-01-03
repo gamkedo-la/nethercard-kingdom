@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AutoDisableAfterTime : MonoBehaviour
 {
     [SerializeField] private float delay = 1f;
+    [SerializeField] private string sceneToLoad = "Main";
+    [SerializeField] private string sceneToUnLoad = "World Map";
     [SerializeField] private GameObject[] objectsToActivateOnDisable = null;
     [SerializeField] private GameObject[] objectsToDectivateOnDisable = null;
 
@@ -29,6 +32,23 @@ public class AutoDisableAfterTime : MonoBehaviour
     public void SetToZero()
     {
         delay = 0f;
+    }
+
+    public void LoadLevel( )
+    {
+        if ( sceneToLoad == sceneToUnLoad )
+        {
+            SceneManager.LoadSceneAsync( sceneToLoad, LoadSceneMode.Single );
+            return;
+        }
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.LoadSceneAsync( sceneToLoad, LoadSceneMode.Additive );
+    }
+
+    void OnSceneLoaded( Scene scene, LoadSceneMode mode )
+    {
+        SceneManager.UnloadSceneAsync( sceneToUnLoad, UnloadSceneOptions.UnloadAllEmbeddedSceneObjects );
     }
 
     void Start()

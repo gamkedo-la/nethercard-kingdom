@@ -133,8 +133,8 @@ public class SummoningManager : MonoBehaviour
 
 	public void AddMana( float amount, bool playSound = true )
 	{
-		if ( playSound )
-			manaSound.Play( );
+		//if ( playSound )
+			//manaSound.Play( );
 
 		currentMana += amount;
 		currentMana = currentMana < maxMana ? currentMana : maxMana;

@@ -138,6 +138,9 @@ public class Card : MonoBehaviour
 		if ( SelectionMode != CardSelectionMode.InHand )
 			return;
 
+		if ( SummoningManager.Instance == null )
+			return;
+
 		if ( SummoningManager.Instance.EnoughMana( useCost ) && !CanBePlayed )
 		{
 			CanBePlayed = true;

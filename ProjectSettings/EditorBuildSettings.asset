@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Main Menu.unity
+    guid: e70dec8f9564d524fbe4d46905c57b1a
+  - enabled: 1
+    path: Assets/Scenes/World Map.unity
+    guid: ed1dd3f1573a42d4c831426e000e7502
+  - enabled: 1
+    path: Assets/Scenes/Deck Builder.unity
+    guid: c9deb8c467f6e5a4fb74f36a5090198e
+  - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: 8642c837e5c903145a670d08a02c938a
   m_configObjects: {}

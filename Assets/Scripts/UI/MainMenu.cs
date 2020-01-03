@@ -6,16 +6,15 @@
 
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
 	[SerializeField] private Animator animator = null;
-	[SerializeField] private GameObject map = null;
 
 	public void Start ()
 	{
 		Assert.IsNotNull( animator, $"Please assign <b>{nameof( animator )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
-		Assert.IsNotNull( map, $"Please assign <b>{nameof( map )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 	}
 
 	public void Play( )
@@ -25,7 +24,13 @@ public class MainMenu : MonoBehaviour
 
 	public void ShowMap( )
 	{
-		map.SetActive( true );
+		SceneManager.sceneLoaded += OnSceneLoaded;
+		SceneManager.LoadSceneAsync( "World Map", LoadSceneMode.Additive );
+	}
+
+	void OnSceneLoaded( Scene scene, LoadSceneMode mode )
+	{
+		SceneManager.UnloadSceneAsync( "Main Menu", UnloadSceneOptions.UnloadAllEmbeddedSceneObjects );
 	}
 
 	public void ShowCredits( )

@@ -7,9 +7,9 @@ public class WorldMapScript : MonoBehaviour
     [SerializeField] private int startNode = 1;
     [SerializeField] private float lerpFactor = 0.25f;
     [SerializeField] private Vector3 defaultCamPosition = Vector3.zero;
-    [SerializeField] private GameObject fadeObject = null;
+    [SerializeField] private GameObject fadeObjectBattle = null;
+    [SerializeField] private GameObject fadeObjectDeck = null;
     [SerializeField] private GameObject playerNode = null;
-    [SerializeField] private DeckBuilder deckBuilder = null;
 
     private bool displacedFollowCam = false;
     private bool zoomToNode = true;
@@ -100,7 +100,7 @@ public class WorldMapScript : MonoBehaviour
             }
             else if (zoomToNode)
             {
-                if (fadeObject.GetComponent<SpriteRenderer>().color.a > 0.85f)
+                if (fadeObjectBattle.GetComponent<SpriteRenderer>().color.a > 0.85f)
                 {
                     zoomToNode = false;
                     cam.transform.position = defaultCamPosition;
@@ -164,7 +164,7 @@ public class WorldMapScript : MonoBehaviour
         pos.z = -10f;
         cam.transform.position = pos;
 
-        fadeObject.SetActive(true);
+        fadeObjectBattle.SetActive(true);
     }
 
     public void DeckBuilder(int level)
@@ -175,7 +175,6 @@ public class WorldMapScript : MonoBehaviour
         pos.z = -10f;
         cam.transform.position = pos;
 
-        deckBuilder.Show();
-        gameObject.SetActive(false);
+        fadeObjectDeck.SetActive(true);
     }
 }
