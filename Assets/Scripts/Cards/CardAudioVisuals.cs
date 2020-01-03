@@ -46,6 +46,7 @@ public class CardAudioVisuals : MonoBehaviour
 	[SerializeField] private GameObject classMelee = null;
 	[SerializeField] private GameObject classRanged = null;
 	[SerializeField] private GameObject classSupport = null;
+	[SerializeField] private GameObject classSpell = null;
 
 	[Header("Parameters")]
 	[SerializeField] private float overInBuilderScale = 1.2f;
@@ -90,6 +91,7 @@ public class CardAudioVisuals : MonoBehaviour
 		Assert.IsNotNull( classMelee, $"Please assign <b>{nameof( classMelee )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( classRanged, $"Please assign <b>{nameof( classRanged )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( classSupport, $"Please assign <b>{nameof( classSupport )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( classSpell, $"Please assign <b>{nameof( classSpell )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 	}
 
 	void Update( )
@@ -279,6 +281,7 @@ public class CardAudioVisuals : MonoBehaviour
 		classMelee.SetActive( false );
 		classRanged.SetActive( false );
 		classSupport.SetActive( false );
+		classSpell.SetActive( false );
 
 		if ( cardClass == CardClass.Melee )
 			classMelee.SetActive( true );
@@ -286,6 +289,8 @@ public class CardAudioVisuals : MonoBehaviour
 			classRanged.SetActive( true );
 		else if ( cardClass == CardClass.Support )
 			classSupport.SetActive( true );
+		else
+			classSpell.SetActive( true );
 	}
 
 	public void EndSummoning( ) => canvasGroup.alpha = 1f;

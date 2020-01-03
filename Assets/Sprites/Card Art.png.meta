@@ -131,6 +131,18 @@ TextureImporter:
   - first:
       213: -2319794108711582517
     second: Frame 3 Small
+  - first:
+      213: -3351287352774080702
+    second: Icon Sword
+  - first:
+      213: -8968305251678533234
+    second: Icon Magic Spell
+  - first:
+      213: 1833321108932420641
+    second: Icon Star Big
+  - first:
+      213: -1837709936028934957
+    second: Icon Star Small
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -991,7 +1003,7 @@ TextureImporter:
         width: 160
         height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1012,7 +1024,7 @@ TextureImporter:
         width: 160
         height: 160
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1033,7 +1045,7 @@ TextureImporter:
         width: 175
         height: 175
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1054,7 +1066,7 @@ TextureImporter:
         width: 175
         height: 175
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1075,7 +1087,7 @@ TextureImporter:
         width: 816
         height: 528
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 106, y: 100, z: 106, w: 100}
       outline: []
       physicsShape: []
@@ -1096,7 +1108,7 @@ TextureImporter:
         width: 517
         height: 335
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 74, y: 65, z: 74, w: 65}
       outline: []
       physicsShape: []
@@ -1117,7 +1129,7 @@ TextureImporter:
         width: 268
         height: 184
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 46, y: 43, z: 46, w: 43}
       outline: []
       physicsShape: []
@@ -1125,6 +1137,90 @@ TextureImporter:
       bones: []
       spriteID: 576ef65e0b335f746a22494a46bf9285
       internalID: -2319794108711582517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon Sword
+      rect:
+        serializedVersion: 2
+        x: 3671
+        y: 3468
+        width: 117
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee81e845193067e43bd9400e404f1c06
+      internalID: -3351287352774080702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon Magic Spell
+      rect:
+        serializedVersion: 2
+        x: 3820
+        y: 3451
+        width: 176
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f19722a0c3cd33b47b7875da21d80a0d
+      internalID: -8968305251678533234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon Star Big
+      rect:
+        serializedVersion: 2
+        x: 4013
+        y: 3529
+        width: 83
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f75294a9ecad96949bcbc9baded3de9f
+      internalID: 1833321108932420641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon Star Small
+      rect:
+        serializedVersion: 2
+        x: 4023
+        y: 3446
+        width: 64
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be39d2c3d944e1c428ddf39d0c5e6e73
+      internalID: -1837709936028934957
       vertices: []
       indices: 
       edges: []
