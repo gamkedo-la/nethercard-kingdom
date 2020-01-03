@@ -54,6 +54,11 @@ PrefabInstance:
       propertyPath: cardID
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 6985831364665990557, guid: 7dc7cebc02c5fa445960646a217fe88c,
+        type: 3}
+      propertyPath: liveImageScaleMod
+      value: 0.91
+      objectReference: {fileID: 0}
     - target: {fileID: 6079746854351192164, guid: 7dc7cebc02c5fa445960646a217fe88c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -314,6 +319,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6090918543700216678, guid: 7dc7cebc02c5fa445960646a217fe88c,
+        type: 3}
+      propertyPath: m_Value
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1185248654191086738, guid: 7dc7cebc02c5fa445960646a217fe88c,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1185248654191086738, guid: 7dc7cebc02c5fa445960646a217fe88c,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6727232176801188089, guid: 7dc7cebc02c5fa445960646a217fe88c,
         type: 3}
       propertyPath: toSummon
@@ -340,21 +360,6 @@ PrefabInstance:
         type: 3}
       propertyPath: displayName
       value: Master Archer
-      objectReference: {fileID: 0}
-    - target: {fileID: 6090918543700216678, guid: 7dc7cebc02c5fa445960646a217fe88c,
-        type: 3}
-      propertyPath: m_Value
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1185248654191086738, guid: 7dc7cebc02c5fa445960646a217fe88c,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1185248654191086738, guid: 7dc7cebc02c5fa445960646a217fe88c,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dc7cebc02c5fa445960646a217fe88c, type: 3}

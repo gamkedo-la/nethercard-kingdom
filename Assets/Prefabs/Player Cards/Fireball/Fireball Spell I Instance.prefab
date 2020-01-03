@@ -1,23 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &6268359244087027526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6231682137157405236}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd72650d0210242449ba255192b2e538, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  optionalToSpawn: {fileID: 0}
-  type: 16
-  effectAmount: 15
-  destroyAfter: 0.25
-  range: 1
-  side: 2
 --- !u!114 &186018944201005907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40,6 +22,24 @@ MonoBehaviour:
   tryBurnTick: 0.5
   burnChance: 1
   burnRadius: 1
+--- !u!114 &6268359244087027526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6231682137157405236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd72650d0210242449ba255192b2e538, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  optionalToSpawn: {fileID: 0}
+  type: 16
+  effectAmount: 15
+  destroyAfter: 0.25
+  range: 1
+  side: 2
 --- !u!1001 &3445704745548621209
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -117,6 +117,21 @@ PrefabInstance:
       propertyPath: durationTimeMax
       value: 0.25
       objectReference: {fileID: 0}
+    - target: {fileID: 4948250338414745351, guid: 0df3e6601848bcf4d9998dd67658fa77,
+        type: 3}
+      propertyPath: useRandomEndScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4948250338414745351, guid: 0df3e6601848bcf4d9998dd67658fa77,
+        type: 3}
+      propertyPath: endScaleMin
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4948250338414745351, guid: 0df3e6601848bcf4d9998dd67658fa77,
+        type: 3}
+      propertyPath: endScaleMax
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7029198479336346959, guid: 0df3e6601848bcf4d9998dd67658fa77,
         type: 3}
       propertyPath: m_Sprite
@@ -172,6 +187,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508661331095656828, guid: 0df3e6601848bcf4d9998dd67658fa77,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 8913362294073089207, guid: 0df3e6601848bcf4d9998dd67658fa77,
         type: 3}

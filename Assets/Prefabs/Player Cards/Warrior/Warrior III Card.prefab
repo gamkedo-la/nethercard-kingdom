@@ -49,6 +49,11 @@ PrefabInstance:
       propertyPath: cardID
       value: 73
       objectReference: {fileID: 0}
+    - target: {fileID: 4150553154638098958, guid: 364b5ae33201a35488c849af8147a408,
+        type: 3}
+      propertyPath: liveImageScaleMod
+      value: 0.91
+      objectReference: {fileID: 0}
     - target: {fileID: 4012872303901052322, guid: 364b5ae33201a35488c849af8147a408,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -98,6 +103,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: Mighty Warrior
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613984335480482380, guid: 364b5ae33201a35488c849af8147a408,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 10.75
       objectReference: {fileID: 0}
     - target: {fileID: 1310950604215539187, guid: 364b5ae33201a35488c849af8147a408,
         type: 3}

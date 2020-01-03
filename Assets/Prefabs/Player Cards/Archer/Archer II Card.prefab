@@ -55,6 +55,11 @@ PrefabInstance:
       propertyPath: cardID
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 7798605283852989574, guid: f4b608c5cc99c6644a3879e8b33224bb,
+        type: 3}
+      propertyPath: liveImageScaleMod
+      value: 0.805
+      objectReference: {fileID: 0}
     - target: {fileID: 6383578966566807935, guid: f4b608c5cc99c6644a3879e8b33224bb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -163,7 +168,7 @@ PrefabInstance:
     - target: {fileID: 7067021017613896490, guid: f4b608c5cc99c6644a3879e8b33224bb,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7067021017613896490, guid: f4b608c5cc99c6644a3879e8b33224bb,
         type: 3}
@@ -209,6 +214,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.spaceCount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4326202620909579460, guid: f4b608c5cc99c6644a3879e8b33224bb,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 8.35
       objectReference: {fileID: 0}
     - target: {fileID: 5157433655794586491, guid: f4b608c5cc99c6644a3879e8b33224bb,
         type: 3}

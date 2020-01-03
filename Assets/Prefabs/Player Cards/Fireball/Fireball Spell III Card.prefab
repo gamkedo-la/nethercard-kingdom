@@ -47,12 +47,17 @@ PrefabInstance:
     - target: {fileID: 8461569342959266323, guid: 0b9c379e397653d43ae7e48ca5d309b2,
         type: 3}
       propertyPath: abilityText
-      value: Does <b>21 damage</b> in a <b>radius of 2</b>
+      value: Does <b>21 damage</b> in a <b>radius of 3</b>
       objectReference: {fileID: 0}
     - target: {fileID: 8461569342959266323, guid: 0b9c379e397653d43ae7e48ca5d309b2,
         type: 3}
       propertyPath: cardID
       value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 6738695735099528565, guid: 0b9c379e397653d43ae7e48ca5d309b2,
+        type: 3}
+      propertyPath: liveImageScaleMod
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7577756078311999628, guid: 0b9c379e397653d43ae7e48ca5d309b2,
         type: 3}

@@ -48,12 +48,17 @@ PrefabInstance:
     - target: {fileID: 1760369034310967338, guid: 35c73b0121dc76649931f579533a5375,
         type: 3}
       propertyPath: abilityText
-      value: Does <b>18 damage</b> in a <b>radius of 2</b>
+      value: Does <b>18 damage</b> in a <b>radius of 2.5</b>
       objectReference: {fileID: 0}
     - target: {fileID: 1760369034310967338, guid: 35c73b0121dc76649931f579533a5375,
         type: 3}
       propertyPath: cardID
       value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 3496823156521557836, guid: 35c73b0121dc76649931f579533a5375,
+        type: 3}
+      propertyPath: liveImageScaleMod
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 4516576208258982112, guid: 35c73b0121dc76649931f579533a5375,
         type: 3}
@@ -104,6 +109,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.spaceCount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6968408178156668686, guid: 35c73b0121dc76649931f579533a5375,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7221376913968005055, guid: 35c73b0121dc76649931f579533a5375,
         type: 3}
