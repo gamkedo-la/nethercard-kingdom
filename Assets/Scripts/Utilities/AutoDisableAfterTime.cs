@@ -36,19 +36,7 @@ public class AutoDisableAfterTime : MonoBehaviour
 
     public void LoadLevel( )
     {
-        if ( sceneToLoad == sceneToUnLoad )
-        {
-            SceneManager.LoadSceneAsync( sceneToLoad, LoadSceneMode.Single );
-            return;
-        }
-
-        SceneManager.sceneLoaded += OnSceneLoaded;
-        SceneManager.LoadSceneAsync( sceneToLoad, LoadSceneMode.Additive );
-    }
-
-    void OnSceneLoaded( Scene scene, LoadSceneMode mode )
-    {
-        SceneManager.UnloadSceneAsync( sceneToUnLoad, UnloadSceneOptions.UnloadAllEmbeddedSceneObjects );
+        SceneManager.LoadScene( sceneToLoad, LoadSceneMode.Single );
     }
 
     void Start()

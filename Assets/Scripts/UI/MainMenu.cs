@@ -24,13 +24,7 @@ public class MainMenu : MonoBehaviour
 
 	public void ShowMap( )
 	{
-		SceneManager.sceneLoaded += OnSceneLoaded;
-		SceneManager.LoadSceneAsync( "World Map", LoadSceneMode.Additive );
-	}
-
-	void OnSceneLoaded( Scene scene, LoadSceneMode mode )
-	{
-		SceneManager.UnloadSceneAsync( "Main Menu", UnloadSceneOptions.UnloadAllEmbeddedSceneObjects );
+		SceneManager.LoadScene( "World Map", LoadSceneMode.Single );
 	}
 
 	public void ShowCredits( )
