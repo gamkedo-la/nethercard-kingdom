@@ -250,6 +250,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 30
+  sceneToLoad: Main
+  sceneToUnLoad: World Map
   objectsToActivateOnDisable:
   - {fileID: 0}
   - {fileID: 0}
@@ -924,6 +926,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847001773548230913, guid: 67113f71c3ae39d4f9edea9758ad4096,
+        type: 3}
+      propertyPath: m_text
+      value: Kingdom
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847001773548230913, guid: 67113f71c3ae39d4f9edea9758ad4096,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847001772599897688, guid: 67113f71c3ae39d4f9edea9758ad4096,
+        type: 3}
+      propertyPath: m_text
+      value: Kingdom
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847001772599897688, guid: 67113f71c3ae39d4f9edea9758ad4096,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67113f71c3ae39d4f9edea9758ad4096, type: 3}

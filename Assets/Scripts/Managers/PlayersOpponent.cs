@@ -99,7 +99,7 @@ public class PlayersOpponent : MonoBehaviour
 		float timePercentInv = 1 - ( timeEngage / timeEngageMax );
 		float timeEnrage = maxEnrage * timePercentInv;
 
-		enrageMeter = Mathf.Max( hpEnrage, timeEngage );
+		enrageMeter = Mathf.Max( hpEnrage, timeEnrage );
 	}
 
 	private void TryToSummon( )
