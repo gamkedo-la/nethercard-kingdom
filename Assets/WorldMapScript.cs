@@ -10,6 +10,7 @@ public class WorldMapScript : MonoBehaviour
     [SerializeField] private GameObject fadeObjectBattle = null;
     [SerializeField] private GameObject fadeObjectDeck = null;
     [SerializeField] private GameObject playerNode = null;
+    [SerializeField] private float nodeUIActivationTime = 6f;
 
     private bool displacedFollowCam = false;
     private bool zoomToNode = true;
@@ -66,6 +67,8 @@ public class WorldMapScript : MonoBehaviour
         cameraForCoordsCalc = Camera.main;
 
         cam.transform.position = nodes.GetChild(moveToNode - 1).transform.position;
+
+        Invoke( nameof( EnableNodeUI ), nodeUIActivationTime );
     }
 
     void OnEnable()
@@ -84,6 +87,11 @@ public class WorldMapScript : MonoBehaviour
         }
     }
 
+    private void EnableNodeUI()
+    {
+        nodes.GetChild( moveToNode ).GetChild( 0 ).GetChild( 0 ).gameObject.SetActive( true );
+    }
+
     void Update()
     {
         if (animator.enabled == false)
@@ -97,6 +105,8 @@ public class WorldMapScript : MonoBehaviour
 
                 cam.transform.position = Vector3.Lerp(cam.transform.position,
                     nodes.GetChild(moveToNode - 1).transform.position, lerpFactor);
+
+
             }
             else if (zoomToNode)
             {

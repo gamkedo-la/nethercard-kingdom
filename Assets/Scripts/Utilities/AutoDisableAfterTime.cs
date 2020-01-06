@@ -7,7 +7,6 @@ public class AutoDisableAfterTime : MonoBehaviour
 {
     [SerializeField] private float delay = 1f;
     [SerializeField] private string sceneToLoad = "Main";
-    [SerializeField] private string sceneToUnLoad = "World Map";
     [SerializeField] private GameObject[] objectsToActivateOnDisable = null;
     [SerializeField] private GameObject[] objectsToDectivateOnDisable = null;
 
