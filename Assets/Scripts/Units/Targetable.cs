@@ -11,6 +11,7 @@ public class Targetable : MonoBehaviour
 {
 	[SerializeField] protected Collider2D col2D = null;
 	[SerializeField] protected GameObject indicator = null;
+	[SerializeField] protected Animator targeted = null;
 	[SerializeField] protected CardType targetableBy = CardType.Undefined;
 
 	protected bool active = false;
@@ -26,13 +27,22 @@ public class Targetable : MonoBehaviour
 	void OnMouseEnter( )
 	{
 		if ( active )
+		{
 			SummoningManager.Instance.MouseOverTarget( this, targetableBy, true );
+
+			if ( targeted )
+				targeted.enabled = true;
+		}
 	}
 
 	void OnMouseExit( )
 	{
 		if ( active )
+		{
 			SummoningManager.Instance.MouseOverTarget( this, targetableBy, false );
+
+			targeted.enabled = false;
+		}
 	}
 
 	void OnEnable( )
