@@ -70,7 +70,7 @@ PrefabInstance:
     - target: {fileID: 3984009446330185720, guid: 538f57f7ad5d06c4688ac391c19c1c64,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3984009446330185720, guid: 538f57f7ad5d06c4688ac391c19c1c64,
         type: 3}
@@ -245,7 +245,7 @@ PrefabInstance:
     - target: {fileID: 3984009446965205011, guid: 538f57f7ad5d06c4688ac391c19c1c64,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.284
+      value: 0.311
       objectReference: {fileID: 0}
     - target: {fileID: 4365869118935377433, guid: 538f57f7ad5d06c4688ac391c19c1c64,
         type: 3}
