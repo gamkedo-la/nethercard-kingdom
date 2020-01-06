@@ -799,7 +799,7 @@ PrefabInstance:
     - target: {fileID: 5099313071584617877, guid: 32e01672c440b3e4987b3a784ef83200,
         type: 3}
       propertyPath: nodeUIActivationTime
-      value: 6
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 35686603494611127, guid: 32e01672c440b3e4987b3a784ef83200,
         type: 3}

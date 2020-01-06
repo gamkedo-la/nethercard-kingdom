@@ -80,6 +80,8 @@ public class UnitVisuals : MonoBehaviour
 	{
 		GameObject go = Instantiate( deathEffect, transform.position, Quaternion.Euler( 0, 0, 66.5f ) );
 		go.transform.localScale = Vector3.one * deathEffectScale;
+
+		Destroy( gameObject );
 	}
 
 	public void MoveDir( Vector2 dir, float speed )
