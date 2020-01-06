@@ -54,6 +54,17 @@ public class Flammable : MonoBehaviour
 	{
 		if ( isBurning )
 			burnTimeRemaining -= Time.deltaTime;
+
+		if ( ( LevelManager.Lost || LevelManager.Won ) && isBurning )
+		{
+			isBurning = false;
+
+			if ( particles )
+			{
+				var emission = particles.emission;
+				emission.rateOverTime = 0;
+			}
+		}
 	}
 
 	public void Set( float damage )

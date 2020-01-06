@@ -13,6 +13,8 @@ public class LevelManager : MonoBehaviour
 {
 	public static LevelManager Instance { get; private set; }
 	public static float CurrentLevel { get; set; }
+	public static bool Won { get; private set; }
+	public static bool Lost { get; private set; }
 
 	[SerializeField] private TextMeshProUGUI gameSpeedLabel = null;
 	[SerializeField] private UnitsManager unitsManager = null;
@@ -139,6 +141,7 @@ public class LevelManager : MonoBehaviour
 		wonSound.Play( );
 
 		EndGame( );
+		Won = true;
 	}
 
 	private void GameLost( )
@@ -147,6 +150,7 @@ public class LevelManager : MonoBehaviour
 		gameoverSound.Play( );
 
 		EndGame( );
+		Lost = true;
 	}
 
 	private void EndGame( )

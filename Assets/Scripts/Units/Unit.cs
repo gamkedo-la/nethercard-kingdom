@@ -103,6 +103,16 @@ public class Unit : MonoBehaviour
 
 		CalculateMoveVector( );
 		Move( );
+
+		if ( side == ConflicSide.Player && LevelManager.Lost )
+			Invoke( nameof( GoodBye ), 1f );
+		else if ( side == ConflicSide.Enemy && LevelManager.Won )
+			Invoke( nameof( GoodBye ), 1f );
+	}
+
+	private void GoodBye( )
+	{
+		visuals.Killed( );
 	}
 
 	void OnDrawGizmosSelected( )
