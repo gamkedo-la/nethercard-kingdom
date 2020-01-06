@@ -346,6 +346,7 @@ MonoBehaviour:
   gameoverSound: {fileID: 5350629655699950112}
   playingCardGameSpeed: 0.25
   toDisableOnEnd: []
+  toReset: []
   onGameEnd:
     m_PersistentCalls:
       m_Calls:
@@ -765,7 +766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - {fileID: 8300000, guid: 7b211bc9813534342ac23fb997f9a7d2, type: 3}
+  - {fileID: 8300000, guid: e6824d17759ba6547aeb77a99bd35733, type: 3}
   minPitch: 0.95
   maxPitch: 1.05
   minVolume: 0.9
@@ -915,7 +916,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - {fileID: 8300000, guid: 05e59f3d3c88b9c4a92dc8f52ec5302b, type: 3}
+  - {fileID: 8300000, guid: e0969fe27c5cd1846be36df8cd2290d6, type: 3}
   minPitch: 0.95
   maxPitch: 1.05
   minVolume: 1
