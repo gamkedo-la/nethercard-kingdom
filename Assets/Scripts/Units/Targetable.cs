@@ -41,7 +41,8 @@ public class Targetable : MonoBehaviour
 		{
 			SummoningManager.Instance.MouseOverTarget( this, targetableBy, false );
 
-			targeted.enabled = false;
+			if ( targeted )
+				targeted.enabled = false;
 		}
 	}
 
@@ -61,6 +62,9 @@ public class Targetable : MonoBehaviour
 		// True if this entity is marked to respond to the incoming (being played) type of card
 		active = targetableBy.HasFlag( incomingType );
 		col2D.enabled = active;
+
+		if ( targeted && !active )
+			targeted.enabled = false;
 		indicator.SetActive( active );
 	}
 }
