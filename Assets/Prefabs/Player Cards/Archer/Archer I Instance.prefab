@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 4879627324773778387}
-  atackDamage: 8
+  atackDamage: 6
   atackDelay: 1
   projectilePrefab: {fileID: 3951523413204502861, guid: 3acff32226f4e3b469632fa2aaa57df4,
     type: 3}
@@ -42,7 +42,7 @@ PrefabInstance:
     - target: {fileID: 2003592177715405980, guid: fc6c2faa8ae045542a0960290aa158db,
         type: 3}
       propertyPath: attackRange
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2003592177715405980, guid: fc6c2faa8ae045542a0960290aa158db,
         type: 3}

@@ -70,7 +70,7 @@ PrefabInstance:
     - target: {fileID: 5583401580346243595, guid: db7e2862d6f6f85468bbcbf2b005610f,
         type: 3}
       propertyPath: attackRange
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5583401580346243592, guid: db7e2862d6f6f85468bbcbf2b005610f,
         type: 3}
@@ -102,6 +102,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2969963331890096423, guid: db7e2862d6f6f85468bbcbf2b005610f,
+        type: 3}
+      propertyPath: atackDamage
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6506291477176877274, guid: db7e2862d6f6f85468bbcbf2b005610f,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -117,16 +122,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.3
       objectReference: {fileID: 0}
-    - target: {fileID: 5677501978297307088, guid: db7e2862d6f6f85468bbcbf2b005610f,
-        type: 3}
-      propertyPath: atackDelay
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5677501978297307088, guid: db7e2862d6f6f85468bbcbf2b005610f,
-        type: 3}
-      propertyPath: atackDamage
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 1413936584522683730, guid: db7e2862d6f6f85468bbcbf2b005610f,
         type: 3}
       propertyPath: m_IsActive
@@ -136,6 +131,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5677501978297307088, guid: db7e2862d6f6f85468bbcbf2b005610f,
+        type: 3}
+      propertyPath: atackDelay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5677501978297307088, guid: db7e2862d6f6f85468bbcbf2b005610f,
+        type: 3}
+      propertyPath: atackDamage
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db7e2862d6f6f85468bbcbf2b005610f, type: 3}

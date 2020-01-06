@@ -75,7 +75,7 @@ PrefabInstance:
     - target: {fileID: 7590239647103969357, guid: 7abe3553994f2444ba9439d88e45061d,
         type: 3}
       propertyPath: attackRange
-      value: 2.5
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 7590239647103969358, guid: 7abe3553994f2444ba9439d88e45061d,
         type: 3}
@@ -91,6 +91,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.268
+      objectReference: {fileID: 0}
+    - target: {fileID: 945374885376244577, guid: 7abe3553994f2444ba9439d88e45061d,
+        type: 3}
+      propertyPath: atackDamage
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7590239647991435860, guid: 7abe3553994f2444ba9439d88e45061d,
         type: 3}
@@ -142,16 +147,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.15
       objectReference: {fileID: 0}
-    - target: {fileID: 7702071731869883798, guid: 7abe3553994f2444ba9439d88e45061d,
-        type: 3}
-      propertyPath: atackDamage
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7702071731869883798, guid: 7abe3553994f2444ba9439d88e45061d,
-        type: 3}
-      propertyPath: atackDelay
-      value: 1.7
-      objectReference: {fileID: 0}
     - target: {fileID: 2247902833502445241, guid: 7abe3553994f2444ba9439d88e45061d,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -161,6 +156,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7702071731869883798, guid: 7abe3553994f2444ba9439d88e45061d,
+        type: 3}
+      propertyPath: atackDamage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7702071731869883798, guid: 7abe3553994f2444ba9439d88e45061d,
+        type: 3}
+      propertyPath: atackDelay
+      value: 1.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7abe3553994f2444ba9439d88e45061d, type: 3}
