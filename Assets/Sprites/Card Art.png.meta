@@ -143,6 +143,18 @@ TextureImporter:
   - first:
       213: -1837709936028934957
     second: Icon Star Small
+  - first:
+      213: 2184145022197439086
+    second: Slider Rim
+  - first:
+      213: 5730608155187963194
+    second: Slider BG
+  - first:
+      213: 3936276749249508925
+    second: Slider Knob Rim
+  - first:
+      213: -2201731693854263826
+    second: Slider Knob BG
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -1150,7 +1162,7 @@ TextureImporter:
         width: 117
         height: 147
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1171,7 +1183,7 @@ TextureImporter:
         width: 176
         height: 158
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1192,7 +1204,7 @@ TextureImporter:
         width: 83
         height: 82
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1213,7 +1225,7 @@ TextureImporter:
         width: 64
         height: 61
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1221,6 +1233,90 @@ TextureImporter:
       bones: []
       spriteID: be39d2c3d944e1c428ddf39d0c5e6e73
       internalID: -1837709936028934957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slider Rim
+      rect:
+        serializedVersion: 2
+        x: 3009
+        y: 2067
+        width: 500
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5519f4d1e66fac6479db031005b896c5
+      internalID: 2184145022197439086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slider BG
+      rect:
+        serializedVersion: 2
+        x: 3009
+        y: 2007
+        width: 500
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad6ef27226ceb8044bb76aaf1f1a2811
+      internalID: 5730608155187963194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slider Knob Rim
+      rect:
+        serializedVersion: 2
+        x: 3012
+        y: 1918
+        width: 85
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b42265b28a42dd47afc1e25127a32c0
+      internalID: 3936276749249508925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slider Knob BG
+      rect:
+        serializedVersion: 2
+        x: 3012
+        y: 1825
+        width: 85
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41ce4c0a6d72fee43a4b8a3ced37c9a8
+      internalID: -2201731693854263826
       vertices: []
       indices: 
       edges: []
