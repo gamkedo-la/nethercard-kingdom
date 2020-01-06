@@ -309,6 +309,11 @@ PrefabInstance:
       propertyPath: toHideOnClose.Array.data[0]
       value: 
       objectReference: {fileID: 1134767138}
+    - target: {fileID: 5194943639164526079, guid: 05bb1a60abb84524391347d824cb86f4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 269294555353502246, guid: 05bb1a60abb84524391347d824cb86f4,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -318,6 +323,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 30.195068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049916693490668226, guid: 05bb1a60abb84524391347d824cb86f4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049916693490668226, guid: 05bb1a60abb84524391347d824cb86f4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049916693490668226, guid: 05bb1a60abb84524391347d824cb86f4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587907931921849049, guid: 05bb1a60abb84524391347d824cb86f4,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 986ed0aa20518aa44ad5cca4bfc5ef98, type: 3}
+    - target: {fileID: 6587907931921849049, guid: 05bb1a60abb84524391347d824cb86f4,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 6310957131708557684, guid: 05bb1a60abb84524391347d824cb86f4,
         type: 3}
@@ -1279,26 +1309,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -3.699997
       objectReference: {fileID: 0}
-    - target: {fileID: 6049916693490668226, guid: 05bb1a60abb84524391347d824cb86f4,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6049916693490668226, guid: 05bb1a60abb84524391347d824cb86f4,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6049916693490668226, guid: 05bb1a60abb84524391347d824cb86f4,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5194943639164526079, guid: 05bb1a60abb84524391347d824cb86f4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05bb1a60abb84524391347d824cb86f4, type: 3}
 --- !u!1 &780782843 stripped
@@ -1420,7 +1430,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay: 30
   sceneToLoad: Main
-  sceneToUnLoad: Deck Builder
   objectsToActivateOnDisable: []
   objectsToDectivateOnDisable:
   - {fileID: 0}
@@ -1881,12 +1890,17 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1110461520728679070, guid: e3c3b568509cb4e4d96d7addd81b6ed9,
+    - target: {fileID: 6314165349468673042, guid: e3c3b568509cb4e4d96d7addd81b6ed9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3682474613377737290, guid: e3c3b568509cb4e4d96d7addd81b6ed9,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 17582545}
-    - target: {fileID: 3682474613377737290, guid: e3c3b568509cb4e4d96d7addd81b6ed9,
+    - target: {fileID: 1110461520728679070, guid: e3c3b568509cb4e4d96d7addd81b6ed9,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1914,11 +1928,6 @@ PrefabInstance:
     - target: {fileID: 1387678546417553089, guid: e3c3b568509cb4e4d96d7addd81b6ed9,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6314165349468673042, guid: e3c3b568509cb4e4d96d7addd81b6ed9,
-        type: 3}
-      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
