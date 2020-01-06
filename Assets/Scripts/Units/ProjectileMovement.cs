@@ -36,7 +36,7 @@ public class ProjectileMovement : MonoBehaviour
                 {
                     damageToInflict *= siegeDamageMultiplier;
                 }
-                enemyHP.DoDamage(damage, unit ? unit.Center : transform.position);
+                enemyHP.DoDamage(damageToInflict, unit ? unit.Center : transform.position);
             }
             Destroy(gameObject);
         }

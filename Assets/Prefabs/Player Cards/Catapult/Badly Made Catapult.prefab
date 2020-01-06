@@ -1,23 +1,23 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &3511290866064112225
+--- !u!114 &5144787047905074509
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3287547368998985477}
+  m_GameObject: {fileID: 8349648994929478788}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f17889fdc11dff244891bc7abb7c4050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 7466039456351413456}
+  animator: {fileID: 4169467080710305617}
   atackDamage: 10
-  atackDelay: 3
+  atackDelay: 1
   projectilePrefab: {fileID: 3951523413204502861, guid: b13f26e363ec35442ac22ea02e3c991b,
     type: 3}
---- !u!1001 &6246662695773514706
+--- !u!1001 &644232227077486675
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -28,12 +28,27 @@ PrefabInstance:
         type: 3}
       propertyPath: attack
       value: 
-      objectReference: {fileID: 3511290866064112225}
+      objectReference: {fileID: 5144787047905074509}
     - target: {fileID: 2003592177715405980, guid: fc6c2faa8ae045542a0960290aa158db,
         type: 3}
       propertyPath: onEnemyInRange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 3511290866064112225}
+      objectReference: {fileID: 5144787047905074509}
+    - target: {fileID: 2003592177715405980, guid: fc6c2faa8ae045542a0960290aa158db,
+        type: 3}
+      propertyPath: classType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003592177715405980, guid: fc6c2faa8ae045542a0960290aa158db,
+        type: 3}
+      propertyPath: attackRange
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003592177715405980, guid: fc6c2faa8ae045542a0960290aa158db,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2003592177715405980, guid: fc6c2faa8ae045542a0960290aa158db,
         type: 3}
       propertyPath: onEnemyInRange.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -42,17 +57,17 @@ PrefabInstance:
     - target: {fileID: 2003592177715405980, guid: fc6c2faa8ae045542a0960290aa158db,
         type: 3}
       propertyPath: onEnemyInRange.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2003592177715405980, guid: fc6c2faa8ae045542a0960290aa158db,
         type: 3}
       propertyPath: onEnemyInRange.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Unit, Assembly-CSharp
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2003592177715405978, guid: fc6c2faa8ae045542a0960290aa158db,
         type: 3}
       propertyPath: m_Name
-      value: Catapult
+      value: Badly Made Catapult
       objectReference: {fileID: 0}
     - target: {fileID: 2003592177715405981, guid: fc6c2faa8ae045542a0960290aa158db,
         type: 3}
@@ -116,11 +131,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2003592177863630469, guid: fc6c2faa8ae045542a0960290aa158db,
         type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2003592177863630469, guid: fc6c2faa8ae045542a0960290aa158db,
-        type: 3}
       propertyPath: m_textInfo.wordCount
       value: 2
       objectReference: {fileID: 0}
@@ -148,24 +158,55 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7496335600690224256, guid: fc6c2faa8ae045542a0960290aa158db,
+      objectReference: {fileID: 21300000, guid: 9d36259670a62d140a2bac421cc12c1a,
         type: 3}
-      propertyPath: m_WasSpriteAssigned
+    - target: {fileID: 1158152803829550948, guid: fc6c2faa8ae045542a0960290aa158db,
+        type: 3}
+      propertyPath: m_AnchorMax.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1158152803829550948, guid: fc6c2faa8ae045542a0960290aa158db,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585139824190562704, guid: fc6c2faa8ae045542a0960290aa158db,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.782
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585139824190562704, guid: fc6c2faa8ae045542a0960290aa158db,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.058
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585139824190562704, guid: fc6c2faa8ae045542a0960290aa158db,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585139824190562704, guid: fc6c2faa8ae045542a0960290aa158db,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585139824190562704, guid: fc6c2faa8ae045542a0960290aa158db,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.35
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1763304012001775943, guid: fc6c2faa8ae045542a0960290aa158db, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fc6c2faa8ae045542a0960290aa158db, type: 3}
---- !u!95 &7466039456351413456 stripped
+--- !u!95 &4169467080710305617 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 3543253135044890370, guid: fc6c2faa8ae045542a0960290aa158db,
     type: 3}
-  m_PrefabInstance: {fileID: 6246662695773514706}
+  m_PrefabInstance: {fileID: 644232227077486675}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &3287547368998985477 stripped
+--- !u!1 &8349648994929478788 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8876362086141654231, guid: fc6c2faa8ae045542a0960290aa158db,
     type: 3}
-  m_PrefabInstance: {fileID: 6246662695773514706}
+  m_PrefabInstance: {fileID: 644232227077486675}
   m_PrefabAsset: {fileID: 0}
