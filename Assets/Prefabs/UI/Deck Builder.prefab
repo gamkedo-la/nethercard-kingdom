@@ -5938,7 +5938,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8784778901973177219}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -6042,6 +6042,7 @@ MonoBehaviour:
   collectionManager: {fileID: 3632447726344125409}
   animator: {fileID: 8174036106993548619}
   tooltip: {fileID: 4747218210491694307}
+  sceneToLoadOnCloseDone: Main
   toHideOnClose: []
   toShowOnClose: []
   autoShow: 0

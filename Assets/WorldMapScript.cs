@@ -158,23 +158,11 @@ public class WorldMapScript : MonoBehaviour
 
     public void Play(int level)
     {
-        //Debug.Log( $"Clicked play: {level}" );
-
-        Vector3 pos = defaultCamPosition;
-        pos.z = -10f;
-        cam.transform.position = pos;
-
         fadeObjectBattle.SetActive(true);
     }
 
     public void DeckBuilder(int level)
     {
-        //Debug.Log( $"Clicked deck: {level}" );
-
-        Vector3 pos = defaultCamPosition;
-        pos.z = -10f;
-        cam.transform.position = pos;
-
         fadeObjectDeck.SetActive(true);
     }
 }

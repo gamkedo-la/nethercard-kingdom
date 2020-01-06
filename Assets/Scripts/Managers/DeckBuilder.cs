@@ -7,6 +7,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.SceneManagement;
 
 public class DeckBuilder : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class DeckBuilder : MonoBehaviour
 	[SerializeField] private CollectionManager collectionManager = null;
 	[SerializeField] private Animator animator = null;
 	[SerializeField] private TextMeshProUGUI tooltip = null;
+	[SerializeField] private string sceneToLoadOnCloseDone = "Main";
 	[SerializeField] private GameObject[] toHideOnClose = null;
 	[SerializeField] private GameObject[] toShowOnClose = null;
 	[SerializeField] private bool autoShow = false;
@@ -59,6 +61,8 @@ public class DeckBuilder : MonoBehaviour
 
 		foreach ( var go in toShowOnClose )
 			go.SetActive( true );
+
+		SceneManager.LoadScene( sceneToLoadOnCloseDone );
 	}
 
 	public void ShowUpgrade( )
