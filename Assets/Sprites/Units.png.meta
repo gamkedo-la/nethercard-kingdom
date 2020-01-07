@@ -38,6 +38,12 @@ TextureImporter:
   - first:
       213: -2332557668421593350
     second: Menu BG 2
+  - first:
+      213: -5422081584692182887
+    second: Lock Fill
+  - first:
+      213: 8314284264618151316
+    second: Lock Border
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -381,6 +387,48 @@ TextureImporter:
       bones: []
       spriteID: 3c993359612ed93439ce8e82e3e5a365
       internalID: -2332557668421593350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lock Fill
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 2359
+        width: 335
+        height: 488
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f4bb8726a16a65488ffe7e35a1e821a
+      internalID: -5422081584692182887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lock Border
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 2359
+        width: 335
+        height: 488
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25a76aefab2f0cd45b24ad362668b36b
+      internalID: 8314284264618151316
       vertices: []
       indices: 
       edges: []
