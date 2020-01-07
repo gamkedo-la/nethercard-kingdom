@@ -6002,6 +6002,12 @@ MonoBehaviour:
   - Card: {fileID: 2119819389911972800, guid: 5334be6a94cfcde46b74d55cc44a7f14, type: 3}
     DefaultPlayerOwned: 1
     DefaultInDeck: 1
+  - Card: {fileID: 4258664912078502379, guid: 8b47a9ae6eee11c408156be3adb21f4a, type: 3}
+    DefaultPlayerOwned: 0
+    DefaultInDeck: 0
+  - Card: {fileID: 4184058712247799852, guid: 40e723e0f27a1964b874a949921c6bc5, type: 3}
+    DefaultPlayerOwned: 0
+    DefaultInDeck: 0
   - Card: {fileID: 7703579919947990461, guid: 1a28bb425cdad8e408cfd4778b6ee1c6, type: 3}
     DefaultPlayerOwned: 3
     DefaultInDeck: 0

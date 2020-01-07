@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 4169467080710305617}
   atackDamage: 10
-  atackDelay: 1
+  atackDelay: 3
   projectilePrefab: {fileID: 3951523413204502861, guid: b13f26e363ec35442ac22ea02e3c991b,
     type: 3}
 --- !u!1001 &644232227077486675
@@ -67,7 +67,7 @@ PrefabInstance:
     - target: {fileID: 2003592177715405978, guid: fc6c2faa8ae045542a0960290aa158db,
         type: 3}
       propertyPath: m_Name
-      value: Badly Made Catapult
+      value: Catapult I Instance
       objectReference: {fileID: 0}
     - target: {fileID: 2003592177715405981, guid: fc6c2faa8ae045542a0960290aa158db,
         type: 3}
