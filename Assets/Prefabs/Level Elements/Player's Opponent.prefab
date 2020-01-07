@@ -178,7 +178,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5290041437021551942}
-  - component: {fileID: 5290041437021551943}
+  - component: {fileID: 5692887930004825355}
   m_Layer: 0
   m_Name: Player's Opponent
   m_TagString: Untagged
@@ -197,12 +197,13 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 694065850899411101}
   - {fileID: 5290041437813572876}
   - {fileID: 5617015535800124612}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5290041437021551943
+--- !u!114 &5692887930004825355
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -211,53 +212,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 5290041437021551936}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31adfe1dae436cc4da02cbe49e25ff2d, type: 3}
+  m_Script: {fileID: 11500000, guid: a1de2a4e62d858d4498fded12cc40629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  summonEvents:
-  - Instances:
-    - {fileID: 1603946167172975695, guid: 1e73a98fa3445994db017f1d88bad82d, type: 3}
-    SummonCost: 10
-    SummonCostVariance: 0
-    EnrageMin: 0
-    EnrageMax: 50
-    Weight: 10
-  - Instances:
-    - {fileID: 5509567841954079445, guid: b6d57660f4a5f3746b5b3a3f5f2d9d9a, type: 3}
-    SummonCost: 10
-    SummonCostVariance: 0
-    EnrageMin: 0
-    EnrageMax: 50
-    Weight: 2
-  - Instances:
-    - {fileID: 1603946167172975695, guid: 1e73a98fa3445994db017f1d88bad82d, type: 3}
-    - {fileID: 5509567841954079445, guid: b6d57660f4a5f3746b5b3a3f5f2d9d9a, type: 3}
-    SummonCost: 22
-    SummonCostVariance: 0
-    EnrageMin: 40
-    EnrageMax: 100
-    Weight: 20
-  - Instances:
-    - {fileID: 3984009445576658407, guid: 538f57f7ad5d06c4688ac391c19c1c64, type: 3}
-    SummonCost: 30
-    SummonCostVariance: 0
-    EnrageMin: 60
-    EnrageMax: 100
-    Weight: 40
-  spawnIndicator: {fileID: 7704737331802149368, guid: a9e5c5bb2e9e15e43a102441c71c72d2,
-    type: 3}
-  summoningPoint: {fileID: 5290041437813572877}
-  manaCounter: {fileID: 6961878581677797575}
-  manaCounterLabel: {fileID: 2092339961925814793}
-  hp: {fileID: 0}
-  summonArea: {x: 0.68, y: 1.71}
-  summonDelay: 0.5
-  delayBetweenSummonsInOneEvent: 1
-  timeEngageIncrease: 0.5
-  timeEngageMax: 120
-  enrageMeter: 0
-  mana: 0
-  manaGainSpeed: 1.8
+  opponentsHP: {fileID: 0}
+  opponents:
+  - {fileID: 7476048936311092882}
+  - {fileID: 7476048936311092882}
+  - {fileID: 7476048936311092882}
+  - {fileID: 7476048936311092882}
+  - {fileID: 7476048936311092882}
+  - {fileID: 7476048936311092882}
+  - {fileID: 7476048936311092882}
+  - {fileID: 7476048936311092882}
+  - {fileID: 7476048936311092882}
+  - {fileID: 7476048936311092882}
+  - {fileID: 7476048936311092882}
+  - {fileID: 7476048936311092882}
 --- !u!1 &5290041437813572877
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,7 +257,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5290041437021551942}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5504534611383191380
 GameObject:
@@ -406,7 +377,7 @@ RectTransform:
   m_Children:
   - {fileID: 8792206069864841664}
   m_Father: {fileID: 5290041437021551942}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -584,3 +555,90 @@ RectTransform:
   m_AnchoredPosition: {x: -44.2, y: 193.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &7476048936311092882
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 694065850899411101}
+  - component: {fileID: 2928488339144507840}
+  m_Layer: 0
+  m_Name: Level 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &694065850899411101
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7476048936311092882}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5290041437021551942}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2928488339144507840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7476048936311092882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31adfe1dae436cc4da02cbe49e25ff2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  summonEvents:
+  - Instances:
+    - {fileID: 1603946167172975695, guid: 1e73a98fa3445994db017f1d88bad82d, type: 3}
+    SummonCost: 10
+    SummonCostVariance: 0
+    EnrageMin: 0
+    EnrageMax: 50
+    Weight: 10
+  - Instances:
+    - {fileID: 5509567841954079445, guid: b6d57660f4a5f3746b5b3a3f5f2d9d9a, type: 3}
+    SummonCost: 10
+    SummonCostVariance: 0
+    EnrageMin: 0
+    EnrageMax: 50
+    Weight: 2
+  - Instances:
+    - {fileID: 1603946167172975695, guid: 1e73a98fa3445994db017f1d88bad82d, type: 3}
+    - {fileID: 5509567841954079445, guid: b6d57660f4a5f3746b5b3a3f5f2d9d9a, type: 3}
+    SummonCost: 22
+    SummonCostVariance: 0
+    EnrageMin: 40
+    EnrageMax: 100
+    Weight: 20
+  - Instances:
+    - {fileID: 3984009445576658407, guid: 538f57f7ad5d06c4688ac391c19c1c64, type: 3}
+    SummonCost: 30
+    SummonCostVariance: 0
+    EnrageMin: 60
+    EnrageMax: 100
+    Weight: 40
+  spawnIndicator: {fileID: 7704737331802149368, guid: a9e5c5bb2e9e15e43a102441c71c72d2,
+    type: 3}
+  summoningPoint: {fileID: 5290041437813572877}
+  manaCounter: {fileID: 6961878581677797575}
+  manaCounterLabel: {fileID: 2092339961925814793}
+  opponentEnabler: {fileID: 5692887930004825355}
+  summonArea: {x: 0.68, y: 1.71}
+  summonDelay: 0.5
+  delayBetweenSummonsInOneEvent: 1
+  timeEngageIncrease: 0.5
+  timeEngageMax: 120
+  enrageMeter: 0
+  mana: 0
+  manaGainSpeed: 1.8

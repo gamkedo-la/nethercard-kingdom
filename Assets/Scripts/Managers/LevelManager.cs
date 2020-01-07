@@ -12,10 +12,10 @@ using UnityEngine.Events;
 public class LevelManager : MonoBehaviour
 {
 	public static LevelManager Instance { get; private set; }
-	public static float CurrentLevel { get; set; }
 	public static bool Won { get; private set; }
 	public static bool Lost { get; private set; }
 
+	[SerializeField] private HP playerHP = null;
 	[SerializeField] private TextMeshProUGUI gameSpeedLabel = null;
 	[SerializeField] private UnitsManager unitsManager = null;
 	[SerializeField] private GameObject wonScreen = null;
@@ -32,6 +32,7 @@ public class LevelManager : MonoBehaviour
 
 	void Start ()
 	{
+		Assert.IsNotNull( playerHP, $"Please assign <b>{nameof( playerHP )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( gameSpeedLabel, $"Please assign <b>{nameof( gameSpeedLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( unitsManager, $"Please assign <b>{nameof( unitsManager )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( wonScreen, $"Please assign <b>{nameof( wonScreen )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
@@ -140,8 +141,31 @@ public class LevelManager : MonoBehaviour
 		wonScreen.SetActive( true );
 		wonSound.Play( );
 
+		SetStars( );
+
 		EndGame( );
 		Won = true;
+	}
+
+	private void SetStars( )
+	{
+		int stars = 1; // One star for finishing the level
+
+		float playersHpPercent = playerHP.CurrentHP / playerHP.MaxHP;
+
+		if ( playersHpPercent > 0.5f ) // +1 star for having more then 50% HP
+			stars++;
+
+		if ( playersHpPercent >= 1f ) // +1 star for full HP
+			stars++;
+
+		// Save new data if we have a new record
+		if ( ProgressManager.Instance.GetLevelData( ProgressManager.Instance.SelectedLevel ) > stars )
+			ProgressManager.Instance.SetLevelData( ProgressManager.Instance.SelectedLevel, stars );
+
+		// Did we unlock new level?
+		if ( ProgressManager.Instance.MaxUnlockedLevel <= ProgressManager.Instance.SelectedLevel )
+			ProgressManager.Instance.UnlockNewLevel( );
 	}
 
 	private void GameLost( )

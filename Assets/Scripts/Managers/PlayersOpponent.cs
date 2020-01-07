@@ -34,7 +34,7 @@ public class PlayersOpponent : MonoBehaviour
 	[SerializeField] private GameObject summoningPoint = null;
 	[SerializeField] private GameObject manaCounter = null;
 	[SerializeField] private TextMeshProUGUI manaCounterLabel = null;
-	[SerializeField] private HP hp = null;
+	[SerializeField] private OpponentEnabler opponentEnabler = null;
 
 	[Header("Summoning")]
 	[SerializeField] private Vector2 summonArea = new Vector2(2f, 4f);
@@ -47,6 +47,7 @@ public class PlayersOpponent : MonoBehaviour
 	[SerializeField, Range(0,30)] private float manaGainSpeed = 1f;
 
 	private SummonEvent nextSummonEventToPlay = null;
+	private HP hp = null;
 	private float timeEngage = 0f;
 
 	private void Awake( )
@@ -66,6 +67,9 @@ public class PlayersOpponent : MonoBehaviour
 		Assert.IsNotNull( spawnIndicator, $"Please assign <b>{nameof( spawnIndicator )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( manaCounter, $"Please assign <b>{nameof( manaCounter )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( manaCounterLabel, $"Please assign <b>{nameof( manaCounterLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( opponentEnabler, $"Please assign <b>{nameof( opponentEnabler )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+
+		hp = opponentEnabler.OpponentsHP;
 		Assert.IsNotNull( hp, $"Please assign <b>{nameof( hp )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 	}
 

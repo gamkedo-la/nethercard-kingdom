@@ -462,7 +462,7 @@ PrefabInstance:
         type: 3}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 1253014236}
+      objectReference: {fileID: 0}
     - target: {fileID: 7832217364804872023, guid: 550b7738aa68d2d41b344408cdbff804,
         type: 3}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
@@ -2203,6 +2203,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &477313330 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7832217364804872023, guid: 550b7738aa68d2d41b344408cdbff804,
+    type: 3}
+  m_PrefabInstance: {fileID: 7832217364430185926}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aca6f0601ebf5ee4fa138797b6179c8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &481745564
 GameObject:
   m_ObjectHideFlags: 0
@@ -2428,18 +2440,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5290041437988800411}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1253014236 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5290041437021551943, guid: 2758165ee9ff9cb4f9c1cc4e746463a6,
-    type: 3}
-  m_PrefabInstance: {fileID: 5290041437988800411}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1253014235}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31adfe1dae436cc4da02cbe49e25ff2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1288608524
 GameObject:
   m_ObjectHideFlags: 0
@@ -3951,7 +3951,7 @@ PrefabInstance:
         type: 3}
       propertyPath: onGameEnd.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1253014236}
+      objectReference: {fileID: 0}
     - target: {fileID: 7486367063326005756, guid: f5ea14b1964d108438ae60eb76c40517,
         type: 3}
       propertyPath: onGameEnd.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -3967,6 +3967,11 @@ PrefabInstance:
       propertyPath: gameSpeedLabel
       value: 
       objectReference: {fileID: 1489982005}
+    - target: {fileID: 7486367063326005756, guid: f5ea14b1964d108438ae60eb76c40517,
+        type: 3}
+      propertyPath: playerHP
+      value: 
+      objectReference: {fileID: 477313330}
     - target: {fileID: 1289313127792475356, guid: f5ea14b1964d108438ae60eb76c40517,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5051,6 +5056,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -44.19995
       objectReference: {fileID: 0}
+    - target: {fileID: 5692887930004825355, guid: 2758165ee9ff9cb4f9c1cc4e746463a6,
+        type: 3}
+      propertyPath: opponentsHP
+      value: 
+      objectReference: {fileID: 1396459836}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2758165ee9ff9cb4f9c1cc4e746463a6, type: 3}
 --- !u!4 &5514928397442566552 stripped
@@ -5442,7 +5452,7 @@ PrefabInstance:
         type: 3}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 1253014236}
+      objectReference: {fileID: 0}
     - target: {fileID: 7832217364804872023, guid: 550b7738aa68d2d41b344408cdbff804,
         type: 3}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
