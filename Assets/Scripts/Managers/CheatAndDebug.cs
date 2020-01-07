@@ -37,6 +37,11 @@ public class CheatAndDebug : MonoBehaviour
 			Destroy( this );
 		else
 			Instance = this;
+
+		// Force no cheats on compile
+		#if UNITY_WEBGL || UNITY_STANDALONE
+		allowCheats = false;
+		#endif
 	}
 
 	private void OnDestroy( ) { if ( this == Instance ) { Instance = null; } }
