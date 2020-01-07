@@ -42,6 +42,9 @@ public class CheatAndDebug : MonoBehaviour
 		#if UNITY_WEBGL || UNITY_STANDALONE
 		allowCheats = false;
 		#endif
+		#if UNITY_EDITOR
+		allowCheats = true;
+		#endif
 	}
 
 	private void OnDestroy( ) { if ( this == Instance ) { Instance = null; } }
