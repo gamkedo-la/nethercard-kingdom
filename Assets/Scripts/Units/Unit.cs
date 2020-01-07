@@ -90,6 +90,11 @@ public class Unit : MonoBehaviour
 
 	void Update ()
 	{
+		if ( side == ConflicSide.Player && LevelManager.Lost )
+			Invoke( nameof( GoodBye ), 1f );
+		else if ( side == ConflicSide.Enemy && LevelManager.Won )
+			Invoke( nameof( GoodBye ), 1f );
+
 		if ( hq )
 			return;
 
@@ -103,11 +108,6 @@ public class Unit : MonoBehaviour
 
 		CalculateMoveVector( );
 		Move( );
-
-		if ( side == ConflicSide.Player && LevelManager.Lost )
-			Invoke( nameof( GoodBye ), 1f );
-		else if ( side == ConflicSide.Enemy && LevelManager.Won )
-			Invoke( nameof( GoodBye ), 1f );
 	}
 
 	private void GoodBye( )
