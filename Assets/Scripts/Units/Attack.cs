@@ -12,6 +12,7 @@ public class Attack : MonoBehaviour
 	public float DPS { get { return atackDamage / atackDelay; } }
 	public bool Frozen { get; set; } = false;
 
+	[SerializeField] protected PlaySound attackSound = null;
 	[SerializeField] protected Animator animator = null;
 	[SerializeField] protected float atackDamage = 2f;
 	[SerializeField] protected float atackDelay = 1f;

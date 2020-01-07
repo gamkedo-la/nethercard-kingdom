@@ -42,6 +42,9 @@ public class BeamAttack : Attack
 
 		timeToNextAttack -= Time.deltaTime;
 
+		if ( attackSound )
+			attackSound.Play( );
+
 		// Needs to be in attack range of an oponent and have no attack cool-down
 		if ( !currentOpponent || timeToNextAttack > 0 )
 			return;

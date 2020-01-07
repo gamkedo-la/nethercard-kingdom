@@ -50,6 +50,10 @@ public class StandardAttack : Attack
 
 		currentOpponent.HP.DoDamage( atackDamage, currentOpponent.Center );
 		timeToNextAttack = atackDelay;
+
+		if ( attackSound )
+			attackSound.Play( );
+
 		if ( CheatAndDebug.Instance.ShowDebugInfo )
 			Debug.DrawLine( unit.Center, currentOpponent.Center, Color.red, 0.2f );
 

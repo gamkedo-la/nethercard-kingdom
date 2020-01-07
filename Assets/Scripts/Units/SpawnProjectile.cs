@@ -41,7 +41,10 @@ public class SpawnProjectile : Attack
 		projectileMovement.direction = direction;
 		projectileMovement.damage = atackDamage;
 
-		timeToNextAttack = atackDelay;
+        if ( attackSound )
+            attackSound.Play( );
+
+        timeToNextAttack = atackDelay;
 
 		if ( CheatAndDebug.Instance.ShowDebugInfo )
 		{

@@ -7,11 +7,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1603946167172975695, guid: 1e73a98fa3445994db017f1d88bad82d,
-        type: 3}
-      propertyPath: m_Name
-      value: Ork Ranged Small Instance
-      objectReference: {fileID: 0}
     - target: {fileID: 1603946167172975689, guid: 1e73a98fa3445994db017f1d88bad82d,
         type: 3}
       propertyPath: detectionRange
@@ -26,6 +21,11 @@ PrefabInstance:
         type: 3}
       propertyPath: moveSpeed
       value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1603946167172975695, guid: 1e73a98fa3445994db017f1d88bad82d,
+        type: 3}
+      propertyPath: m_Name
+      value: Ork Ranged Small Instance
       objectReference: {fileID: 0}
     - target: {fileID: 1603946167172975690, guid: 1e73a98fa3445994db017f1d88bad82d,
         type: 3}
@@ -50,7 +50,7 @@ PrefabInstance:
     - target: {fileID: 1603946166181672528, guid: 1e73a98fa3445994db017f1d88bad82d,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1603946166181672528, guid: 1e73a98fa3445994db017f1d88bad82d,
         type: 3}
@@ -306,6 +306,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.05299989
+      objectReference: {fileID: 0}
+    - target: {fileID: 7847913556168209120, guid: 1e73a98fa3445994db017f1d88bad82d,
+        type: 3}
+      propertyPath: minVolume
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7847913556168209120, guid: 1e73a98fa3445994db017f1d88bad82d,
+        type: 3}
+      propertyPath: maxVolume
+      value: 0.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e73a98fa3445994db017f1d88bad82d, type: 3}
