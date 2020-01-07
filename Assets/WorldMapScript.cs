@@ -168,11 +168,13 @@ public class WorldMapScript : MonoBehaviour
 
     public void Play(int level)
     {
+        ProgressManager.Instance.SelectedLevel = level;
         fadeObjectBattle.SetActive(true);
     }
 
     public void DeckBuilder(int level)
     {
+        ProgressManager.Instance.SelectedLevel = level;
         fadeObjectDeck.SetActive(true);
     }
 }
