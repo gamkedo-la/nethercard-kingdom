@@ -3402,7 +3402,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7126997202589540529
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3433,9 +3433,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -3665040959897693679, guid: 41b24cb7a993f124493e0f3bd5a6e5fe,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 96332c51797723f42842756a9ca8d4cc, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 986ed0aa20518aa44ad5cca4bfc5ef98, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -5992,7 +5992,7 @@ MonoBehaviour:
     DefaultInDeck: 0
   - Card: {fileID: 8824168672960201570, guid: 39305d494c8b56a44b497d389241a5fd, type: 3}
     DefaultPlayerOwned: 2
-    DefaultInDeck: 3
+    DefaultInDeck: 2
   - Card: {fileID: 1256674134460763496, guid: 364b5ae33201a35488c849af8147a408, type: 3}
     DefaultPlayerOwned: 1
     DefaultInDeck: 0
@@ -6042,14 +6042,11 @@ MonoBehaviour:
   animator: {fileID: 8174036106993548619}
   tooltip: {fileID: 4747218210491694307}
   sceneToLoadOnCloseDone: Main
-  toHideOnClose: []
+  toHideOnClose:
+  - {fileID: 32309461378662257}
   toShowOnClose:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  autoShow: 0
+  autoShow: 1
 --- !u!95 &8174036106993548619
 Animator:
   serializedVersion: 3
@@ -7183,11 +7180,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 269294555353502246}
     m_Modifications:
-    - target: {fileID: 3063514746186047060, guid: b7a6f7b1b2a9804478e19baa352528b8,
-        type: 3}
-      propertyPath: m_Name
-      value: Sort Button
-      objectReference: {fileID: 0}
     - target: {fileID: 3063514746186047062, guid: b7a6f7b1b2a9804478e19baa352528b8,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -7323,6 +7315,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3063514746186047060, guid: b7a6f7b1b2a9804478e19baa352528b8,
+        type: 3}
+      propertyPath: m_Name
+      value: Sort Button
+      objectReference: {fileID: 0}
     - target: {fileID: 3063514746198166425, guid: b7a6f7b1b2a9804478e19baa352528b8,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -7375,11 +7372,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8784778901841699077}
     m_Modifications:
-    - target: {fileID: 3063514746186047060, guid: b7a6f7b1b2a9804478e19baa352528b8,
-        type: 3}
-      propertyPath: m_Name
-      value: Upgrade Button
-      objectReference: {fileID: 0}
     - target: {fileID: 3063514746186047062, guid: b7a6f7b1b2a9804478e19baa352528b8,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -7514,6 +7506,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063514746186047060, guid: b7a6f7b1b2a9804478e19baa352528b8,
+        type: 3}
+      propertyPath: m_Name
+      value: Upgrade Button
       objectReference: {fileID: 0}
     - target: {fileID: 3063514746198166426, guid: b7a6f7b1b2a9804478e19baa352528b8,
         type: 3}
@@ -7717,11 +7714,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7427106952146732849}
     m_Modifications:
-    - target: {fileID: 3063514746186047060, guid: b7a6f7b1b2a9804478e19baa352528b8,
-        type: 3}
-      propertyPath: m_Name
-      value: Clear Button
-      objectReference: {fileID: 0}
     - target: {fileID: 3063514746186047062, guid: b7a6f7b1b2a9804478e19baa352528b8,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -7857,6 +7849,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3063514746186047060, guid: b7a6f7b1b2a9804478e19baa352528b8,
+        type: 3}
+      propertyPath: m_Name
+      value: Clear Button
+      objectReference: {fileID: 0}
     - target: {fileID: 3063514746198166425, guid: b7a6f7b1b2a9804478e19baa352528b8,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -7892,11 +7889,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8845738031193029191}
     m_Modifications:
-    - target: {fileID: 3063514746186047060, guid: b7a6f7b1b2a9804478e19baa352528b8,
-        type: 3}
-      propertyPath: m_Name
-      value: Combine Button
-      objectReference: {fileID: 0}
     - target: {fileID: 3063514746186047062, guid: b7a6f7b1b2a9804478e19baa352528b8,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -8047,6 +8039,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3063514746186047060, guid: b7a6f7b1b2a9804478e19baa352528b8,
+        type: 3}
+      propertyPath: m_Name
+      value: Combine Button
+      objectReference: {fileID: 0}
     - target: {fileID: 3063514746198166426, guid: b7a6f7b1b2a9804478e19baa352528b8,
         type: 3}
       propertyPath: m_text
@@ -8106,11 +8103,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8845738031193029191}
     m_Modifications:
-    - target: {fileID: 3063514746186047060, guid: b7a6f7b1b2a9804478e19baa352528b8,
-        type: 3}
-      propertyPath: m_Name
-      value: Close Button
-      objectReference: {fileID: 0}
     - target: {fileID: 3063514746186047062, guid: b7a6f7b1b2a9804478e19baa352528b8,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -8256,6 +8248,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3063514746186047060, guid: b7a6f7b1b2a9804478e19baa352528b8,
+        type: 3}
+      propertyPath: m_Name
+      value: Close Button
+      objectReference: {fileID: 0}
     - target: {fileID: 3063514746198166426, guid: b7a6f7b1b2a9804478e19baa352528b8,
         type: 3}
       propertyPath: m_fontSize
@@ -8293,15 +8290,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8784778901841699077}
     m_Modifications:
-    - target: {fileID: 3063514746186047060, guid: b7a6f7b1b2a9804478e19baa352528b8,
-        type: 3}
-      propertyPath: m_Name
-      value: Save and Go Button
-      objectReference: {fileID: 0}
     - target: {fileID: 3063514746186047062, guid: b7a6f7b1b2a9804478e19baa352528b8,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3063514746186047062, guid: b7a6f7b1b2a9804478e19baa352528b8,
         type: 3}
@@ -8386,16 +8378,6 @@ PrefabInstance:
     - target: {fileID: 3063514746186047062, guid: b7a6f7b1b2a9804478e19baa352528b8,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3063514746186047062, guid: b7a6f7b1b2a9804478e19baa352528b8,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3063514746186047062, guid: b7a6f7b1b2a9804478e19baa352528b8,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3063514746186047061, guid: b7a6f7b1b2a9804478e19baa352528b8,
@@ -8517,6 +8499,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.1870102
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063514746186047060, guid: b7a6f7b1b2a9804478e19baa352528b8,
+        type: 3}
+      propertyPath: m_Name
+      value: Save and Go Button
       objectReference: {fileID: 0}
     - target: {fileID: 3063514746198166426, guid: b7a6f7b1b2a9804478e19baa352528b8,
         type: 3}
