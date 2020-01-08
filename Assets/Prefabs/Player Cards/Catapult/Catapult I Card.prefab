@@ -67,7 +67,7 @@ PrefabInstance:
     - target: {fileID: 4395479231106108376, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
       propertyPath: liveImageScaleMod
-      value: 0.7
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 6924299368319605650, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}
@@ -324,6 +324,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1233436760897186984, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 13.999985
+      objectReference: {fileID: 0}
+    - target: {fileID: 1233436760897186984, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.5949667
+      objectReference: {fileID: 0}
+    - target: {fileID: 324323832227509520, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 324323832227509520, guid: 53475d4f1e5edc741919c3a46dada549,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -7.2
       objectReference: {fileID: 0}
     - target: {fileID: 5817860787531570460, guid: 53475d4f1e5edc741919c3a46dada549,
         type: 3}

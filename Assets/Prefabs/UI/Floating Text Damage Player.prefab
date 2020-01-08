@@ -248,7 +248,7 @@ MonoBehaviour:
   speedSideways: -1.4
   speedDown: -30
   varianceMin: 1
-  varianceMax: 1.5
+  varianceMax: 2
   multiplierCurve:
     serializedVersion: 2
     m_Curve:
