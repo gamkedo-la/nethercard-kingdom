@@ -55,7 +55,7 @@ public class Flammable : MonoBehaviour
 		if ( isBurning )
 			burnTimeRemaining -= Time.deltaTime;
 
-		if ( ( LevelManager.Lost || LevelManager.Won ) && isBurning )
+		if ( ( LevelManager.Instance.Lost || LevelManager.Instance.Won ) && isBurning )
 		{
 			isBurning = false;
 

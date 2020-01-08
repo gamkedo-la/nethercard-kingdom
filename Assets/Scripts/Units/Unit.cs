@@ -90,9 +90,9 @@ public class Unit : MonoBehaviour
 
 	void Update ()
 	{
-		if ( side == ConflicSide.Player && LevelManager.Lost )
+		if ( side == ConflicSide.Player && LevelManager.Instance.Lost )
 			Invoke( nameof( GoodBye ), 1f );
-		else if ( side == ConflicSide.Enemy && LevelManager.Won )
+		else if ( side == ConflicSide.Enemy && LevelManager.Instance.Won )
 			Invoke( nameof( GoodBye ), 1f );
 
 		if ( hq )

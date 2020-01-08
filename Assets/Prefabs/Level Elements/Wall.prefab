@@ -6145,7 +6145,7 @@ MonoBehaviour:
   floatingTextHeal: {fileID: 0}
   animator: {fileID: 0}
   maxHP: 150
-  destroyOnNoHP: 1
+  destroyOnNoHP: 0
   delayNextDamage: 0
   nextDamageDelay: 1
   hideHpBar: 0

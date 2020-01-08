@@ -8,16 +8,18 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
 	public static LevelManager Instance { get; private set; }
-	public static bool Won { get; private set; }
-	public static bool Lost { get; private set; }
+	public bool Won { get; private set; }
+	public bool Lost { get; private set; }
 
 	[SerializeField] private HP playerHP = null;
 	[SerializeField] private EndGameStars endGameStars = null;
 	[SerializeField] private TextMeshProUGUI gameSpeedLabel = null;
+	[SerializeField] private Slider gameSpeedSlider = null;
 	[SerializeField] private UnitsManager unitsManager = null;
 	[SerializeField] private GameObject wonScreen = null;
 	[SerializeField] private GameObject gameoverScreen = null;
@@ -41,6 +43,7 @@ public class LevelManager : MonoBehaviour
 		Assert.IsNotNull( gameoverScreen, $"Please assign <b>{nameof( gameoverScreen )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( wonSound, $"Please assign <b>{nameof( wonSound )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( gameoverSound, $"Please assign <b>{nameof( gameoverSound )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		Assert.IsNotNull( gameSpeedSlider, $"Please assign <b>{nameof( gameSpeedSlider )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
 		SetGameSpeed( 3.0f ); // Normal speed
 	}
@@ -64,6 +67,7 @@ public class LevelManager : MonoBehaviour
 	public void SetGameSpeed( float value )
 	{
 		speedSetting = value;
+		gameSpeedSlider.value = value;
 		float speed = 0;
 		string label = "";
 
@@ -130,7 +134,6 @@ public class LevelManager : MonoBehaviour
 
 	public void ResetCurrentLevel( )
 	{
-		Debug.Log( "Reset" );
 		foreach ( var item in toReset )
 			item.SetActive( false );
 
