@@ -35,6 +35,8 @@ public class PlayersOpponent : MonoBehaviour
 	[SerializeField] private GameObject manaCounter = null;
 	[SerializeField] private TextMeshProUGUI manaCounterLabel = null;
 	[SerializeField] private OpponentEnabler opponentEnabler = null;
+	[SerializeField] private float enebleOnStartDelay = 3f;
+	[SerializeField] private GameObject enebleOnStart = null;
 
 	[Header("Summoning")]
 	[SerializeField] private Vector2 summonArea = new Vector2(2f, 4f);
@@ -76,6 +78,9 @@ public class PlayersOpponent : MonoBehaviour
 		Assert.IsNotNull( hp, $"Please assign <b>{nameof( hp )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
 		hp.SetHP( startHP );
+
+		if ( enebleOnStart != null )
+			Invoke( nameof( ShowOnStart ), enebleOnStartDelay );
 	}
 
 	void Update( )
@@ -96,6 +101,11 @@ public class PlayersOpponent : MonoBehaviour
 	void FixedUpdate( )
 	{
 		AdjustEnrage( );
+	}
+
+	private void ShowOnStart( )
+	{
+		enebleOnStart.SetActive( true );
 	}
 
 	private void AdjustEnrage( )
