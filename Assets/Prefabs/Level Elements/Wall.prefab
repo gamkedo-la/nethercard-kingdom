@@ -160,13 +160,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 552802446902957527}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8851304265907441969}
-  m_Father: {fileID: 7832217364804872022}
-  m_RootOrder: 9
+  m_Father: {fileID: 4524973399459962677}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7293224791751802002
 MonoBehaviour:
@@ -180,6 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b33639d3b6cda66408edbb4ce4e62fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackSound: {fileID: 0}
   animator: {fileID: 805658137276375092}
   atackDamage: 3
   atackDelay: 2
@@ -215,7 +216,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4524973399459962677}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6250777182742533663
 SpriteRenderer:
@@ -296,7 +297,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4524973399459962677}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2679391589614712076
 SpriteRenderer:
@@ -408,13 +409,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2600071852930262960}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2642038705035906829}
-  m_Father: {fileID: 7832217364804872022}
-  m_RootOrder: 8
+  m_Father: {fileID: 4524973399459962677}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6474823521914662329
 MonoBehaviour:
@@ -428,6 +429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b33639d3b6cda66408edbb4ce4e62fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackSound: {fileID: 0}
   animator: {fileID: 805658137276375092}
   atackDamage: 3
   atackDelay: 2
@@ -5287,6 +5289,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 5277079176347802827}
+  - {fileID: 8683422093821665121}
   - {fileID: 7128425065514525585}
   - {fileID: 8077765822367954811}
   m_Father: {fileID: 7832217364804872022}
@@ -5888,6 +5892,7 @@ MonoBehaviour:
   unitCenter: {x: 0, y: 0}
   hq: 0
   nonMovable: 1
+  classType: 0
   attackRange: 0
   followClosesFriendly: 0
   moveSpeed: 0
@@ -5995,6 +6000,7 @@ MonoBehaviour:
   unitCenter: {x: 0, y: 0}
   hq: 0
   nonMovable: 1
+  classType: 0
   attackRange: 3
   followClosesFriendly: 0
   moveSpeed: 0
@@ -6116,8 +6122,6 @@ Transform:
   - {fileID: 7832217365544018913}
   - {fileID: 584924481987245990}
   - {fileID: 1715920026756040438}
-  - {fileID: 8683422093821665121}
-  - {fileID: 5277079176347802827}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6222,6 +6226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23394822a4123ba459fcabcdde7d6b64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackSound: {fileID: 0}
   animator: {fileID: 805658137276375092}
   atackDamage: 0
   atackDelay: 0
@@ -6538,6 +6543,7 @@ MonoBehaviour:
   unitCenter: {x: 0, y: 0}
   hq: 0
   nonMovable: 1
+  classType: 0
   attackRange: 0
   followClosesFriendly: 0
   moveSpeed: 0
@@ -6645,6 +6651,7 @@ MonoBehaviour:
   unitCenter: {x: 0, y: 0}
   hq: 0
   nonMovable: 1
+  classType: 0
   attackRange: 0
   followClosesFriendly: 0
   moveSpeed: 0
