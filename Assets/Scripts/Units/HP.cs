@@ -75,6 +75,21 @@ public class HP : MonoBehaviour
 			label.text = $"{CurrentHP}/{maxHP}";
 	}
 
+	public void SetHP( float hp )
+	{
+		maxHP = hp;
+		CurrentHP = hp;
+
+		if ( label )
+			label.text = $"{CurrentHP}/{maxHP}";
+
+		if ( hpBar )
+		{
+			hpBar.maxValue = MaxHP;
+			hpBar.value = CurrentHP;
+		}
+	}
+
 	/// <summary>
 	/// Applies damage to current HP. Respects HP restrictions and fires events if necessary.
 	/// </summary>
@@ -89,7 +104,7 @@ public class HP : MonoBehaviour
 
 		ChangeHP( -damage );
 		if(animator) animator.SetTrigger("damage");
-		if(damageParticles) GameObject.Instantiate(damageParticles, transform.position, Quaternion.Euler(0f, 0f, 0f));
+		if(damageParticles) Instantiate(damageParticles, transform.position, Quaternion.Euler(0f, 0f, 0f));
 
 		if ( hpBar && !hpBar.gameObject.activeSelf && hideHpBar )
 		{

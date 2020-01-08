@@ -339,7 +339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65eba18a4d5540d49a22e58df8dc5691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLevels: 12
+  maxLevels: 2
 --- !u!114 &7486367063326005756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,6 +355,7 @@ MonoBehaviour:
   playerHP: {fileID: 0}
   endGameStars: {fileID: 0}
   gameSpeedLabel: {fileID: 0}
+  gameSpeedSlider: {fileID: 0}
   unitsManager: {fileID: 1289313127792475357}
   wonScreen: {fileID: 0}
   gameoverScreen: {fileID: 0}

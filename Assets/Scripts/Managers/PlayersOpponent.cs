@@ -46,6 +46,9 @@ public class PlayersOpponent : MonoBehaviour
 	[SerializeField, Range(0,200)] private float mana = 0f;
 	[SerializeField, Range(0,30)] private float manaGainSpeed = 1f;
 
+	[Header("HP")]
+	[SerializeField] private float startHP = 150f;
+
 	private SummonEvent nextSummonEventToPlay = null;
 	private HP hp = null;
 	private float timeEngage = 0f;
@@ -71,6 +74,8 @@ public class PlayersOpponent : MonoBehaviour
 
 		hp = opponentEnabler.OpponentsHP;
 		Assert.IsNotNull( hp, $"Please assign <b>{nameof( hp )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+
+		hp.SetHP( startHP );
 	}
 
 	void Update( )
