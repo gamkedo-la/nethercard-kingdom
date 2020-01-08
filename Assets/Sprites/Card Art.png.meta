@@ -155,6 +155,12 @@ TextureImporter:
   - first:
       213: -2201731693854263826
     second: Slider Knob BG
+  - first:
+      213: 8017240744324737818
+    second: Frame Small Thin Empty
+  - first:
+      213: 4329829230604017398
+    second: Frame Small Thin Full
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -1246,7 +1252,7 @@ TextureImporter:
         width: 500
         height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1267,7 +1273,7 @@ TextureImporter:
         width: 500
         height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1288,7 +1294,7 @@ TextureImporter:
         width: 85
         height: 85
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1309,7 +1315,7 @@ TextureImporter:
         width: 85
         height: 85
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1317,6 +1323,48 @@ TextureImporter:
       bones: []
       spriteID: 41ce4c0a6d72fee43a4b8a3ced37c9a8
       internalID: -2201731693854263826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frame Small Thin Empty
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 340
+        width: 268
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 46, y: 43, z: 46, w: 43}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0aac2eadc2d0ee4eb207b71733abc8c
+      internalID: 8017240744324737818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frame Small Thin Full
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 149
+        width: 268
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 46, y: 43, z: 46, w: 43}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ba2c6568702e2c41b0a8e82c16296b1
+      internalID: 4329829230604017398
       vertices: []
       indices: 
       edges: []
