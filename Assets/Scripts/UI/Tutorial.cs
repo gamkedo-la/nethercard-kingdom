@@ -9,6 +9,7 @@ using UnityEngine.Assertions;
 
 public class Tutorial : MonoBehaviour
 {
+	[SerializeField] private GameObject disableWhileInTutorial = null;
 	[SerializeField] private GameObject[] tips = null;
 	[SerializeField] private Animator animator = null;
 
@@ -19,6 +20,9 @@ public class Tutorial : MonoBehaviour
 	{
 		Assert.IsNotNull( animator, $"Please assign <b>{nameof( animator )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Time.timeScale = 3f;
+
+		if ( disableWhileInTutorial )
+			disableWhileInTutorial.SetActive( false );
 	}
 
 	public void ShowNext( )
@@ -47,6 +51,10 @@ public class Tutorial : MonoBehaviour
 	public void Close( )
 	{
 		gameObject.SetActive( false );
+
+		if ( disableWhileInTutorial )
+			disableWhileInTutorial.SetActive( true );
+
 		Time.timeScale = 1f;
 	}
 }
