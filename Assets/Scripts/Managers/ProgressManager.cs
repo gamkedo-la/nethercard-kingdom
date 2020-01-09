@@ -31,6 +31,7 @@ public class ProgressManager : MonoBehaviour
 
 	public static ProgressManager Instance { get; private set; }
 	public int MaxUnlockedLevel { get { return gameProgress.MaxUnlockedLevel; } }
+	public int MaxLevels { get { return maxLevels; } }
 	public int SelectedLevel { get { return gameProgress.SelectedLevel; } set { gameProgress.SelectedLevel = value; SaveData( ); } }
 
 	[SerializeField] private int maxLevels = 12;

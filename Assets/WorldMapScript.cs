@@ -59,7 +59,8 @@ public class WorldMapScript : MonoBehaviour
 
     void Start()
     {
-        if (moveToNode < 0) moveToNode = startNode;
+        moveToNode = ProgressManager.Instance.MaxUnlockedLevel;
+        moveToNode = moveToNode > ProgressManager.Instance.MaxLevels ? ProgressManager.Instance.MaxLevels : moveToNode;
 
         cam = GameObject.Find("FollowCam");
         nodes = gameObject.transform.GetChild(2);
@@ -73,7 +74,7 @@ public class WorldMapScript : MonoBehaviour
 
     void OnEnable()
     {
-        if (moveToNode >= 0) moveToNode++;
+        /*if (moveToNode >= 0) moveToNode++;
 
         for (int i = 1; i < moveToNode; i++)
         {
@@ -84,7 +85,7 @@ public class WorldMapScript : MonoBehaviour
                 Destroy(nodes.GetChild(i).GetChild(0).gameObject);
                 Instantiate(playerNode, nodes.GetChild(i));
             }
-        }
+        }*/
     }
 
     private void EnableNodeUI()
