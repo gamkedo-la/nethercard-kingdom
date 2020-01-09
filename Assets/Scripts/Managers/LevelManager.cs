@@ -167,7 +167,7 @@ public class LevelManager : MonoBehaviour
 			stars++;
 
 		// Save new data if we have a new record
-		if ( ProgressManager.Instance.GetLevelData( ProgressManager.Instance.SelectedLevel ) > stars )
+		if ( ProgressManager.Instance.GetLevelData( ProgressManager.Instance.SelectedLevel ) < stars )
 			ProgressManager.Instance.SetLevelData( ProgressManager.Instance.SelectedLevel, stars );
 
 		// Did we unlock new level?

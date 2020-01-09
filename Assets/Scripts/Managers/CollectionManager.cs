@@ -285,6 +285,11 @@ public class CollectionManager : MonoBehaviour
 
 	public void Save( ) => playerCards.SetCollection( collection );
 
+	public void AwardCard( PlayerCard cardToAdd )
+	{
+		AddCard( cardToAdd, Vector2.zero );
+	}
+
 	public void AddCard( PlayerCard cardToAdd, Vector2 position = default )
 	{
 		// Try to find a match
