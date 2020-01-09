@@ -18,6 +18,8 @@ public class CollectionManager : MonoBehaviour
 	[SerializeField] private DeckManager deckManager = null;
 	[SerializeField] private TextMeshProUGUI tooltip = null;
 	[SerializeField] private Button upgradeButton = null;
+	[SerializeField] private GameObject cantUpgradeTip = null;
+
 
 	[Header("Objects")]
 	[SerializeField] private GameObject collectionSlot = null;
@@ -44,6 +46,7 @@ public class CollectionManager : MonoBehaviour
 
 	void Start ()
 	{
+		Assert.IsNotNull( cantUpgradeTip, $"Please assign <b>{nameof( cantUpgradeTip )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( playerCards, $"Please assign <b>{nameof( playerCards )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( deckManager, $"Please assign <b>{nameof( deckManager )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( collectionSlot, $"Please assign <b>{nameof( collectionSlot )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
@@ -232,7 +235,12 @@ public class CollectionManager : MonoBehaviour
 		}
 
 		//Debug.Log( $"cardsToFillDeck: {cardsToFillDeck}" );
-		return cardsToFillDeck >= PlayerCards.MaxCardsInDeck;
+		if ( cardsToFillDeck <= PlayerCards.MaxCardsInDeck )
+			cantUpgradeTip.SetActive( true );
+		else
+			cantUpgradeTip.SetActive( false );
+
+		return cardsToFillDeck > PlayerCards.MaxCardsInDeck;
 	}
 
 	private void UpgradeSlotDragEvent( int _, bool endOfDrag )

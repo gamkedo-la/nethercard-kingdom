@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class WorldMapScript : MonoBehaviour
 {
-    [SerializeField] private int startNode = 1;
+    //[SerializeField] private int startNode = 1;
     [SerializeField] private float lerpFactor = 0.25f;
     [SerializeField] private Vector3 defaultCamPosition = Vector3.zero;
     [SerializeField] private GameObject fadeObjectBattle = null;
     [SerializeField] private GameObject fadeObjectDeck = null;
-    [SerializeField] private GameObject playerNode = null;
+    //[SerializeField] private GameObject playerNode = null;
     [SerializeField] private float nodeUIActivationTime = 6f;
 
     private bool displacedFollowCam = false;
