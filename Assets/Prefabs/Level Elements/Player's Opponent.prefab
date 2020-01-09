@@ -79,8 +79,8 @@ MonoBehaviour:
   manaCounter: {fileID: 6961878581677797575}
   manaCounterLabel: {fileID: 2092339961925814793}
   opponentEnabler: {fileID: 5692887930004825355}
-  enebleOnStartDelay: 3
-  enebleOnStart: {fileID: 0}
+  enableOnStart: {fileID: 0}
+  disableOnStart: {fileID: 0}
   summonArea: {x: 0.68, y: 1.71}
   summonDelay: 0.5
   delayBetweenSummonsInOneEvent: 1
@@ -169,8 +169,8 @@ MonoBehaviour:
   manaCounter: {fileID: 6961878581677797575}
   manaCounterLabel: {fileID: 2092339961925814793}
   opponentEnabler: {fileID: 5692887930004825355}
-  enebleOnStartDelay: 3
-  enebleOnStart: {fileID: 0}
+  enableOnStart: {fileID: 0}
+  disableOnStart: {fileID: 0}
   summonArea: {x: 0.68, y: 1.71}
   summonDelay: 0.5
   delayBetweenSummonsInOneEvent: 1
@@ -428,8 +428,8 @@ MonoBehaviour:
   manaCounter: {fileID: 6961878581677797575}
   manaCounterLabel: {fileID: 2092339961925814793}
   opponentEnabler: {fileID: 5692887930004825355}
-  enebleOnStartDelay: 3
-  enebleOnStart: {fileID: 0}
+  enableOnStart: {fileID: 0}
+  disableOnStart: {fileID: 0}
   summonArea: {x: 0.68, y: 1.71}
   summonDelay: 0.5
   delayBetweenSummonsInOneEvent: 1
@@ -518,8 +518,8 @@ MonoBehaviour:
   manaCounter: {fileID: 6961878581677797575}
   manaCounterLabel: {fileID: 2092339961925814793}
   opponentEnabler: {fileID: 5692887930004825355}
-  enebleOnStartDelay: 3
-  enebleOnStart: {fileID: 0}
+  enableOnStart: {fileID: 0}
+  disableOnStart: {fileID: 0}
   summonArea: {x: 0.68, y: 1.71}
   summonDelay: 0.5
   delayBetweenSummonsInOneEvent: 1
@@ -608,8 +608,8 @@ MonoBehaviour:
   manaCounter: {fileID: 6961878581677797575}
   manaCounterLabel: {fileID: 2092339961925814793}
   opponentEnabler: {fileID: 5692887930004825355}
-  enebleOnStartDelay: 3
-  enebleOnStart: {fileID: 0}
+  enableOnStart: {fileID: 0}
+  disableOnStart: {fileID: 0}
   summonArea: {x: 0.68, y: 1.71}
   summonDelay: 0.5
   delayBetweenSummonsInOneEvent: 1
@@ -1061,8 +1061,8 @@ MonoBehaviour:
   manaCounter: {fileID: 6961878581677797575}
   manaCounterLabel: {fileID: 2092339961925814793}
   opponentEnabler: {fileID: 5692887930004825355}
-  enebleOnStartDelay: 4
-  enebleOnStart: {fileID: 0}
+  enableOnStart: {fileID: 0}
+  disableOnStart: {fileID: 0}
   summonArea: {x: 0.68, y: 1.71}
   summonDelay: 0.5
   delayBetweenSummonsInOneEvent: 1
@@ -1070,5 +1070,5 @@ MonoBehaviour:
   timeEngageMax: 120
   enrageMeter: 0
   mana: 0
-  manaGainSpeed: 1.8
+  manaGainSpeed: 1
   startHP: 50

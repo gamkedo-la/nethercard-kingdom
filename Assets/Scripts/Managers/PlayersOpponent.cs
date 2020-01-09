@@ -35,8 +35,8 @@ public class PlayersOpponent : MonoBehaviour
 	[SerializeField] private GameObject manaCounter = null;
 	[SerializeField] private TextMeshProUGUI manaCounterLabel = null;
 	[SerializeField] private OpponentEnabler opponentEnabler = null;
-	[SerializeField] private float enebleOnStartDelay = 3f;
-	[SerializeField] private GameObject enebleOnStart = null;
+	[SerializeField] private GameObject enableOnStart = null;
+	[SerializeField] private GameObject disableOnStart = null;
 
 	[Header("Summoning")]
 	[SerializeField] private Vector2 summonArea = new Vector2(2f, 4f);
@@ -79,8 +79,10 @@ public class PlayersOpponent : MonoBehaviour
 
 		hp.SetHP( startHP );
 
-		if ( enebleOnStart != null )
-			Invoke( nameof( ShowOnStart ), enebleOnStartDelay );
+		if ( enableOnStart != null )
+			enableOnStart.SetActive( true );
+		if ( disableOnStart != null )
+			disableOnStart.SetActive( false );
 	}
 
 	void Update( )
@@ -101,11 +103,6 @@ public class PlayersOpponent : MonoBehaviour
 	void FixedUpdate( )
 	{
 		AdjustEnrage( );
-	}
-
-	private void ShowOnStart( )
-	{
-		enebleOnStart.SetActive( true );
 	}
 
 	private void AdjustEnrage( )
