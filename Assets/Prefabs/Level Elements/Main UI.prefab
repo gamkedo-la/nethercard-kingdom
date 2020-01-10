@@ -13425,6 +13425,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1256674134460763496, guid: 364b5ae33201a35488c849af8147a408,
         type: 3}
+    - target: {fileID: 5038984323251702778, guid: 2b4d9a205cd62a545b6af3ee2a5bec6e,
+        type: 3}
+      propertyPath: cardsToGive.Array.data[1]
+      value: 
+      objectReference: {fileID: 8501903596962825678, guid: 5f3d14ac1d4a0424da11a2f22523b78e,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b4d9a205cd62a545b6af3ee2a5bec6e, type: 3}
 --- !u!1 &4004192519468945082 stripped
