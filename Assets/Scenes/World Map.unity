@@ -1130,7 +1130,7 @@ PrefabInstance:
     - target: {fileID: 2986380845987733856, guid: 32e01672c440b3e4987b3a784ef83200,
         type: 3}
       propertyPath: m_text
-      value: "This one made the townsfolk\r\nware two different socks!\r\nHow does
+      value: "This one made the townsfolk\r\nwear two different socks!\r\nWho does
         that?!"
       objectReference: {fileID: 0}
     - target: {fileID: 2986380845987733856, guid: 32e01672c440b3e4987b3a784ef83200,
@@ -1162,7 +1162,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: "This is what we've been training for!\r\nThe evil twins!\r\nEach more
-        evil then it's evil twin!"
+        evil than it's evil twin!"
       objectReference: {fileID: 0}
     - target: {fileID: 4492116654936924701, guid: 32e01672c440b3e4987b3a784ef83200,
         type: 3}
