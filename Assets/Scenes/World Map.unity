@@ -1097,6 +1097,245 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 346344662379232464, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1434540930076508077, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2978665622933249253, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429098654733687372, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6466724252345286219, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7675307936543204925, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2986380845987733856, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_text
+      value: "This one made the townsfolk\r\nware two different socks!\r\nHow does
+        that?!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2986380845987733856, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2986380845987733856, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2986380845987733856, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 71
+      objectReference: {fileID: 0}
+    - target: {fileID: 2986380845987733856, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2986380845987733856, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4492116654936924701, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_text
+      value: "This is what we've been training for!\r\nThe evil twins!\r\nEach more
+        evil then it's evil twin!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4492116654936924701, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: 56
+      objectReference: {fileID: 0}
+    - target: {fileID: 4492116654936924701, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4492116654936924701, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 91
+      objectReference: {fileID: 0}
+    - target: {fileID: 4492116654936924701, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4492116654936924701, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4492116654936924701, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_characterSpacing
+      value: 0.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 354077610894737749, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_text
+      value: 'We are almost there.
+
+        Don''t fall asleep!
+
+        We have a job to do here!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 354077610894737749, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 354077610894737749, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 354077610894737749, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 354077610894737749, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 354077610894737749, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415105704859895804, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_text
+      value: "The last was the youngest.\r\nThis one will not be that easy!\r\n...or
+        so he thinks..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415105704859895804, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415105704859895804, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415105704859895804, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 82
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415105704859895804, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7415105704859895804, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 8359204680645469179, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_text
+      value: "Seven brothers in seven castles,\r\nterrorizing the land.\r\nWill you
+        stop them?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8359204680645469179, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 76
+      objectReference: {fileID: 0}
+    - target: {fileID: 8359204680645469179, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8359204680645469179, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8359204680645469179, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8359204680645469179, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 5132868596559690637, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_text
+      value: "This one didn't allow people\r\nto wash their ears.\r\nAnd people kinda
+        liked it...\r\nThat's besides the point! ATTACK!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5132868596559690637, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5132868596559690637, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5132868596559690637, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 115
+      objectReference: {fileID: 0}
+    - target: {fileID: 5132868596559690637, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 5132868596559690637, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 5132868596559690637, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5132868596559690637, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_characterSpacing
+      value: 2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5132868596559690637, guid: 32e01672c440b3e4987b3a784ef83200,
+        type: 3}
+      propertyPath: m_paragraphSpacing
+      value: 8.9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32e01672c440b3e4987b3a784ef83200, type: 3}
 --- !u!1001 &4198876269421987849
