@@ -12220,7 +12220,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Get ready to cast spells!
+  m_text: Get ready!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 688626b0cddbf2042b92374e8e42b1de, type: 2}
   m_sharedMaterial: {fileID: -580138295220497457, guid: 688626b0cddbf2042b92374e8e42b1de,
@@ -12290,10 +12290,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 8272134291466255895}
-    characterCount: 25
+    characterCount: 10
     spriteCount: 0
-    spaceCount: 4
-    wordCount: 5
+    spaceCount: 1
+    wordCount: 2
     linkCount: 0
     lineCount: 1
     pageCount: 1

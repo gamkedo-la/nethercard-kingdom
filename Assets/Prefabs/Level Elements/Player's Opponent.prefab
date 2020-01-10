@@ -578,30 +578,15 @@ MonoBehaviour:
     SummonCost: 10
     SummonCostVariance: 0
     EnrageMin: 0
-    EnrageMax: 50
-    Weight: 10
+    EnrageMax: 100
+    Weight: 7
   - Instances:
     - {fileID: 5509567841954079445, guid: b6d57660f4a5f3746b5b3a3f5f2d9d9a, type: 3}
     SummonCost: 10
     SummonCostVariance: 0
     EnrageMin: 0
-    EnrageMax: 50
-    Weight: 2
-  - Instances:
-    - {fileID: 1603946167172975695, guid: 1e73a98fa3445994db017f1d88bad82d, type: 3}
-    - {fileID: 5509567841954079445, guid: b6d57660f4a5f3746b5b3a3f5f2d9d9a, type: 3}
-    SummonCost: 22
-    SummonCostVariance: 0
-    EnrageMin: 40
     EnrageMax: 100
-    Weight: 20
-  - Instances:
-    - {fileID: 3984009445576658407, guid: 538f57f7ad5d06c4688ac391c19c1c64, type: 3}
-    SummonCost: 30
-    SummonCostVariance: 0
-    EnrageMin: 60
-    EnrageMax: 100
-    Weight: 40
+    Weight: 3
   spawnIndicator: {fileID: 7704737331802149368, guid: a9e5c5bb2e9e15e43a102441c71c72d2,
     type: 3}
   summoningPoint: {fileID: 5290041437813572877}
@@ -617,8 +602,8 @@ MonoBehaviour:
   timeEngageMax: 120
   enrageMeter: 0
   mana: 0
-  manaGainSpeed: 1.8
-  startHP: 150
+  manaGainSpeed: 2.4
+  startHP: 80
 --- !u!1 &5290041437021551936
 GameObject:
   m_ObjectHideFlags: 0

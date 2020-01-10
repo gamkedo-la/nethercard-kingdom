@@ -126,6 +126,7 @@ public class ProgressManager : MonoBehaviour
 		if ( loadedProgressData == "" )
 		{
 			LoadDefaultProgressData( );
+			Debug.Log( gameProgress.MaxUnlockedLevel );
 			return;
 		}
 

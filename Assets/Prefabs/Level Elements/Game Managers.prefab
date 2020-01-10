@@ -339,7 +339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65eba18a4d5540d49a22e58df8dc5691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLevels: 2
+  maxLevels: 6
 --- !u!114 &7486367063326005756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -409,7 +409,7 @@ MonoBehaviour:
   summoningAreaAoe: {fileID: 0}
   good: {fileID: 1289313127435805898}
   bad: {fileID: 1289313126059173016}
-  manaIncrease: 5
+  manaIncrease: 4
   startMana: 0
   maxMana: 100
 --- !u!114 &4724508772829500602
