@@ -16,6 +16,7 @@ public class WorldMapScript : MonoBehaviour
     private Camera cameraForCoordsCalc;
     private Transform nodes;
     private Animator animator;
+    private GameObject lastNodeUI;
 
     private Vector3 startMousePosition = Vector3.zero;
 
@@ -23,17 +24,25 @@ public class WorldMapScript : MonoBehaviour
 
     public void ToggleActivation(GameObject obj)
     {
-        if (obj.transform.parent.parent == nodes.GetChild(moveToNode))
+        if ( obj.GetComponentInParent<EnemyNode>().Level <= ProgressManager.Instance.MaxUnlockedLevel )
         {
-            if (obj.activeSelf)
+            if ( obj != lastNodeUI && lastNodeUI.activeSelf )
             {
-                obj.GetComponent<Animator>().SetTrigger("hide");
-                StartCoroutine(DisableAfterSeconds(obj, 0.5f));
+                lastNodeUI.GetComponent<Animator>( ).SetTrigger( "hide" );
+                StartCoroutine( DisableAfterSeconds( lastNodeUI, 0.5f ) );
+            }
+
+            if ( obj.activeSelf )
+            {
+                obj.GetComponent<Animator>( ).SetTrigger( "hide" );
+                StartCoroutine( DisableAfterSeconds( obj, 0.5f ) );
             }
             else
             {
-                obj.SetActive(true);
+                obj.SetActive( true );
             }
+
+            lastNodeUI = obj;
         }
         else
         {
@@ -87,7 +96,8 @@ public class WorldMapScript : MonoBehaviour
 
     private void EnableNodeUI()
     {
-        nodes.GetChild( moveToNode ).GetChild( 0 ).GetChild( 0 ).gameObject.SetActive( true );
+        lastNodeUI = nodes.GetChild( moveToNode ).GetChild( 0 ).GetChild( 0 ).gameObject;
+        lastNodeUI.SetActive( true );
     }
 
     void Update()
