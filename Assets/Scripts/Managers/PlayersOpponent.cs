@@ -23,8 +23,8 @@ public class SummonEvent
 
 public class PlayersOpponent : MonoBehaviour
 {
-	public static PlayersOpponent Instance { get; private set; }
-	public bool IsPlaying { get; set; } = true;
+	//public static PlayersOpponent Instance { get; private set; }
+	//public bool IsPlaying { get; set; } = true;
 
 	[Header("Deck")]
 	[SerializeField] private SummonEvent[] summonEvents = null;
@@ -37,6 +37,7 @@ public class PlayersOpponent : MonoBehaviour
 	[SerializeField] private OpponentEnabler opponentEnabler = null;
 	[SerializeField] private GameObject enableOnStart = null;
 	[SerializeField] private GameObject disableOnStart = null;
+	[SerializeField] private HP hp = null;
 
 	[Header("Summoning")]
 	[SerializeField] private Vector2 summonArea = new Vector2(2f, 4f);
@@ -52,18 +53,17 @@ public class PlayersOpponent : MonoBehaviour
 	[SerializeField] private float startHP = 150f;
 
 	private SummonEvent nextSummonEventToPlay = null;
-	private HP hp = null;
 	private float timeEngage = 0f;
 
 	private void Awake( )
 	{
-		if ( Instance != null && Instance != this )
+		/*if ( Instance != null && Instance != this )
 			Destroy( this );
 		else
-			Instance = this;
+			Instance = this;*/
 	}
 
-	private void OnDestroy( ) { if ( this == Instance ) { Instance = null; } }
+	//private void OnDestroy( ) { if ( this == Instance ) { Instance = null; } }
 
 	void Start( )
 	{
@@ -74,9 +74,10 @@ public class PlayersOpponent : MonoBehaviour
 		Assert.IsNotNull( manaCounterLabel, $"Please assign <b>{nameof( manaCounterLabel )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		Assert.IsNotNull( opponentEnabler, $"Please assign <b>{nameof( opponentEnabler )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 
-		hp = opponentEnabler.OpponentsHP;
-		Assert.IsNotNull( hp, $"Please assign <b>{nameof( hp )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
+		if ( hp == null )
+			hp = opponentEnabler.OpponentsHP;
 
+		Assert.IsNotNull( hp, $"Please assign <b>{nameof( hp )}</b> field on <b>{GetType( ).Name}</b> script on <b>{name}</b> object" );
 		hp.SetHP( startHP );
 
 		if ( enableOnStart != null )
@@ -89,13 +90,16 @@ public class PlayersOpponent : MonoBehaviour
 	{
 		manaCounter.SetActive( CheatAndDebug.Instance.ShowOpponentsMana );
 
-		if ( !IsPlaying )
-			return;
+		//if ( !IsPlaying )
+			//return;
 
 		timeEngage += timeEngageIncrease * Time.deltaTime;
 
 		mana += manaGainSpeed * Time.deltaTime;
 		manaCounterLabel.text = mana.ToString( "0" );
+
+		if ( hp.CurrentHP <= 0 )
+			Destroy( this );
 
 		TryToSummon( );
 	}

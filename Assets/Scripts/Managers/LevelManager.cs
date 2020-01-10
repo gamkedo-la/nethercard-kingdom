@@ -30,8 +30,9 @@ public class LevelManager : MonoBehaviour
 	[SerializeField] private GameObject[] toReset = null;
 	[SerializeField] private UnityEvent onGameEnd = null;
 
-	float gameSpeedMod = 1f;
-	float speedSetting = 3;
+	private float gameSpeedMod = 1f;
+	private float speedSetting = 3;
+	private int lastLevelOpponents = 2;
 
 	void Start ()
 	{
@@ -130,6 +131,14 @@ public class LevelManager : MonoBehaviour
 	public void OpponentKilled( )
 	{
 		GameWon( );
+	}
+
+	public void OpponentKilledLastLevel( )
+	{
+		lastLevelOpponents--;
+
+		if ( lastLevelOpponents <= 0 )
+			GameWon( );
 	}
 
 	public void ResetCurrentLevel( )
