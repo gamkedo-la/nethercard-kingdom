@@ -5028,7 +5028,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionalToSpawn: {fileID: 0}
   type: 4
-  effectAmount: 15
+  effectAmount: 30
   destroyAfter: 3
   targetFreezTime: 3
   targetShockTime: 0.3

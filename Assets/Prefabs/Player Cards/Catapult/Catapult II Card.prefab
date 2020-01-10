@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7051341852533326494, guid: 5334be6a94cfcde46b74d55cc44a7f14,
+        type: 3}
+      propertyPath: m_Name
+      value: Catapult II Card
+      objectReference: {fileID: 0}
     - target: {fileID: 2119819389911972800, guid: 5334be6a94cfcde46b74d55cc44a7f14,
         type: 3}
       propertyPath: higherLevelVersion
@@ -43,12 +48,7 @@ PrefabInstance:
     - target: {fileID: 2119819389911972800, guid: 5334be6a94cfcde46b74d55cc44a7f14,
         type: 3}
       propertyPath: useCost
-      value: 28
-      objectReference: {fileID: 0}
-    - target: {fileID: 7051341852533326494, guid: 5334be6a94cfcde46b74d55cc44a7f14,
-        type: 3}
-      propertyPath: m_Name
-      value: Catapult II Card
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 3855711223594091686, guid: 5334be6a94cfcde46b74d55cc44a7f14,
         type: 3}

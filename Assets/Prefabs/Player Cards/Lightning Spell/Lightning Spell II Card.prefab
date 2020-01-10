@@ -25,7 +25,7 @@ PrefabInstance:
     - target: {fileID: 5601607133472784349, guid: d53af6725d85789418919b90f9ab9991,
         type: 3}
       propertyPath: abilityText
-      value: Does <b>20 damage</b> to enemy unit
+      value: Does <b>40 damage</b> to enemy unit
       objectReference: {fileID: 0}
     - target: {fileID: 5601607133472784349, guid: d53af6725d85789418919b90f9ab9991,
         type: 3}
@@ -48,7 +48,7 @@ PrefabInstance:
     - target: {fileID: 5601607133472784349, guid: d53af6725d85789418919b90f9ab9991,
         type: 3}
       propertyPath: useCost
-      value: 30
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5601607133472784349, guid: d53af6725d85789418919b90f9ab9991,
         type: 3}
@@ -163,7 +163,7 @@ PrefabInstance:
     - target: {fileID: 7745316614295420695, guid: d53af6725d85789418919b90f9ab9991,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7745316614295420695, guid: d53af6725d85789418919b90f9ab9991,
         type: 3}
@@ -209,6 +209,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.spaceCount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3847829024448911609, guid: d53af6725d85789418919b90f9ab9991,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 8.7
       objectReference: {fileID: 0}
     - target: {fileID: 3595423122201206856, guid: d53af6725d85789418919b90f9ab9991,
         type: 3}

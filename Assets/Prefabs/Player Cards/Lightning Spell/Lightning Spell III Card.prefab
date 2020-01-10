@@ -15,7 +15,7 @@ PrefabInstance:
     - target: {fileID: 1609105408714899463, guid: 50f644e35feb661458821404f47f5a33,
         type: 3}
       propertyPath: useCost
-      value: 35
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1609105408714899463, guid: 50f644e35feb661458821404f47f5a33,
         type: 3}
@@ -30,7 +30,7 @@ PrefabInstance:
     - target: {fileID: 1609105408714899463, guid: 50f644e35feb661458821404f47f5a33,
         type: 3}
       propertyPath: abilityText
-      value: Does <b>25 damage</b> to enemy unit
+      value: Does <b>50 damage</b> to enemy unit
       objectReference: {fileID: 0}
     - target: {fileID: 1609105408714899463, guid: 50f644e35feb661458821404f47f5a33,
         type: 3}

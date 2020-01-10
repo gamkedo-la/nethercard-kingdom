@@ -12891,6 +12891,36 @@ PrefabInstance:
       propertyPath: toEnable.Array.data[1]
       value: 
       objectReference: {fileID: 1771711648360323283}
+    - target: {fileID: 5038984323251702778, guid: 2b4d9a205cd62a545b6af3ee2a5bec6e,
+        type: 3}
+      propertyPath: cardsToGive.Array.data[0]
+      value: 
+      objectReference: {fileID: 5195897159522902779, guid: 7dc7cebc02c5fa445960646a217fe88c,
+        type: 3}
+    - target: {fileID: 5038984323251702778, guid: 2b4d9a205cd62a545b6af3ee2a5bec6e,
+        type: 3}
+      propertyPath: cardsToGive.Array.data[1]
+      value: 
+      objectReference: {fileID: 1760369034310967338, guid: 35c73b0121dc76649931f579533a5375,
+        type: 3}
+    - target: {fileID: 5038984323251702778, guid: 2b4d9a205cd62a545b6af3ee2a5bec6e,
+        type: 3}
+      propertyPath: cardsToGive.Array.data[2]
+      value: 
+      objectReference: {fileID: 1760369034310967338, guid: 35c73b0121dc76649931f579533a5375,
+        type: 3}
+    - target: {fileID: 5038984323251702778, guid: 2b4d9a205cd62a545b6af3ee2a5bec6e,
+        type: 3}
+      propertyPath: cardsToGive.Array.data[3]
+      value: 
+      objectReference: {fileID: 5601607133472784349, guid: d53af6725d85789418919b90f9ab9991,
+        type: 3}
+    - target: {fileID: 5038984323251702778, guid: 2b4d9a205cd62a545b6af3ee2a5bec6e,
+        type: 3}
+      propertyPath: cardsToGive.Array.data[4]
+      value: 
+      objectReference: {fileID: 7703579919947990461, guid: 1a28bb425cdad8e408cfd4778b6ee1c6,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b4d9a205cd62a545b6af3ee2a5bec6e, type: 3}
 --- !u!224 &1129138031005545501 stripped
@@ -13037,6 +13067,36 @@ PrefabInstance:
       propertyPath: toEnable.Array.data[1]
       value: 
       objectReference: {fileID: 1771711648360323283}
+    - target: {fileID: 5038984323251702778, guid: 2b4d9a205cd62a545b6af3ee2a5bec6e,
+        type: 3}
+      propertyPath: cardsToGive.Array.data[0]
+      value: 
+      objectReference: {fileID: 5195897159522902779, guid: 7dc7cebc02c5fa445960646a217fe88c,
+        type: 3}
+    - target: {fileID: 5038984323251702778, guid: 2b4d9a205cd62a545b6af3ee2a5bec6e,
+        type: 3}
+      propertyPath: cardsToGive.Array.data[1]
+      value: 
+      objectReference: {fileID: 5195897159522902779, guid: 7dc7cebc02c5fa445960646a217fe88c,
+        type: 3}
+    - target: {fileID: 5038984323251702778, guid: 2b4d9a205cd62a545b6af3ee2a5bec6e,
+        type: 3}
+      propertyPath: cardsToGive.Array.data[2]
+      value: 
+      objectReference: {fileID: 3134735390339546172, guid: da8d7d35f8ce99a4d9e211374288a08b,
+        type: 3}
+    - target: {fileID: 5038984323251702778, guid: 2b4d9a205cd62a545b6af3ee2a5bec6e,
+        type: 3}
+      propertyPath: cardsToGive.Array.data[3]
+      value: 
+      objectReference: {fileID: 7953719434971020668, guid: 76076803edf9a2444907fada0113ed95,
+        type: 3}
+    - target: {fileID: 5038984323251702778, guid: 2b4d9a205cd62a545b6af3ee2a5bec6e,
+        type: 3}
+      propertyPath: cardsToGive.Array.data[4]
+      value: 
+      objectReference: {fileID: 4258664912078502379, guid: 8b47a9ae6eee11c408156be3adb21f4a,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b4d9a205cd62a545b6af3ee2a5bec6e, type: 3}
 --- !u!1 &4464848291424562697 stripped
@@ -13183,6 +13243,30 @@ PrefabInstance:
       propertyPath: toEnable.Array.data[1]
       value: 
       objectReference: {fileID: 1771711648360323283}
+    - target: {fileID: 5038984323251702778, guid: 2b4d9a205cd62a545b6af3ee2a5bec6e,
+        type: 3}
+      propertyPath: cardsToGive.Array.data[0]
+      value: 
+      objectReference: {fileID: 1256674134460763496, guid: 364b5ae33201a35488c849af8147a408,
+        type: 3}
+    - target: {fileID: 5038984323251702778, guid: 2b4d9a205cd62a545b6af3ee2a5bec6e,
+        type: 3}
+      propertyPath: cardsToGive.Array.data[2]
+      value: 
+      objectReference: {fileID: 4184058712247799852, guid: 40e723e0f27a1964b874a949921c6bc5,
+        type: 3}
+    - target: {fileID: 5038984323251702778, guid: 2b4d9a205cd62a545b6af3ee2a5bec6e,
+        type: 3}
+      propertyPath: cardsToGive.Array.data[3]
+      value: 
+      objectReference: {fileID: 3521042045987837686, guid: ce892e7f67b736742a63bb6816212e2d,
+        type: 3}
+    - target: {fileID: 5038984323251702778, guid: 2b4d9a205cd62a545b6af3ee2a5bec6e,
+        type: 3}
+      propertyPath: cardsToGive.Array.data[4]
+      value: 
+      objectReference: {fileID: 1256674134460763496, guid: 364b5ae33201a35488c849af8147a408,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b4d9a205cd62a545b6af3ee2a5bec6e, type: 3}
 --- !u!1 &4004192519468945082 stripped
@@ -15655,6 +15739,30 @@ PrefabInstance:
       propertyPath: toEnable.Array.data[1]
       value: 
       objectReference: {fileID: 1771711648360323283}
+    - target: {fileID: 5038984323251702778, guid: 2b4d9a205cd62a545b6af3ee2a5bec6e,
+        type: 3}
+      propertyPath: cardsToGive.Array.data[1]
+      value: 
+      objectReference: {fileID: 4959332090658851808, guid: f4b608c5cc99c6644a3879e8b33224bb,
+        type: 3}
+    - target: {fileID: 5038984323251702778, guid: 2b4d9a205cd62a545b6af3ee2a5bec6e,
+        type: 3}
+      propertyPath: cardsToGive.Array.data[2]
+      value: 
+      objectReference: {fileID: 2119819389911972800, guid: 5334be6a94cfcde46b74d55cc44a7f14,
+        type: 3}
+    - target: {fileID: 5038984323251702778, guid: 2b4d9a205cd62a545b6af3ee2a5bec6e,
+        type: 3}
+      propertyPath: cardsToGive.Array.data[3]
+      value: 
+      objectReference: {fileID: 7356488059610897788, guid: 0b0297453a5bfa94a85638fff8e5f6ff,
+        type: 3}
+    - target: {fileID: 5038984323251702778, guid: 2b4d9a205cd62a545b6af3ee2a5bec6e,
+        type: 3}
+      propertyPath: cardsToGive.Array.data[4]
+      value: 
+      objectReference: {fileID: 8824168672960201570, guid: 39305d494c8b56a44b497d389241a5fd,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b4d9a205cd62a545b6af3ee2a5bec6e, type: 3}
 --- !u!224 &7362773638980011325 stripped
@@ -15793,6 +15901,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5038984323251702778, guid: 2b4d9a205cd62a545b6af3ee2a5bec6e,
         type: 3}
+      propertyPath: holders.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5038984323251702778, guid: 2b4d9a205cd62a545b6af3ee2a5bec6e,
+        type: 3}
       propertyPath: toEnable.Array.data[0]
       value: 
       objectReference: {fileID: 5294702734180884432}
@@ -15801,6 +15914,42 @@ PrefabInstance:
       propertyPath: toEnable.Array.data[1]
       value: 
       objectReference: {fileID: 1771711648360323283}
+    - target: {fileID: 5038984323251702778, guid: 2b4d9a205cd62a545b6af3ee2a5bec6e,
+        type: 3}
+      propertyPath: cardsToGive.Array.data[0]
+      value: 
+      objectReference: {fileID: 7953719434971020668, guid: 76076803edf9a2444907fada0113ed95,
+        type: 3}
+    - target: {fileID: 5038984323251702778, guid: 2b4d9a205cd62a545b6af3ee2a5bec6e,
+        type: 3}
+      propertyPath: cardsToGive.Array.data[1]
+      value: 
+      objectReference: {fileID: 3134735390339546172, guid: da8d7d35f8ce99a4d9e211374288a08b,
+        type: 3}
+    - target: {fileID: 5038984323251702778, guid: 2b4d9a205cd62a545b6af3ee2a5bec6e,
+        type: 3}
+      propertyPath: cardsToGive.Array.data[2]
+      value: 
+      objectReference: {fileID: 7936052614372676182, guid: dcfc3d036c9a2a046b80f73d504505f8,
+        type: 3}
+    - target: {fileID: 5038984323251702778, guid: 2b4d9a205cd62a545b6af3ee2a5bec6e,
+        type: 3}
+      propertyPath: cardsToGive.Array.data[3]
+      value: 
+      objectReference: {fileID: 8015970057988617293, guid: 787aadff5fd97de40999cfd6678d854b,
+        type: 3}
+    - target: {fileID: 5038984323251702778, guid: 2b4d9a205cd62a545b6af3ee2a5bec6e,
+        type: 3}
+      propertyPath: holders.Array.data[5]
+      value: 
+      objectReference: {fileID: 5097870211536920695, guid: 4b6d6c29f79aa5943ba346459d1adeaa,
+        type: 3}
+    - target: {fileID: 5038984323251702778, guid: 2b4d9a205cd62a545b6af3ee2a5bec6e,
+        type: 3}
+      propertyPath: cardsToGive.Array.data[4]
+      value: 
+      objectReference: {fileID: 5740536526104938976, guid: a0daeda8c38214247b364ff5bb4539d3,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b4d9a205cd62a545b6af3ee2a5bec6e, type: 3}
 --- !u!224 &7006304267876790031 stripped

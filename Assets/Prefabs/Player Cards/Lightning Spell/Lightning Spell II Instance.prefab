@@ -70,7 +70,17 @@ PrefabInstance:
     - target: {fileID: 7121012877835846175, guid: 6b9a74655773aa64b931b270686f7f35,
         type: 3}
       propertyPath: effectAmount
-      value: 20
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6551812307858386829, guid: 6b9a74655773aa64b931b270686f7f35,
+        type: 3}
+      propertyPath: minVolume
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6551812307858386829, guid: 6b9a74655773aa64b931b270686f7f35,
+        type: 3}
+      propertyPath: maxVolume
+      value: 0.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b9a74655773aa64b931b270686f7f35, type: 3}
