@@ -1497,7 +1497,7 @@ GameObject:
   - component: {fileID: -1605514461070696840}
   m_Layer: 13
   m_Name: Unit Instance Template
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10982,16 +10982,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2003592177450988123}
     m_Modifications:
-    - target: {fileID: 223101876676840004, guid: 0e2d323eda0e6844e92e039469ff2d6f,
-        type: 3}
-      propertyPath: ShapeModule.radius.value
-      value: 0.23
-      objectReference: {fileID: 0}
-    - target: {fileID: 223101876676840004, guid: 0e2d323eda0e6844e92e039469ff2d6f,
-        type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 4340856779794576261, guid: 0e2d323eda0e6844e92e039469ff2d6f,
         type: 3}
       propertyPath: m_Name
@@ -11066,6 +11056,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.142857
+      objectReference: {fileID: 0}
+    - target: {fileID: 223101876676840004, guid: 0e2d323eda0e6844e92e039469ff2d6f,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 223101876676840004, guid: 0e2d323eda0e6844e92e039469ff2d6f,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e2d323eda0e6844e92e039469ff2d6f, type: 3}

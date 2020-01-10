@@ -25,19 +25,20 @@ public class ProjectileMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.tag == "Enemy" || other.gameObject.tag == "ProjectileShredder")
+        if ( other.gameObject.tag == "Enemy" || other.gameObject.tag == "Player" )
         {
-            if(other.gameObject.tag == "Enemy")
+            HP hp = other.GetComponent<HP>();
+            Unit unit = other.GetComponent<Unit>();
+            float damageToInflict = damage;
+            if ( other.gameObject.name == "Enemy Wall" && projectileType == ProjecttileType.Siege )
             {
-				HP enemyHP = other.GetComponent<HP>();
-				Unit unit = other.GetComponent<Unit>();
-                float damageToInflict = damage;
-                if (other.gameObject.name == "Enemy Wall" && projectileType == ProjecttileType.Siege)
-                {
-                    damageToInflict *= siegeDamageMultiplier;
-                }
-                enemyHP.DoDamage(damageToInflict, unit ? unit.Center : transform.position);
+                damageToInflict *= siegeDamageMultiplier;
             }
+            hp.DoDamage( damageToInflict, unit ? unit.Center : transform.position );
+        }
+
+        if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "ProjectileShredder" || other.gameObject.tag == "Player" )
+        {
             Destroy(gameObject);
         }
     }

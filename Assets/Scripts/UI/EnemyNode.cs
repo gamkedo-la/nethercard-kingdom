@@ -9,6 +9,8 @@ using UnityEngine.Assertions;
 
 public class EnemyNode : MonoBehaviour
 {
+	public int Level { get { return level; } }
+
 	[SerializeField] private int level = 1;
 	[SerializeField] private GameObject[] toShowOnLevelUnlocked = null;
 	[SerializeField] private GameObject[] toHideOnLevelUnlocked = null;

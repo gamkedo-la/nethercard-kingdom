@@ -82,6 +82,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.9
       objectReference: {fileID: 0}
+    - target: {fileID: 318922937682702973, guid: 43d8c9f382e7f044bab0fc3cb1928412,
+        type: 3}
+      propertyPath: attackRange
+      value: 4.5
+      objectReference: {fileID: 0}
     - target: {fileID: 318922937682702974, guid: 43d8c9f382e7f044bab0fc3cb1928412,
         type: 3}
       propertyPath: maxHP

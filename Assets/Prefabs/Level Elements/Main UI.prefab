@@ -13095,7 +13095,7 @@ PrefabInstance:
         type: 3}
       propertyPath: cardsToGive.Array.data[4]
       value: 
-      objectReference: {fileID: 4258664912078502379, guid: 8b47a9ae6eee11c408156be3adb21f4a,
+      objectReference: {fileID: 5298980927649781638, guid: 2be68685b40b396409558bf0d09a8918,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b4d9a205cd62a545b6af3ee2a5bec6e, type: 3}
@@ -15749,7 +15749,7 @@ PrefabInstance:
         type: 3}
       propertyPath: cardsToGive.Array.data[2]
       value: 
-      objectReference: {fileID: 2119819389911972800, guid: 5334be6a94cfcde46b74d55cc44a7f14,
+      objectReference: {fileID: 1760369034310967338, guid: 35c73b0121dc76649931f579533a5375,
         type: 3}
     - target: {fileID: 5038984323251702778, guid: 2b4d9a205cd62a545b6af3ee2a5bec6e,
         type: 3}
