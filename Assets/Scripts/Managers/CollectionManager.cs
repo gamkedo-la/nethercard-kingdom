@@ -77,7 +77,7 @@ public class CollectionManager : MonoBehaviour
 		// Clean up and close
 		if ( !opening )
 		{
-			CleanUpUpgradeState( );
+			CleanUpUpgradeState( true, true );
 			return;
 		}
 
@@ -185,7 +185,7 @@ public class CollectionManager : MonoBehaviour
 		}
 	}
 
-	private void CleanUpUpgradeState( bool updateCollection = true )
+	private void CleanUpUpgradeState( bool updateCollection = true, bool closing = false )
 	{
 		upgradSlot1.Clear( );
 		upgradSlot2.Clear( );
@@ -208,7 +208,7 @@ public class CollectionManager : MonoBehaviour
 
 		if ( updateCollection )
 		{
-			bool forceDisable = !CanWeFillTheDeck( );
+			bool forceDisable = !CanWeFillTheDeck( ) && !closing;
 			DisplayCollection( forceDisable );
 		}
 	}
