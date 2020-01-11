@@ -12,6 +12,9 @@ public class BeamAttack : Attack
 	[SerializeField] private LineRenderer line = null;
 	[SerializeField] private Transform startPoint = null;
 	[SerializeField] protected float atackDuration = 0.3f;
+    // instantiates some optional prefabs or particles
+    [SerializeField] private Transform spawnAtStart = null;
+    [SerializeField] private Transform spawnAtDest = null;
 
 	private float timeToNextAttack = 0;
 	private Unit currentOpponent = null;
@@ -50,6 +53,20 @@ public class BeamAttack : Attack
 			return;
 
 		line.enabled = true;
+
+        if (spawnAtStart && currentOpponent) {
+            Debug.Log("BeamAttack is spawning " + spawnAtStart.name + " at " + startPoint.position);
+            // Get Angle in Radians
+            float AngleRad = Mathf.Atan2(currentOpponent.transform.position.y - startPoint.position.y, currentOpponent.transform.position.x - startPoint.position.x);
+            // Get Angle in Degrees
+            float AngleDeg = (180 / Mathf.PI) * AngleRad;
+            // Rotate Object
+            Quaternion rot = Quaternion.Euler(0, 0, AngleDeg);
+            Instantiate(spawnAtStart,startPoint.position,rot); // spawn particles towards the target
+        }
+        if (spawnAtDest && currentOpponent) {
+            Instantiate(spawnAtDest,currentOpponent.transform); // FIXME rotate properly? face back at startPoint? face upwards? left blank or now
+        }
 
 		currentOpponent.HP.DoDamage( atackDamage, currentOpponent.Center );
 		timeToNextAttack = atackDelay;
