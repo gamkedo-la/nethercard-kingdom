@@ -32,6 +32,7 @@ public class CardGiver : MonoBehaviour
 	private void GiveCards( )
 	{
 		PlayerPrefs.SetInt( gameObject.name, 1 ); // Mark that we gave out the cards
+		collection.SortCollection( );
 
 		for ( int i = 0; i < cardsToGive.Length; i++ )
 		{
@@ -44,6 +45,7 @@ public class CardGiver : MonoBehaviour
 
 		animator.enabled = true;
 
+		collection.SortCollection( );
 		collection.Save( );
 	}
 
