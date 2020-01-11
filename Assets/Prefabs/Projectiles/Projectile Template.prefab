@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 8388480495995384010}
   - component: {fileID: -3718062964742674083}
   - component: {fileID: 1336335391140273035}
+  - component: {fileID: -1556934331117755261}
   m_Layer: 11
-  m_Name: ProjectileTemplate
+  m_Name: Projectile Template
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,7 +122,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dee200e4f7fecdc47bb4ce249fcb4eba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 1.0933342, y: 0.28965497, z: 0}
+  projectileSpeed: 3
+  direction: {x: 1.0933342, y: 0.28965497}
+  damage: 1
+  projectileType: 0
+  siegeDamageMultiplier: 3
 --- !u!50 &1336335391140273035
 Rigidbody2D:
   serializedVersion: 4
@@ -143,3 +148,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &-1556934331117755261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4552927042956422936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3945a096cc3e35f4bb1db67b677b6d40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyDelay: 1.1
+  detachChildren: 0

@@ -15,7 +15,7 @@ MonoBehaviour:
   attackSound: {fileID: 7608210289177436774}
   animator: {fileID: 4169467080710305617}
   atackDamage: 10
-  atackDelay: 10
+  atackDelay: 5
   projectilePrefab: {fileID: 3951523413204502861, guid: b13f26e363ec35442ac22ea02e3c991b,
     type: 3}
 --- !u!1001 &644232227077486675
