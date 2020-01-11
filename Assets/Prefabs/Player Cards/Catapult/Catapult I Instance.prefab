@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f17889fdc11dff244891bc7abb7c4050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSound: {fileID: 0}
+  attackSound: {fileID: 7608210289177436774}
   animator: {fileID: 4169467080710305617}
   atackDamage: 10
   atackDelay: 10
@@ -166,6 +166,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 9d36259670a62d140a2bac421cc12c1a,
         type: 3}
+    - target: {fileID: 7018032356395801141, guid: fc6c2faa8ae045542a0960290aa158db,
+        type: 3}
+      propertyPath: sounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7018032356395801141, guid: fc6c2faa8ae045542a0960290aa158db,
+        type: 3}
+      propertyPath: sounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: bd8ccbe8149b48a49af13565b28d7f35, type: 3}
     - target: {fileID: 1814525084534652202, guid: fc6c2faa8ae045542a0960290aa158db,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -416,3 +426,15 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 644232227077486675}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7608210289177436774 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7018032356395801141, guid: fc6c2faa8ae045542a0960290aa158db,
+    type: 3}
+  m_PrefabInstance: {fileID: 644232227077486675}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c798815e5b5346a4fadd4769bc4e8800, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
