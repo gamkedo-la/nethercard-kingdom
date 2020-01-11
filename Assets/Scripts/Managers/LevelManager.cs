@@ -27,6 +27,7 @@ public class LevelManager : MonoBehaviour
 	[SerializeField] private PlaySound gameoverSound = null;
 	[SerializeField] private float playingCardGameSpeed = 0.3f;
 	[SerializeField] private GameObject[] toDisableOnEnd = null;
+	[SerializeField] private GameObject toDisableOnEndLevel = null;
 	[SerializeField] private GameObject[] toReset = null;
 	[SerializeField] private UnityEvent onGameEnd = null;
 
@@ -138,7 +139,11 @@ public class LevelManager : MonoBehaviour
 		lastLevelOpponents--;
 
 		if ( lastLevelOpponents <= 0 )
+		{
+			if ( toDisableOnEndLevel )
+				toDisableOnEndLevel.SetActive( false );
 			GameWon( );
+		}
 	}
 
 	public void ResetCurrentLevel( )
