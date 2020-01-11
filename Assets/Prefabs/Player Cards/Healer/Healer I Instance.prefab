@@ -95,7 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackSound: {fileID: 0}
   animator: {fileID: 1979474747455526750}
-  atackDamage: 10
+  atackDamage: 12
   atackDelay: 2
   unit: {fileID: 3574336688726015168}
   sprite: {fileID: 3574336688469912071}

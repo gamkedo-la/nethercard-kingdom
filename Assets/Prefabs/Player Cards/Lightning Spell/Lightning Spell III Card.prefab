@@ -15,7 +15,7 @@ PrefabInstance:
     - target: {fileID: 1609105408714899463, guid: 50f644e35feb661458821404f47f5a33,
         type: 3}
       propertyPath: useCost
-      value: 50
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 1609105408714899463, guid: 50f644e35feb661458821404f47f5a33,
         type: 3}
