@@ -5018,6 +5018,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7028715553724660368, guid: 0df3e6601848bcf4d9998dd67658fa77,
+        type: 3}
+      propertyPath: sounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7028715553724660368, guid: 0df3e6601848bcf4d9998dd67658fa77,
+        type: 3}
+      propertyPath: sounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: e3d4343c901ce8d4fb56d372a03c8b8e, type: 3}
+    - target: {fileID: 7028715553724660368, guid: 0df3e6601848bcf4d9998dd67658fa77,
+        type: 3}
+      propertyPath: minVolume
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0df3e6601848bcf4d9998dd67658fa77, type: 3}
 --- !u!1 &6231682137157405236 stripped
