@@ -187,6 +187,8 @@ MonoBehaviour:
   line: {fileID: 7316951447562485861}
   startPoint: {fileID: 5277079176347802827}
   atackDuration: 0.3
+  spawnAtStart: {fileID: 0}
+  spawnAtDest: {fileID: 0}
 --- !u!1 &1327336505529747833
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,6 +438,8 @@ MonoBehaviour:
   line: {fileID: 8818441793101780366}
   startPoint: {fileID: 8683422093821665121}
   atackDuration: 0.3
+  spawnAtStart: {fileID: 0}
+  spawnAtDest: {fileID: 0}
 --- !u!1 &3677590739787345377
 GameObject:
   m_ObjectHideFlags: 0
@@ -6096,6 +6100,7 @@ GameObject:
   - component: {fileID: 3681227737802798581}
   - component: {fileID: 2749613668411023381}
   - component: {fileID: 1670072081049455761}
+  - component: {fileID: 6380007175525389557}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -6336,6 +6341,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6380007175525389557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7832217364804872008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d7c022c66b3712459e35479a91f7fbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: {fileID: 7832217364804872023}
+  thresholds:
+  - 0.8
+  - 0.6
+  - 0.4
+  - 0.2
+  states: []
+  checkInverval: 0.2
 --- !u!1 &7832217365449908390
 GameObject:
   m_ObjectHideFlags: 0

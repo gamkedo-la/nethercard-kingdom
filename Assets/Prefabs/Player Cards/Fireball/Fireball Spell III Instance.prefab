@@ -67,16 +67,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1114157308040851506, guid: 3732c59ee00412a448a1d610cfed3cda,
-        type: 3}
-      propertyPath: endScaleMax
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1114157308040851506, guid: 3732c59ee00412a448a1d610cfed3cda,
-        type: 3}
-      propertyPath: endScaleMin
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 3670938288968869354, guid: 3732c59ee00412a448a1d610cfed3cda,
         type: 3}
       propertyPath: effectAmount
