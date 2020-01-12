@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -901,6 +901,34 @@ PrefabInstance:
     - target: {fileID: 823175549553453966, guid: 67113f71c3ae39d4f9edea9758ad4096,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1528628647, guid: 67113f71c3ae39d4f9edea9758ad4096, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 238743815, guid: 67113f71c3ae39d4f9edea9758ad4096, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 238743815, guid: 67113f71c3ae39d4f9edea9758ad4096, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 238743815, guid: 67113f71c3ae39d4f9edea9758ad4096, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 812650689, guid: 67113f71c3ae39d4f9edea9758ad4096, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 812650689, guid: 67113f71c3ae39d4f9edea9758ad4096, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 812650689, guid: 67113f71c3ae39d4f9edea9758ad4096, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -267,7 +267,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Tip: Try sorting, stacking or moviong cards from the deck if there seem
+  m_text: 'Tip: Try sorting, stacking or moving cards from the deck if there seem
     to be no cards to upgrade.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8dec8a9f8b33f9d48b376d00276d2927, type: 2}

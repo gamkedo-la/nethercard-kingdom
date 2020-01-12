@@ -208,7 +208,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 238743813}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
@@ -330,7 +330,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 812650688}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
@@ -367,7 +367,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1528628648
 RectTransform:
   m_ObjectHideFlags: 0
@@ -509,9 +509,9 @@ MonoBehaviour:
     assorted sounds (cards, hand, win and loss, UI buttons, weapons, castle damage,
     fireball)\r\n\r\n<b>Christer \"McFunkypants\" Kaitila</b>\r\nBackground environment
     art and related weather/water effects, scene decoration sprites, boot prints,
-    leader titan castle art, hidden \"retro effect,\" castle arrow defense volleys\r,
-    castle damage states\n\r\n<b>Bar\u0131\u015F K\xF6kl\xFC</b>\r\nGame speed slider,
-    catapult unit mechanics and art\r\n\r\n<b>Klaim (A. Jo\xEBl Lamotte)</b>\r\nCustom
+    leader titan castle art, hidden \"retro effect,\" castle arrow defense volleys\r
+    \          , castle damage states\n\r\n<b>Bar\u0131\u015F K\xF6kl\xFC</b>\r\nGame
+    speed slider, catapult unit mechanics and art\r\n\r\n<b>Klaim (A. Jo\xEBl Lamotte)</b>\r\nCustom
     mouse cursors\r\n\r\n<b>Jaime Rivas</b>\r\nMain menu music\r\n\r\n<b>Randy Tan
     Shaoxian</b>\r\nUnit HP bars\r\n\r\n<b>Cole Andress</b>\r\nMana debug cheat\r\n\r\n<b>Chris
     DeLeon</b>\r\nCredits text\r\n\r\n<b>Special thanks to HomeTeam Gamdev trainers
@@ -595,10 +595,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1918097185}
-    characterCount: 2866
+    characterCount: 2909
     spriteCount: 0
-    spaceCount: 352
-    wordCount: 393
+    spaceCount: 367
+    wordCount: 397
     linkCount: 0
     lineCount: 89
     pageCount: 1
