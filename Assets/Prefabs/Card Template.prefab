@@ -5742,6 +5742,7 @@ GameObject:
   - component: {fileID: 8901727659587730298}
   - component: {fileID: 1447557084115629246}
   - component: {fileID: 4395479231106108376}
+  - component: {fileID: 2695967697441921993}
   - component: {fileID: 2212851026527666623}
   m_Layer: 5
   m_Name: Card Template
@@ -5885,6 +5886,18 @@ MonoBehaviour:
   alphaOnDraggedInDeckBuilder: 0.8
   alphaOnCanNotBePlayed: 0.6
   liveImageScaleMod: 1
+--- !u!114 &2695967697441921993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7540921270970863072}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc55b174f6691404a8480cc27a184a26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2212851026527666623
 MonoBehaviour:
   m_ObjectHideFlags: 0

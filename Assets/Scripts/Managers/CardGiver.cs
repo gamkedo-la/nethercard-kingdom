@@ -37,8 +37,7 @@ public class CardGiver : MonoBehaviour
 		for ( int i = 0; i < cardsToGive.Length; i++ )
 		{
 			GameObject go = Instantiate( cardsToGive[i].gameObject, holders[i] );
-			go.GetComponent<Card>( ).enabled = false;
-			go.GetComponent<CardAudioVisuals>( ).enabled = false;
+			go.GetComponent<ForceCardUpdate>( ).enabled = true;
 
 			collection.AwardCard( new PlayerCard( ) { Card = cardsToGive[i], Amount = 1 } );
 		}
