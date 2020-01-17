@@ -1,0 +1,3 @@
+Before doing an Android build:
+1. Change rendering pipline in Graphics settings to low
+2. Change color space in Player settings to Gamma

@@ -55,7 +55,7 @@ public class BeamAttack : Attack
 		line.enabled = true;
 
         if (spawnAtStart && currentOpponent) {
-            Debug.Log("BeamAttack is spawning " + spawnAtStart.name + " at " + startPoint.position);
+            //Debug.Log("BeamAttack is spawning " + spawnAtStart.name + " at " + startPoint.position);
             // Get Angle in Radians
             float AngleRad = Mathf.Atan2(currentOpponent.transform.position.y - startPoint.position.y, currentOpponent.transform.position.x - startPoint.position.x);
             // Get Angle in Degrees
