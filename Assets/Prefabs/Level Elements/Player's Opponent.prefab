@@ -236,7 +236,7 @@ MonoBehaviour:
   timeEngageMax: 120
   enrageMeter: 0
   mana: 0
-  manaGainSpeed: 3
+  manaGainSpeed: 2.7
   startHP: 300
 --- !u!1 &2784806232856595956
 GameObject:
@@ -488,7 +488,7 @@ MonoBehaviour:
   timeEngageMax: 120
   enrageMeter: 0
   mana: 0
-  manaGainSpeed: 3
+  manaGainSpeed: 2.7
   startHP: 200
 --- !u!1 &3475006659098834051
 GameObject:
@@ -625,7 +625,7 @@ MonoBehaviour:
   timeEngageMax: 120
   enrageMeter: 0
   mana: 0
-  manaGainSpeed: 3
+  manaGainSpeed: 2.7
   startHP: 300
 --- !u!1 &4948175242581861444
 GameObject:
