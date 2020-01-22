@@ -58,6 +58,7 @@ public class CollectionManager : MonoBehaviour
 
 		GetCollectionCards( );
 		CreateLayout( );
+		SortCollection( );
 		DisplayCollection( );
 	}
 
@@ -324,6 +325,7 @@ public class CollectionManager : MonoBehaviour
 				return;
 			}
 		}
+
 	}
 
 	public void SortCollection( )
@@ -396,7 +398,7 @@ public class CollectionManager : MonoBehaviour
 		cardDraggedFromDeck = null;
 
 		for ( int i = 0; i < collection.Count; i++ )
-			slots[i].Set( collection[i], i, CardDragedEvent, CardDroppedEvent, ClickedOnSlotEvent, upgrading, forceDisable );
+			slots[i].Set( collection[i], i, CardDragedEvent, (int value)=> { CardDroppedEvent(value); SortCollection(); }, ClickedOnSlotEvent, upgrading, forceDisable );
 	}
 
 	private void ClickedOnSlotEvent( int dropSlotIndex )
