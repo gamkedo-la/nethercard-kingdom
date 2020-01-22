@@ -26,7 +26,7 @@ public class WorldMapScript : MonoBehaviour
     {
         if ( obj.GetComponentInParent<EnemyNode>().Level <= ProgressManager.Instance.MaxUnlockedLevel )
         {
-            if ( obj != lastNodeUI && lastNodeUI.activeSelf )
+            if ( lastNodeUI && obj != lastNodeUI && lastNodeUI.activeSelf )
             {
                 lastNodeUI.GetComponent<Animator>( ).SetTrigger( "hide" );
                 StartCoroutine( DisableAfterSeconds( lastNodeUI, 0.5f ) );
