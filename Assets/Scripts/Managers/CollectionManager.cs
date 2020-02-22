@@ -13,13 +13,14 @@ using UnityEngine.UI;
 
 public class CollectionManager : MonoBehaviour
 {
+	public bool AutoSort { get; set; } = true;
+
 	[Header("External Objects")]
 	[SerializeField] private PlayerCards playerCards = null;
 	[SerializeField] private DeckManager deckManager = null;
 	[SerializeField] private TextMeshProUGUI tooltip = null;
 	[SerializeField] private Button upgradeButton = null;
 	[SerializeField] private GameObject cantUpgradeTip = null;
-
 
 	[Header("Objects")]
 	[SerializeField] private GameObject collectionSlot = null;
@@ -58,7 +59,7 @@ public class CollectionManager : MonoBehaviour
 
 		GetCollectionCards( );
 		CreateLayout( );
-		SortCollection( );
+		if ( AutoSort ) SortCollection( );
 		DisplayCollection( );
 	}
 
@@ -398,7 +399,7 @@ public class CollectionManager : MonoBehaviour
 		cardDraggedFromDeck = null;
 
 		for ( int i = 0; i < collection.Count; i++ )
-			slots[i].Set( collection[i], i, CardDragedEvent, (int value)=> { CardDroppedEvent(value); SortCollection(); }, ClickedOnSlotEvent, upgrading, forceDisable );
+			slots[i].Set( collection[i], i, CardDragedEvent, (int value)=> { CardDroppedEvent(value); if (AutoSort) SortCollection(); }, ClickedOnSlotEvent, upgrading, forceDisable );
 	}
 
 	private void ClickedOnSlotEvent( int dropSlotIndex )
