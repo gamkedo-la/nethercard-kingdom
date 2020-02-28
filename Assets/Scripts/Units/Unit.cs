@@ -267,7 +267,7 @@ public class Unit : MonoBehaviour
 			bool positive = strenght >= 0;
 			Color color = positive ? Color.green : Color.red;
 			color.a = 0.9f;
-			LineRenderer line = Utilities.DrawDebugLine( Center, unit.Center, color, lineThickness, lineThickness );
+			LineRenderer line = Utils.DrawDebugLine( Center, unit.Center, color, lineThickness, lineThickness );
 			line.sortingLayerName = "Foreground";
 			springs.Add( line );
 		}

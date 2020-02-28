@@ -7,7 +7,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Utilities
+public static class Utils
 {
 	public static IEnumerator ChangeOverTime( float timeLength, System.Action<float> methodWithParameter )
 	{

@@ -140,7 +140,7 @@ public class CardAudioVisuals : MonoBehaviour
 
 		sizeIncrease = 0.2f;
 		float duration = 0.2f;
-		StartCoroutine( Utilities.ChangeOverTime( duration, BorderEffect ) );
+		StartCoroutine( Utils.ChangeOverTime( duration, BorderEffect ) );
 
 		float warningDuration = 0.3f;
 		Invoke( nameof( OffWarning ), warningDuration );
@@ -157,7 +157,7 @@ public class CardAudioVisuals : MonoBehaviour
 
 		sizeIncrease = 0.2f;
 		float duration = 0.5f;
-		StartCoroutine( Utilities.ChangeOverTime( duration, BorderEffect ) );
+		StartCoroutine( Utils.ChangeOverTime( duration, BorderEffect ) );
 	}
 
 	public void OffWarning( ) => animator.SetBool( "Shake", false );

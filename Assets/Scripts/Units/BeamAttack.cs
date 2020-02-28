@@ -71,7 +71,7 @@ public class BeamAttack : Attack
 		currentOpponent.HP.DoDamage( atackDamage, currentOpponent.Center );
 		timeToNextAttack = atackDelay;
 
-		StartCoroutine( Utilities.ChangeOverTime( atackDuration / 2, AttackFirstHalf, StartSecondHalf ) );
+		StartCoroutine( Utils.ChangeOverTime( atackDuration / 2, AttackFirstHalf, StartSecondHalf ) );
 	}
 
 	private void AttackFirstHalf( float percent )
@@ -94,7 +94,7 @@ public class BeamAttack : Attack
 
 	private void StartSecondHalf( )
 	{
-		StartCoroutine( Utilities.ChangeOverTime( atackDuration / 2, AttackSecondHalf, EndAttack ) );
+		StartCoroutine( Utils.ChangeOverTime( atackDuration / 2, AttackSecondHalf, EndAttack ) );
 	}
 
 	private void AttackSecondHalf( float percent )

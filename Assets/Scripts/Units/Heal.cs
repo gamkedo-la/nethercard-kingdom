@@ -70,7 +70,7 @@ public class Heal : Attack
 		oldSpritePos = sprite.localPosition;
 		newSpritePos = sprite.localPosition + moveDirection * attackLength;
 
-		StartCoroutine( Utilities.ChangeOverTime( attackTime, Attack, StartMoveBack ) );
+		StartCoroutine( Utils.ChangeOverTime( attackTime, Attack, StartMoveBack ) );
 	}
 
 	private void Attack( float percent )
@@ -85,7 +85,7 @@ public class Heal : Attack
 
 	private void StartMoveBack( )
 	{
-		StartCoroutine( Utilities.ChangeOverTime( attackBackTime, MoveBack, OnDoneAttack ) );
+		StartCoroutine( Utils.ChangeOverTime( attackBackTime, MoveBack, OnDoneAttack ) );
 	}
 
 	private void OnDoneAttack( )

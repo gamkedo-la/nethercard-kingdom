@@ -171,7 +171,7 @@ public class HP : MonoBehaviour
 
 		StopAllCoroutines( );
 		if ( hpBarUnder && change < 0 )
-			StartCoroutine( Utilities.ChangeOverTime( underChangeTime, OnUnderHPBarValueChange ) );
+			StartCoroutine( Utils.ChangeOverTime( underChangeTime, OnUnderHPBarValueChange ) );
 
 		if ( scaleOnDamage && change < 0 )
 		{
@@ -181,7 +181,7 @@ public class HP : MonoBehaviour
 			if ( hpBarUnder )
 				hpBarUnder.transform.localScale = new Vector3( hpBarUnderOldScale.x * scaleFactor.x, hpBarUnderOldScale.y * scaleFactor.y, hpBarUnderOldScale.z * scaleFactor.z );
 
-			StartCoroutine( Utilities.ChangeOverTime( scaleTime, OnScaleValueChange ) );
+			StartCoroutine( Utils.ChangeOverTime( scaleTime, OnScaleValueChange ) );
 		}
 
 		if ( CurrentHP <= 0 )
